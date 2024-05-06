@@ -48,9 +48,9 @@
 }
 
 .btn-outline-second {
-  color: var(--text-second-color);
+  color: var(--text-grey-color);
   background-color: var(--text-white-color);
-  border-color: var(--text-second-color);
+  border-color: var(--text-grey-color);
   border-radius: 0.5rem;
   padding: 0.65rem 1.25rem;
   font-size: 1rem;
@@ -93,7 +93,7 @@
 .btn-outline-white {
   min-width: 7rem;
   color: var(--text-white-color) !important;
-  background-color: transparent!important;
+  background-color: transparent !important;
   border-color: var(--text-white-color) !important;
   border-radius: 0.5rem;
   padding: 0.65rem 1.25rem;

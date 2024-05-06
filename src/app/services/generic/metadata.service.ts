@@ -5,7 +5,7 @@ import { Injectable } from '@angular/core';
 export interface MetaDetails {
   title: string;
   description: string;
-  image: string;
+  image?: string;
 }
 
 @Injectable({
@@ -13,7 +13,7 @@ export interface MetaDetails {
 })
 export class MetadataService {
   private readonly imageBaseUrl = environment.imageBaseUrl;
-  private readonly defaultURL = 'https://Talbinah.net/';
+  private readonly defaultURL = 'https://talbinah.net/';
   private readonly defaultTitle = 'Talbinah';
   private readonly defaultDescription = 'Talbinah Site Description';
   private readonly defaultImage =

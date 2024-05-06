@@ -1,15 +1,27 @@
-import { LanguageSelectorComponent } from '../language-selector/language-selector.component';
+// Services
+import { NavItem, navItems } from './../../../interfaces/navbar';
+// Modules
 import { CommonModule, NgOptimizedImage, isPlatformBrowser } from '@angular/common';
 import { Component, HostListener, Inject, PLATFORM_ID } from '@angular/core';
-import { NavItem, navItems } from './../../../interfaces/navbar';
 import { TranslateModule } from '@ngx-translate/core';
 import { RouterModule } from '@angular/router';
+// Components
+import { LanguageSelectorComponent } from '../language-selector/language-selector.component';
+
 
 
 @Component({
   selector: 'app-navbar',
   standalone: true,
-  imports: [NgOptimizedImage, RouterModule, TranslateModule, CommonModule, LanguageSelectorComponent],
+  imports: [
+    // Modules
+    NgOptimizedImage,
+    RouterModule,
+    TranslateModule,
+    CommonModule,
+    // Components
+    LanguageSelectorComponent
+  ],
   templateUrl: './navbar.component.html',
   styleUrls: ['./navbar.component.scss']
 })
@@ -58,7 +70,7 @@ export class NavbarComponent {
     this.collapse = false;
   }
   constructor(
-    @Inject(PLATFORM_ID) private platformId: Object,
+    @Inject(PLATFORM_ID) private platformId: Object
   ) {
     this.page = 'Home';
     this.navItems = navItems;
@@ -66,15 +78,7 @@ export class NavbarComponent {
 
   ngOnInit(): void {
   }
-  shouldApplyHeaderBg(): boolean {
-    const excludedPages = [
-      'Home',
-    ];
-    return !excludedPages.includes(this.page);
-  }
-  shouldDisplayDarkLogo(): boolean {
-    return ['Home'].includes(this.page);
-  }
+
   login(): void {
   }
 

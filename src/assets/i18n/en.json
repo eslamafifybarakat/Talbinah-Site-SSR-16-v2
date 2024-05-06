@@ -7,11 +7,23 @@
   },
   "titles": {
     "projectName": "Talbinah",
-    "error500": "Server error",
     "login": "Login",
     "signUp": "Sign Up",
+    "error500": "Server error",
     "allResults": "All Results",
     "advancedSearch": "Advanced Search"
+  },
+  "navigationHeader": {
+    "home": "Home",
+    "doctors": "Doctors and Therapists",
+    "join": "Join Us",
+    "blogs": "Blogs",
+    "contact": "Contact Us",
+    "about": "About Us",
+    "uploadAppNow": "Upload App Now",
+    "doctorRegister": "Doctor Register",
+    "login": "Login",
+    "signUp": "Sign Up"
   },
   "nav": {
     "home": "Home",

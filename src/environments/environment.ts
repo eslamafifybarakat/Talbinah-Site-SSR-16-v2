@@ -1,6 +1,6 @@
 export const environment = {
   production: true,
-  apiUrl: "https://Talbinah.net/api",
+  apiUrl: "https://talbinah.net/api",
   publicUrl: "http://Talbinah.net",
   imageBaseUrl: "https://Talbinah.net",
   chatGptApi: "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",
