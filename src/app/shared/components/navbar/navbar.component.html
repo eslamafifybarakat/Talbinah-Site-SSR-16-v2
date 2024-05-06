@@ -1,0 +1,69 @@
+<nav class="navbar navbar-expand-lg position-fixed w-100 d-xl-block d-none"
+  [ngClass]="{'headerBg': shouldApplyHeaderBg(),'dark-nav':shouldDisplayDarkLogo()}">
+  <div class="container px-0">
+    <span class="navbar-brand m-0">
+      <img [ngSrc]="shouldDisplayDarkLogo() ? 'assets/images/logo/lg-logo.webp' : 'assets/images/logo/lg-logo.webp'"
+        alt="logo" class="logo" width="147" height="48">
+    </span>
+    <button class="navbar-toggler border-0" type="button">
+      <div class="menu-icon d-flex justify-content-between flex-column align-items-end">
+        <span class="line"></span>
+        <span class="line line2"></span>
+        <span class="line line3"></span>
+      </div>
+    </button>
+    <div class="collapse navbar-collapse m-auto" id="navbarSupportedContent">
+      <ul class="navbar-nav m-auto mb-2 mb-lg-0 gap-5">
+        <ng-container *ngFor="let link of navItems">
+          <li class="nav-item mb-2" *ngIf="!link.children || link.children.length === 0">
+            <a class="nav-link" [routerLink]="[link.route]" routerLinkActive="active-link"
+            [title]="link.label | translate">
+              {{ link.label | translate }}
+            </a>
+          </li>
+          <li class="nav-item dropdown" *ngIf="link.children && link.children.length > 0">
+            <a class="nav-link dropdown-toggle d-flex align-items-center gap-2" id="navbarDropdown" role="button"
+              data-bs-toggle="dropdown" aria-expanded="false">
+              {{ link.label | translate }}
+              <i class="pi pi-angle-down fs-8"></i>
+            </a>
+            <ul class="dropdown-menu border-0 shadow" aria-labelledby="navbarDropdown">
+              <li *ngFor="let child of link.children;let i=index" [class.mb-1]="i<link.children.length-1">
+                <a class="dropdown-item" [routerLink]="[child.route]" routerLinkActive="active-link"
+                  [title]="child.label | translate">
+                  {{ child.label | translate }}
+                </a>
+              </li>
+            </ul>
+          </li>
+        </ng-container>
+      </ul>
+      <!-- Additional HTML for login, signup, language selector, etc. -->
+      <div class="d-flex align-items-center gap-4 py-lg-0 py-3">
+        <ng-container *ngIf="isUserLoggedIn; else elseNotLoggedIn">
+          <!-- <app-user-info></app-user-info> -->
+        </ng-container>
+        <ng-template #elseNotLoggedIn>
+          <div class="d-flex flex-row align-items-center gap-2 justify-content-center-small">
+            <!-- <li class="nav-item d-md-none d-block">
+              <languages-selector></languages-selector>
+            </li> -->
+            <span class="nav-item">
+              <button class="btn btn-outline-main w-auto text-nowrap py-2" (click)="collapse = false;login()"
+                [routerLink]="['/Auth/Login']">
+                {{'auth.login' |translate}}
+              </button>
+            </span>
+            <span class="nav-item">
+              <button class="btn btn-solid-main text-nowrap w-auto py-2" (click)="collapse = false"
+                [routerLink]="['/Auth/Register']">
+                {{"auth.joinNow"|translate}}
+              </button>
+            </span>
+          </div>
+        </ng-template>
+        <language-selector></language-selector>
+      </div>
+    </div>
+  </div>
+</nav>

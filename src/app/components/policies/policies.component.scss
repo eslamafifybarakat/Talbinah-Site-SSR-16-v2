@@ -1,0 +1,191 @@
+#policies {
+  padding-top: 5rem;
+  padding-bottom: 3rem;
+
+  // Start Hero Section
+  #hero-secion {
+    min-height: 70vh;
+    background-color: var(--bg-main-color);
+    border-radius: 20px;
+    background-image: url("./../../../assets/images/policies/bg-policies-ltr.webp"); // Replace with your actual image path
+    background-size: cover; // Adjust as needed (e.g., 'contain', '100% auto', etc.)
+    background-repeat: no-repeat;
+    background-position: center center;
+
+    // Change background image when direction is right-to-left (RTL)
+    &:dir(rtl) {
+      background-image: url("./../../../assets/images/policies/bg-policies-ltr.webp") !important; // Path to RTL background image
+    }
+
+    padding: 4rem;
+    color: var(--text-white-color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+
+    .title {
+      font-size: 58px;
+      line-height: 71.42px;
+
+    }
+
+    .description {
+      font-size: 20px;
+      line-height: 30px;
+    }
+
+    //  Hero Section Button
+    .btn-outline-white {
+      min-width: 7rem;
+      color: var(--text-white-color) !important;
+      background-color: transparent !important;
+      border-width: 2px;
+      border-color: var(--text-white-color) !important;
+      border-radius: 0.5rem;
+      padding: 0.65rem 1.25rem;
+      font-size: 0.9rem;
+      position: relative;
+      transition: all 0.4s ease-in-out;
+      z-index: 1;
+    }
+
+    // End Hero Section Topics
+  }
+
+  //  Hero Section Button
+
+  // Start Duties Section
+  #duties {
+    .title {
+      color: var(--text-main-color);
+      font-size: 32px;
+      font-weight: 600;
+      line-height: 53.57px;
+    }
+
+    .content {
+      .type-title {
+        background: linear-gradient(268.94deg, #6AC293 -5.98%, #0B3866 95.88%);
+        color: var(--text-white-color);
+        padding: 5px 10px;
+        gap: 10px;
+        border-radius: 12px;
+        font-size: 17px;
+        line-height: 30px;
+        text-align: center;
+
+        &:dir(rtl) {
+          background: linear-gradient(268.94deg, #0B3866 -5.98%, #6AC293 95.88%);
+        }
+      }
+
+      #duties-items-content {
+        .duties-item-card {
+          margin-top: 2.3rem;
+
+          .service-img {
+            width: 3rem;
+            min-width: 3rem;
+          }
+
+          .description {
+            width: 90%;
+          }
+        }
+      }
+
+      @media (max-width: 576px) {
+        #duties-items-content {
+          .fs-1 {
+            font-size: 1.4rem !important;
+          }
+
+          .duties-item-card {
+            margin-top: 1.7rem;
+
+            .description {
+              width: 100%;
+            }
+          }
+        }
+      }
+
+    }
+  }
+
+  // End Duties Section
+
+  // Start Quick Files Data Section
+  #quick-data-files {
+    background: linear-gradient(0deg, #074459, #074459),
+      linear-gradient(0deg, rgba(0, 82, 136, 0.15), rgba(0, 82, 136, 0.15));
+    padding: 2rem;
+    border-radius: 16px;
+
+    .log-container {
+      width: 325px;
+      height: 100px;
+      display: flex;
+      align-items: flex-start;
+
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: fill;
+      }
+    }
+
+    .description {
+      font-size: 17px;
+      font-weight: 500;
+      line-height: 30px;
+      text-align: start;
+      color: var(--text-white-color);
+    }
+
+    .btn-file-download {
+      min-width: 70%;
+      color: #000 !important;
+      background-color: var(--bg-white-color) !important;
+      border-width: 2px;
+      border-color: var(--text-white-color) !important;
+      border-radius: 0.25rem;
+      padding: 0.65rem 1.25rem;
+      font-size: 0.8rem;
+      position: relative;
+      transition: all 0.4s ease-in-out;
+      z-index: 1;
+    }
+  }
+
+  // End Quick Files Data Section
+
+}
+
+@media only screen and (max-width: 600px) {
+  #policies {
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+
+    // Start Hero Section
+    #hero-secion {
+      height: auto;
+      min-height: auto;
+      padding: 1rem;
+
+      .title {
+        font-size: 1rem;
+        margin-bottom: 0 !important;
+      }
+
+      .description {
+        font-size: 0.8rem;
+        margin-top: 0.25rem !important;
+        margin-bottom: 0.25rem !important;
+      }
+    }
+
+    // End Hero Section
+  }
+}

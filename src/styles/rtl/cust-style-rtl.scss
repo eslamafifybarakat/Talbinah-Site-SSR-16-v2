@@ -1,0 +1,85 @@
+.general-dropdown .dropdown-menu {
+  left: 0 !important;
+  right: inherit !important;
+}
+
+.scaleX-rtl {
+  transform: scaleX(-1);
+}
+
+svg {
+  transform: scaleX(-1);
+}
+
+.p-input-icon-right > .p-icon-wrapper {
+  left: 0.75rem !important;
+  right: inherit !important;
+}
+
+// Scroll Top
+#scroll {
+  left: 3.2rem !important;
+  right: inherit !important;
+}
+
+.footer {
+  .border-right {
+    border-left: 1px solid #ccc;
+    border-right: 0 !important;
+
+    .me-4 {
+      margin-left: 1.5rem !important;
+      margin-right: 0 !important;
+    }
+
+    .pe-4 {
+      padding-left: 1.5rem !important;
+      padding-right: 0 !important;
+    }
+  }
+
+  .footer-title:after {
+    right: 0;
+  }
+}
+
+@media (max-width: 992px) and (min-width: 576px) {
+  .footer .border-right.second-border {
+    border-left: none !important;
+  }
+}
+
+@media (max-width: 575px) {
+  .footer .border-right {
+    border-bottom: 1px solid #ccc;
+    border-left: 0 !important;
+  }
+}
+@media (min-width: 576px) {
+  .text-sm-start {
+    text-align: right !important;
+  }
+}
+// =======Start Auth ==============
+#auth-form {
+  .slider {
+    left: 0;
+    right: inherit !important;
+  }
+  #auth-slider {
+    .p-carousel {
+      direction: ltr;
+      .p-carousel-content {
+        .p-carousel-prev {
+          right: 31%;
+          left: inherit;
+        }
+        .p-carousel-next {
+          left: 31%;
+          right: inherit;
+        }
+      }
+    }
+  }
+}
+// =======End Auth ==============

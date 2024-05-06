@@ -1,0 +1,84 @@
+.navbar {
+  transition: all 0.5s ease;
+  height: 80px;
+  z-index: 888;
+  background: var(--bg-white-color);
+
+  &.headerScroll,
+  &.headerBg {
+    box-shadow: 0 0.125rem 0.25rem #bebebebd;
+    backdrop-filter: blur(4px);
+  }
+
+  .logo {
+    width: 9.5rem;
+    height: 3rem;
+  }
+
+  .navbar-nav {
+    .nav-link {
+      color: var(--text-dark-color);
+      font-weight: 400;
+      font-size: 17px;
+
+      &.active-link {
+        color: var(--text-dark-color);
+        font-weight: bold;
+        border-bottom: 2px solid var(--bg-dark-color);
+      }
+    }
+  }
+
+  .menu-icon {
+    height: 26px;
+    width: 32px;
+    z-index: 2;
+    transform: scale(0.8);
+
+    .line {
+      height: 4px;
+      width: 50%;
+      border-radius: 10px;
+      background: #fff;
+
+      &.line2 {
+        width: 100%;
+      }
+
+      &.line3 {
+        width: 75%;
+      }
+    }
+  }
+
+  &.dark-nav {
+    .nav-link,
+    .text-white-color {
+      color: var(--text-dark-color);
+    }
+
+    .line {
+      background-color: var(--bg-dark-color);
+    }
+  }
+  .btn-outline-main {
+    border: 2px solid var(--bg-main-color);
+    color: var(--text-main-color);
+    border-radius: 10px;
+  }
+  .btn-solid-main {
+    border: 2px solid var(--bg-main-color);
+    background-color: var(--bg-main-color);
+    color: var(--text-white-color);
+    border-radius: 10px;
+  }
+  .dropdown-menu {
+    border-radius: 12px;
+    padding: 0.9rem;
+    .dropdown-item {
+      padding: 0.5rem;
+      border-radius: 9px;
+      text-align: initial;
+    }
+  }
+}

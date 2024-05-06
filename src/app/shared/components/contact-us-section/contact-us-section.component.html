@@ -1,0 +1,176 @@
+<!-- Start Contact Us Section -->
+<div id="contact-us">
+  <div class="col-md-6">
+    <h3 class="title">
+      {{'footer.contact' | translate}}
+    </h3>
+    <p class="description">
+      {{'policies.conatct.description' | translate}}
+    </p>
+  </div>
+  <div class="row">
+    <div class="col-md-6">
+      <form [formGroup]="contactForm" (ngSubmit)="submitContact()" class="pt-sm-4 pt-2">
+        <h6 class="text-main-color fs-5-1 mb-3">
+          {{'policies.conatct.conatctReasonTitle' | translate}}
+        </h6>
+        <div class="radio-container mb-3">
+          <div class="items" formGroupName="radioGroup">
+            <div class="row w-100">
+              <div class="col">
+                <label class="w-100">
+                  <input type="radio" formControlName="radio" value="inquiry">
+                  <span>
+                    {{'contact.inquiry' | translate}}
+                  </span>
+                </label>
+              </div>
+              <div class="col">
+                <label class="w-100">
+                  <input type="radio" formControlName="radio" value="complaint">
+                  <span>
+                    {{'contact.complaint' | translate}}
+                  </span>
+                </label>
+              </div>
+              <div class="col">
+                <label class="w-100">
+                  <input type="radio" formControlName="radio" value="suggestion">
+                  <span>
+                    {{'contact.suggestion' | translate}}
+                  </span>
+                </label>
+              </div>
+            </div>
+          </div>
+
+          <!-- Validation Messages -->
+          <ng-container
+            *ngIf="formControls.radioGroup.controls.radio.invalid && (formControls.radioGroup.controls.radio.dirty || formControls.radioGroup.controls.radio.touched)">
+            <div class="text-danger fs-8-1">
+              <!-- Replace 'radioRequired' with the appropriate validation message key -->
+              {{ 'validations.radioRequired' | translate }}
+            </div>
+          </ng-container>
+
+        </div>
+        <h6 class="text-main-color fs-5-1 my-2">
+          {{'policies.conatct.conatctReasonTitle' | translate}}
+        </h6>
+        <div class="mb-3">
+          <div class="inputbox">
+            <input id="fullName" type="text" required="required" formControlName="fullName"
+              (input)="publicService?.clearValidationErrors(formControls.fullName)"
+              [class.border-red]="(formControls?.fullName?.touched||formControls?.fullName?.dirty)&&formControls?.fullName?.invalid">
+            <span>
+              {{'labels.fullName' | translate}}
+            </span>
+            <i></i>
+          </div>
+          <ng-container
+            *ngIf="formControls?.fullName?.invalid && (formControls?.fullName?.dirty || formControls?.fullName?.touched)">
+            <div class="mt-1">
+              <ng-container *ngIf="formControls?.fullName?.errors?.required">
+                <span class="text-danger fs-8-1">
+                  {{'validations.fullName'|translate}}
+                </span>
+              </ng-container>
+              <ng-container *ngIf="formControls?.fullName?.errors?.minlength">
+                <span class="text-danger fs-8-1">
+                  {{'validations.fullNameLength'|translate}}
+                </span>
+              </ng-container>
+            </div>
+          </ng-container>
+        </div>
+        <div class="mb-3">
+          <div class="inputbox">
+            <input id="email" type="text" required="required" formControlName="email"
+              (input)="publicService?.clearValidationErrors(formControls.email)"
+              [class.border-red]="(formControls?.email?.touched||formControls?.email?.dirty)&&formControls?.email?.invalid">
+            <span>
+              {{'labels.email' | translate}}
+            </span>
+            <i></i>
+          </div>
+          <ng-container
+            *ngIf="formControls?.email?.invalid && (formControls?.email?.dirty || formControls?.email?.touched)">
+            <div class="mt-1">
+              <ng-container *ngIf="formControls?.email?.errors?.required">
+                <span class="text-danger fs-8-1">
+                  {{'validations.email'|translate}}
+                </span>
+              </ng-container>
+              <ng-container *ngIf="formControls?.email?.errors?.pattern">
+                <span class="text-danger fs-8-1">
+                  {{'validations.emailNotCorrect'|translate}}
+                </span>
+              </ng-container>
+            </div>
+          </ng-container>
+        </div>
+        <div class="mb-3">
+          <div class="inputbox">
+            <input id="phoneNumber" type="text" required="required" formControlName="phoneNumber"
+              (input)="publicService?.clearValidationErrors(formControls.phoneNumber)"
+              [class.border-red]="(formControls?.phoneNumber?.touched||formControls?.phoneNumber?.dirty)&&formControls?.phoneNumber?.invalid">
+            <span>
+              {{'labels.phoneNumber' | translate}}
+            </span>
+            <i></i>
+          </div>
+          <div class="mt-1">
+            <ng-container
+              *ngIf="formControls?.phoneNumber?.invalid && (formControls?.phoneNumber?.dirty || formControls?.phoneNumber?.touched)">
+              <ng-container *ngIf="formControls?.phoneNumber?.errors?.required">
+                <span class="text-danger fs-8-1">
+                  {{'validations.requiredField'|translate}}
+                </span>
+              </ng-container>
+            </ng-container>
+          </div>
+        </div>
+        <div class="mb-3">
+          <div class="inputbox">
+            <textarea id="message" required="required" formControlName="message"
+              (input)="publicService?.clearValidationErrors(formControls.message)"
+              [class.border-red]="(formControls?.message?.touched||formControls?.message?.dirty)&&formControls?.message?.invalid">
+              </textarea>
+            <span>
+              {{'labels.message' | translate}}
+            </span>
+            <i></i>
+          </div>
+          <ng-container
+            *ngIf="formControls?.message?.invalid && (formControls?.message?.dirty || formControls?.message?.touched)">
+            <div class="mt-1">
+              <ng-container *ngIf="formControls?.message?.errors?.required">
+                <span class="text-danger fs-8-1">
+                  {{'validations.message'|translate}}
+                </span>
+              </ng-container>
+              <ng-container *ngIf="formControls?.message?.errors?.minlength">
+                <span class="text-danger fs-8-1">
+                  {{'validations.length'|translate}}
+                </span>
+              </ng-container>
+            </div>
+          </ng-container>
+        </div>
+
+        <button type="submit" class="btn btn-outline-white-contact mt-4">
+          {{'general.send'|translate}}
+        </button>
+      </form>
+    </div>
+    <div class="col-md-6">
+      <div class="d-flex align-items-center justify-content-center">
+        <div class="contact-img">
+          <img [src]="imageSrc" onerror="src='assets/images/faqs/faqs-contact-img.svg'" class="w-100 h-100"
+            alt="contact">
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- End Contact Us Section -->

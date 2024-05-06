@@ -1,0 +1,389 @@
+{
+  "paginator": {
+    "first": "First",
+    "last": "Last",
+    "next": "Next",
+    "previous": "Previous"
+  },
+  "titles": {
+    "projectName": "Talbinah",
+    "error500": "Server error",
+    "login": "Login",
+    "signUp": "Sign Up",
+    "allResults": "All Results",
+    "advancedSearch": "Advanced Search"
+  },
+  "nav": {
+    "home": "Home",
+    "services": {
+      "title": "Services",
+      "items": {
+        "offices": "Offices",
+        "recruitmentRequest": "Estekhdam Request",
+        "sponsorshipTransfer": "Sponsorship Transfer"
+      }
+    },
+    "aboutEstkdam": {
+      "title": "About Talbinah",
+      "items": {
+        "policies": "Policies",
+        "journey": "Journey"
+      }
+    },
+    "support": {
+      "title": "Support",
+      "items": {
+        "contactUs": "Contact Us",
+        "faqs": "FAQs"
+      }
+    }
+  },
+  "general": {
+    "attachFile": "Attach File",
+    "send": "Send",
+    "backToHome": "Back to home",
+    "moreDetails": "More Details",
+    "location": "Location",
+    "availableContract": "Available for contract",
+    "notAvailableContract": "Not Available for contract",
+    "errorOccur": "An error has occurred"
+  },
+  "home": {
+    "hero": {
+      "heroTitle": "Speed..Trust..Safety",
+      "heroSubtitle": "Start your recruitment now",
+      "heroDescription": "Al-Masdar International Recruitment Platform offers you the opportunity to search for the recruitment you want quickly, easily, and that suits your needs.",
+      "multiFunctions": "Multiple functions",
+      "speed": "Speed of completion and accuracy of selection",
+      "more": "More than 10 nationalities to choose from",
+      "startRecruiting": "Start recruiting now",
+      "jobOpportunities": "More than 10 thousand job opportunities"
+    },
+    "about": {
+      "on": "On",
+      "platform": "Platform",
+      "international": "The International Source Recruitment Platform is a comprehensive electronic platform for an integrated experience in recruiting domestic workers, aiming to facilitate the procedures for recruiting domestic workers and increase the level of preserving the rights of all parties by informing employers and domestic workers of their rights and duties.",
+      "learnMore": "Learn more"
+    },
+    "info": {
+      "nationalities": "Nationalities",
+      "recruiting": "Recruiting Office",
+      "successful": "Successful contract",
+      "request": "request",
+      "moreThan": "more than"
+    },
+    "services": {
+      "offer": "What do we offer?"
+    },
+    "steps": {
+      "stages": "Recruitment Stages",
+      "learnMore": "Learn more",
+      "labor": "Labor selection",
+      "chooseWoeker": "Choose the worker you want based on his CV and your requirements",
+      "payFees": "Pay the fees",
+      "payLabor": "Pay labor fees through one of the contracted payment gateways",
+      "receive": "Receive the labor",
+      "getWarranty": "And get a 3-month warranty",
+      "receiveWoeker": "Receive the worker and get a 3-month guarantee in case there is any problem or negligence on the part of the worker",
+      "clearing": "Clearing procedures",
+      "source": "The International Source Recruitment platform helps you clear all worker procedures",
+      "arrival": "Worker arrival",
+      "architecture": "The architecture chosen by you reaches the territory of the Kingdom"
+    },
+    "job": {
+      "searchRecruitment": "Search for the recruitment you want now",
+      "jobDescription": "The Al Masdar International Recruitment Platform team is keen to provide speed and quality, and supervises the arrival and reception of trained workers, through a wide range of jobs that you can choose from according to your desires and needs. All you have to do is choose the domestic workers that are appropriate for you.",
+      "viewJob": "View all jobs"
+    },
+    "join": {
+      "join": "Join our largest platform now",
+      "joinDescription": "The Al-Madar International platform provides you with the ability to communicate with the largest recruitment offices, reach those wishing to work, and choose the appropriate person for your needs among more than 10 different nationalities around the world."
+    },
+    "contact": {
+      "needHelp": "Need help?",
+      "contactUs": "You can contact us by phone or email us, and a member of the customer service team will respond to your inquiries as quickly as possible, as our goal is always your comfort.",
+      "callNow": "call us now"
+    }
+  },
+  "summary": {
+    "Offices": {
+      "faster": {
+        "title": "Faster",
+        "content": "Than any other job application platform."
+      },
+      "less": {
+        "title": "Less",
+        "content": "Salaries than on other platforms."
+      },
+      "office": {
+        "title": "Office",
+        "content": "Licensed in all regions of the Kingdom."
+      },
+      "employeeRequests": {
+        "title": "Employees",
+        "content": "Of various nationalities and professions"
+      }
+    }
+  },
+  "auth": {
+    "startRecruitment": "Start your recruitment journey now",
+    "joinMasdar": "Join the Al Masdar International Recruitment platform to be able to obtain the workers allocated to you",
+    "forgotPassword": "Forgot Password?",
+    "or": "Or continue via",
+    "notHaveAccount": "Do you not have an account on the International Source Recruitment platform?",
+    "createAccount": "Create account",
+    "signIn": "SignIn",
+    "followUs": "Follow us on:",
+    "registerWithFace": "Register with facebook",
+    "registerWithGoogle": "Register with google",
+    "registerWithApple": "Registered with apple",
+    "registerWithEmail": "Register via email",
+    "haveAccount": "Do you already have an account on the platform?",
+    "continuing": "By continuing, you agree to",
+    "policies": "Privacy and Policies",
+    "useInternational": "use the international source platform for recruitment",
+    "login": "Login",
+    "continue": "Continue",
+    "step": "Step",
+    "of": "Of",
+    "isUsedBefore": "is used before",
+    "pleaseEnterBasicInformation2": "Please enter you basic information, user name and create password for your account",
+    "pleaseEnterBasicInformation4": "Complete your company information, company name and your company address",
+    "pleaseEnterBasicInformation3": "Enter your address, country and vat-number",
+    "orTax": "or tax id",
+    "pleaseEnterValidTax": "Please enter valid value, should be Between 8 to 20 Characters Long.",
+    "iAgree": "I agree and accept all",
+    "termsAndConditions": "Terms and Conditions",
+    "registerNow": "Register Now",
+    "register": "Register",
+    "notMember": "Not a member?",
+    "forgotPasswordTitle": "Forgot Password",
+    "forgetPasswordText": "Don’t worry! It happens. Please enter your email and we’ll send OTP to your email",
+    "backLogin": "Back to login",
+    "resetPassword": "Reset Password",
+    "confirmPassword": "Confirm password",
+    "verificationOtp": "Variable code sent",
+    "checkEmail": "Please enter the change code sent to your mobile number",
+    "notReceive": "You did not receive the password?",
+    "resend": "Resend",
+    "next": "Next",
+    "createAccountNow": "Create your account now",
+    "accountCreated": "Your account has been created",
+    "welcomeToMasdar": "Welcome to the Al Masdar International Recruitment platform",
+    "welcome": "Welcome,",
+    "goToHome": "Go to Home Page",
+    "joinNow": "Join now"
+  },
+  "labels": {
+    "callNow": "Call Now",
+    "callLater": "Call Later",
+    "name": "Name",
+    "apply": "Apply",
+    "cancelClassification": "Reset",
+    "total": "Total",
+    "username": "Username",
+    "password": "Password",
+    "email": "Email Address",
+    "userName": "Username",
+    "firstName": "First Name",
+    "fullName": "Full Name",
+    "message": "Message",
+    "lastName": "Last Name",
+    "phone": "Phone",
+    "confirmPassword": "Confirm Password",
+    "hashCode": "Hash Code",
+    "companyName": "Company Name",
+    "country": "Country",
+    "city": "City",
+    "vatNumber": "Vat-number",
+    "address": "Address",
+    "newPassword": "New Password",
+    "phoneNumber": "Phone Number",
+    "postNumber": "Post Number"
+  },
+  "placeholders": {
+    "searchEstkdam": "Find the employment you want",
+    "username": "Enter username",
+    "password": "Enter password",
+    "email": "Enter email",
+    "userName": "Enter username",
+    "firstName": "Enter first name",
+    "lastName": "Enter last name",
+    "phone": "Enter phone",
+    "confirmPassword": "Enter confirm password",
+    "hashCode": "Enter hash code",
+    "companyName": "Enter company name",
+    "search": "Search",
+    "country": "Select country",
+    "city": "Select city",
+    "vatNumber": "Enter your vat-number",
+    "address": "Enter address",
+    "newPassword": "Enter new password"
+  },
+  "validations": {
+    "username": "Username is required",
+    "password": "Password is required",
+    "email": "Email is required",
+    "emailNotCorrect": "Please enter valid mail, (e.g., “ example@email.com ) ",
+    "userName": "Username is required",
+    "userNameNotCorrect": "User name not correct",
+    "firstName": "First name is required",
+    "fullNameLength": "Full name length must be larger than or equal 2",
+    "fullName": "Full name is required",
+    "lastName": "Last name is required",
+    "message": "Message is required",
+    "length": "Length must be larger than 2",
+    "nameLength": "Name length must be larger than or equal 2",
+    "userLength": "Length must be larger than 5",
+    "phone": "Phone is required",
+    "confirmPassword": "Confirm Password is required",
+    "passwordPattern": "Your password must be 8 or more characters, contains upper & lower case letters, numbers, at least one special character (!%*?&|...)",
+    "notMatch": "Password didn’t match, please try again*",
+    "hashCode": "Hash Code is required",
+    "companyName": "Company name is required",
+    "requiredField": "This field is required",
+    "validVatId": "Please enter valid vat number, must be Must Be Between 11 and 20 Characters Long.",
+    "addressLength": "Sorry! The Address Must Be Between 4 And 100 Characters Long.",
+    "pickPassword": "Pick a password",
+    "oneLowerCase": "At least one lowercase",
+    "oneUppercase": "At least one uppercase",
+    "oneNumeric": "It must contain one or more numbers",
+    "eightChars": "Must contain at least 8 characters (12 characters recommended)",
+    "specialChar": "It must contain symbols (such as @,!,&,%,$,.....)",
+    "containChar": "It must contain at least one capital letter",
+    "notContainInfo": "It does not contain information such as name"
+  },
+  "footer": {
+    "allRight": "© Copyright reserved to Al Masdar International Recruitment Platform",
+    "emailAddress": "Email Address",
+    "subscribe": "Subscribe with us to be informed of the latest additions",
+    "communication": "Communication",
+    "platform": "Al Masdar International Recruitment Platform",
+    "home": "Home",
+    "recruitment": "Recruitment offices",
+    "services": "Services",
+    "contact": "Contact Us",
+    "terms": "Terms and Conditions",
+    "policies": "Privacy and Policies",
+    "importantInfo": "Important Information"
+  },
+  "errors": {
+    "backToHome": "Back to home",
+    "serverError": "A server error has occurred",
+    "pageNotFound": "Page not found"
+  },
+  "services": {
+    "offices": {
+      "heroTitle": "Recruitment offices",
+      "heroDescription": "Enjoy the ability to communicate with a large group of licensed recruitment offices around the Kingdom to obtain the best possible employment",
+      "heroSearchPlaceHolderText": "Are you looking for a specific office?",
+      "topicTitle": "Keywords",
+      "btnText": "Do you need help?"
+    },
+    "employeeRequests": {
+      "job": "Job",
+      "maritalStatus": "Marital Status",
+      "experience": "Experience",
+      "salary": "Salary"
+    },
+    "personalEmployeePage": {
+      "hero": {
+        "nationality": "Nationality",
+        "india": "India",
+        "job": "Job",
+        "age": "Age",
+        "years": "years",
+        "maritalStatus": "Marital Status",
+        "numberOfChildren": "Number Of Children",
+        "child": "child",
+        "SAR": "SAR/",
+        "month": "Month",
+        "salary": "Salary",
+        "ReserveCv": "Reserve Your CV",
+        "downloadCv": "Download CV"
+      },
+      "details": {
+        "personalInformation": "Personal Information",
+        "generalInformation": "General Information",
+        "height": "Height",
+        "poison": "Poison",
+        "weight": "Weight",
+        "kg": "Kg",
+        "education": "Education",
+        "languages": "Languages",
+        "experience": "Experience",
+        "passportDetails": "Passport Details",
+        "passportNumber": "Passport Number",
+        "placeOfIssue": "Place Of Issue",
+        "releaseDate": "Release Date",
+        "otherInformation": "Other Information",
+        "birth": "Date Of Birth",
+        "expiryDate": "Expiry Date"
+      },
+      "otherRequests": "Other Requets"
+    }
+  },
+  "policies": {
+    "heroTitle": "Recruitment Policies",
+    "heroDescription": "The Saudi Constitution and law set standards and concepts for domestic workers that must be followed to guarantee the rights of both parties (the worker and the employer)",
+    "btnText": "Do you need help?",
+    "duties": {
+      "title": "Duties of the employer and employee",
+      "type1": "Duties of a domestic worker",
+      "type2": "The employer's duties towards the domestic service worker",
+      "btnDutiesEmployee": "Download rights and duties employer",
+      "btnDutiesWorkers": "Download rights and duties of domestic workers"
+    },
+    "conatct": {
+      "description": "Request your worker now and our customer service team will contact you as soon as possible",
+      "conatctReasonTitle": "What is the purpose of communication?",
+      "conatcTitle": "Provide us with some information about yourself"
+    }
+  },
+  "journey": {
+    "heroTitle": "Recruitment Journey",
+    "heroDescription": "Enjoy the ideal experience in choosing your domestic workers through simple steps through the Al-Masdar International Recruitment platform",
+    "btnText": "Do you need help?",
+    "stepsTitle": "Recruitment Journey",
+    "salary": {
+      "salaryTitle": "Salary and labor access",
+      "salaryDescribtion": "The salary is agreed upon in coordination with the employer and the domestic worker, and all terms and conditions are clarified in order to preserve the rights and duties of all parties. The office periodically follows up on the request to ensure that everyone adheres to the agreed upon contract. All you have to do is select the worker.",
+      "box": {
+        "title": "The platform provides a guarantee in the event of a worker’s absence or refusal to work",
+        "description": "The Al Masdar International Recruitment Platform team is keen to provide speed and quality in performance, and supervises the arrival and reception of trained workers, from the request for advice until the full start of work."
+      }
+    }
+  },
+  "faqs": {
+    "heroTitle": "FAQs",
+    "heroDescription": "You can view the most frequently asked questions about the services of the Al Masdar International Recruitment platform",
+    "btnText": "Do you need help?",
+    "commonQuestions": "Common Questions"
+  },
+  "termsAndConditions": {
+    "heroTitle": "Terms And Conditions",
+    "heroDescription": "You can view the policies and conditions of our platform",
+    "btnText": "Do you need help?"
+  },
+  "contact": {
+    "inquiry": "Inquiry",
+    "complaint": "Complaint",
+    "suggestion": "Suggestion",
+    "title": "Contact Us",
+    "leaveMessage": "Leave a message",
+    "subtitle": "Do you need help or inquiries? Leave your message and one of our customer service members will contact you as soon as possible"
+  },
+  "completeOrder": {
+    "title": "Confirm Resume Order",
+    "subtitle": "Please review the information below before confirming the order",
+    "completeAndConfirm": "Complete and Confirm"
+  },
+  "confirmOrder": {
+    "orderNumber": "Order Number",
+    "orderDate": "Order Date"
+  },
+  "notice": {
+    "title": "Notices",
+    "description": "The request is reviewed with customer service representatives, and to ensure your rights, payment must be made through the Musaned platform"
+  }
+}

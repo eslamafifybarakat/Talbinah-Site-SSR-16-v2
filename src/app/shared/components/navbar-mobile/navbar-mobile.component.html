@@ -1,0 +1,60 @@
+<nav class="navbar-mobile w-100 shadow-sm d-flex align-items-center">
+  <div class="container">
+    <div class="d-flex justify-content-between align-items-center w-100">
+      <button class="menu-icon bg-transparent border-0" (click)="openSidebar()">
+        <!-- Menu icon lines -->
+        <button class="menu-icon bg-transparent border-0" (click)="openSidebar()">
+          <div class="line mb-1"></div>
+          <div class="line line2 mb-1"></div>
+          <div class="line line3"></div>
+        </button>
+      </button>
+      <language-selector></language-selector>
+    </div>
+  </div>
+</nav>
+
+<p-sidebar [(visible)]="displayMenu" [position]="currentLanguage == 'ar' ? 'right' : 'left'">
+  <div class="overlay position-absolute"></div>
+  <div class="position-relative">
+    <div class="d-flex align-items-center justify-content-end my-4">
+      <a class="close d-flex justify-content-center align-items-center rounded-circle text-white-color" title="close"
+        (click)="closeSidebar()">
+        <i class="pi pi-times fs-8"></i>
+      </a>
+    </div>
+    <div class="d-flex flex-column align-items-center justify-content-center gap-2">
+      <a class="log" (click)="closeSidebar()" [routerLink]="['/Home']" title="logo">
+        <img src="assets/images/logo/lg-logo.webp" alt="logo" class="logo">
+      </a>
+    </div>
+    <div class="mt-5 relative">
+      <ul class="p-0">
+        <ng-container *ngFor="let link of navItems">
+          <li class="nav-item mb-2" *ngIf="!link.children || link.children.length === 0">
+            <a class="nav-link text-dark-color" [routerLink]="[link.route]" routerLinkActive="active-link"
+              [class.active-link]="link.isActive" (click)="openMenu(link)" [title]="link.label | translate">
+              {{ link.label | translate }}
+            </a>
+          </li>
+          <li class="nav-item" *ngIf="link.children && link.children.length > 0">
+            <a class="nav-link d-flex align-items-center justify-content-between gap-2 text-dark-color collapsible"
+              [class.active-link]="link.isActive" [class.mb-0]="link.isActive" (click)="openMenu(link)">
+              {{ link.label | translate }}
+              <i class="pi fs-8" [ngClass]="link.isActive?'pi-angle-up':'pi-angle-down'"></i>
+            </a>
+            <ul class="content" [class.d-none]="!link.isActive">
+              <li *ngFor="let child of link.children;let i=index">
+                <a class="dropdown-item d-flex align-items-center gap-2 mb-2" [routerLink]="[child.route]"
+                  (click)="closeSidebar()" routerLinkActive="text-dark-color" [title]="child.label | translate">
+                  <i class="pi pi-circle-fill"></i>
+                  {{ child.label | translate }}
+                </a>
+              </li>
+            </ul>
+          </li>
+        </ng-container>
+      </ul>
+    </div>
+  </div>
+</p-sidebar>

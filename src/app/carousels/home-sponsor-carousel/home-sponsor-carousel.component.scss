@@ -1,0 +1,19 @@
+#sponsor-slider {
+  .sponsor-img {
+    width: 4rem;
+    height: 4rem;
+    margin: auto;
+    img {
+      object-fit: fill;
+    }
+  }
+}
+:host::ng-deep {
+  #sponsor-slider {
+    .p-carousel-item {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+  }
+}
