@@ -5,7 +5,11 @@ html {
 }
 body,
 .p-component {
-  font-family: "Almarai", sans-serif !important;
+  font-family: "Almarai", sans-serif;
+
+  &:dir(rtl) {
+    font-family: "IBM Plex Sans Arabic";
+  }
 }
 *:focus,
 *:focus-visible {

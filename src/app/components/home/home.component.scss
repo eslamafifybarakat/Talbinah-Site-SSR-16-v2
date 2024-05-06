@@ -1,49 +1,47 @@
 #home-page {
-
   .pt-hero {
     padding-top: 7rem;
   }
 
-  // Start Hero Section
   #hero-section {
-    min-height: calc(100vh - 0rem);
-    background-image: url("./../../../assets/images/home/hero-bg.svg") !important;
+    min-height: calc(100vh + 1rem);
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center center;
 
-    // Change background image when direction is right-to-left (RTL)
-    &:dir(rtl) {
-      background-image: url("./../../../assets/images/home/hero-bg-rtl.svg") !important;
-    }
-
     .title {
-      font-size: 4rem;
-      background: linear-gradient(268.94deg, #9a46b8 -5.98%, #19547b 95.88%);
-      background-clip: text;
-      color: transparent;
+      font-size: 60px;
+      font-weight: 700;
+      line-height: 64px;
+      color: var(--bg-dark-color);
     }
 
     .sub-title {
-      font-size: 18px;
-      line-height: 30px;
-      color: #213039;
+      color: var(--bg-dark-color);
+      font-size: 34px;
       font-weight: 700;
+      line-height: 64px;
     }
 
     .description {
-      color: #213039;
+      color: var(--bg-grey-color);
+      font-size: 18px;
+      font-weight: 400;
+      line-height: 30px;
     }
-    .main-hero-image-conatiner {
-      img{
-        height: 100%;
-        width: 100%;
-        object-fit: fill;
-      }
+
+    .apps-image {
+      height: 3rem;
+      width: 10rem;
+    }
+
+    .main-hero-image-container img {
+      width: 100%;
+      object-fit: fill;
+      transform: scale(1.25);
     }
   }
 
-  //  Hero Section Button
   .btn-solid-main {
     min-width: 7rem;
     color: var(--text-white-color) !important;
@@ -52,7 +50,6 @@
     border-radius: 0.5rem;
     padding: 0.65rem 1.25rem;
     font-size: 1rem;
-    position: relative;
     transition: all 0.4s ease-in-out;
     z-index: 1;
   }
@@ -62,7 +59,6 @@
     color: var(--text-white-color) !important;
   }
 
-  // End Hero Section
   .btn-outline-main {
     border: 2px solid var(--bg-main-color);
     color: var(--text-main-color);
@@ -73,11 +69,10 @@
 
 @media only screen and (max-width: 1199px) {
   #home-page {
-    padding-top: 0rem;
-    padding-bottom: 1rem;
-
-    // Start Hero Section
     #hero-section {
+      padding-top: 0rem;
+      padding-bottom: 1rem;
+
       .title {
         font-size: 2.5rem;
       }
@@ -85,32 +80,46 @@
       .description {
         width: 100% !important;
       }
+
+      .title,
+      .sub-title,
+      .description {
+        line-height: inherit;
+      }
+
+      .apps-image {
+        height: 2.6rem;
+        width: 8rem;
+      }
     }
   }
 }
 
 @media only screen and (max-width: 768px) {
   #home-page {
-
-    // Start Hero Section
     #hero-section {
       height: auto;
       min-height: auto;
-      padding: 1rem;
 
       .title {
         font-size: 2.2rem;
       }
-    }
 
-    // End Hero Section
+      .apps-image {
+        height: 2rem;
+        width: 8rem;
+      }
+
+      .main-hero-image-container img {
+        transform: scale(1.1);
+      }
+    }
   }
 }
 
 @media only screen and (max-width: 576px) {
   #home-page {
 
-    // Start Hero Section
     .fs-2,
     .fs-1 {
       font-size: 1.3rem !important;
@@ -136,24 +145,20 @@
         font-size: 1.1rem;
       }
 
-      ul li {
-        p {
-          font-size: 0.9rem;
-        }
-
-        svg {
-          width: 19px;
-          height: 19px;
-        }
-      }
-
       .description {
         text-align: center;
         font-size: 0.8rem;
         margin-top: 0.25rem !important;
       }
-    }
 
-    // End Hero Section
+      .apps-image {
+        height: 1.8rem;
+        width: 8rem;
+      }
+
+      .main-hero-image-container img {
+        transform: scale(1);
+      }
+    }
   }
 }
