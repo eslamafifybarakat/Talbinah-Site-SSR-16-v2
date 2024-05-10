@@ -1,4 +1,3 @@
-import { HomeSponsorCarouselComponent } from './../../carousels/home-sponsor-carousel/home-sponsor-carousel.component';
 // Modules
 import { TranslateModule } from '@ngx-translate/core';
 import { CommonModule } from '@angular/common';
@@ -7,10 +6,15 @@ import { RouterModule } from '@angular/router';
 //Services
 import { LocalizationLanguageService } from './../../services/generic/localization-language.service';
 import { MetaDetails, MetadataService } from '../../services/generic/metadata.service';
-import { catchError, debounceTime, finalize, tap } from 'rxjs/operators';
-import { Subject, Subscription } from 'rxjs';
+import { AlertsService } from './../../services/generic/alerts.service';
+import { catchError, finalize, tap } from 'rxjs/operators';
+import { HomeService } from './../../services/home.service';
+import { Subscription } from 'rxjs';
 
 // Components
+import { HomeSponsorCarouselComponent } from './../../carousels/home-sponsor-carousel/home-sponsor-carousel.component';
+import { DynamicSvgComponent } from './../../shared/components/icons/dynamic-svg/dynamic-svg.component';
+import { SkeletonComponent } from './../../shared/components/skeleton/skeleton.component';
 import { Component } from '@angular/core';
 
 @Component({
@@ -20,9 +24,11 @@ import { Component } from '@angular/core';
     TranslateModule,
     RouterModule,
     CommonModule,
-    HomeSponsorCarouselComponent
 
     // Components
+    HomeSponsorCarouselComponent,
+    DynamicSvgComponent,
+    SkeletonComponent
   ],
   selector: 'app-home',
   templateUrl: './home.component.html',
@@ -32,16 +38,21 @@ export class HomeComponent {
   private subscriptions: Subscription[] = [];
 
   translatedText: any = {};
+  isLoadingHomeData: boolean = false;
+  homeData: any;
 
   constructor(
     private localizationLanguageService: LocalizationLanguageService,
-    private metadataService: MetadataService
+    private metadataService: MetadataService,
+    private alertsService: AlertsService,
+    private homeService: HomeService
   ) {
     localizationLanguageService.updatePathAccordingLang();
   }
 
   ngOnInit(): void {
     this.loadData();
+    this.getHomeData();
   }
   private loadData(): void {
     this.updateMetaTagsForSEO();
@@ -54,7 +65,27 @@ export class HomeComponent {
     this.metadataService.updateMetaTagsForSEO(metaData);
   }
   /* --- Start Hero Section Functions --- */
-
+  getHomeData(): void {
+    this.isLoadingHomeData = true;
+    let homeDataSubscription: Subscription = this.homeService?.getHomeData()
+      .pipe(
+        tap((res: any) => this.processHomeDataResponse(res)),
+        catchError(err => this.handleError(err)),
+        finalize(() => this.finalizeUserHomeLoading())
+      ).subscribe();
+    this.subscriptions.push(homeDataSubscription);
+  }
+  private processHomeDataResponse(response: any): void {
+    if (response?.status == true) {
+      this.homeData = response?.data;
+    } else {
+      this.handleError(response.error);
+      return;
+    }
+  }
+  private finalizeUserHomeLoading(): void {
+    this.isLoadingHomeData = false;
+  }
   /* --- End Hero Section Functions --- */
 
   /* --- Handle api requests error messages --- */

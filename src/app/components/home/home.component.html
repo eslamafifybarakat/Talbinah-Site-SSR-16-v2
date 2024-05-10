@@ -1,36 +1,115 @@
 <div id="home-page">
   <!--========== Start Hero Section ================= -->
-  <div id="hero-section" class="pt-hero">
-    <div class="container mx-auto">
-      <div class="row align-items-center">
-        <div class="col-lg-6 order-lg-1 order-2 p-0">
-          <p class="sub-title mt-2 mb-0">
-            {{ 'home.hero.heroSubtitle' | translate }}
-          </p>
-          <h1 class="title w-content text-capitalize fw-bold">
-            {{ 'home.hero.heroTitle' | translate }}
-          </h1>
-          <p class="description mt-2 w-75">
-            {{ 'home.hero.heroDescription' | translate }}
-          </p>
-          <div class="d-flex justify-content-sm-start justify-content-center gap-3 mt-2 mt-xl-4 mt-md-3 mt-sm-3">
-            <a href="https://apps.apple.com/us/app/%D8%AA%D9%84%D8%A8%D9%8A%D9%86%D8%A9-talbinah/id6464413895"
-              target="_blank" rel="noopener noreferrer">
-              <img src="assets/images/downloadsChannels/app-store.svg" width="160" height="48" class="apps-image" alt="app-store">
-            </a>
-            <a href="https://play.google.com/store/apps/details?id=com.talbinah.talbinah&pli=1"
-              target="_blank" rel="noopener noreferrer">
-              <img src="assets/images/downloadsChannels/google-play.svg" width="160" height="48" class="apps-image" alt="google-play">
-            </a>
+  <ng-container *ngIf="isLoadingHomeData; else noHeroLoading">
+    <app-skeleton [type]="'home-hero-section'"></app-skeleton>
+  </ng-container>
+  <ng-template #noHeroLoading>
+    <section id="hero-section" class="pt-hero">
+      <div class="container mx-auto">
+        <div class="row align-items-center">
+          <div class="col-lg-6 order-lg-1 order-2 p-0">
+            <p class="sub-title mt-2 mb-0">
+              {{ 'home.hero.heroSubtitle' | translate }}
+            </p>
+            <h1 class="title w-content text-capitalize fw-bold">
+              {{ 'home.hero.heroTitle' | translate }}
+            </h1>
+            <p class="description mt-2 w-75">
+              {{ 'home.hero.heroDescription' | translate }}
+            </p>
+            <div class="d-flex justify-content-sm-start justify-content-center gap-3 mt-2 mt-xl-4 mt-md-3 mt-sm-3">
+              <a href="https://apps.apple.com/us/app/%D8%AA%D9%84%D8%A8%D9%8A%D9%86%D8%A9-talbinah/id6464413895"
+                target="_blank" rel="noopener noreferrer">
+                <img src="assets/images/downloadsChannels/app-store.svg" width="160" height="48" class="apps-image"
+                  alt="app-store">
+              </a>
+              <a href="https://play.google.com/store/apps/details?id=com.talbinah.talbinah&pli=1" target="_blank"
+                rel="noopener noreferrer">
+                <img src="assets/images/downloadsChannels/google-play.svg" width="160" height="48" class="apps-image"
+                  alt="google-play">
+              </a>
+            </div>
           </div>
-        </div>
-        <div class="col-lg-6 col-md-8 col-sm-9 col-11 m-lg-0 m-auto order-lg-2 order-1 mb-lg-0 mb-3 p-0">
-          <div class="main-hero-image-container">
-            <img src="assets/images/home/hero-image.svg" width="800" height="600" alt="hero-image" class="w-100">
+          <div class="col-lg-6 col-md-8 col-sm-9 col-11 m-lg-0 m-auto order-lg-2 order-1 mb-lg-0 mb-3 p-0">
+            <div class="main-hero-image-container">
+              <img src="assets/images/home/hero-image.svg" width="800" height="600" alt="hero-image" class="w-100">
+            </div>
           </div>
         </div>
       </div>
-    </div>
-  </div>
+    </section>
+  </ng-template>
+
   <!--============= End Hero Section ================= -->
+
+  <!--========== Start Our Specialties ================= -->
+  <section id="specialties" class="mt-5">
+    <div class="container">
+      <ng-container *ngIf="isLoadingHomeData; else noSpecialtiesLoading">
+        <app-skeleton [type]="'home-specialties'"></app-skeleton>
+      </ng-container>
+      <ng-template #noSpecialtiesLoading>
+        <div class="row">
+          <div class="col-lg-6">
+            <div>
+              <h2 class="fs-1">
+                {{'home.ourSpecialties.title'|translate}}
+              </h2>
+              <p>
+                {{'home.ourSpecialties.description'|translate}}
+              </p>
+              <div class="row specialties">
+                <div class="col-md-5 col-6">
+                  <div class="specialty-content">
+                    <div class="specialty-icon d-flex align-items-center justify-content-center">
+                      <app-dynamic-svg [name]="'specialty-1'"></app-dynamic-svg>
+                    </div>
+                    <p class="mb-0 fs-5-1 mt-4 fw-bold">
+                      أخصائي إجتماعي
+                    </p>
+                  </div>
+                </div>
+                <div class="col-md-5 col-6 mt-2">
+                  <div class="specialty-content">
+                    <div class="specialty-icon d-flex align-items-center justify-content-center">
+                      <app-dynamic-svg [name]="'specialty-1'"></app-dynamic-svg>
+                    </div>
+                    <p class="mb-0 fs-5-1 mt-4 fw-bold">
+                      أخصائي إجتماعي
+                    </p>
+                  </div>
+                </div>
+                <div class="col-md-5 col-6 d-flex justify-content-end mt-sm-5 mt-4">
+                  <div class="specialty-content">
+                    <div class="specialty-icon d-flex align-items-center justify-content-center">
+                      <app-dynamic-svg [name]="'specialty-1'"></app-dynamic-svg>
+                    </div>
+                    <p class="mb-0 fs-5-1 mt-4 fw-bold">
+                      أخصائي إجتماعي
+                    </p>
+                  </div>
+                </div>
+                <div class="col-md-5 col-6 d-flex justify-content-end mt-sm-5 mt-4">
+                  <div class="specialty-content">
+                    <div class="specialty-icon d-flex align-items-center justify-content-center">
+                      <app-dynamic-svg [name]="'specialty-1'"></app-dynamic-svg>
+                    </div>
+                    <p class="mb-0 fs-5-1 mt-4 fw-bold">
+                      أخصائي إجتماعي
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-6">
+            <img src="assets/images/home/our-specialties-image.svg" alt="our-specialties" class="w-100">
+          </div>
+        </div>
+      </ng-template>
+    </div>
+  </section>
+  <!--========== End Our Specialties ================= -->
+
+
 </div>

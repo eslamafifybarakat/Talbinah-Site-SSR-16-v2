@@ -32,6 +32,10 @@
       "heroTitle": "Your Journey to Mental Health and Happiness.",
       "heroSubtitle": "We Are Here to Support You in",
       "heroDescription": "Let us help you build a bridge of hope and optimism towards a better tomorrow, where happiness and mental peace are the prevailing features in your life."
+    },
+    "ourSpecialties":{
+      "title":"Our Specialties",
+      "description":"At Talbinah, we bring together a team of experts specialized in multiple fields to provide personalized support and guidance suitable for each individual. Whether you need psychological guidance, behavioral therapy, or any other specialty, we are here to help you on the path to recovery and overall improvement of your psychological state."
     }
   },
   "auth": {

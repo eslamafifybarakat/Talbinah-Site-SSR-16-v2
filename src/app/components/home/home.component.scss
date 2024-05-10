@@ -2,8 +2,9 @@
   .pt-hero {
     padding-top: 7rem;
   }
-
+  // Start Hero Section
   #hero-section {
+    background-image: url(../../../assets/images/home/hero-section-bg.svg);
     min-height: calc(100vh + 1rem);
     background-size: cover;
     background-repeat: no-repeat;
@@ -41,6 +42,33 @@
       transform: scale(1.25);
     }
   }
+  // End Hero Section
+
+  // Start Specialties
+  #specialties {
+    .specialty-content {
+      .specialty-icon {
+        width: 66px;
+        min-width: 66px;
+        height: 66px;
+        border-radius: 12px;
+        background-color: #8fdaf73b;
+      }
+    }
+    @media (max-width: "567px") {
+      .specialty-content {
+        .specialty-icon {
+          width: 60px;
+          min-width: 60px;
+          height: 60px;
+        }
+      }
+      .fs-5-1 {
+        font-size: 0.95rem !important;
+      }
+    }
+  }
+  // End Specialties
 
   .btn-solid-main {
     min-width: 7rem;
@@ -119,7 +147,6 @@
 
 @media only screen and (max-width: 576px) {
   #home-page {
-
     .fs-2,
     .fs-1 {
       font-size: 1.3rem !important;
