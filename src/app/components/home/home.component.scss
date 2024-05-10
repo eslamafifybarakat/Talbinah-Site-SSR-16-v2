@@ -41,6 +41,17 @@
       object-fit: fill;
       transform: scale(1.25);
     }
+    @media (max-width: 991px) {
+      .main-hero-image-container img {
+        height: 100% !important;
+        padding: 3rem 0;
+      }
+    }
+    @media (max-width: 776px) {
+      .main-hero-image-container img {
+        padding: 0.5rem 0;
+      }
+    }
   }
   // End Hero Section
 
@@ -52,10 +63,10 @@
         min-width: 66px;
         height: 66px;
         border-radius: 12px;
-        background-color: #8fdaf73b;
+        // background-color: #8fdaf73b;
       }
     }
-    @media (max-width: "567px") {
+    @media (max-width: 567px) {
       .specialty-content {
         .specialty-icon {
           width: 60px;

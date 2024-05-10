@@ -4,7 +4,7 @@
     <app-skeleton [type]="'home-hero-section'"></app-skeleton>
   </ng-container>
   <ng-template #noHeroLoading>
-    <section id="hero-section" class="pt-hero">
+    <section id="hero-section" class="pt-hero overflow-hidden">
       <div class="container mx-auto">
         <div class="row align-items-center">
           <div class="col-lg-6 order-lg-1 order-2 p-0">
@@ -59,17 +59,21 @@
                 {{'home.ourSpecialties.description'|translate}}
               </p>
               <div class="row specialties">
-                <div class="col-md-5 col-6">
-                  <div class="specialty-content">
-                    <div class="specialty-icon d-flex align-items-center justify-content-center">
-                      <app-dynamic-svg [name]="'specialty-1'"></app-dynamic-svg>
+                <ng-container *ngFor="let item of homeData?.specialists; let i=index">
+                  <div *ngIf="i<4" class="col-md-5 col-6"
+                    [ngClass]="{'mt-2': i == 1, 'd-flex justify-content-end mt-sm-5 mt-4': i > 1}">
+                    <div class="specialty-content">
+                      <div class="specialty-icon d-flex align-items-center justify-content-center"
+                        [ngStyle]="{ 'background': item.backgroundColor, 'color': item?.color }">
+                        <app-dynamic-svg [name]="'specialty-' + (i + 1)"></app-dynamic-svg>
+                      </div>
+                      <p class="mb-0 fs-5-1 mt-4 fw-bold">{{ item?.name || '' }}</p>
                     </div>
-                    <p class="mb-0 fs-5-1 mt-4 fw-bold">
-                      أخصائي إجتماعي
-                    </p>
                   </div>
-                </div>
-                <div class="col-md-5 col-6 mt-2">
+                </ng-container>
+
+
+                <!-- <div class="col-md-5 col-6 mt-2">
                   <div class="specialty-content">
                     <div class="specialty-icon d-flex align-items-center justify-content-center">
                       <app-dynamic-svg [name]="'specialty-1'"></app-dynamic-svg>
@@ -98,7 +102,7 @@
                       أخصائي إجتماعي
                     </p>
                   </div>
-                </div>
+                </div> -->
               </div>
             </div>
           </div>

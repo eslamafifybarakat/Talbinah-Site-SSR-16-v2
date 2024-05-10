@@ -77,7 +77,30 @@ export class HomeComponent {
   }
   private processHomeDataResponse(response: any): void {
     if (response?.status == true) {
-      this.homeData = response?.data;
+      response?.data.specialists.forEach((element:any) => {
+        switch(element.id) {
+          case 1:
+              element['backgroundColor'] = '#8fdaf73b';
+              element['color'] = '#0091D3';
+              break;
+          case 2:
+              element['backgroundColor'] = '#A86BFC3b';
+              element['color'] = '#A86BFC';
+              break;
+          case 3:
+              element['backgroundColor'] = '#A86BFC3b';
+              element['color'] = '#A86BFC';
+              break;
+          case 4:
+              element['backgroundColor'] = '#FFC07E3b';
+              element['color'] = '#FFC07E';
+              break;
+          default:
+              // Handle default case if needed
+      }
+      });
+        this.homeData = response?.data;
+        console.log(this.homeData);
     } else {
       this.handleError(response.error);
       return;
