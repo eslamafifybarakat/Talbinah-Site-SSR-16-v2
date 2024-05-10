@@ -1,3 +1,4 @@
+import { DoctorsCarouselComponent } from './../../carousels/doctors-carousel/doctors-carousel.component';
 // Modules
 import { TranslateModule } from '@ngx-translate/core';
 import { CommonModule } from '@angular/common';
@@ -9,13 +10,14 @@ import { MetaDetails, MetadataService } from '../../services/generic/metadata.se
 import { AlertsService } from './../../services/generic/alerts.service';
 import { catchError, finalize, tap } from 'rxjs/operators';
 import { HomeService } from './../../services/home.service';
+import { homeApiResponse } from './../../interfaces/home';
+import { Component } from '@angular/core';
 import { Subscription } from 'rxjs';
 
 // Components
 import { HomeSponsorCarouselComponent } from './../../carousels/home-sponsor-carousel/home-sponsor-carousel.component';
 import { DynamicSvgComponent } from './../../shared/components/icons/dynamic-svg/dynamic-svg.component';
 import { SkeletonComponent } from './../../shared/components/skeleton/skeleton.component';
-import { Component } from '@angular/core';
 
 @Component({
   standalone: true,
@@ -27,8 +29,9 @@ import { Component } from '@angular/core';
 
     // Components
     HomeSponsorCarouselComponent,
+    DoctorsCarouselComponent,
     DynamicSvgComponent,
-    SkeletonComponent
+    SkeletonComponent,
   ],
   selector: 'app-home',
   templateUrl: './home.component.html',
@@ -69,7 +72,7 @@ export class HomeComponent {
     this.isLoadingHomeData = true;
     let homeDataSubscription: Subscription = this.homeService?.getHomeData()
       .pipe(
-        tap((res: any) => this.processHomeDataResponse(res)),
+        tap((res: homeApiResponse) => this.processHomeDataResponse(res)),
         catchError(err => this.handleError(err)),
         finalize(() => this.finalizeUserHomeLoading())
       ).subscribe();
@@ -77,30 +80,30 @@ export class HomeComponent {
   }
   private processHomeDataResponse(response: any): void {
     if (response?.status == true) {
-      response?.data.specialists.forEach((element:any) => {
-        switch(element.id) {
+      response?.data.specialists.forEach((element: any) => {
+        switch (element.id) {
           case 1:
-              element['backgroundColor'] = '#8fdaf73b';
-              element['color'] = '#0091D3';
-              break;
+            element['backgroundColor'] = '#8fdaf73b';
+            element['color'] = '#0091D3';
+            break;
           case 2:
-              element['backgroundColor'] = '#A86BFC3b';
-              element['color'] = '#A86BFC';
-              break;
+            element['backgroundColor'] = '#A86BFC3b';
+            element['color'] = '#A86BFC';
+            break;
           case 3:
-              element['backgroundColor'] = '#A86BFC3b';
-              element['color'] = '#A86BFC';
-              break;
+            element['backgroundColor'] = '#A86BFC3b';
+            element['color'] = '#A86BFC';
+            break;
           case 4:
-              element['backgroundColor'] = '#FFC07E3b';
-              element['color'] = '#FFC07E';
-              break;
+            element['backgroundColor'] = '#FFC07E3b';
+            element['color'] = '#FFC07E';
+            break;
           default:
-              // Handle default case if needed
-      }
+          // Handle default case if needed
+        }
       });
-        this.homeData = response?.data;
-        console.log(this.homeData);
+      this.homeData = response?.data;
+      console.log(this.homeData);
     } else {
       this.handleError(response.error);
       return;

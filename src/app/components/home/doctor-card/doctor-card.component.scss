@@ -1,0 +1,16 @@
+.doctor-card {
+  border-radius: 18px;
+  border: 1px solid #eaecf0;
+  .doctor-img {
+    width: 9rem;
+    height: 9rem;
+    border: 1px solid #eaecf0;
+  }
+  .description {
+    color: #6f7479;
+  }
+  .count-rate {
+    border: 1px solid #eaecf0;
+    width: fit-content;
+  }
+}
