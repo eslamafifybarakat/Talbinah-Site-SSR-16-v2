@@ -98,6 +98,43 @@
   }
   // End Features
 
+  // Start Experience
+  #experience {
+    .experience-content {
+      border-radius: 15px;
+      .experience-num {
+        width: 2rem;
+        min-width: 2rem;
+        height: 2rem;
+        color: var(--text-main-color);
+        background-color: var(--bg-white-color);
+        border-radius: 10px;
+      }
+      .experience-title {
+        color: var(--text-white-color);
+      }
+      .experience-description {
+        color: #e5e5e5;
+        font-size: 0.93rem;
+      }
+      &:hover {
+        padding: 1rem;
+        background-color: var(--bg-white-color);
+        .experience-num {
+          background-color: var(--bg-main-color);
+          color: var(--text-white-color);
+        }
+        .experience-title {
+          color: #181a1e;
+        }
+        .experience-description {
+          color: #404040;
+        }
+      }
+    }
+  }
+  // End Experience
+
   .btn-solid-main {
     min-width: 7rem;
     color: var(--text-white-color) !important;

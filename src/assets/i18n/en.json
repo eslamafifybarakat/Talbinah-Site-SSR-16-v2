@@ -45,6 +45,15 @@
     "features":{
       "title":"Features",
       "description":"World-class care for everyone. Our health system provides unparalleled specialized health care."
+    },
+    "experience":{
+      "title":"How to have the best experience?",
+      "contact":"Contact the appropriate doctor",
+      "answer":"Answer some questions through which we will connect you with the appropriate therapist. You can also choose the therapist yourself",
+      "book":"Book your session now",
+      "choose":"Choose the appropriate time and date, as you can pay using different payment methods",
+      "start":"Start your treatment session",
+      "communicate":"You can communicate with your therapist in different ways during the session"
     }
   },
   "auth": {
