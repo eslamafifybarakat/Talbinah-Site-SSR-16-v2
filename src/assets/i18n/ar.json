@@ -25,7 +25,8 @@
     "send": "إرسال",
     "backToHome": "العودة إلى الصفحة الرئيسية",
     "moreDetails": "المزيد من التفاصيل",
-    "errorOccur": "حدث خطأ"
+    "errorOccur": "حدث خطأ",
+    "browseMore":" تصفح المزيد "
   },
   "home": {
     "hero": {

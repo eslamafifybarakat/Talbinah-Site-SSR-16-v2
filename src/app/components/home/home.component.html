@@ -90,14 +90,23 @@
         <app-skeleton [type]="'home-doctors'"></app-skeleton>
       </ng-container>
       <ng-template #noDoctorsLoading>
-        <div class="row">
-          <div class="col-xl-7 col-lg-9">
+        <div>
+          <div>
             <h2 class="fs-1">
               {{'home.doctors.title'|translate}}
             </h2>
-            <p>
-              {{'home.doctors.description'|translate}}
-            </p>
+            <div class="d-flex align-items-end justify-content-between gap-md-5 gap-3 flex-md-nowrap flex-wrap">
+              <div class="row">
+                <div class="col-xl-8 col-lg-10">
+                  <p class="mb-0">
+                    {{'home.doctors.description'|translate}}
+                  </p>
+                </div>
+              </div>
+              <button class="btn btn-solid-main text-nowrap rounded-pill px-3 py-2">
+                {{"general.browseMore" | translate}}
+              </button>
+            </div>
           </div>
         </div>
         <div class="mt-4">

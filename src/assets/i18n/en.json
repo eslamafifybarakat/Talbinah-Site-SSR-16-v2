@@ -25,7 +25,8 @@
     "send": "Send",
     "backToHome": "Back to home",
     "moreDetails": "More Details",
-    "errorOccur": "An error has occurred"
+    "errorOccur": "An error has occurred",
+    "browseMore":"Browse more"
   },
   "home": {
     "hero": {
