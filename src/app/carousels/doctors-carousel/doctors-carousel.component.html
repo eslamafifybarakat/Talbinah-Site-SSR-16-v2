@@ -1,7 +1,7 @@
 <div id="doctor-slider" [class.ar-slider]="currentLanguage=='ar'">
   <ng-container *ngIf="items?.length>4; else noSlider">
     <p-carousel [value]="items" [numVisible]="4" [numScroll]="1" [responsiveOptions]="doctorOptions"
-      [showIndicators]="false" [showNavigators]="true">
+      [autoplayInterval]="7000" [showIndicators]="false" [showNavigators]="true">
       <ng-template let-slide pTemplate="item">
         <app-doctor-card class="w-100 mx-3" [item]="slide"></app-doctor-card>
       </ng-template>

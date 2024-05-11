@@ -1,13 +1,3 @@
-#doctor-slider {
-  .doctor-img {
-    width: 4rem;
-    height: 4rem;
-    margin: auto;
-    img {
-      object-fit: fill;
-    }
-  }
-}
 :host::ng-deep {
   #doctor-slider {
     .p-carousel-item {
@@ -20,11 +10,11 @@
     }
     .p-carousel-container {
       position: relative;
-      padding-bottom: 3rem;
+      padding-bottom: 4rem;
       .p-carousel-next,
       .p-carousel-prev {
         position: absolute;
-        bottom: 0;
+        bottom: 2px;
         background-color: var(--bg-main-color);
         color: var(--text-white-color);
         border-radius: 50%;

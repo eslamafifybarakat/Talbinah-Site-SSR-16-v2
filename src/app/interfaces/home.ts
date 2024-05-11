@@ -8,6 +8,12 @@ export interface homeApiResponse {
     specialists: Specialty;
   }
 }
+export interface HomeData {
+  doctors: Doctor;
+  latestArticles: Article;
+  reviews: Rating;
+  specialists: Specialty;
+}
 export interface Doctor {
   id: number;
   full_name: string;
@@ -53,4 +59,13 @@ interface Specialty {
   id: number;
   name: string;
   image: string;
+}
+
+
+export interface Feature {
+  id: number;
+  image: string | null;
+  title: string;
+  description: string;
+  link: string;
 }

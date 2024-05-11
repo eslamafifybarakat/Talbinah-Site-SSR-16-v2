@@ -1,4 +1,3 @@
-import { DoctorsCarouselComponent } from './../../carousels/doctors-carousel/doctors-carousel.component';
 // Modules
 import { TranslateModule } from '@ngx-translate/core';
 import { CommonModule } from '@angular/common';
@@ -10,12 +9,14 @@ import { MetaDetails, MetadataService } from '../../services/generic/metadata.se
 import { AlertsService } from './../../services/generic/alerts.service';
 import { catchError, finalize, tap } from 'rxjs/operators';
 import { HomeService } from './../../services/home.service';
-import { homeApiResponse } from './../../interfaces/home';
+import { Feature, HomeData, homeApiResponse } from './../../interfaces/home';
 import { Component } from '@angular/core';
 import { Subscription } from 'rxjs';
 
 // Components
+import { FeaturesVerticalCarouselComponent } from './../../carousels/feature-vertical-carousel/features-vertical-carousel.component';
 import { HomeSponsorCarouselComponent } from './../../carousels/home-sponsor-carousel/home-sponsor-carousel.component';
+import { DoctorsCarouselComponent } from './../../carousels/doctors-carousel/doctors-carousel.component';
 import { DynamicSvgComponent } from './../../shared/components/icons/dynamic-svg/dynamic-svg.component';
 import { SkeletonComponent } from './../../shared/components/skeleton/skeleton.component';
 
@@ -28,6 +29,7 @@ import { SkeletonComponent } from './../../shared/components/skeleton/skeleton.c
     CommonModule,
 
     // Components
+    FeaturesVerticalCarouselComponent,
     HomeSponsorCarouselComponent,
     DoctorsCarouselComponent,
     DynamicSvgComponent,
@@ -43,6 +45,7 @@ export class HomeComponent {
   translatedText: any = {};
   isLoadingHomeData: boolean = false;
   homeData: any;
+  features: Feature[] = [];
 
   constructor(
     private localizationLanguageService: LocalizationLanguageService,
@@ -56,7 +59,31 @@ export class HomeComponent {
   ngOnInit(): void {
     this.loadData();
     this.getHomeData();
+    this.features = [
+      {
+        id: 1,
+        image: 'assets/images/home/dummy/features/feature1.svg',
+        title: 'البرامج الطبية',
+        description: 'نحن نقدم برامج طبية متميزة تشمل قواعد بيانات شاملة تضم معلومات مفصلة عن الأمراض المختلفة والعلاجات المتاحة، مما يمكن المستخدمين من الوصول إلى المعلومات الطبية بسهولة ودقة. بالإضافة إلى ذلك، نقدم تطبيقات لتتبع الصحة العامة، مثل تتبع الوزن والتغذية ومستويات اللياقة البدنية، لمساعدة المستخدمين في اتخاذ قرارات صحية مستنيرة.',
+        link: 'string',
+      },
+      {
+        id: 1,
+        image: 'assets/images/home/dummy/features/feature1.svg',
+        title: '2البرامج الطبية',
+        description: 'نحن نقدم برامج طبية متميزة تشمل قواعد بيانات شاملة تضم معلومات مفصلة عن الأمراض المختلفة والعلاجات المتاحة، مما يمكن المستخدمين من الوصول إلى المعلومات الطبية بسهولة ودقة. بالإضافة إلى ذلك، نقدم تطبيقات لتتبع الصحة العامة، مثل تتبع الوزن والتغذية ومستويات اللياقة البدنية، لمساعدة المستخدمين في اتخاذ قرارات صحية مستنيرة.',
+        link: 'string',
+      },
+      {
+        id: 1,
+        image: 'assets/images/home/dummy/features/feature1.svg',
+        title: '3البرامج الطبية',
+        description: 'نحن نقدم برامج طبية متميزة تشمل قواعد بيانات شاملة تضم معلومات مفصلة عن الأمراض المختلفة والعلاجات المتاحة، مما يمكن المستخدمين من الوصول إلى المعلومات الطبية بسهولة ودقة. بالإضافة إلى ذلك، نقدم تطبيقات لتتبع الصحة العامة، مثل تتبع الوزن والتغذية ومستويات اللياقة البدنية، لمساعدة المستخدمين في اتخاذ قرارات صحية مستنيرة.',
+        link: 'string',
+      }
+    ]
   }
+
   private loadData(): void {
     this.updateMetaTagsForSEO();
   }

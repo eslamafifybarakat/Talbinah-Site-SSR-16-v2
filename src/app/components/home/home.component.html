@@ -108,5 +108,26 @@
   </section>
   <!--========== End Doctors ================= -->
 
+  <!--========== Start Features ================= -->
+  <section id="features" class="mt-5">
+    <div class="container">
+      <ng-container *ngIf="isLoadingHomeData; else noFeaturesLoading">
+        <app-skeleton [type]="'home-features'"></app-skeleton>
+      </ng-container>
+      <ng-template #noFeaturesLoading>
+        <h3 class="fs-1">
+          {{'home.features.title'|translate}}
+        </h3>
+        <p>
+          {{'home.features.description'|translate}}
+        </p>
+        <div class="mt-4 features-container p-4">
+          <app-features-vertical-carousel [items]="features"></app-features-vertical-carousel>
+        </div>
+      </ng-template>
+    </div>
+  </section>
+  <!--========== End Features ================= -->
+
 
 </div>

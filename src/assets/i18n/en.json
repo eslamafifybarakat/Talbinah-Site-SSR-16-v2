@@ -40,6 +40,10 @@
     "doctors":{
       "title":"We connect you with your specialist therapist",
       "description":"At Talbinah, we bring together a team of experts specialized in multiple fields to provide personalized support and guidance suitable for each individual. Whether you need psychological guidance, behavioral therapy, or any other specialty, we are here to help you on the path to recovery and overall improvement of your psychological state."
+    },
+    "features":{
+      "title":"Features",
+      "description":"World-class care for everyone. Our health system provides unparalleled specialized health care."
     }
   },
   "auth": {

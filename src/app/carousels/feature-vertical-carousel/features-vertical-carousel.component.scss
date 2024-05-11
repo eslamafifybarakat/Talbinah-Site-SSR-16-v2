@@ -1,0 +1,51 @@
+:host::ng-deep {
+  #features-slider {
+    .p-carousel-item {
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      width: calc(100% - 3rem);
+      margin-left: auto;
+    }
+    .p-carousel {
+      .p-carousel-content {
+        position: relative;
+      }
+      .p-carousel-indicators {
+        position: absolute;
+        gap: 6px;
+        flex-direction: column;
+        height: 100%;
+        .p-carousel-indicator {
+          width: 1rem;
+          height: 1rem;
+          border-radius: 50%;
+          background-color: #cdcdce;
+          border: 1px solid #cdcdce;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          margin: 0;
+          &.p-highlight {
+            background-color: transparent;
+            border-color: var(--bg-main-color);
+            button {
+              background-color: var(--bg-main-color);
+            }
+          }
+          button {
+            width: 0.7rem;
+            height: 0.7rem;
+            border-radius: 50%;
+          }
+        }
+      }
+    }
+  }
+  .ar-slider {
+    .p-carousel-item {
+      margin-right: auto;
+      margin-left: 0 !important;
+    }
+  }
+}

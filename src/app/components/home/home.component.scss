@@ -81,6 +81,15 @@
   }
   // End Specialties
 
+  // Start Features
+  #features {
+    .features-container {
+      background-color: #f2f4f7;
+      border-radius: 20px;
+    }
+  }
+  // End Features
+
   .btn-solid-main {
     min-width: 7rem;
     color: var(--text-white-color) !important;
