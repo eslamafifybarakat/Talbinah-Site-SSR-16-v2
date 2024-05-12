@@ -7,9 +7,9 @@ import { RouterModule } from '@angular/router';
 import { LocalizationLanguageService } from './../../services/generic/localization-language.service';
 import { MetaDetails, MetadataService } from '../../services/generic/metadata.service';
 import { AlertsService } from './../../services/generic/alerts.service';
-import { catchError, finalize, tap } from 'rxjs/operators';
+import { Feature, homeApiResponse } from './../../interfaces/home';
 import { HomeService } from './../../services/home.service';
-import { Feature, HomeData, homeApiResponse } from './../../interfaces/home';
+import { catchError, finalize, tap } from 'rxjs/operators';
 import { Component } from '@angular/core';
 import { Subscription } from 'rxjs';
 
@@ -17,6 +17,7 @@ import { Subscription } from 'rxjs';
 import { FeaturesVerticalCarouselComponent } from './../../carousels/feature-vertical-carousel/features-vertical-carousel.component';
 import { HomeSponsorCarouselComponent } from './../../carousels/home-sponsor-carousel/home-sponsor-carousel.component';
 import { ArticlesCarouselComponent } from './../../carousels/articles-carousel/articles-carousel.component';
+import { ReviewsCarouselComponent } from './../../carousels/reviews-carousel/reviews-carousel.component';
 import { DoctorsCarouselComponent } from './../../carousels/doctors-carousel/doctors-carousel.component';
 import { DynamicSvgComponent } from './../../shared/components/icons/dynamic-svg/dynamic-svg.component';
 import { SkeletonComponent } from './../../shared/components/skeleton/skeleton.component';
@@ -33,6 +34,7 @@ import { SkeletonComponent } from './../../shared/components/skeleton/skeleton.c
     FeaturesVerticalCarouselComponent,
     HomeSponsorCarouselComponent,
     ArticlesCarouselComponent,
+    ReviewsCarouselComponent,
     DoctorsCarouselComponent,
     DynamicSvgComponent,
     SkeletonComponent,

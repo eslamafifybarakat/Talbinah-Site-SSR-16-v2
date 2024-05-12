@@ -1,0 +1,35 @@
+<div id="review-slider" [class.ar-slider]="currentLanguage=='ar'">
+  <ng-container *ngIf="items?.length>0; else noReviews">
+    <ng-container *ngIf="items?.length>4; else noSlider">
+      <!-- [autoplayInterval]="7000"  -->
+      <p-carousel [value]="items" [numVisible]="3" [numScroll]="1" [responsiveOptions]="reviewOptions"
+        [showIndicators]="false" [showNavigators]="false">
+        <ng-template let-slide pTemplate="item">
+          <app-review-card class="w-100 mx-3 review-card" [item]="slide"></app-review-card>
+        </ng-template>
+      </p-carousel>
+    </ng-container>
+    <ng-template #noSlider>
+      <div class="row">
+        <ng-container *ngFor="let slide of items;let i=index">
+          <div class="col-lg-3 col-md-6 col-6 mb-lg-0 mb-3">
+            <app-review-card [item]="slide"></app-review-card>
+          </div>
+        </ng-container>
+      </div>
+    </ng-template>
+  </ng-container>
+  <!-- No Reviews -->
+  <ng-template #noReviews>
+    <div class="row justify-content-center">
+      <div class="col-xl-5 col-lg-6 col-md-8 col-sm-11">
+        <div class="d-flex flex-column justify-content-center align-items-center gap-2">
+          <img src="assets/images/not-found/no-data.svg" alt="no-data" class="w-100">
+          <p class="mb-0">
+            {{'general.noData'|translate}}
+          </p>
+        </div>
+      </div>
+    </div>
+  </ng-template>
+</div>

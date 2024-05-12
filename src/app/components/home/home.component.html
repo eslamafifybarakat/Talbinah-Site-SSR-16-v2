@@ -288,4 +288,30 @@
   </section>
   <!--========== End Apps ================= -->
 
+  <!--========== Start Reviews ================= -->
+  <section class="reviews" class="mt-5">
+    <div class="container">
+      <ng-container *ngIf="isLoadingHomeData; else noReviewsLoading">
+        <app-skeleton [type]="'home-reviews'"></app-skeleton>
+      </ng-container>
+      <ng-template #noReviewsLoading>
+        <div class="row">
+          <div class="col-xl-8 col-lg-10">
+            <h2 class="fs-1">
+              {{'home.reviews.title'|translate}}
+            </h2>
+            <p class="mb-0">
+              {{'home.reviews.description'|translate}}
+            </p>
+          </div>
+        </div>
+        <div class="mt-4">
+          <app-reviews-carousel [items]="homeData?.reviews"></app-reviews-carousel>
+        </div>
+      </ng-template>
+    </div>
+  </section>
+  <!--========== End Reviews ================= -->
+
+
 </div>

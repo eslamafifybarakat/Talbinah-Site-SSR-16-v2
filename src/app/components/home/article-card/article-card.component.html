@@ -1,5 +1,4 @@
-<div class="article-card bg-white-color w-100 d-flex justify-content-center align-items-center gap-3 flex-column p-3"
-  [routerLink]="['/blogs/details/',item.title,{ id: item.id}]">
+<div class="article-card bg-white-color w-100 p-3" [routerLink]="['/blogs/details/',item.title,{ id: item.id}]">
   <div class="article-img w-100">
     <img [src]="item?.image" alt="article" class="w-100 h-100"
       onerror="src='../../../../assets/images/not-found/no-article.svg'">
