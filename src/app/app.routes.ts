@@ -41,8 +41,15 @@ export const appRoutes: Routes = [
         (c) => c.HomeComponent
       )
   },
- 
- 
+  // Contact Us
+  {
+    path: ':lang/ContactUs',
+    loadComponent: () =>
+      import('./components/contact-us/contact-us.component').then(
+        (c) => c.ContactUsComponent
+      ),
+    // canActivate: [LanguageGuard] // Optional: Use a guard to validate the language parameter
+  },
   {
     path: 'ContactUs',
     loadComponent: () =>

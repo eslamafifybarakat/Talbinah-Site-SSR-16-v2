@@ -7,13 +7,13 @@
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
-    "serve:ssr:Talbinah": "node dist/Talbinah/server/server.mjs",
+    "serve:ssr:Talbinah": "node  dist/talbinah/server/server.mjs",
     "dev:ssr": "ng run Talbinah:serve-ssr",
     "vercel-build": "npm run build:ssr",
     "build:ssr-prod": "ng build --configuration production && ng run Talbinah:server",
     "prerender": "ng run Talbinah:prerender",
     "build:ssr": "ng build && ng run Talbinah:server",
-    "serve:ssr": "node dist/Talbinah/server/main.js"
+    "serve:ssr": "node  dist/talbinah/server/main.js"
   },
   "private": true,
   "dependencies": {

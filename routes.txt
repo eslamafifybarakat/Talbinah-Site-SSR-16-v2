@@ -1,6 +1,9 @@
 /
 /en
 /ar
+/Auth
+/en/Auth
+/ar/Auth
 /Home
 /en/Home
 /ar/Home
@@ -13,3 +16,6 @@
 /Error/500
 /en/Error/500
 /ar/Error/500
+/ContactUs
+/en/ContactUs
+/ar/ContactUs

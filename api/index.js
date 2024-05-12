@@ -1,2 +1,2 @@
-const server = require("../dist/Talbinah/server/main");
+const server = require("../ dist/talbinah/server/main");
 module.exports = server.app();
