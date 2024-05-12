@@ -59,6 +59,10 @@
     "articles":{
       "title":"Articles",
       "description":"World-class care for everyone. Our health system provides unparalleled specialized health care."
+    },
+    "apps":{
+      "title":"Take care of your mental health",
+      "description":"This text is an example of text that can be replaced in the same space. This text was generated from the Arabic text generator, where you can generate such text or many other texts."
     }
   },
   "auth": {
