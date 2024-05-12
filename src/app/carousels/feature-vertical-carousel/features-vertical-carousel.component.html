@@ -1,15 +1,30 @@
 <div id="features-slider" [class.ar-slider]="currentLanguage=='ar'">
-  <ng-container *ngIf="items?.length>1; else noSlider">
-    <p-carousel [value]="items" [numVisible]="1" [numScroll]="1" [orientation]="'vertical'" [showIndicators]="true"
-      [autoplayInterval]="7000" [showNavigators]="false">
-      <ng-template let-slide pTemplate="item">
-        <app-feature-card class="w-100" [item]="slide"></app-feature-card>
-      </ng-template>
-    </p-carousel>
+  <ng-container *ngIf="items?.length>0; else noFeatures">
+    <ng-container *ngIf="items?.length>1; else noSlider">
+      <p-carousel [value]="items" [numVisible]="1" [numScroll]="1" [orientation]="'vertical'" [showIndicators]="true"
+        [autoplayInterval]="7000" [showNavigators]="false">
+        <ng-template let-slide pTemplate="item">
+          <app-feature-card class="w-100" [item]="slide"></app-feature-card>
+        </ng-template>
+      </p-carousel>
+    </ng-container>
+    <ng-template #noSlider>
+      <div class="row">
+        <app-feature-card [item]="items[0]"></app-feature-card>
+      </div>
+    </ng-template>
   </ng-container>
-  <ng-template #noSlider>
-    <div class="row">
-      <app-feature-card [item]="items[0]"></app-feature-card>
+  <!-- No Features -->
+  <ng-template #noFeatures>
+    <div class="row justify-content-center">
+      <div class="col-xl-5 col-lg-6 col-md-8 col-sm-11">
+        <div class="d-flex flex-column justify-content-center align-items-center gap-2">
+          <img src="assets/images/not-found/no-data.svg" alt="no-data" class="w-100">
+          <p class="mb-0">
+            {{'general.noData'|translate}}
+          </p>
+        </div>
+      </div>
     </div>
   </ng-template>
 </div>

@@ -1,34 +1,34 @@
-import { DoctorCardComponent } from './../../components/home/doctor-card/doctor-card.component';
-import { PublicService } from './../../services/generic/public.service';
+import { ArticleCardComponent } from './../../components/home/article-card/article-card.component';
+import { PublicService } from '../../services/generic/public.service';
 import { TranslateModule } from '@ngx-translate/core';
 import { CarouselModule } from 'primeng/carousel';
 import { Component, Input } from '@angular/core';
 
 @Component({
   standalone: true,
-  imports: [CarouselModule, DoctorCardComponent, TranslateModule],
-  selector: 'app-doctors-carousel',
-  templateUrl: './doctors-carousel.component.html',
-  styleUrls: ['./doctors-carousel.component.scss']
+  imports: [CarouselModule, ArticleCardComponent, TranslateModule],
+  selector: 'app-articles-carousel',
+  templateUrl: './articles-carousel.component.html',
+  styleUrls: ['./articles-carousel.component.scss']
 })
-export class DoctorsCarouselComponent {
+export class ArticlesCarouselComponent {
   currentLanguage: string = '';
 
   @Input() items: any = [];
-  doctorOptions: any = [
+  articleOptions: any = [
     {
       breakpoint: '1024px',
-      numVisible: 4,
-      numScroll: 1
-    },
-    {
-      breakpoint: '768px',
       numVisible: 3,
       numScroll: 1
     },
     {
-      breakpoint: '560px',
+      breakpoint: '768px',
       numVisible: 2,
+      numScroll: 1
+    },
+    {
+      breakpoint: '560px',
+      numVisible: 1,
       numScroll: 1
     },
     {

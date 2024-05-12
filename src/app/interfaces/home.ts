@@ -38,21 +38,21 @@ export interface Doctor {
     updated_at: string;
   };
 }
-interface Rating {
+export interface Rating {
   id: number;
   rating: number;
   description: string;
   user_name: string;
   date: string;
 }
-interface Article {
+export interface Article {
   id: number;
   title: string;
   image: string | null;
   category: string;
   description: string;
   reading_time: number;
-  created_at: string;
+  created_at: Date | null;
 }
 
 interface Specialty {

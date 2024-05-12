@@ -1,0 +1,47 @@
+.article-card {
+  border-radius: 18px;
+  cursor: pointer;
+  &:hover {
+    background-color: var(--bg-white-color);
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+  }
+  .article-img {
+    height: 16rem;
+    img {
+      border-radius: 12px;
+      object-fit: cover;
+    }
+  }
+  .description {
+    color: #181a1e;
+    -webkit-box-orient: vertical;
+    display: -webkit-box;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    -webkit-line-clamp: 2;
+    font-size: 0.94rem;
+  }
+  .category {
+    background-color: #dce6fa;
+    width: fit-content;
+  }
+  .created-date {
+    color: #4e545f;
+  }
+  @media (max-width: 767px) {
+    .title {
+      font-size: 1.05rem;
+    }
+    .article-img {
+      height: 14rem;
+    }
+  }
+  @media (max-width: 567px) {
+    .title {
+      font-size: 1rem;
+    }
+    .article-img {
+      height: 12rem;
+    }
+  }
+}

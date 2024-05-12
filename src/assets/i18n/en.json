@@ -26,7 +26,8 @@
     "backToHome": "Back to home",
     "moreDetails": "More Details",
     "errorOccur": "An error has occurred",
-    "browseMore":"Browse more"
+    "browseMore":"Browse more",
+    "noData":"There is no Data"
   },
   "home": {
     "hero": {
@@ -54,6 +55,10 @@
       "choose":"Choose the appropriate time and date, as you can pay using different payment methods",
       "start":"Start your treatment session",
       "communicate":"You can communicate with your therapist in different ways during the session"
+    },
+    "articles":{
+      "title":"Articles",
+      "description":"World-class care for everyone. Our health system provides unparalleled specialized health care."
     }
   },
   "auth": {

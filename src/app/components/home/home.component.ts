@@ -16,6 +16,7 @@ import { Subscription } from 'rxjs';
 // Components
 import { FeaturesVerticalCarouselComponent } from './../../carousels/feature-vertical-carousel/features-vertical-carousel.component';
 import { HomeSponsorCarouselComponent } from './../../carousels/home-sponsor-carousel/home-sponsor-carousel.component';
+import { ArticlesCarouselComponent } from './../../carousels/articles-carousel/articles-carousel.component';
 import { DoctorsCarouselComponent } from './../../carousels/doctors-carousel/doctors-carousel.component';
 import { DynamicSvgComponent } from './../../shared/components/icons/dynamic-svg/dynamic-svg.component';
 import { SkeletonComponent } from './../../shared/components/skeleton/skeleton.component';
@@ -31,6 +32,7 @@ import { SkeletonComponent } from './../../shared/components/skeleton/skeleton.c
     // Components
     FeaturesVerticalCarouselComponent,
     HomeSponsorCarouselComponent,
+    ArticlesCarouselComponent,
     DoctorsCarouselComponent,
     DynamicSvgComponent,
     SkeletonComponent,

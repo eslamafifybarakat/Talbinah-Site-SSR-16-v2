@@ -1,0 +1,43 @@
+:host::ng-deep {
+  #article-slider {
+    .p-carousel-item {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .p-carousel-items-content {
+      direction: ltr;
+    }
+    .p-carousel-container {
+      position: relative;
+      padding-bottom: 4rem;
+      .p-carousel-next,
+      .p-carousel-prev {
+        position: absolute;
+        bottom: 2px;
+        background-color: var(--bg-main-color);
+        color: var(--text-white-color);
+        border-radius: 50%;
+      }
+      .p-disabled {
+        background-color: transparent;
+        color: var(--text-main-color);
+      }
+      .p-carousel-next {
+        right: 0;
+      }
+      .p-carousel-prev {
+        right: 3rem;
+      }
+    }
+  }
+  .ar-slider {
+    .p-carousel-next,
+    .p-carousel-prev {
+      transform: scaleX(-1);
+    }
+    .article-card {
+      direction: rtl;
+    }
+  }
+}
