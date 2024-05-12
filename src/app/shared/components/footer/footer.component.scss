@@ -18,3 +18,13 @@
     color: #4e545f;
   }
 }
+@media (max-width: 776px) {
+  .fs-5 {
+    font-size: 1.1 !important;
+  }
+}
+@media (max-width: 567px) {
+  .fs-5 {
+    font-size: 1 !important;
+  }
+}
