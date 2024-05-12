@@ -197,18 +197,26 @@
     "containChar": "It must contain at least one capital letter",
     "notContainInfo": "It does not contain information such as name"
   },
-  "footer": {
-    "allRight": "© Copyright reserved to Al Masdar International Recruitment Platform",
-    "emailAddress": "Email Address",
-    "subscribe": "Subscribe with us to be informed of the latest additions",
-    "communication": "Communication",
-    "platform": "Al Masdar International Recruitment Platform",
-    "home": "Home",
-    "recruitment": "Recruitment offices",
-    "services": "Services",
-    "contact": "Contact Us",
-    "terms": "Terms and Conditions",
-    "policies": "Privacy and Policies",
-    "importantInfo": "Important Information"
+  "footer":{
+    "description": "Talbinah, your go-to mental health support app! Connecting experts with those in need in a secure, family-friendly environment. Lets nurture our mental health together!",
+    "pages": "Pages",
+    "aboutUs": "About Us",
+    "virtual": "Virtual Visit",
+    "patient": "Patient Portal",
+    "quality": "Quality and Patient Safety",
+    "career": "Career Opportunities",
+    "site": "The Site",
+    "education": "Education and Training",
+    "public": "Public Relations",
+    "blog": "Blog",
+    "policy": "Discount Policy",
+    "privacy": "Policy and Privacy",
+    "inquiries": "Questions and Inquiries",
+    "want": "I want to:",
+    "ask": "Ask for Appointment",
+    "find": "Find a Doctor",
+    "contactUs": "Contact Us",
+    "download": "Download our application on:"
   }
+
 }

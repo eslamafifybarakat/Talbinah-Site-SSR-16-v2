@@ -1,1 +1,164 @@
-footer
+<footer class="pt-5 pb-3" id="footer">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-4">
+        <div class="footer-logo">
+          <img src="assets/images/logo/lg-logo.webp" alt="footer-logo" class="w-100">
+        </div>
+        <p class="mt-3">
+          {{'footer.description'|translate}}
+        </p>
+        <ul class="mt-4 d-flex gap-2 flex-wrap p-0">
+          <li>
+            <a class="social-icon d-flex justify-content-center align-items-center rounded-circle">
+              <app-dynamic-svg [name]="'instagram'"></app-dynamic-svg>
+            </a>
+          </li>
+          <li>
+            <a class="social-icon d-flex justify-content-center align-items-center rounded-circle">
+              <app-dynamic-svg [name]="'youtube'"></app-dynamic-svg>
+            </a>
+          </li>
+          <li>
+            <a class="social-icon d-flex justify-content-center align-items-center rounded-circle">
+              <app-dynamic-svg [name]="'twitter'"></app-dynamic-svg>
+            </a>
+          </li>
+          <li>
+            <a class="social-icon d-flex justify-content-center align-items-center rounded-circle">
+              <app-dynamic-svg [name]="'linkedin'"></app-dynamic-svg>
+            </a>
+          </li>
+          <li>
+            <a class="social-icon d-flex justify-content-center align-items-center rounded-circle">
+              <app-dynamic-svg [name]="'facebook'"></app-dynamic-svg>
+            </a>
+          </li>
+        </ul>
+      </div>
+      <div class="col-lg-3 col-md-6 mt-lg-0 mt-4">
+        <h6 class="fw-bold fs-5">
+          {{'footer.pages'|translate}}
+        </h6>
+        <ul class="p-0 mt-3">
+          <li>
+            <a class="nav-link mb-3">
+              {{'footer.aboutUs'|translate}}
+            </a>
+          </li>
+          <li>
+            <a class="nav-link mb-3">
+              {{'footer.virtual'|translate}}
+            </a>
+          </li>
+          <li>
+            <a class="nav-link mb-3">
+              {{'footer.patient'|translate}}
+            </a>
+          </li>
+          <li>
+            <a class="nav-link mb-3">
+              {{'footer.quality'|translate}}
+            </a>
+          </li>
+          <li>
+            <a class="nav-link mb-3">
+              {{'footer.career'|translate}}
+            </a>
+          </li>
+          <li>
+            <a class="nav-link mb-3">
+              {{'footer.site'|translate}}
+            </a>
+          </li>
+          <li>
+            <a class="nav-link mb-3">
+              {{'footer.education'|translate}}
+            </a>
+          </li>
+        </ul>
+      </div>
+      <div class="col-lg-3 col-md-6 mt-lg-0 mt-4">
+        <h6 class="fw-bold fs-5">
+          {{'footer.public'|translate}}
+        </h6>
+        <ul class="p-0 mt-3">
+          <li>
+            <a class="nav-link mb-3">
+              {{'footer.blog'|translate}}
+            </a>
+          </li>
+          <li>
+            <a class="nav-link mb-3">
+              {{'footer.policy'|translate}}
+            </a>
+          </li>
+          <li>
+            <a class="nav-link mb-3">
+              {{'footer.privacy'|translate}}
+            </a>
+          </li>
+          <li>
+            <a class="nav-link mb-3">
+              {{'footer.inquiries'|translate}}
+            </a>
+          </li>
+        </ul>
+        <h6 class="fw-bold fs-5">
+          {{'footer.want'|translate}}
+        </h6>
+        <ul class="p-0 mt-3">
+          <li>
+            <a class="nav-link mb-3">
+              {{'footer.ask'|translate}}
+            </a>
+          </li>
+          <li>
+            <a class="nav-link mb-3">
+              {{'footer.find'|translate}}
+            </a>
+          </li>
+        </ul>
+      </div>
+      <div class="col-lg-2 mt-lg-0 mt-4">
+        <h6 class="fw-bold fs-5">
+          {{'footer.public'|translate}}
+        </h6>
+        <ul class="p-0 mt-3">
+          <li>
+            <a [href]="'tel:'+phone" target="_blank" class="nav-link d-flex gap-2 align-items-center mb-3">
+              <span>
+                <app-dynamic-svg [name]="'phone'"></app-dynamic-svg>
+              </span>
+              {{phone}}
+            </a>
+          </li>
+          <li>
+            <a [href]="'mailto:'+phone" target="_blank" class="nav-link d-flex gap-2 align-items-center mb-3">
+              <span>
+                <app-dynamic-svg [name]="'email'"></app-dynamic-svg>
+              </span>
+              {{emailText}}
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <hr>
+    <div class="d-flex justify-content-center align-items-center flex-wrap text-center gap-lg-5 gap-md-4 gap-3 mt-4">
+      <h6 class="fs-5 fw-bold mb-0">
+        {{'footer.download'|translate}}
+      </h6>
+      <div class="d-flex justify-content-center flex-wrap gap-3">
+        <a href="https://apps.apple.com/us/app/%D8%AA%D9%84%D8%A8%D9%8A%D9%86%D8%A9-talbinah/id6464413895"
+          target="_blank" rel="noopener noreferrer">
+          <app-dynamic-svg [name]="'outline-app-store'"></app-dynamic-svg>
+        </a>
+        <a href=" https://play.google.com/store/apps/details?id=com.talbinah.talbinah&pli=1" target="_blank"
+          rel="noopener noreferrer">
+          <app-dynamic-svg [name]="'outline-google-play'"></app-dynamic-svg>
+        </a>
+      </div>
+    </div>
+  </div>
+</footer>

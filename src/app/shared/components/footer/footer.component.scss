@@ -1,0 +1,20 @@
+#footer {
+  .footer-logo {
+    width: 6rem;
+  }
+  .social-icon {
+    width: 3rem;
+    min-width: 3rem;
+    height: 3rem;
+    border: 1px solid var(--text-dark-color);
+    color: var(--text-dark-color);
+    &:hover {
+      background-color: var(--bg-main-color);
+      border-color: var(--bg-main-color);
+      color: var(--text-white-color);
+    }
+  }
+  .nav-link {
+    color: #4e545f;
+  }
+}

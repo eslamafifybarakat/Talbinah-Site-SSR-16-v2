@@ -4,7 +4,7 @@
     <app-skeleton [type]="'home-hero-section'"></app-skeleton>
   </ng-container>
   <ng-template #noHeroLoading>
-    <section id="hero-section" class="pt-hero overflow-hidden">
+    <section id="hero-section" class="pt-hero overflow-hidden" role="banner">
       <div class="container mx-auto">
         <div class="row align-items-center">
           <div class="col-lg-6 order-lg-1 order-2 p-0">
@@ -297,9 +297,9 @@
       <ng-template #noReviewsLoading>
         <div class="row">
           <div class="col-xl-8 col-lg-10">
-            <h2 class="fs-1">
+            <h5 class="fs-1">
               {{'home.reviews.title'|translate}}
-            </h2>
+            </h5>
             <p class="mb-0">
               {{'home.reviews.description'|translate}}
             </p>
