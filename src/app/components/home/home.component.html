@@ -1,4 +1,4 @@
-<div id="home-page">
+<div id="home-page" [class.ar-home-content]="currentLanguage=='ar'">
   <!--========== Start Hero Section ================= -->
   <ng-container *ngIf="isLoadingHomeData; else noHeroLoading">
     <app-skeleton [type]="'home-hero-section'"></app-skeleton>
@@ -89,7 +89,9 @@
             </div>
           </div>
           <div class="col-lg-6">
-            <img src="assets/images/home/our-specialties-image.svg" alt="our-specialties" class="w-100">
+            <video preload autoplay muted loop class="w-100 specialty-video">
+              <source src="assets/images/home/features.mp4" type="video/mp4">
+            </video>
           </div>
         </div>
       </ng-template>
@@ -98,7 +100,7 @@
   <!--========== End Our Specialties ================= -->
 
   <!--========== Start Doctors ================= -->
-  <section id="doctors" class="mt-5">
+  <section id="doctors" class="pt-5">
     <div class="container">
       <ng-container *ngIf="isLoadingHomeData; else noDoctorsLoading">
         <app-skeleton [type]="'home-doctors'"></app-skeleton>
@@ -130,7 +132,7 @@
   <!--========== End Doctors ================= -->
 
   <!--========== Start Features ================= -->
-  <section id="features" class="mt-5">
+  <section id="features" class="pt-5">
     <div class="container">
       <ng-container *ngIf="isLoadingHomeData; else noFeaturesLoading">
         <app-skeleton [type]="'home-features'"></app-skeleton>
@@ -227,7 +229,7 @@
   <!--========== End Experience ================= -->
 
   <!--========== Start Articles ================= -->
-  <section id="articles" class="mt-5">
+  <section id="articles" class="pt-5">
     <div class="container">
       <ng-container *ngIf="isLoadingHomeData; else noArticlesLoading">
         <app-skeleton [type]="'home-articles'"></app-skeleton>
@@ -289,7 +291,7 @@
   <!--========== End Apps ================= -->
 
   <!--========== Start Reviews ================= -->
-  <section class="reviews" class="mt-5">
+  <section id="reviews" class="pt-5">
     <div class="container">
       <ng-container *ngIf="isLoadingHomeData; else noReviewsLoading">
         <app-skeleton [type]="'home-reviews'"></app-skeleton>

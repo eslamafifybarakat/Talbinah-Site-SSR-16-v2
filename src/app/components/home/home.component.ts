@@ -6,6 +6,7 @@ import { RouterModule } from '@angular/router';
 //Services
 import { LocalizationLanguageService } from './../../services/generic/localization-language.service';
 import { MetaDetails, MetadataService } from '../../services/generic/metadata.service';
+import { PublicService } from './../../services/generic/public.service';
 import { AlertsService } from './../../services/generic/alerts.service';
 import { Feature, homeApiResponse } from './../../interfaces/home';
 import { HomeService } from './../../services/home.service';
@@ -45,6 +46,7 @@ import { SkeletonComponent } from './../../shared/components/skeleton/skeleton.c
 })
 export class HomeComponent {
   private subscriptions: Subscription[] = [];
+  currentLanguage: string = '';
 
   translatedText: any = {};
   isLoadingHomeData: boolean = false;
@@ -55,12 +57,14 @@ export class HomeComponent {
     private localizationLanguageService: LocalizationLanguageService,
     private metadataService: MetadataService,
     private alertsService: AlertsService,
+    private publicService: PublicService,
     private homeService: HomeService
   ) {
     localizationLanguageService.updatePathAccordingLang();
   }
 
   ngOnInit(): void {
+    this.currentLanguage = this.publicService.getCurrentLanguage();
     this.loadData();
     this.getHomeData();
     this.features = [
