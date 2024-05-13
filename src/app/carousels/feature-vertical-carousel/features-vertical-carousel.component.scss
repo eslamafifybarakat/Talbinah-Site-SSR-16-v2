@@ -11,12 +11,26 @@
       .p-carousel-content {
         position: relative;
       }
+      @media (max-width: 991px) {
+        .p-carousel-items-content {
+          direction: ltr;
+        }
+      }
+      @media (min-width: 992px) {
+        .p-carousel-indicators {
+          position: absolute;
+          gap: 6px;
+          flex-direction: column;
+          height: 100%;
+          width: 3rem;
+        }
+      }
       .p-carousel-indicators {
-        position: absolute;
+        // position: absolute;
         gap: 6px;
-        flex-direction: column;
-        height: 100%;
-        width: 3rem;
+        // flex-direction: column;
+        // height: 100%;
+        // width: 3rem;
         .p-carousel-indicator {
           width: 1rem;
           height: 1rem;
@@ -47,6 +61,9 @@
     .p-carousel-item {
       margin-right: auto;
       margin-left: 0 !important;
+    }
+    .feature-card {
+      direction: rtl;
     }
   }
 }

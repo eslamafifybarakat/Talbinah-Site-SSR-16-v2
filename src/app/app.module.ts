@@ -1,3 +1,4 @@
+import { DownloadAppBarComponent } from './shared/components/download-app-bar/download-app-bar.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { interceptorProviders } from './core/interceptors/interceptor-index';
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
@@ -33,11 +34,12 @@ registerLocaleData(localeAr);
   ],
   imports: [
     BottomNavigationComponent,
+    OverlayLoadingComponent,
+    DownloadAppBarComponent,
     NavbarMobileComponent,
     ScrollTopComponent,
     NavbarComponent,
     FooterComponent,
-    OverlayLoadingComponent,
     LoaderComponent,
 
     BrowserModule.withServerTransition({ appId: 'my-app', }),

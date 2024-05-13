@@ -1,12 +1,22 @@
 <div id="features-slider" [class.ar-slider]="currentLanguage=='ar'">
   <ng-container *ngIf="items?.length>0; else noFeatures">
     <ng-container *ngIf="items?.length>1; else noSlider">
-      <p-carousel [value]="items" [numVisible]="1" [numScroll]="1" [orientation]="'vertical'" [showIndicators]="true"
-        [autoplayInterval]="7000" [showNavigators]="false">
-        <ng-template let-slide pTemplate="item">
-          <app-feature-card class="w-100" [item]="slide"></app-feature-card>
-        </ng-template>
-      </p-carousel>
+      <div class="d-md-block d-none">
+        <p-carousel [value]="items" [numVisible]="1" [numScroll]="1" [orientation]="'vertical'" [showIndicators]="true"
+          [autoplayInterval]="7000" [showNavigators]="false">
+          <ng-template let-slide pTemplate="item">
+            <app-feature-card class="w-100" [item]="slide"></app-feature-card>
+          </ng-template>
+        </p-carousel>
+      </div>
+      <div class="d-md-none d-block">
+        <p-carousel [value]="items" [numVisible]="1" [numScroll]="1" [showIndicators]="true" [autoplayInterval]="7000"
+          [showNavigators]="false">
+          <ng-template let-slide pTemplate="item">
+            <app-feature-card class="w-100 feature-card" [item]="slide"></app-feature-card>
+          </ng-template>
+        </p-carousel>
+      </div>
     </ng-container>
     <ng-template #noSlider>
       <div class="row">

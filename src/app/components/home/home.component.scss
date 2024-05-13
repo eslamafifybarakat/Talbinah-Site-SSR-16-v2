@@ -1,7 +1,10 @@
 #home-page {
-  background-image: url(../../../assets/images/home/home-bg.webp);
-  background-size: cover;
-  background-repeat: no-repeat;
+  .home-bg {
+    background-image: url(../../../assets/images/home/home-bg.svg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+  }
   .pt-hero {
     padding-top: 11rem;
   }
@@ -48,7 +51,7 @@
 
   // Start Hero Section
   #hero-section {
-    // background-image: url(../../../assets/images/home/hero-section-bg.svg);
+    background-image: url(../../../assets/images/home/hero-section-bg.svg);
     min-height: calc(100vh + 1rem);
     background-size: cover;
     background-repeat: no-repeat;

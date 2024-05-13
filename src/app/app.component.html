@@ -1,4 +1,6 @@
 <main style="transition: 0.5s" class="main-wrapper" [style.opacity]="isServer ? 0 : 1">
+  <app-download-app-bar class="d-sm-none d-block"></app-download-app-bar>
+
   <div class="d-none d-xl-block" *ngIf="shouldRender">
     <app-navbar></app-navbar>
   </div>

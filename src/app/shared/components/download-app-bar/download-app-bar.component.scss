@@ -1,0 +1,34 @@
+.logo-app {
+  width: 50px;
+  height: 50px;
+  border: 2px solid #e5e8f5;
+  border-radius: 10px;
+}
+app-dynamic-svg svg {
+  width: 0.5rem;
+  height: 0.5rem;
+}
+.desc {
+  font-size: 0.7rem;
+}
+.title {
+  font-size: 0.8rem;
+}
+.app-icon {
+  width: 35px;
+  height: 35px;
+  border: 2px solid #e5e8f5;
+  border-radius: 6px;
+}
+:host::ng-deep {
+  .p-rating {
+    gap: 0.2rem;
+  }
+  .p-rating-icon {
+    width: 0.95rem;
+    color: #e7e7e7;
+    &.p-rating-icon-active {
+      color: #feb60d;
+    }
+  }
+}
