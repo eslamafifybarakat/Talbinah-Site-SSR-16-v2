@@ -10,7 +10,7 @@
   ],
   "functions": {
     "api/index.js": {
-      "includeFiles": " dist/talbinah-site/browser/**"
+      "includeFiles": "dist/talbinah-site/browser/**"
     }
   }
 }

@@ -1,14 +1,15 @@
-import { ngExpressEngine } from '@nguniversal/express-engine';
-import { AppServerModule } from './src/main.server';
+import 'zone.js/node';
+
 import { APP_BASE_HREF } from '@angular/common';
+import { ngExpressEngine } from '@nguniversal/express-engine';
 import * as express from 'express';
 import { existsSync } from 'fs';
 import { join } from 'path';
-import 'zone.js/node';
+import { AppServerModule } from './src/main.server';
 
 export function app(): express.Express {
   const server = express();
-  const distFolder = join(process.cwd(), ' dist/talbinah-site/browser');
+  const distFolder = join(process.cwd(), 'dist/talbinah-site/browser');
   const indexHtml = existsSync(join(distFolder, 'index.original.html')) ? 'index.original.html' : 'index';
 
   server.engine('html', ngExpressEngine({
