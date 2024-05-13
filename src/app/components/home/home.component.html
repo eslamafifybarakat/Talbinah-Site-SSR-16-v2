@@ -175,7 +175,7 @@
           </div>
         </div>
         <div class="mt-4 features-container p-4">
-          <app-features-vertical-carousel [items]="homeData?.services"></app-features-vertical-carousel>
+          <app-features-vertical-carousel [items]="features"></app-features-vertical-carousel>
         </div>
       </ng-template>
     </div>
@@ -185,75 +185,80 @@
   <!--========== Start Experience ================= -->
   <section id="experience" class="bg-main-color py-5 mt-5">
     <div class="container">
-      <div class="row align-items-center">
-        <div class="col-lg-6 order-lg-1 order-2">
-          <h4 class="fs-lg fw-bold text-white-color">
-            {{'home.experience.title'|translate}}
-          </h4>
-          <div class="mt-4">
-            <div class="experience-content">
-              <div class="d-flex gap-2">
-                <div class="experience-num d-flex justify-content-center align-items-center">
-                  1
-                </div>
-                <div class="experience-info">
-                  <h5 class="experience-title fs-5 fw-bold">
-                    {{'home.experience.contact'|translate}}
-                  </h5>
-                  <div class="row">
-                    <div class="col-xl-10 col-lg-11">
-                      <p class="mb-0 experience-description mt-1">
-                        {{'home.experience.answer'|translate}}
-                      </p>
+      <ng-container *ngIf="isLoadingHomeData; else noExperienceLoading">
+        <app-skeleton [type]="'box'"></app-skeleton>
+      </ng-container>
+      <ng-template #noExperienceLoading>
+        <div class="row align-items-center">
+          <div class="col-lg-6 order-lg-1 order-2">
+            <h4 class="fs-lg fw-bold text-white-color">
+              {{'home.experience.title'|translate}}
+            </h4>
+            <div class="mt-4">
+              <div class="experience-content">
+                <div class="d-flex gap-2">
+                  <div class="experience-num d-flex justify-content-center align-items-center">
+                    1
+                  </div>
+                  <div class="experience-info">
+                    <h5 class="experience-title fs-5 fw-bold">
+                      {{'home.experience.contact'|translate}}
+                    </h5>
+                    <div class="row">
+                      <div class="col-xl-10 col-lg-11">
+                        <p class="mb-0 experience-description mt-1">
+                          {{'home.experience.answer'|translate}}
+                        </p>
+                      </div>
                     </div>
                   </div>
                 </div>
               </div>
-            </div>
-            <div class="experience-content">
-              <div class="d-flex gap-2">
-                <div class="experience-num d-flex justify-content-center align-items-center">
-                  2
-                </div>
-                <div class="experience-info">
-                  <h5 class="experience-title fs-5 fw-bold">
-                    {{'home.experience.book'|translate}}
-                  </h5>
-                  <div class="row">
-                    <div class="col-xl-10 col-lg-11">
-                      <p class="mb-0 experience-description mt-1">
-                        {{'home.experience.choose'|translate}}
-                      </p>
+              <div class="experience-content">
+                <div class="d-flex gap-2">
+                  <div class="experience-num d-flex justify-content-center align-items-center">
+                    2
+                  </div>
+                  <div class="experience-info">
+                    <h5 class="experience-title fs-5 fw-bold">
+                      {{'home.experience.book'|translate}}
+                    </h5>
+                    <div class="row">
+                      <div class="col-xl-10 col-lg-11">
+                        <p class="mb-0 experience-description mt-1">
+                          {{'home.experience.choose'|translate}}
+                        </p>
+                      </div>
                     </div>
                   </div>
                 </div>
               </div>
-            </div>
-            <div class="experience-content">
-              <div class="d-flex gap-2">
-                <div class="experience-num d-flex justify-content-center align-items-center">
-                  3
-                </div>
-                <div class="experience-info">
-                  <h5 class="experience-title fs-5 fw-bold">
-                    {{'home.experience.start'|translate}}
-                  </h5>
-                  <div class="row">
-                    <div class="col-xl-10 col-lg-11">
-                      <p class="mb-0 experience-description mt-1">
-                        {{'home.experience.communicate'|translate}}
-                      </p>
+              <div class="experience-content">
+                <div class="d-flex gap-2">
+                  <div class="experience-num d-flex justify-content-center align-items-center">
+                    3
+                  </div>
+                  <div class="experience-info">
+                    <h5 class="experience-title fs-5 fw-bold">
+                      {{'home.experience.start'|translate}}
+                    </h5>
+                    <div class="row">
+                      <div class="col-xl-10 col-lg-11">
+                        <p class="mb-0 experience-description mt-1">
+                          {{'home.experience.communicate'|translate}}
+                        </p>
+                      </div>
                     </div>
                   </div>
                 </div>
               </div>
             </div>
           </div>
+          <div class="col-lg-6 order-lg-2 order-1">
+            <img src="assets/images/home/redmi-phone.svg" alt="phone" class="w-100 d-lg-block d-none">
+          </div>
         </div>
-        <div class="col-lg-6 order-lg-2 order-1">
-          <img src="assets/images/home/redmi-phone.svg" alt="phone" class="w-100 d-lg-block d-none">
-        </div>
-      </div>
+      </ng-template>
     </div>
   </section>
   <!--========== End Experience ================= -->
@@ -291,41 +296,46 @@
   <!--========== Start Apps ================= -->
   <section id="apps" class="mt-5">
     <div class="container">
-      <div class="row align-items-center">
-        <div class="col-lg-6">
-          <img src="assets/images/home/apps.svg" alt="apps" class="app-img w-100">
-        </div>
-        <div class="col-lg-6">
-          <h4 class="fs-lg fw-bold">
-            {{'home.apps.title'|translate}}
-          </h4>
-          <p class="mt-3 mb-0 description-font">
-            {{'home.apps.description'|translate}}
-          </p>
-          <div class="d-flex gap-3 mt-4 flex-wrap">
-            <a href="https://apps.apple.com/us/app/%D8%AA%D9%84%D8%A8%D9%8A%D9%86%D8%A9-talbinah/id6464413895"
-              target="_blank" rel="noopener noreferrer" class="d-flex gap-2 align-items-center app-btn p-2">
-              <app-dynamic-svg [name]="'color-app-store-icon'"></app-dynamic-svg>
-              <div class="lh-1">
-                <small class="fs-8-1">{{'general.downloadNow'|translate}}</small>
-                <p class="mb-0 fw-500 text-capitalize fs-5 lh-1">
-                  {{'general.appStore'|translate}}
-                </p>
-              </div>
-            </a>
-            <a href="https://play.google.com/store/apps/details?id=com.talbinah.talbinah&pli=1" target="_blank"
-              rel="noopener noreferrer" class="d-flex gap-2 align-items-center app-btn p-2">
-              <app-dynamic-svg [name]="'color-google-play-icon'"></app-dynamic-svg>
-              <div class="lh-1">
-                <small class="fs-8-1">{{'general.downloadNow'|translate}}</small>
-                <p class="mb-0 fw-500 text-capitalize fs-5 lh-1">
-                  {{'general.googlePlay'|translate}}
-                </p>
-              </div>
-            </a>
+      <ng-container *ngIf="isLoadingHomeData; else noAppsLoading">
+        <app-skeleton [type]="'box'"></app-skeleton>
+      </ng-container>
+      <ng-template #noAppsLoading>
+        <div class="row align-items-center">
+          <div class="col-lg-6">
+            <img src="assets/images/home/apps.svg" alt="apps" class="app-img w-100">
+          </div>
+          <div class="col-lg-6">
+            <h4 class="fs-lg fw-bold">
+              {{'home.apps.title'|translate}}
+            </h4>
+            <p class="mt-3 mb-0 description-font">
+              {{'home.apps.description'|translate}}
+            </p>
+            <div class="d-flex gap-3 mt-4 flex-wrap">
+              <a href="https://apps.apple.com/us/app/%D8%AA%D9%84%D8%A8%D9%8A%D9%86%D8%A9-talbinah/id6464413895"
+                target="_blank" rel="noopener noreferrer" class="d-flex gap-2 align-items-center app-btn py-2 px-3">
+                <app-dynamic-svg [name]="'color-app-store-icon'"></app-dynamic-svg>
+                <div class="lh-1">
+                  <small class="fs-6-1 fw-500">{{'general.downloadNow'|translate}}</small>
+                  <p class="mb-0 fw-500 text-capitalize fs-4 lh-1">
+                    {{'general.appStore'|translate}}
+                  </p>
+                </div>
+              </a>
+              <a href="https://play.google.com/store/apps/details?id=com.talbinah.talbinah&pli=1" target="_blank"
+                rel="noopener noreferrer" class="d-flex gap-2 align-items-center app-btn py-2 px-3">
+                <app-dynamic-svg [name]="'color-google-play-icon'"></app-dynamic-svg>
+                <div class="lh-1">
+                  <small class="fs-6-1 fw-500">{{'general.downloadNow'|translate}}</small>
+                  <p class="mb-0 fw-500 text-capitalize fs-4 lh-1">
+                    {{'general.googlePlay'|translate}}
+                  </p>
+                </div>
+              </a>
+            </div>
           </div>
         </div>
-      </div>
+      </ng-template>
     </div>
   </section>
   <!--========== End Apps ================= -->

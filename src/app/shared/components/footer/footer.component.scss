@@ -1,4 +1,5 @@
 #footer {
+  padding-top: 6rem;
   .footer-logo {
     width: 6rem;
   }
@@ -24,8 +25,11 @@
   }
 }
 @media (max-width: 776px) {
-  .fs-5 {
-    font-size: 1.1 !important;
+  #footer {
+    padding-top: 3rem;
+    .fs-5 {
+      font-size: 1.1 !important;
+    }
   }
 }
 @media (max-width: 567px) {

@@ -224,7 +224,9 @@
       height: 550px;
     }
     @media (max-width: 1024px) {
-      height: auto;
+      .app-img {
+        height: auto;
+      }
     }
   }
   // End Apps
