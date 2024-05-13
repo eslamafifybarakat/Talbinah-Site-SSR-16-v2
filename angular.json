@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "talbinah": {
+    "talbinah-site": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -17,7 +17,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": " dist/talbinah/browser",
+            "outputPath": " dist/talbinah-site/browser",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": [
@@ -84,10 +84,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "talbinah:build:production"
+              "browserTarget": "talbinah-site:build:production"
             },
             "development": {
-              "browserTarget": "talbinah:build:development"
+              "browserTarget": "talbinah-site:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -95,7 +95,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "talbinah:build"
+            "browserTarget": "talbinah-site:build"
           }
         },
         "test": {
@@ -123,7 +123,7 @@
         "server": {
           "builder": "@angular-devkit/build-angular:server",
           "options": {
-            "outputPath": " dist/talbinah/server",
+            "outputPath": " dist/talbinah-site/server",
             "main": "server.ts",
             "tsConfig": "tsconfig.server.json",
             "inlineStyleLanguage": "scss"
@@ -146,12 +146,12 @@
           "builder": "@nguniversal/builders:ssr-dev-server",
           "configurations": {
             "development": {
-              "browserTarget": "talbinah:build:development",
-              "serverTarget": "talbinah:server:development"
+              "browserTarget": "talbinah-site:build:development",
+              "serverTarget": "talbinah-site:server:development"
             },
             "production": {
-              "browserTarget": "talbinah:build:production",
-              "serverTarget": "talbinah:server:production"
+              "browserTarget": "talbinah-site:build:production",
+              "serverTarget": "talbinah-site:server:production"
             }
           },
           "defaultConfiguration": "development"
@@ -164,12 +164,12 @@
           },
           "configurations": {
             "production": {
-              "browserTarget": "talbinah:build:production",
-              "serverTarget": "talbinah:server:production"
+              "browserTarget": "talbinah-site:build:production",
+              "serverTarget": "talbinah-site:server:production"
             },
             "development": {
-              "browserTarget": "talbinah:build:development",
-              "serverTarget": "talbinah:server:development"
+              "browserTarget": "talbinah-site:build:development",
+              "serverTarget": "talbinah-site:server:development"
             }
           },
           "defaultConfiguration": "production"

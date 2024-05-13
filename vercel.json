@@ -1,7 +1,7 @@
 {
   "version": 2,
   "public": true,
-  "name": "talbinah",
+  "name": "talbinah-site",
   "rewrites": [
     {
       "source": "/(.*)",
@@ -10,7 +10,7 @@
   ],
   "functions": {
     "api/index.js": {
-      "includeFiles": " dist/talbinah/browser/**"
+      "includeFiles": " dist/talbinah-site/browser/**"
     }
   }
 }
