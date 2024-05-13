@@ -4,7 +4,7 @@
       <p-carousel [value]="items" [numVisible]="3" [numScroll]="1" [responsiveOptions]="articleOptions"
         [autoplayInterval]="7000" [showIndicators]="false" [showNavigators]="true">
         <ng-template let-slide pTemplate="item">
-          <app-article-card class="w-100 mx-3 article-card" [item]="slide"></app-article-card>
+          <app-article-card class="w-100 mx-sm-2 px-1 article-card" [item]="slide"></app-article-card>
         </ng-template>
       </p-carousel>
     </ng-container>

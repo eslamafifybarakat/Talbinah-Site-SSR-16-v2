@@ -27,7 +27,10 @@
     "moreDetails": "More Details",
     "errorOccur": "An error has occurred",
     "browseMore":"Browse more",
-    "noData":"There is no Data"
+    "noData":"There is no Data",
+    "downloadNow":"Download Now",
+    "appStore":"app store",
+    "googlePlay":"google play"
   },
   "home": {
     "hero": {

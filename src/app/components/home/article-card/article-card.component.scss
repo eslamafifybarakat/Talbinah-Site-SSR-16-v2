@@ -3,10 +3,10 @@
   cursor: pointer;
   &:hover {
     background-color: var(--bg-white-color);
-    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+    box-shadow: 0px 20px 70px 0px rgba(0, 103, 255, 0.07);
   }
   .article-img {
-    height: 16rem;
+    height: 19rem;
     img {
       border-radius: 12px;
       object-fit: cover;
@@ -28,9 +28,20 @@
   .created-date {
     color: #4e545f;
   }
+  @media (max-width: 991px) {
+    .title {
+      font-size: 1.15rem !important;
+    }
+    .article-img {
+      height: 16rem;
+    }
+  }
   @media (max-width: 767px) {
     .title {
-      font-size: 1.05rem;
+      font-size: 1.05rem !important;
+    }
+    .description {
+      font-size: 1rem !important;
     }
     .article-img {
       height: 14rem;

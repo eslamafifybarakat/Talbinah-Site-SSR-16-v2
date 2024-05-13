@@ -2,6 +2,47 @@
   .pt-hero {
     padding-top: 7rem;
   }
+  .pt-7 {
+    padding-top: 6rem;
+  }
+  .fs-lg {
+    font-size: 3rem;
+  }
+  .description-font {
+    font-size: 1.1rem;
+    color: #404040;
+  }
+  @media (max-width: 991px) {
+    .pt-7 {
+      padding-top: 5rem;
+    }
+    .fs-lg {
+      font-size: 2.6rem;
+    }
+  }
+  @media (max-width: 776px) {
+    .pt-7 {
+      padding-top: 4rem;
+    }
+    .fs-lg {
+      font-size: 2.3rem;
+    }
+    .description-font {
+      font-size: 1.05rem;
+    }
+  }
+  @media (max-width: 567px) {
+    .pt-7 {
+      padding-top: 3rem;
+    }
+    .fs-lg {
+      font-size: 1.5rem;
+    }
+    .description-font {
+      font-size: 1rem;
+    }
+  }
+
   // Start Hero Section
   #hero-section {
     background-image: url(../../../assets/images/home/hero-section-bg.svg);
@@ -30,12 +71,11 @@
       font-weight: 400;
       line-height: 30px;
     }
-
-    .apps-image {
-      height: 3rem;
-      width: 10rem;
+    .app-btn {
+      background-color: #000000;
+      color: var(--text-white-color);
+      border-radius: 7px;
     }
-
     .main-hero-image-container img {
       width: 100%;
       object-fit: fill;
@@ -68,7 +108,7 @@
     }
     .specialty-video {
       object-fit: cover;
-      mix-blend-mode: lighten;
+      // mix-blend-mode: lighten;
     }
     @media (max-width: 567px) {
       .specialty-content {
@@ -78,7 +118,7 @@
           height: 60px;
         }
       }
-      .fs-5-1 {
+      .fs-5 {
         font-size: 0.95rem !important;
       }
     }
@@ -123,6 +163,7 @@
     background-position: center;
     .experience-content {
       border-radius: 15px;
+      transition: all 0.3s ease-in-out;
       .experience-num {
         width: 2rem;
         min-width: 2rem;
@@ -136,7 +177,6 @@
       }
       .experience-description {
         color: #e5e5e5;
-        font-size: 0.93rem;
       }
       &:hover {
         padding: 1rem;
@@ -170,6 +210,23 @@
     }
   }
   // End Articles
+
+  // Start Apps
+  #apps {
+    .app-btn {
+      background-color: #000000;
+      color: var(--text-white-color);
+      border-radius: 7px;
+    }
+    .app-img {
+      object-fit: cover;
+      height: 550px;
+    }
+    @media (max-width: 1024px) {
+      height: auto;
+    }
+  }
+  // End Apps
 
   // Start Reviews
   #reviews {

@@ -17,6 +17,11 @@
   .nav-link {
     color: #4e545f;
   }
+  .app-btn {
+    border: 1px solid #000000;
+    color: var(--text-dark-color);
+    border-radius: 7px;
+  }
 }
 @media (max-width: 776px) {
   .fs-5 {

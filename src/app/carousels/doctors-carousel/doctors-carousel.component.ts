@@ -28,7 +28,7 @@ export class DoctorsCarouselComponent {
     },
     {
       breakpoint: '560px',
-      numVisible: 2,
+      numVisible: 1.5,
       numScroll: 1
     },
     {

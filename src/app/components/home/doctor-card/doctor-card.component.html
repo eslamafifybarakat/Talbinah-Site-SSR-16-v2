@@ -1,4 +1,5 @@
-<div class="doctor-card bg-white-color p-3 w-100 d-flex justify-content-center align-items-center gap-3 flex-column">
+<div
+  class="doctor-card bg-white-color p-3 w-100 d-sm-flex d-none justify-content-center align-items-center gap-3 flex-column">
   <div class="doctor-img rounded-circle">
     <img [src]="item?.image" class="w-100 h-100 rounded-circle" [alt]="item.full_name"
       onerror="src='assets/images/not-found/no-woman-doctor.svg'">
@@ -10,7 +11,7 @@
     <p class="mb-0 description">
       {{item.specialist[0]||''}}
     </p>
-    <div class="d-flex justify-content-center gap-1 count-rate py-1 px-3 rounded-pill mx-auto mt-1">
+    <div class="d-flex justify-content-center gap-1 count-rate py-1 px-3 rounded-pill mx-auto mt-2">
       <span>
         <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
           <path
@@ -22,5 +23,33 @@
         ({{item.reservation_count||0}}) {{item.count_rate||0}}
       </span>
     </div>
+  </div>
+</div>
+<div class="doctor-card bg-white-color p-3 w-100 d-sm-none d-block">
+  <div class="d-flex align-items-center gap-3">
+    <div class="doctor-img-sm rounded-circle">
+      <img [src]="item?.image" class="w-100 h-100 rounded-circle" [alt]="item.full_name"
+        onerror="src='assets/images/not-found/no-woman-doctor.svg'">
+    </div>
+    <div>
+      <h5 class="fs-5-1 fw-500 mb-1">
+        {{item.full_name||''}}
+      </h5>
+      <p class="mb-0 description">
+        {{item.specialist[0]||''}}
+      </p>
+    </div>
+  </div>
+  <div class="d-flex gap-1 align-items-center py-1 px-3 mt-2">
+    <span>
+      <svg width="17" height="17" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path
+          d="M15.9189 12.36C15.6599 12.611 15.5409 12.974 15.5999 13.33L16.4889 18.25C16.5639 18.667 16.3879 19.089 16.0389 19.33C15.6969 19.58 15.2419 19.61 14.8689 19.41L10.4399 17.1C10.2859 17.018 10.1149 16.974 9.93988 16.969H9.66888C9.57488 16.983 9.48288 17.013 9.39888 17.059L4.96888 19.38C4.74988 19.49 4.50188 19.529 4.25888 19.49C3.66688 19.378 3.27188 18.814 3.36888 18.219L4.25888 13.299C4.31788 12.94 4.19888 12.575 3.93988 12.32L0.328876 8.82004C0.0268758 8.52704 -0.0781242 8.08704 0.0598758 7.69004C0.193876 7.29404 0.535876 7.00504 0.948876 6.94004L5.91888 6.21904C6.29688 6.18004 6.62888 5.95004 6.79888 5.61004L8.98888 1.12004C9.04088 1.02004 9.10788 0.928039 9.18888 0.850039L9.27888 0.780039C9.32588 0.728039 9.37988 0.685039 9.43988 0.650039L9.54888 0.610039L9.71888 0.540039H10.1399C10.5159 0.579039 10.8469 0.804039 11.0199 1.14004L13.2389 5.61004C13.3989 5.93704 13.7099 6.16404 14.0689 6.21904L19.0389 6.94004C19.4589 7.00004 19.8099 7.29004 19.9489 7.69004C20.0799 8.09104 19.9669 8.53104 19.6589 8.82004L15.9189 12.36Z"
+          fill="#FEB60D" />
+      </svg>
+    </span>
+    <span>
+      ({{item.reservation_count||0}}) {{item.count_rate||0}}
+    </span>
   </div>
 </div>

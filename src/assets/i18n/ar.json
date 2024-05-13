@@ -27,7 +27,10 @@
     "moreDetails": "المزيد من التفاصيل",
     "errorOccur": "حدث خطأ",
     "browseMore":" تصفح المزيد ",
-    "noData":"لا يوجد بيانات"
+    "noData":"لا يوجد بيانات",
+    "downloadNow":"حمل الان",
+    "appStore":"متجر التطبيقات",
+    "googlePlay":"تطبيقات جوجل"
   },
   "home": {
     "hero": {

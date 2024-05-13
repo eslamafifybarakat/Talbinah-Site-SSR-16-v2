@@ -36,7 +36,7 @@
           </li>
         </ul>
       </div>
-      <div class="col-lg-3 col-md-6 mt-lg-0 mt-4">
+      <div class="col-lg-3 col-6 mt-lg-0 mt-4">
         <h6 class="fw-bold fs-5">
           {{'footer.pages'|translate}}
         </h6>
@@ -78,7 +78,7 @@
           </li>
         </ul>
       </div>
-      <div class="col-lg-3 col-md-6 mt-lg-0 mt-4">
+      <div class="col-lg-3 col-6 mt-lg-0 mt-4">
         <h6 class="fw-bold fs-5">
           {{'footer.public'|translate}}
         </h6>
@@ -145,18 +145,30 @@
       </div>
     </div>
     <hr>
-    <div class="d-flex justify-content-center align-items-center flex-wrap text-center gap-lg-5 gap-md-4 gap-3 mt-4">
+    <div class="d-flex justify-content-md-center align-items-center flex-wrap  gap-lg-5 gap-md-4 gap-3 mt-4">
       <h6 class="fs-5 fw-bold mb-0">
         {{'footer.download'|translate}}
       </h6>
-      <div class="d-flex justify-content-center flex-wrap gap-3">
+      <div class="d-flex flex-wrap gap-3">
         <a href="https://apps.apple.com/us/app/%D8%AA%D9%84%D8%A8%D9%8A%D9%86%D8%A9-talbinah/id6464413895"
-          target="_blank" rel="noopener noreferrer">
-          <app-dynamic-svg [name]="'outline-app-store'"></app-dynamic-svg>
+          target="_blank" rel="noopener noreferrer" class="d-flex gap-2 align-items-center app-btn p-2">
+          <app-dynamic-svg [name]="'dark-app-store-icon'"></app-dynamic-svg>
+          <div class="lh-1">
+            <small class="fs-8-1">{{'general.downloadNow'|translate}}</small>
+            <p class="mb-0 fw-500 text-capitalize fs-5 lh-1">
+              {{'general.appStore'|translate}}
+            </p>
+          </div>
         </a>
-        <a href=" https://play.google.com/store/apps/details?id=com.talbinah.talbinah&pli=1" target="_blank"
-          rel="noopener noreferrer">
-          <app-dynamic-svg [name]="'outline-google-play'"></app-dynamic-svg>
+        <a href="https://play.google.com/store/apps/details?id=com.talbinah.talbinah&pli=1" target="_blank"
+          rel="noopener noreferrer" class="d-flex gap-2 align-items-center app-btn p-2">
+          <app-dynamic-svg [name]="'dark-google-play-icon'"></app-dynamic-svg>
+          <div class="lh-1">
+            <small class="fs-8-1">{{'general.downloadNow'|translate}}</small>
+            <p class="mb-0 fw-500 text-capitalize fs-5 lh-1">
+              {{'general.googlePlay'|translate}}
+            </p>
+          </div>
         </a>
       </div>
     </div>

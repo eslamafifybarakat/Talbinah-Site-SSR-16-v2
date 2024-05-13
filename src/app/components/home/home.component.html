@@ -17,22 +17,33 @@
             <p class="description mt-2 w-75">
               {{ 'home.hero.heroDescription' | translate }}
             </p>
-            <div class="d-flex justify-content-sm-start justify-content-center gap-3 mt-2 mt-xl-4 mt-md-3 mt-sm-3">
+            <div
+              class="d-flex justify-content-sm-start justify-content-center gap-3 mt-2 mt-xl-4 mt-md-3 mt-sm-3 flex-wrap">
               <a href="https://apps.apple.com/us/app/%D8%AA%D9%84%D8%A8%D9%8A%D9%86%D8%A9-talbinah/id6464413895"
-                target="_blank" rel="noopener noreferrer">
-                <img src="assets/images/downloadsChannels/app-store.svg" width="160" height="48" class="apps-image"
-                  alt="app-store">
+                target="_blank" rel="noopener noreferrer" class="d-flex gap-2 align-items-center app-btn p-2">
+                <app-dynamic-svg [name]="'color-app-store-icon'"></app-dynamic-svg>
+                <div class="lh-1">
+                  <small class="fs-8-1">{{'general.downloadNow'|translate}}</small>
+                  <p class="mb-0 fw-500 text-capitalize fs-5 lh-1">
+                    {{'general.appStore'|translate}}
+                  </p>
+                </div>
               </a>
               <a href="https://play.google.com/store/apps/details?id=com.talbinah.talbinah&pli=1" target="_blank"
-                rel="noopener noreferrer">
-                <img src="assets/images/downloadsChannels/google-play.svg" width="160" height="48" class="apps-image"
-                  alt="google-play">
+                rel="noopener noreferrer" class="d-flex gap-2 align-items-center app-btn p-2">
+                <app-dynamic-svg [name]="'color-google-play-icon'"></app-dynamic-svg>
+                <div class="lh-1">
+                  <small class="fs-8-1">{{'general.downloadNow'|translate}}</small>
+                  <p class="mb-0 fw-500 text-capitalize fs-5 lh-1">
+                    {{'general.googlePlay'|translate}}
+                  </p>
+                </div>
               </a>
             </div>
           </div>
           <div class="col-lg-6 col-md-8 col-sm-9 col-11 m-lg-0 m-auto order-lg-2 order-1 mb-lg-0 mb-3 p-0">
             <div class="main-hero-image-container">
-              <img src="assets/images/home/hero-image.svg" width="800" height="600" alt="hero-image" class="w-100">
+              <img src="assets/images/home/hero-image.webp" width="800" height="600" alt="hero-image" class="w-100">
             </div>
           </div>
         </div>
@@ -43,7 +54,7 @@
   <!--============= End Hero Section ================= -->
 
   <!--========== Start Our Specialties ================= -->
-  <section id="specialties" class="mt-5">
+  <section id="specialties" class="pt-7">
     <div class="container">
       <ng-container *ngIf="isLoadingHomeData; else noSpecialtiesLoading">
         <app-skeleton [type]="'home-specialties'"></app-skeleton>
@@ -52,14 +63,14 @@
         <div class="row">
           <div class="col-lg-6">
             <div>
-              <h2 class="fs-1">
+              <h2 class="fs-lg fw-bold">
                 {{'home.ourSpecialties.title'|translate}}
               </h2>
-              <p>
+              <p class="description-font mt-md-3">
                 {{'home.ourSpecialties.description'|translate}}
               </p>
-              <div class="row specialties">
-                <ng-container *ngIf="homeData?.specialists?.length>0; else noSpecialists">
+              <ng-container *ngIf="homeData?.specialists?.length>0; else noSpecialists">
+                <div class="row specialties d-sm-flex d-none">
                   <ng-container *ngFor="let item of homeData?.specialists; let i=index">
                     <div *ngIf="i<4" class="col-md-5 col-6"
                       [ngClass]="{'mt-2': i == 1, 'd-flex justify-content-end mt-sm-5 mt-4': i > 1}">
@@ -68,24 +79,39 @@
                           [ngStyle]="{ 'background': item.backgroundColor, 'color': item?.color }">
                           <app-dynamic-svg [name]="'specialty-' + (i + 1)"></app-dynamic-svg>
                         </div>
-                        <p class="mb-0 fs-5-1 mt-4 fw-bold">{{ item?.name || '' }}</p>
+                        <p class="mb-0 fs-5 mt-4 fw-bold">{{ item?.name || '' }}</p>
                       </div>
                     </div>
                   </ng-container>
-                </ng-container>
-                <ng-template #noSpecialists>
-                  <div class="row justify-content-center">
-                    <div class="col-lg-6 col-md-8 col-sm-11">
-                      <div class="d-flex flex-column justify-content-center align-items-center gap-2">
-                        <img src="assets/images/not-found/no-data.svg" alt="no-data" class="w-100">
-                        <p class="mb-0">
-                          {{'general.noData'|translate}}
-                        </p>
+                </div>
+
+                <div class="specialties-sm d-sm-none d-flex justify-content-between flex-wrap gap-3">
+                  <ng-container *ngFor="let item of homeData?.specialists; let i=index">
+                    <div *ngIf="i<4">
+                      <div class="specialty-content d-flex flex-column justify-content-center align-items-center gap-2">
+                        <div class="specialty-icon d-flex align-items-center justify-content-center rounded-circle"
+                          [ngStyle]="{ 'background': item.backgroundColor, 'color': item?.color }">
+                          <app-dynamic-svg [name]="'specialty-' + (i + 1)"></app-dynamic-svg>
+                        </div>
+                        <p class="mb-0 fs-6-1 fw-500">{{ item?.name || '' }}</p>
                       </div>
                     </div>
+                  </ng-container>
+                </div>
+
+              </ng-container>
+              <ng-template #noSpecialists>
+                <div class="row justify-content-center">
+                  <div class="col-lg-6 col-md-8 col-sm-11">
+                    <div class="d-flex flex-column justify-content-center align-items-center gap-2">
+                      <img src="assets/images/not-found/no-data.svg" alt="no-data" class="w-100">
+                      <p class="mb-0">
+                        {{'general.noData'|translate}}
+                      </p>
+                    </div>
                   </div>
-                </ng-template>
-              </div>
+                </div>
+              </ng-template>
             </div>
           </div>
           <div class="col-lg-6">
@@ -100,7 +126,7 @@
   <!--========== End Our Specialties ================= -->
 
   <!--========== Start Doctors ================= -->
-  <section id="doctors" class="pt-5">
+  <section id="doctors" class="pt-7">
     <div class="container">
       <ng-container *ngIf="isLoadingHomeData; else noDoctorsLoading">
         <app-skeleton [type]="'home-doctors'"></app-skeleton>
@@ -110,10 +136,10 @@
           <div class="d-flex align-items-end justify-content-between gap-md-5 gap-3 flex-md-nowrap flex-wrap">
             <div class="row">
               <div class="col-xl-8 col-lg-10">
-                <h2 class="fs-1">
+                <h2 class="fs-lg fw-bold">
                   {{'home.doctors.title'|translate}}
                 </h2>
-                <p class="mb-0">
+                <p class="mb-0 description-font mt-3">
                   {{'home.doctors.description'|translate}}
                 </p>
               </div>
@@ -132,18 +158,22 @@
   <!--========== End Doctors ================= -->
 
   <!--========== Start Features ================= -->
-  <section id="features" class="pt-5">
+  <section id="features" class="pt-7">
     <div class="container">
       <ng-container *ngIf="isLoadingHomeData; else noFeaturesLoading">
         <app-skeleton [type]="'home-features'"></app-skeleton>
       </ng-container>
       <ng-template #noFeaturesLoading>
-        <h3 class="fs-1">
+        <h3 class="fs-lg">
           {{'home.features.title'|translate}}
         </h3>
-        <p>
-          {{'home.features.description'|translate}}
-        </p>
+        <div class="row">
+          <div class="col-xl-3 col-lg-6 col-md-9">
+            <p class="description-font mt-3">
+              {{'home.features.description'|translate}}
+            </p>
+          </div>
+        </div>
         <div class="mt-4 features-container p-4">
           <app-features-vertical-carousel [items]="features"></app-features-vertical-carousel>
         </div>
@@ -157,17 +187,17 @@
     <div class="container">
       <div class="row align-items-center">
         <div class="col-lg-6 order-lg-1 order-2">
-          <h4 class="fs-1 text-white-color">
+          <h4 class="fs-lg fw-bold text-white-color">
             {{'home.experience.title'|translate}}
           </h4>
-          <div class="mt-3">
+          <div class="mt-4">
             <div class="experience-content">
               <div class="d-flex gap-2">
                 <div class="experience-num d-flex justify-content-center align-items-center">
                   1
                 </div>
                 <div class="experience-info">
-                  <h5 class="experience-title fs-5-1 fw-bold">
+                  <h5 class="experience-title fs-5 fw-bold">
                     {{'home.experience.contact'|translate}}
                   </h5>
                   <div class="row">
@@ -186,7 +216,7 @@
                   2
                 </div>
                 <div class="experience-info">
-                  <h5 class="experience-title fs-5-1 fw-bold">
+                  <h5 class="experience-title fs-5 fw-bold">
                     {{'home.experience.book'|translate}}
                   </h5>
                   <div class="row">
@@ -205,7 +235,7 @@
                   3
                 </div>
                 <div class="experience-info">
-                  <h5 class="experience-title fs-5-1 fw-bold">
+                  <h5 class="experience-title fs-5 fw-bold">
                     {{'home.experience.start'|translate}}
                   </h5>
                   <div class="row">
@@ -221,7 +251,7 @@
           </div>
         </div>
         <div class="col-lg-6 order-lg-2 order-1">
-          <img src="assets/images/home/redmi-phone.svg" alt="phone" class="w-100 d-md-block d-none" height="400px">
+          <img src="assets/images/home/redmi-phone.svg" alt="phone" class="w-100 d-lg-block d-none">
         </div>
       </div>
     </div>
@@ -238,10 +268,10 @@
         <div class="d-flex align-items-end justify-content-between gap-md-5 gap-3 flex-md-nowrap flex-wrap">
           <div class="row">
             <div class="col-xl-8 col-lg-10">
-              <h2 class="fs-1">
+              <h2 class="fs-lg fw-bold">
                 {{'home.articles.title'|translate}}
               </h2>
-              <p class="mb-0">
+              <p class="mb-0 description-font mt-3">
                 {{'home.articles.description'|translate}}
               </p>
             </div>
@@ -263,25 +293,35 @@
     <div class="container">
       <div class="row align-items-center">
         <div class="col-lg-6">
-          <img src="assets/images/home/apps.svg" alt="apps" class="w-100">
+          <img src="assets/images/home/apps.svg" alt="apps" class="app-img w-100">
         </div>
         <div class="col-lg-6">
-          <h4 class="fs-1">
+          <h4 class="fs-lg fw-bold">
             {{'home.apps.title'|translate}}
           </h4>
-          <p class="mt-3 mb-0">
+          <p class="mt-3 mb-0 description-font">
             {{'home.apps.description'|translate}}
           </p>
           <div class="d-flex gap-3 mt-4 flex-wrap">
             <a href="https://apps.apple.com/us/app/%D8%AA%D9%84%D8%A8%D9%8A%D9%86%D8%A9-talbinah/id6464413895"
-              target="_blank" rel="noopener noreferrer">
-              <img src="assets/images/downloadsChannels/app-store.svg" width="160" height="48" class="apps-image"
-                alt="app-store">
+              target="_blank" rel="noopener noreferrer" class="d-flex gap-2 align-items-center app-btn p-2">
+              <app-dynamic-svg [name]="'color-app-store-icon'"></app-dynamic-svg>
+              <div class="lh-1">
+                <small class="fs-8-1">{{'general.downloadNow'|translate}}</small>
+                <p class="mb-0 fw-500 text-capitalize fs-5 lh-1">
+                  {{'general.appStore'|translate}}
+                </p>
+              </div>
             </a>
             <a href="https://play.google.com/store/apps/details?id=com.talbinah.talbinah&pli=1" target="_blank"
-              rel="noopener noreferrer">
-              <img src="assets/images/downloadsChannels/google-play.svg" width="160" height="48" class="apps-image"
-                alt="google-play">
+              rel="noopener noreferrer" class="d-flex gap-2 align-items-center app-btn p-2">
+              <app-dynamic-svg [name]="'color-google-play-icon'"></app-dynamic-svg>
+              <div class="lh-1">
+                <small class="fs-8-1">{{'general.downloadNow'|translate}}</small>
+                <p class="mb-0 fw-500 text-capitalize fs-5 lh-1">
+                  {{'general.googlePlay'|translate}}
+                </p>
+              </div>
             </a>
           </div>
         </div>

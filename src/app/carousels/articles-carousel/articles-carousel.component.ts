@@ -22,7 +22,7 @@ export class ArticlesCarouselComponent {
       numScroll: 1
     },
     {
-      breakpoint: '768px',
+      breakpoint: '991px',
       numVisible: 2,
       numScroll: 1
     },

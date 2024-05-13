@@ -1,9 +1,7 @@
 <nav class="navbar navbar-expand-lg position-fixed w-100 py-0">
   <div class="container px-0 h-100">
     <a class="navbar-brand m-0" href="/">
-      <img
-      src="assets/images/logo/lg-logo.webp" 
-      alt="logo" class="logo">
+      <img src="assets/images/logo/lg-logo.webp" alt="logo" class="logo">
     </a>
     <button class="navbar-toggler border-0" type="button">
       <div class="menu-icon d-flex justify-content-between flex-column align-items-end">
@@ -17,20 +15,21 @@
         <ng-container *ngFor="let link of navItems">
           <li class="nav-item mb-2 text-nowrap" *ngIf="!link.children">
             <a class="nav-link" href="{{link.route}}" [routerLink]="[link.route]" routerLinkActive="active-link"
-              [title]="link.label">
+              [class.active-link]="link.route.includes(page)" [title]="link.label">
               {{ link.label | translate }}
             </a>
           </li>
           <li class="nav-item dropdown" *ngIf="link.children">
-            <a class="nav-link dropdown-toggle d-flex align-items-center gap-2" href="{{link.route}}" id="navbarDropdown" role="button"
-              [routerLink]="[link.route]" data-bs-toggle="dropdown" aria-expanded="false">
+            <a class="nav-link dropdown-toggle d-flex align-items-center gap-2" href="{{link.route}}"
+              id="navbarDropdown" role="button" [routerLink]="[link.route]" data-bs-toggle="dropdown"
+              aria-expanded="false">
               {{ link.label | translate }}
               <i class="pi pi-angle-down fs-8"></i>
             </a>
             <ul class="dropdown-menu border-0 shadow" aria-labelledby="navbarDropdown">
               <li *ngFor="let child of link.children; let i = index" [class.mb-1]="i < link.children.length - 1">
-                <a class="dropdown-item" href="{{child.route}}" [routerLink]="[child.route]" routerLinkActive="active-link"
-                  [title]="child.label">
+                <a class="dropdown-item" href="{{child.route}}" [routerLink]="[child.route]"
+                  routerLinkActive="active-link" [title]="child.label">
                   {{ child.label | translate }}
                 </a>
               </li>

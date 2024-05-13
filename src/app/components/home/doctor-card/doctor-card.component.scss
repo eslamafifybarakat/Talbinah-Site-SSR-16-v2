@@ -1,10 +1,14 @@
 .doctor-card {
   border-radius: 18px;
   border: 1px solid #eaecf0;
+  &:hover {
+    box-shadow: 0px 20px 70px 0px rgba(0, 39, 96, 0.05);
+    border: none;
+  }
   .doctor-img {
     width: 9rem;
     height: 9rem;
-    border: 1px solid #eaecf0;
+    border: 2px solid #eaecf0;
   }
   .description {
     color: #6f7479;
@@ -12,5 +16,13 @@
   .count-rate {
     border: 1px solid #eaecf0;
     width: fit-content;
+  }
+
+  // In SM Screen
+  .doctor-img-sm {
+    width: 4.8rem;
+    min-width: 4.8rem;
+    height: 4.8rem;
+    border: 1px solid #eaecf0;
   }
 }
