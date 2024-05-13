@@ -1,15 +1,15 @@
 #home-page {
   .pt-hero {
-    padding-top: 7rem;
+    padding-top: 11rem;
   }
   .pt-7 {
-    padding-top: 6rem;
+    padding-top: 8rem;
   }
   .fs-lg {
-    font-size: 3rem;
+    font-size: 3.3rem;
   }
   .description-font {
-    font-size: 1.1rem;
+    font-size: 1.15rem;
     color: #404040;
   }
   @media (max-width: 991px) {
@@ -163,7 +163,8 @@
     background-position: center;
     .experience-content {
       border-radius: 15px;
-      transition: all 0.3s ease-in-out;
+      transition: all 0.5s ease-in-out;
+      padding: 1rem;
       .experience-num {
         width: 2rem;
         min-width: 2rem;
@@ -179,7 +180,7 @@
         color: #e5e5e5;
       }
       &:hover {
-        padding: 1rem;
+        transition: all 0.5s ease-in-out;
         background-color: var(--bg-white-color);
         .experience-num {
           background-color: var(--bg-main-color);

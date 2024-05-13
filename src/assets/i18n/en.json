@@ -74,6 +74,14 @@
       "description":"World-class care for everyone. Our health system provides unparalleled specialized health care."
     }
   },
+  "doctors":{
+"findDoctor":"Find a doctor or specialist",
+"filterOptions":"Filter options",
+"commonFilter":"Common filter",
+"specialties":"Specialties",
+"type":"Type",
+"priceValue":"Price value"
+  },
   "auth": {
     "startRecruitment": "Start your recruitment journey now",
     "joinMasdar": "Join the Al Masdar International Recruitment platform to be able to obtain the workers allocated to you",

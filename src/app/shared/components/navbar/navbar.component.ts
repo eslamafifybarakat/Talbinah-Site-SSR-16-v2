@@ -5,7 +5,7 @@ import { NavItem, navItems } from './../../../interfaces/navbar';
 import { CommonModule, NgOptimizedImage, isPlatformBrowser } from '@angular/common';
 import { Component, HostListener, Inject, PLATFORM_ID } from '@angular/core';
 import { TranslateModule } from '@ngx-translate/core';
-import { RouterModule } from '@angular/router';
+import { Router, RouterModule } from '@angular/router';
 // Components
 import { LanguageSelectorComponent } from '../language-selector/language-selector.component';
 import { DownloadAppsComponent } from '../download-apps/download-apps.component';
@@ -35,6 +35,7 @@ export class NavbarComponent {
   isVisitMegaMenuVisible: boolean = false;
   isUserLoggedIn: boolean = false;
   navItems: NavItem[];
+  url: any;
 
   @HostListener("window:scroll", ["$event"])
   handleScroll(event: Event) {
@@ -73,9 +74,11 @@ export class NavbarComponent {
   }
   constructor(
     @Inject(PLATFORM_ID) private platformId: Object,
-    private dialogService: DialogService
+    private dialogService: DialogService,
+    private router: Router
   ) {
     this.page = 'Home';
+    this.url = router.url;
     this.navItems = navItems;
   }
 

@@ -6,12 +6,16 @@
     border: none;
   }
   .doctor-img {
-    width: 9rem;
-    height: 9rem;
+    width: 13rem;
+    height: 13rem;
     border: 2px solid #eaecf0;
+  }
+  .title {
+    font-size: 1.6rem;
   }
   .description {
     color: #6f7479;
+    font-size: 1.05rem;
   }
   .count-rate {
     border: 1px solid #eaecf0;
@@ -24,5 +28,10 @@
     min-width: 4.8rem;
     height: 4.8rem;
     border: 1px solid #eaecf0;
+  }
+}
+@media (max-width: 776px) {
+  .title {
+    font-size: 1.4rem;
   }
 }

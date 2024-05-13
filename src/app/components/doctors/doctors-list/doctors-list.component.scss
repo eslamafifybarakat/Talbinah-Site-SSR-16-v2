@@ -1,0 +1,113 @@
+#doctors-list {
+  padding-top: 6rem;
+  .sidebar-card {
+    background: #f9fafb;
+    border-radius: 18px;
+    hr {
+      border-color: #d2d1d1;
+    }
+  }
+  .overlay-search {
+    inset: 0;
+    background-color: #11111128;
+    z-index: 2;
+    border-radius: 20px;
+  }
+  .search-filter {
+    border-radius: 10px;
+  }
+  .search-sidebar {
+    border-radius: 0;
+  }
+  .spinner-grow {
+    width: 0.7rem;
+    height: 0.7rem;
+    background-color: var(--bg-main-color);
+  }
+}
+
+:host::ng-deep {
+  #doctors-list {
+    .p-inputtext {
+      height: 2.6rem !important;
+    }
+    .p-inputgroup {
+      background-color: #f9fafb !important;
+      border-radius: 10px;
+      overflow: hidden;
+    }
+
+    .p-paginator {
+      .p-link {
+        border-radius: 5px !important;
+      }
+
+      .p-paginator-page.p-highlight {
+        background-color: var(--bg-main-color) !important;
+        color: var(--text-white-color) !important;
+      }
+    }
+
+    .p-sidebar .p-sidebar-header {
+      display: flex;
+      justify-content: flex-end;
+    }
+
+    .close {
+      background-color: #f44336;
+      color: var(--text-white-color);
+      border-radius: 50%;
+      width: 30px;
+      height: 30px;
+    }
+
+    .sidebar-info {
+      padding: 0 1.2rem;
+      height: calc(100% - 64px);
+    }
+
+    .p-sidebar-content {
+      max-height: 100vh;
+      margin: 0;
+      padding: 0;
+    }
+
+    .p-sidebar .p-sidebar-header,
+    .p-sidebar .p-sidebar-footer {
+      display: none;
+    }
+
+    .mat-mdc-slider .mdc-slider__thumb-knob {
+      background-color: var(--bg-main-color) !important;
+      border-color: var(--bg-main-color) !important;
+    }
+
+    .mat-mdc-slider.mat-primary {
+      --mdc-slider-handle-color: var(--bg-main-color) !important;
+      --mdc-slider-focus-handle-color: var(--bg-main-color) !important;
+      --mdc-slider-hover-handle-color: var(--bg-main-color) !important;
+      --mdc-slider-active-track-color: var(--bg-main-color) !important;
+      --mdc-slider-inactive-track-color: var(--bg-main-color) !important;
+      --mdc-slider-with-tick-marks-active-container-color: #fff;
+      --mdc-slider-with-tick-marks-inactive-container-color: var(
+        --bg-main-color
+      ) !important;
+      --mat-mdc-slider-ripple-color: var(--bg-main-color) !important;
+      --mat-mdc-slider-hover-ripple-color: rgba(132, 84, 142, 0.05) !important;
+      --mat-mdc-slider-focus-ripple-color: rgba(132, 84, 142, 0.2) !important;
+    }
+  }
+}
+
+.empty-div {
+  width: 40px;
+}
+
+.content1 {
+  flex: 1;
+}
+
+.sidebar {
+  position: sticky;
+  top: 15px;
+}

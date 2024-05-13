@@ -16,13 +16,20 @@
       .p-carousel-prev {
         position: absolute;
         bottom: 2px;
-        background-color: var(--bg-main-color);
-        color: var(--text-white-color);
         border-radius: 50%;
-      }
-      .p-disabled {
-        background-color: transparent;
         color: var(--text-main-color);
+        background-color: transparent;
+        &:hover {
+          background-color: var(--bg-main-color);
+          color: var(--text-white-color);
+        }
+        // .carousel-prev-icon {
+        //   font-family: "primeicons";
+        //   content: "\e91b";
+        // }
+        // svg {
+        //   display: none;
+        // }
       }
       .p-carousel-next {
         right: 0;

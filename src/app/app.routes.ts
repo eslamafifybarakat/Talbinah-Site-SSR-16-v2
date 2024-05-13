@@ -5,6 +5,7 @@ import { Routes } from '@angular/router';
 // TS Files for child routes
 import { authChildrenRoutes } from './components/auth/auth-children-routes';
 import { errorsChildrenRoutes } from './components/errors/errors-routes';
+import { doctorsChildrenRoutes } from './components/doctors/doctors-children-routes';
 
 
 export const appRoutes: Routes = [
@@ -41,6 +42,23 @@ export const appRoutes: Routes = [
         (c) => c.HomeComponent
       )
   },
+  // Doctors
+  {
+    path: 'Doctors',
+    loadComponent: () =>
+      import('./components/doctors/doctors.component').then(
+        (c) => c.DoctorsComponent
+      ),
+    children: doctorsChildrenRoutes
+  },
+  {
+    path: ':lang/Doctors',
+    loadComponent: () =>
+      import('./components/doctors/doctors.component').then(
+        (c) => c.DoctorsComponent
+      ),
+    children: doctorsChildrenRoutes
+  },
   // Contact Us
   {
     path: ':lang/ContactUs',
@@ -67,8 +85,8 @@ export const appRoutes: Routes = [
     // canActivate: [LanguageGuard] // Optional: Use a guard to validate the language parameter\
   },
 
-   // Errors
-   {
+  // Errors
+  {
     path: ':lang/Errors',
     loadComponent: () =>
       import('./components/errors/errors.component').then(

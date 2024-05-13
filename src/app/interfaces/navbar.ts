@@ -19,7 +19,7 @@ export const navItems = [
   {
     title: 'navigationHeader.doctors',
     label: 'navigationHeader.doctors',
-    route: '/DoctorsAndTherapists',
+    route: '/Doctors',
     icon: '',
     isActive: false
   },

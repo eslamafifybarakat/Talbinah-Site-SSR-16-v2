@@ -1,0 +1,437 @@
+<div id="doctors-list">
+  <div class="container">
+
+    <div class="row container1 d-flex">
+      <div class="col-lg-3 d-lg-block d-none">
+        <div class="sidebar-card">
+          <div class="overlay-search position-absolute d-flex justify-content-center" *ngIf="isLoadingDoctors">
+            <div class="d-flex justify-content-center align-items-center gap-2">
+              <ng-container *ngFor="let item of [8,8,9,8]">
+                <div class="spinner-grow" role="status">
+                  <span class="visually-hidden">Loading...</span>
+                </div>
+              </ng-container>
+            </div>
+          </div>
+          <h5 class="p-4 mb-0">
+            {{'doctors.filterOptions'|translate}}
+          </h5>
+          <hr class="m-0">
+          <form (ngSubmit)="filterNow()" [formGroup]="filterForm">
+            <div class="p-4">
+              <h5 class="color-secondary mb-0 fs-5-1 fw-bold">
+                {{'doctors.specialties' | translate}}
+              </h5>
+              <div class="mt-3">
+                <div *ngFor="let category of specialitiesList"
+                  class="field-checkbox d-flex align-items-center gap-3 mb-3">
+                  <p-checkbox name="group2" value="category" [value]="category" [(ngModel)]="selectedCategories"
+                    [inputId]="category.id" [disabled]="false"></p-checkbox>
+                  <label [for]="category.id" class="mb-0">{{category.name}}</label>
+                </div>
+              </div>
+            </div>
+
+            <!-- <div class="mb-4">
+              <div class="d-flex align-items-center gap-2">
+                <img src="assets/images/doctors/date.svg" width="23" alt="date">
+                <h5 class="color-secondary mb-0 fs-5-1">
+                  {{'doctors.date_time' | translate}}
+                </h5>
+              </div>
+              <div class="d-flex">
+                <div class="empty-div"></div>
+                <div class="d-flex align-items-center gap-3 mt-3 flex-wrap">
+                  <div class="form-check gap-2">
+                    <input class="form-check-input" type="radio" name="time" formControlName="time" value="evening"
+                      id="time11">
+                    <label class="form-check-label" for="time11">
+                      {{'doctors.evening' | translate}}
+                    </label>
+                  </div>
+                  <div class="form-check gap-2">
+                    <input class="form-check-input" type="radio" name="time" formControlName="time" value="morning"
+                      id="time22">
+                    <label class="form-check-label" for="time22">
+                      {{'doctors.morning' | translate}}
+                    </label>
+                  </div>
+                </div>
+              </div>
+              <div class="d-flex mt-3">
+                <div class="empty-div"></div>
+                <div class="d-flex align-items-center gap-3 flex-wrap">
+                  <div class="form-check">
+                    <input class="form-check-input " type="radio" name="date" formControlName="date" value="tomorrow"
+                      id="date11">
+                    <label class="form-check-label" for="date11">
+                      {{'doctors.tomorrow' | translate}}
+                    </label>
+                  </div>
+                  <div class="form-check">
+                    <input class="form-check-input" type="radio" name="date" formControlName="date" value="today"
+                      id="date22">
+                    <label class="form-check-label" for="date22">
+                      {{'doctors.today' | translate}}
+                    </label>
+                  </div>
+                  <div class="form-check">
+                    <input class="form-check-input" type="radio" name="date" formControlName="date" value="this_week"
+                      id="date33">
+                    <label class="form-check-label" for="date33">
+                      {{'doctors.this_week' | translate}}
+                    </label>
+                  </div>
+                </div>
+              </div>
+            </div> -->
+
+            <div class="mb-4">
+              <div class="d-flex align-items-center gap-2">
+                <img src="assets/images/doctors/type.svg" width="23" alt="type">
+                <h5 class="color-secondary mb-0 fs-5-1">
+                  {{'doctors.gender' | translate}}
+                </h5>
+              </div>
+              <div class="d-flex mt-3">
+                <div class="empty-div"></div>
+                <div class="d-flex align-items-center gap-3">
+                  <div class="form-check">
+                    <input class="form-check-input " type="radio" name="gender" id="gender11" checked
+                      formControlName="gender" value="male">
+                    <label class="form-check-label" for="gender11">
+                      {{'doctors.male' | translate}}
+                    </label>
+                  </div>
+                  <div class="form-check">
+                    <input class="form-check-input" type="radio" id="gender22" formControlName="gender" value="female">
+                    <label class="form-check-label" for="gender22">
+                      {{'doctors.female' | translate}}
+                    </label>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="mb-4">
+              <div class="d-flex align-items-center gap-2">
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler text-main-color icon-tabler-stars"
+                  width="25" height="25" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none"
+                  stroke-linecap="round" stroke-linejoin="round">
+                  <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                  <path
+                    d="M17.8 19.817l-2.172 1.138a.392 .392 0 0 1 -.568 -.41l.415 -2.411l-1.757 -1.707a.389 .389 0 0 1 .217 -.665l2.428 -.352l1.086 -2.193a.392 .392 0 0 1 .702 0l1.086 2.193l2.428 .352a.39 .39 0 0 1 .217 .665l-1.757 1.707l.414 2.41a.39 .39 0 0 1 -.567 .411l-2.172 -1.138z" />
+                  <path
+                    d="M6.2 19.817l-2.172 1.138a.392 .392 0 0 1 -.568 -.41l.415 -2.411l-1.757 -1.707a.389 .389 0 0 1 .217 -.665l2.428 -.352l1.086 -2.193a.392 .392 0 0 1 .702 0l1.086 2.193l2.428 .352a.39 .39 0 0 1 .217 .665l-1.757 1.707l.414 2.41a.39 .39 0 0 1 -.567 .411l-2.172 -1.138z" />
+                  <path
+                    d="M12 9.817l-2.172 1.138a.392 .392 0 0 1 -.568 -.41l.415 -2.411l-1.757 -1.707a.389 .389 0 0 1 .217 -.665l2.428 -.352l1.086 -2.193a.392 .392 0 0 1 .702 0l1.086 2.193l2.428 .352a.39 .39 0 0 1 .217 .665l-1.757 1.707l.414 2.41a.39 .39 0 0 1 -.567 .411l-2.172 -1.138z" />
+                </svg>
+                <h5 class="color-secondary mb-0 fs-5-1">
+                  أعلي التقيمات
+                </h5>
+              </div>
+              <div class="d-flex mt-3">
+                <div class="empty-div"></div>
+                <div class="d-flex align-items-center gap-3">
+                  <div class="form-check">
+                    <input class="form-check-input" type="radio" name="rate" id="rate1" checked formControlName="rate"
+                      value="yes">
+                    <label class="form-check-label" for="rate1">
+                      نعم
+                    </label>
+                  </div>
+                  <div class="form-check">
+                    <input class="form-check-input" type="radio" id="rate2" formControlName="rate" value="no">
+                    <label class="form-check-label" for="rate2">
+                      لأ
+                    </label>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="mb-4">
+              <div class="d-flex align-items-center gap-3">
+                <img src="assets/images/doctors/money.svg" width="23" alt="money">
+                <h5 class="color-secondary mb-0 fs-5-1">
+                  {{'doctors.session_fees' | translate}}
+                </h5>
+              </div>
+              <div class="d-flex mt-3">
+                <div class="empty-div"></div>
+                <!-- <mat-slider [max]="500" [min]="1" [discrete]="true" [showTickMarks]="true" class="w-100">
+                  <input formControlName="start_price" matSliderStartThumb>
+                  <input formControlName="end_price" matSliderEndThumb>
+                </mat-slider> -->
+              </div>
+            </div>
+            <div class="d-flex flex-wrap justify-content-center align-items-center gap-2">
+              <button type="submit" class="btn btn-solid-main">
+                {{'general.search'|translate}}
+              </button>
+              <button class="btn btn-outline-main" (click)="reset()">
+                {{'doctors.reset'|translate}}
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+      <div class="col-lg-9 content1">
+        <div class="p-inputgroup w-100 mb-5 position-relative">
+          <div class="overlay-search search-filter position-absolute d-flex justify-content-center"
+            *ngIf="isLoadingDoctors">
+            <div class="d-flex justify-content-center align-items-center gap-2">
+              <ng-container *ngFor="let item of [8,8,9,8]">
+                <div class="spinner-grow" role="status">
+                  <span class="visually-hidden">Loading...</span>
+                </div>
+              </ng-container>
+            </div>
+          </div>
+          <input type="text" class="form-control border-0 bg-transparent"
+            placeholder="{{'doctors.findDoctor'|translate}}" #searchInput (keyup)="handleSearch(searchInput.value)">
+          <div class="d-flex align-items-center gap-3">
+            <ng-container *ngIf="searchInput.value">
+              <span class="pointer" (click)="clearSearchValue(searchInput)">
+                <i class="pi pi-filter-slash text-main-color"></i>
+              </span>
+            </ng-container>
+            <span class="d-lg-none d-flex pointer" (click)="displayFilter=true">
+              <i class="pi pi-filter text-main-color fs-5-2"></i>
+            </span>
+          </div>
+          <span class="p-inputgroup-addon bg-transparent border-0">
+            <svg width="25" height="24" viewBox="0 0 25 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path
+                d="M3.92578 21L8.27578 16.65M5.92578 11C5.92578 15.4183 9.5075 19 13.9258 19C18.3441 19 21.9258 15.4183 21.9258 11C21.9258 6.58172 18.3441 3 13.9258 3C9.5075 3 5.92578 6.58172 5.92578 11Z"
+                stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
+          </span>
+        </div>
+        <div class="row">
+          <ng-container *ngIf="isLoadingDoctors; else noLoadingDoctors">
+            <app-skeleton [type]="'doctorsList'"></app-skeleton>
+          </ng-container>
+          <ng-template #noLoadingDoctors>
+            <ng-container *ngIf="doctorsList?.length>0; else noData">
+              <ng-container *ngFor="let doctor of doctorsList ; let i = index">
+                <div class="col-xl-4 col-lg-6 col-md-6 col-sm-6 mb-4">
+                  <app-doctor-card [item]="doctor"></app-doctor-card>
+                </div>
+              </ng-container>
+            </ng-container>
+            <ng-template #noData>
+              <div class="py-4 d-flex justify-content-center align-items-center gap-3 flex-column">
+                <ng-container *ngIf="isSearch; else noSearch">
+                  <div class="row w-100 justify-content-center">
+                    <div class="col-lg-3 col-md-6 col-10">
+                      <img src="assets/images/not-found/no-search.svg" class="w-100" alt="no-data">
+                    </div>
+                  </div>
+                  <p>لا يوجد نتائج للبحث</p>
+                </ng-container>
+                <ng-template #noSearch>
+                  <div class="row w-100 justify-content-center">
+                    <div class="col-lg-7 col-md-6 col-10">
+                      <img src="assets/images/not-found/no-data.svg" class="w-100" alt="no-data">
+                    </div>
+                  </div>
+                  <p>لا يوجد أطباء</p>
+                </ng-template>
+
+              </div>
+            </ng-template>
+          </ng-template>
+        </div>
+        <ng-container *ngIf="totalDoctors>doctorsList?.length">
+          <div>
+            <p-paginator [rows]="10" [totalRecords]="totalDoctors" (onPageChange)="onPageChange($event)"></p-paginator>
+          </div>
+        </ng-container>
+
+      </div>
+    </div>
+
+    <p-sidebar [(visible)]="displayFilter" [position]="currentLanguage=='ar'?'right':'left'">
+      <div class="d-flex justify-content-between align-items-center p-3">
+        <h5 class="mb-0">
+          بحث سريع
+        </h5>
+        <a (click)="displayFilter=false" class="close d-flex justify-content-center align-items-center">
+          <i class="pi pi-times"></i>
+        </a>
+      </div>
+      <div class="position-relative sidebar-info">
+        <div class="overlay-search search-sidebar position-absolute d-flex justify-content-center"
+          *ngIf="isLoadingDoctors">
+          <div class="d-flex justify-content-center align-items-center gap-2">
+            <ng-container *ngFor="let item of [8,8,9,8]">
+              <div class="spinner-grow" role="status">
+                <span class="visually-hidden">Loading...</span>
+              </div>
+            </ng-container>
+          </div>
+        </div>
+        <form (ngSubmit)="filterNow()" [formGroup]="filterForm" class="py-3">
+          <div class="mb-4">
+            <div class="d-flex align-items-center gap-2 mb-3">
+              <img src="assets/images/doctors/category.svg" width="22" alt="category">
+              <h5 class="color-secondary mb-0 fs-5-1">
+                {{'doctors.catagory' | translate}}
+              </h5>
+            </div>
+            <div class="d-flex mt-3">
+              <div class="empty-div"></div>
+              <div class="w-100">
+                <p-dropdown [options]="specialitiesList" formControlName="category" optionLabel="name" [filter]="true"
+                  [virtualScroll]="true" filterPlaceholder="{{'doctors.search'|translate}}" [virtualScrollItemSize]="40"
+                  filterBy="title" appendTo="body" scrollHeight="200px" [emptyMessage]="'No results found'"
+                  [showClear]="true" placeholder="{{'doctors.catagory'|translate}}">
+                </p-dropdown>
+              </div>
+            </div>
+          </div>
+
+          <!-- <div class="mb-4">
+          <div class="d-flex align-items-center gap-2">
+            <img src="assets/images/doctors/date.svg" width="23" alt="date">
+            <h5 class="color-secondary mb-0 fs-5-1">
+              {{'doctors.date_time' | translate}}
+            </h5>
+          </div>
+          <div class="d-flex">
+            <div class="empty-div"></div>
+            <div class="d-flex align-items-center gap-3 mt-3 flex-wrap">
+              <div class="form-check gap-2">
+                <input class="form-check-input" type="radio" name="time" formControlName="time" value="evening"
+                  id="time11">
+                <label class="form-check-label" for="time11">
+                  {{'doctors.evening' | translate}}
+                </label>
+              </div>
+              <div class="form-check gap-2">
+                <input class="form-check-input" type="radio" name="time" formControlName="time" value="morning"
+                  id="time22">
+                <label class="form-check-label" for="time22">
+                  {{'doctors.morning' | translate}}
+                </label>
+              </div>
+            </div>
+          </div>
+          <div class="d-flex mt-3">
+            <div class="empty-div"></div>
+            <div class="d-flex align-items-center gap-3 flex-wrap">
+              <div class="form-check">
+                <input class="form-check-input " type="radio" name="date" formControlName="date" value="tomorrow"
+                  id="date11">
+                <label class="form-check-label" for="date11">
+                  {{'doctors.tomorrow' | translate}}
+                </label>
+              </div>
+              <div class="form-check">
+                <input class="form-check-input" type="radio" name="date" formControlName="date" value="today"
+                  id="date22">
+                <label class="form-check-label" for="date22">
+                  {{'doctors.today' | translate}}
+                </label>
+              </div>
+              <div class="form-check">
+                <input class="form-check-input" type="radio" name="date" formControlName="date" value="this_week"
+                  id="date33">
+                <label class="form-check-label" for="date33">
+                  {{'doctors.this_week' | translate}}
+                </label>
+              </div>
+            </div>
+          </div>
+        </div> -->
+
+          <div class="mb-4">
+            <div class="d-flex align-items-center gap-2">
+              <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler text-main-color icon-tabler-stars"
+                width="25" height="25" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none"
+                stroke-linecap="round" stroke-linejoin="round">
+                <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                <path
+                  d="M17.8 19.817l-2.172 1.138a.392 .392 0 0 1 -.568 -.41l.415 -2.411l-1.757 -1.707a.389 .389 0 0 1 .217 -.665l2.428 -.352l1.086 -2.193a.392 .392 0 0 1 .702 0l1.086 2.193l2.428 .352a.39 .39 0 0 1 .217 .665l-1.757 1.707l.414 2.41a.39 .39 0 0 1 -.567 .411l-2.172 -1.138z" />
+                <path
+                  d="M6.2 19.817l-2.172 1.138a.392 .392 0 0 1 -.568 -.41l.415 -2.411l-1.757 -1.707a.389 .389 0 0 1 .217 -.665l2.428 -.352l1.086 -2.193a.392 .392 0 0 1 .702 0l1.086 2.193l2.428 .352a.39 .39 0 0 1 .217 .665l-1.757 1.707l.414 2.41a.39 .39 0 0 1 -.567 .411l-2.172 -1.138z" />
+                <path
+                  d="M12 9.817l-2.172 1.138a.392 .392 0 0 1 -.568 -.41l.415 -2.411l-1.757 -1.707a.389 .389 0 0 1 .217 -.665l2.428 -.352l1.086 -2.193a.392 .392 0 0 1 .702 0l1.086 2.193l2.428 .352a.39 .39 0 0 1 .217 .665l-1.757 1.707l.414 2.41a.39 .39 0 0 1 -.567 .411l-2.172 -1.138z" />
+              </svg>
+              <h5 class="color-secondary mb-0 fs-5-1">
+                أعلي التقيمات
+              </h5>
+            </div>
+            <div class="d-flex mt-3">
+              <div class="empty-div"></div>
+              <div class="d-flex align-items-center gap-3">
+                <div class="form-check">
+                  <input class="form-check-input" type="radio" name="rate" id="rate1" checked formControlName="rate"
+                    value="yes">
+                  <label class="form-check-label" for="rate1">
+                    نعم
+                  </label>
+                </div>
+                <div class="form-check">
+                  <input class="form-check-input" type="radio" id="rate2" formControlName="rate" value="no">
+                  <label class="form-check-label" for="rate2">
+                    لأ
+                  </label>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="mb-4">
+            <div class="d-flex align-items-center gap-2">
+              <img src="assets/images/doctors/type.svg" width="23" alt="type">
+              <h5 class="color-secondary mb-0 fs-5-1">
+                {{'doctors.gender' | translate}}
+              </h5>
+            </div>
+            <div class="d-flex mt-3">
+              <div class="empty-div"></div>
+              <div class="d-flex align-items-center gap-3">
+                <div class="form-check">
+                  <input class="form-check-input " type="radio" name="gender" id="gender11" checked
+                    formControlName="gender" value="male">
+                  <label class="form-check-label" for="gender11">
+                    {{'doctors.male' | translate}}
+                  </label>
+                </div>
+                <div class="form-check">
+                  <input class="form-check-input" type="radio" id="gender22" formControlName="gender" value="female">
+                  <label class="form-check-label" for="gender22">
+                    {{'doctors.female' | translate}}
+                  </label>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="mb-4">
+            <div class="d-flex align-items-center gap-3">
+              <img src="assets/images/doctors/money.svg" width="23" alt="money">
+              <h5 class="color-secondary mb-0 fs-5-1">
+                {{'doctors.session_fees' | translate}}
+              </h5>
+            </div>
+            <div class="d-flex mt-3">
+              <div class="empty-div"></div>
+              <!-- <mat-slider [max]="500" [min]="1" [discrete]="true" [showTickMarks]="true" class="w-100">
+                <input formControlName="start_price" matSliderStartThumb>
+                <input formControlName="end_price" matSliderEndThumb>
+              </mat-slider> -->
+            </div>
+          </div>
+
+          <div class="d-flex flex-wrap justify-content-center align-items-center gap-2">
+            <button type="submit" class="btn btn-solid-main">
+              {{'general.search'|translate}}
+            </button>
+            <button class="btn btn-outline-main" (click)="reset()">
+              {{'doctors.reset'|translate}}
+            </button>
+          </div>
+        </form>
+      </div>
+    </p-sidebar>
+  </div>
+</div>

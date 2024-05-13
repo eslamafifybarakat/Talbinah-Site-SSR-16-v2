@@ -2,7 +2,7 @@ input[type]::-webkit-input-placeholder,
 textarea::-webkit-input-placeholder,
 select::-webkit-input-placeholder,
 select.form-control.has-value {
-  font-size: 0.9rem;
+  font-size: 1rem;
   color: var(--placeholder-input-color) !important;
 }
 
