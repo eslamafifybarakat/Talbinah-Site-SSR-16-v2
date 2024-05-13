@@ -19,3 +19,7 @@
   [breakpoints]="{'786px': {width: '80%', margin:'auto'}}"></p-toast>
 
 <overlay-loading></overlay-loading>
+
+<ng-container *ngIf="showLoader">
+  <loader></loader>
+</ng-container>

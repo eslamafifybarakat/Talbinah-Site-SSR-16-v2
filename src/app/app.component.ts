@@ -22,6 +22,7 @@ export class AppComponent {
   favIcon: HTMLLinkElement | any;
   platform: any;
   currentLanguage: any;
+  showLoader: boolean = false;
 
   constructor(
     @Inject(PLATFORM_ID) private platformId: Object,
@@ -34,6 +35,11 @@ export class AppComponent {
   ) { }
 
   ngOnInit(): void {
+    this.showLoader = true;
+    setTimeout(() => {
+      this.showLoader = false;
+    }, 2000);
+
     if (isPlatformBrowser(this.platformId)) {
       setTimeout(() => {
         this.isServer = false;
