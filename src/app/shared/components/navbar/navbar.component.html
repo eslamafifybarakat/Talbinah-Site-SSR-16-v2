@@ -44,7 +44,7 @@
         <ng-template #elseNotLoggedIn>
           <div class="d-flex flex-row align-items-center gap-2 justify-content-center-small">
             <span class="nav-item">
-              <button class="btn btn-solid-main text-nowrap w-auto">
+              <button class="btn btn-solid-main text-nowrap w-auto" (click)="downloadApp()">
                 {{"navigationHeader.uploadAppNow" | translate}}
                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
                   <path

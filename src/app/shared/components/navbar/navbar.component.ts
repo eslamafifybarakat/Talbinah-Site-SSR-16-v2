@@ -1,3 +1,4 @@
+import { DialogService } from 'primeng/dynamicdialog';
 // Services
 import { NavItem, navItems } from './../../../interfaces/navbar';
 // Modules
@@ -7,6 +8,7 @@ import { TranslateModule } from '@ngx-translate/core';
 import { RouterModule } from '@angular/router';
 // Components
 import { LanguageSelectorComponent } from '../language-selector/language-selector.component';
+import { DownloadAppsComponent } from '../download-apps/download-apps.component';
 
 
 
@@ -70,7 +72,8 @@ export class NavbarComponent {
     this.collapse = false;
   }
   constructor(
-    @Inject(PLATFORM_ID) private platformId: Object
+    @Inject(PLATFORM_ID) private platformId: Object,
+    private dialogService: DialogService
   ) {
     this.page = 'Home';
     this.navItems = navItems;
@@ -82,4 +85,13 @@ export class NavbarComponent {
   login(): void {
   }
 
+  downloadApp(): void {
+    const ref = this?.dialogService?.open(DownloadAppsComponent, {
+      width: '35%',
+      showHeader: false,
+      styleClass: 'custom-modal download-app-dialog',
+      dismissableMask: true,
+      data: {}
+    });
+  }
 }

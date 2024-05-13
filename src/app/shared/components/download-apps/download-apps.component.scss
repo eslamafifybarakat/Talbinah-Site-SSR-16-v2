@@ -1,0 +1,20 @@
+.join-us-img {
+  width: 150px;
+}
+
+.close-btn {
+  z-index: 66;
+  width: 30px;
+  height: 30px;
+}
+
+.app-btn {
+  background-color: #000000;
+  color: var(--text-white-color);
+  border-radius: 7px;
+}
+@media (max-width: 456px) {
+  .apps-image {
+    width: 7.5rem;
+  }
+}

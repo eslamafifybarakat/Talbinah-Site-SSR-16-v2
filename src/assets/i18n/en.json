@@ -30,7 +30,9 @@
     "noData":"There is no Data",
     "downloadNow":"Download Now",
     "appStore":"app store",
-    "googlePlay":"google play"
+    "googlePlay":"google play",
+    "downloadApps": "Download Apps",
+    "downloadAppsText": "To book an appointment with this doctor, download the application by clicking on the following links"
   },
   "home": {
     "hero": {
