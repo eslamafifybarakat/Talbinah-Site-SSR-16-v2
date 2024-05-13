@@ -10,6 +10,7 @@ import { isPlatformBrowser } from '@angular/common';
 })
 export class PublicService {
   show_loader = new Subject<boolean>();
+  pageData = new Subject<any>();
 
   constructor(
     @Inject(PLATFORM_ID) private platformId: Object,

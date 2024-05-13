@@ -15,7 +15,7 @@
         <ng-container *ngFor="let link of navItems">
           <li class="nav-item mb-2 text-nowrap" *ngIf="!link.children">
             <a class="nav-link" href="{{link.route}}" [routerLink]="[link.route]" routerLinkActive="active-link"
-              [class.active-link]="url.includes(link.route)" [title]="link.label">
+              [class.active-link]="link.route.includes(page)" [title]="link.label">
               {{ link.label | translate }}
             </a>
           </li>

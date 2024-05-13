@@ -25,7 +25,7 @@ export const appRoutes: Routes = [
       import('./components/auth/auth.component').then(
         (c) => c.AuthComponent
       ),
-    children: authChildrenRoutes
+    children: authChildrenRoutes,
   },
   // Home Page
   {
@@ -33,14 +33,20 @@ export const appRoutes: Routes = [
     loadComponent: () =>
       import('./components/home/home.component').then(
         (c) => c.HomeComponent
-      )
+      ),
+    data: {
+      page: 'Home'
+    }
   },
   {
     path: ':lang/Home',
     loadComponent: () =>
       import('./components/home/home.component').then(
         (c) => c.HomeComponent
-      )
+      ),
+    data: {
+      page: 'Home'
+    }
   },
   // Doctors
   {
@@ -49,7 +55,10 @@ export const appRoutes: Routes = [
       import('./components/doctors/doctors.component').then(
         (c) => c.DoctorsComponent
       ),
-    children: doctorsChildrenRoutes
+    children: doctorsChildrenRoutes,
+    data: {
+      page: 'Doctors'
+    }
   },
   {
     path: ':lang/Doctors',

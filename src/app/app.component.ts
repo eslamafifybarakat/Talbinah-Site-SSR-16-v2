@@ -1,3 +1,4 @@
+import { PublicService } from './services/generic/public.service';
 import { DOCUMENT, isPlatformBrowser, isPlatformServer, registerLocaleData } from '@angular/common';
 import { Component, Inject, PLATFORM_ID, Renderer2 } from '@angular/core';
 import { ActivatedRoute, NavigationEnd, Router } from '@angular/router';
@@ -30,6 +31,7 @@ export class AppComponent {
     private translateService: TranslateService,
     private activatedRoute: ActivatedRoute,
     private primengConfig: PrimeNGConfig,
+    private publicService: PublicService,
     private renderer: Renderer2,
     private router: Router
   ) { }
@@ -55,6 +57,7 @@ export class AppComponent {
       map(() => this.extractDataFromRoute(this.activatedRoute))
     ).subscribe((data: any) => {
       if (data) {
+        this.publicService.pageData.next(data);
         // subscribe data
       }
     });

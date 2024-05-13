@@ -1,3 +1,4 @@
+import { PublicService } from './../../../services/generic/public.service';
 import { DialogService } from 'primeng/dynamicdialog';
 // Services
 import { NavItem, navItems } from './../../../interfaces/navbar';
@@ -35,7 +36,6 @@ export class NavbarComponent {
   isVisitMegaMenuVisible: boolean = false;
   isUserLoggedIn: boolean = false;
   navItems: NavItem[];
-  url: any;
 
   @HostListener("window:scroll", ["$event"])
   handleScroll(event: Event) {
@@ -75,11 +75,13 @@ export class NavbarComponent {
   constructor(
     @Inject(PLATFORM_ID) private platformId: Object,
     private dialogService: DialogService,
+    private publicService: PublicService,
     private router: Router
   ) {
-    this.page = 'Home';
-    this.url = router.url;
     this.navItems = navItems;
+    publicService.pageData.subscribe((res: any) => {
+      this.page = res?.page;
+    })
   }
 
   ngOnInit(): void {
