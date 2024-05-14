@@ -1,3 +1,4 @@
+import { DynamicSvgComponent } from './../../../shared/components/icons/dynamic-svg/dynamic-svg.component';
 // Module
 import { CommonModule, isPlatformBrowser, isPlatformServer } from '@angular/common';
 import { FormBuilder, FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -15,6 +16,7 @@ import { SkeletonComponent } from './../../../shared/components/skeleton/skeleto
 import { DoctorCardComponent } from '../../home/doctor-card/doctor-card.component';
 
 // Services
+import { Subject, Subscription, catchError, debounceTime, finalize, tap } from 'rxjs';
 import { ChangeDetectorRef, Component, Inject, PLATFORM_ID } from '@angular/core';
 import { MetadataService } from './../../../services/generic/metadata.service';
 import { AlertsService } from './../../../services/generic/alerts.service';
@@ -22,7 +24,6 @@ import { PublicService } from './../../../services/generic/public.service';
 import { ActivatedRoute, Router, RouterModule } from '@angular/router';
 import { DoctorsService } from './../../../services/doctors.service';
 import { keys } from './../../../shared/configs/localstorage-key';
-import { Subject, Subscription, catchError, debounceTime, finalize, tap } from 'rxjs';
 import { DialogService } from 'primeng/dynamicdialog';
 
 
@@ -44,6 +45,7 @@ import { DialogService } from 'primeng/dynamicdialog';
 
     // Components
     BannerCarouselComponent,
+    DynamicSvgComponent,
     DoctorCardComponent,
     SkeletonComponent,
   ],

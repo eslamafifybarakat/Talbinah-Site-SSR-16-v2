@@ -35,7 +35,8 @@
     "downloadAppsText": "To book an appointment with this doctor, download the application by clicking on the following links",
     "search":"Search",
     "reset":"Reset",
-    "sr":"SR"
+    "sr":"SR",
+"noSearchResult":"There are no search results"
   },
   "home": {
     "hero": {
@@ -86,7 +87,8 @@
 "priceValue":"Price value",
 "gender":"Gender",
 "male":"Male",
-"female":"Female"
+"female":"Female",
+"noDoctors":"There are no doctors"
   },
   "auth": {
     "startRecruitment": "Start your recruitment journey now",

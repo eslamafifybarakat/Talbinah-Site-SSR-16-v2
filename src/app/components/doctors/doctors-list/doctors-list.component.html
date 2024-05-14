@@ -190,20 +190,16 @@
             <ng-template #noData>
               <div class="py-4 d-flex justify-content-center align-items-center gap-3 flex-column">
                 <ng-container *ngIf="isSearch; else noSearch">
-                  <div class="row w-100 justify-content-center">
-                    <div class="col-lg-3 col-md-6 col-10">
-                      <img src="assets/images/not-found/no-search.svg" class="w-100" alt="no-data">
-                    </div>
-                  </div>
-                  <p>لا يوجد نتائج للبحث</p>
+                  <app-dynamic-svg [name]="'no-data'"></app-dynamic-svg>
+                  <p>
+                    {{'general.noSearchResult'|translate}}
+                  </p>
                 </ng-container>
                 <ng-template #noSearch>
-                  <div class="row w-100 justify-content-center">
-                    <div class="col-lg-7 col-md-6 col-10">
-                      <img src="assets/images/not-found/no-data.svg" class="w-100" alt="no-data">
-                    </div>
-                  </div>
-                  <p>لا يوجد أطباء</p>
+                  <app-dynamic-svg [name]="'no-data'"></app-dynamic-svg>
+                  <p>
+                    {{'doctors.noDoctors'|translate}}
+                  </p>
                 </ng-template>
               </div>
             </ng-template>
