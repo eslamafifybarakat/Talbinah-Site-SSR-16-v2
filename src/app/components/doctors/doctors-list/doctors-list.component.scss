@@ -116,6 +116,10 @@
       .p-link {
         border-radius: 50% !important;
       }
+      .p-paginator-page {
+        min-width: 2.5rem;
+        height: 2.5rem;
+      }
       .p-paginator-page.p-highlight {
         background-color: #f9fafb !important;
         color: #000 !important;

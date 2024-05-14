@@ -84,9 +84,9 @@
 "specialties":"Specialties",
 "type":"Type",
 "priceValue":"Price value",
-"gender":"gender",
-"male":"male",
-"female":"female"
+"gender":"Gender",
+"male":"Male",
+"female":"Female"
   },
   "auth": {
     "startRecruitment": "Start your recruitment journey now",

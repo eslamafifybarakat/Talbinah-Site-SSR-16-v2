@@ -78,8 +78,8 @@ export class DoctorsListComponent {
     // time: [""],
     // date: [""],
     gender: [null],
-    start_price: [0],
-    end_price: [500],
+    startPrice: [0],
+    endPrice: [500],
   });
   get formControls(): any {
     return this.filterForm?.controls;
@@ -213,9 +213,9 @@ export class DoctorsListComponent {
 
   filterNow(): void {
     this.page = 1;
-    this.specialistId = this.filterForm.value?.category?.id;
-    this.startPrice = this.filterForm.value?.start_price;
-    this.endPrice = this.filterForm.value?.end_price;
+    this.filterForm.value?.category ? this.specialistId = this.filterForm.value?.category[0]?.id : '';
+    this.startPrice = this.filterForm.value?.startPrice;
+    this.endPrice = this.filterForm.value?.endPrice;
     this.gender = this.filterForm.value?.gender == 'male' ? 0 : this.filterForm.value?.gender == 'female' ? 1 : null;
     this.topRated = this.filterForm.value?.rate == 'yes' ? 1 : null;
     this.getDoctorsList();
@@ -226,8 +226,8 @@ export class DoctorsListComponent {
       category: null,
       rate: null,
       gender: null,
-      start_price: 0,
-      end_price: 500
+      startPrice: 0,
+      endPrice: 500
     });
     this.getDoctorsList();
   }
