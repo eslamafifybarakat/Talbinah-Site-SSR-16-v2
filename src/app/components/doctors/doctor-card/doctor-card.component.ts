@@ -1,4 +1,4 @@
-import { Doctor } from './../../../interfaces/home';
+import { Doctor } from '../../../interfaces/home';
 import { Component, Input } from '@angular/core';
 import { RouterModule } from '@angular/router';
 

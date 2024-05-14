@@ -1,4 +1,4 @@
-import { DoctorCardComponent } from './../../components/home/doctor-card/doctor-card.component';
+import { DoctorCardComponent } from '../../components/doctors/doctor-card/doctor-card.component';
 import { PublicService } from './../../services/generic/public.service';
 import { TranslateModule } from '@ngx-translate/core';
 import { CarouselModule } from 'primeng/carousel';

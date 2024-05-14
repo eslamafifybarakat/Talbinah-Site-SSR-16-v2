@@ -1,0 +1,98 @@
+.doctor-details {
+  padding-top: 6rem;
+  .outline-btn-favourite {
+    color: var(--text-main-color) !important;
+    background: var(--text-white-color);
+    display: inline-block;
+    border: 1.5px solid var(--text-white-color);
+
+    &:hover {
+      // color: #e6e6e6;
+      background: var(--text-white-color) !important;
+      display: inline-block;
+      border: 1.5px solid var(--text-white-color) !important;
+      // box-shadow: 0 20px 30px 0 rgba(164, 165, 165, 0.2);
+    }
+  }
+
+  .doc-img-details {
+    height: 11rem !important;
+    width: 11rem !important;
+    border: 2px solid var(--text-main-color);
+    object-fit: fill;
+    padding: 2px;
+  }
+
+  .font-p {
+    font-size: 1.1rem;
+  }
+
+  .btn-favorite-position {
+    position: absolute;
+    right: 1rem;
+    top: 1rem;
+    z-index: 999;
+  }
+
+  .bg-color-social-icon {
+    background: var(--bg-main-color);
+    color: var(--text-white-color) !important;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem;
+  }
+  .hover-icon {
+    color: #fff !important;
+  }
+  .twitter-icon {
+    display: grid !important;
+    place-items: center;
+    background: var(--bg-main-color);
+    width: 30px;
+    height: 30px;
+  }
+  .content-details {
+    .global-card {
+      .tab-content {
+        .tab-pane {
+          max-height: 400px;
+          overflow-x: hidden;
+          overflow-y: scroll;
+        }
+      }
+    }
+  }
+
+  .session-icon {
+    background-color: var(--bg-main-color);
+    border-radius: 0.5rem;
+    padding: 2px;
+    width: 28px;
+    height: 28px;
+    text-align: center;
+
+    i {
+      color: var(--text-white-color);
+    }
+  }
+
+  .nav-tabs {
+    .nav-link {
+      color: #222 !important;
+
+      &:focus-visible {
+        border-color: transparent transparent transparent !important;
+        outline: none !important;
+      }
+
+      &.active,
+      .nav-item.show & {
+        color: var(--text-main-color) !important;
+        border-color: #dee2e6 #dee2e6 transparent !important;
+      }
+    }
+  }
+}

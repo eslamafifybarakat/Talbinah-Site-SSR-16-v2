@@ -13,7 +13,7 @@ import { RatingModule } from 'primeng/rating';
 // Components
 import { BannerCarouselComponent } from './../../../carousels/banner-carousel/banner-carousel.component';
 import { SkeletonComponent } from './../../../shared/components/skeleton/skeleton.component';
-import { DoctorCardComponent } from '../../home/doctor-card/doctor-card.component';
+import { DoctorCardComponent } from '../doctor-card/doctor-card.component';
 
 // Services
 import { Subject, Subscription, catchError, debounceTime, finalize, tap } from 'rxjs';
