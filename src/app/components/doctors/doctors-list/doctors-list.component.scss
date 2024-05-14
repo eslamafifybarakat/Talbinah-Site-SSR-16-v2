@@ -162,5 +162,8 @@
 @media (max-width: 1220px) {
   #doctors-list {
     padding-top: 1rem;
+    .sidebar-card {
+      top: 1rem;
+    }
   }
 }

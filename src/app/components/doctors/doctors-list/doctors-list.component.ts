@@ -1,44 +1,69 @@
+// Module
+import { CommonModule, isPlatformBrowser, isPlatformServer } from '@angular/common';
+import { FormBuilder, FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { RadioButtonModule } from 'primeng/radiobutton';
+import { TranslateModule } from '@ngx-translate/core';
+import { PaginatorModule } from 'primeng/paginator';
+import { CheckboxModule } from 'primeng/checkbox';
+import { DropdownModule } from 'primeng/dropdown';
+import { SidebarModule } from 'primeng/sidebar';
+import { RatingModule } from 'primeng/rating';
+
+// Components
 import { BannerCarouselComponent } from './../../../carousels/banner-carousel/banner-carousel.component';
 import { SkeletonComponent } from './../../../shared/components/skeleton/skeleton.component';
+import { DoctorCardComponent } from '../../home/doctor-card/doctor-card.component';
+
+// Services
+import { ChangeDetectorRef, Component, Inject, PLATFORM_ID } from '@angular/core';
+import { MetadataService } from './../../../services/generic/metadata.service';
 import { AlertsService } from './../../../services/generic/alerts.service';
 import { PublicService } from './../../../services/generic/public.service';
 import { ActivatedRoute, Router, RouterModule } from '@angular/router';
 import { DoctorsService } from './../../../services/doctors.service';
-import { MetadataService } from './../../../services/generic/metadata.service';
 import { keys } from './../../../shared/configs/localstorage-key';
-import { CommonModule, isPlatformBrowser, isPlatformServer } from '@angular/common';
-import { ChangeDetectorRef, Component, Inject, PLATFORM_ID } from '@angular/core';
-import { Subject, Subscription, debounceTime } from 'rxjs';
+import { Subject, Subscription, catchError, debounceTime, finalize, tap } from 'rxjs';
 import { DialogService } from 'primeng/dynamicdialog';
-import { FormBuilder, FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { TranslateModule } from '@ngx-translate/core';
-import { DropdownModule } from 'primeng/dropdown';
-import { RatingModule } from 'primeng/rating';
-import { PaginatorModule } from 'primeng/paginator';
-import { SidebarModule } from 'primeng/sidebar';
-import { DoctorCardComponent } from '../../home/doctor-card/doctor-card.component';
-import { CheckboxModule } from 'primeng/checkbox';
-import { RadioButtonModule } from 'primeng/radiobutton';
+
 
 @Component({
   standalone: true,
-  imports: [TranslateModule, FormsModule, ReactiveFormsModule, DropdownModule, RouterModule, CommonModule, SkeletonComponent, RatingModule, PaginatorModule, SidebarModule, DoctorCardComponent, CheckboxModule, RadioButtonModule, BannerCarouselComponent],
+  imports: [
+    // Module
+    ReactiveFormsModule,
+    RadioButtonModule,
+    TranslateModule,
+    PaginatorModule,
+    DropdownModule,
+    CheckboxModule,
+    SidebarModule,
+    RouterModule,
+    CommonModule,
+    RatingModule,
+    FormsModule,
+
+    // Components
+    BannerCarouselComponent,
+    DoctorCardComponent,
+    SkeletonComponent,
+  ],
   selector: 'app-doctors-list',
   templateUrl: './doctors-list.component.html',
   styleUrls: ['./doctors-list.component.scss']
 })
 export class DoctorsListComponent {
-  private unsubscribe: Subscription[] = [];
+  private subscriptions: Subscription[] = [];
   private searchSubject = new Subject<any>();
   currentLanguage: any;
-  selectedCategories: any = [];
+
   doctorsList: any = [];
   totalDoctors: number = 0;
   isLoadingDoctors: boolean = false;
   isSearch: boolean = false;
+  search: any;
+
   page: number = 1;
   perPage: number = 12;
-  search: any;
   startPrice: any;
   endPrice: any;
   gender: any;
@@ -46,6 +71,7 @@ export class DoctorsListComponent {
   topRated: any;
 
   specialitiesList: any = [];
+
   filterForm = this.fb?.group({
     category: [null],
     rate: [null],
@@ -59,6 +85,7 @@ export class DoctorsListComponent {
     return this.filterForm?.controls;
   }
   displayFilter: boolean = false;
+
   constructor(
     @Inject(PLATFORM_ID) private platformId: Object,
     private metadataService: MetadataService,
@@ -84,51 +111,13 @@ export class DoctorsListComponent {
       if (params['category_id']) {
         this.specialistId = params['category_id'];
       }
-      this.getDoctors();
+      this.getDoctorsList();
     });
     this.searchSubject.pipe(debounceTime(500)).subscribe(event => {
       this.searchService(event);
     });
   }
 
-  getDoctors(): void {
-    if (isPlatformBrowser(this.platformId)) {
-      this.isLoadingDoctors = true;
-      this.doctorsService?.getAll(this.page, this.perPage, this.search, this.startPrice, this.endPrice, this.gender, this.specialistId, this.topRated)?.subscribe(
-        (res: any) => {
-          if (res?.status == true) {
-            this.doctorsList = res?.data?.doctors;
-            this.doctorsList?.forEach(element => {
-              // element['avg_rate'] = this.publicService.transformDecimalToInteger(element['avg_rate']);
-            });
-            if (this.search != null || this.search != '' || this.startPrice != null || this.endPrice != null || this.gender != null || this.specialistId != null || this.topRated != null) {
-              this.isSearch = true;
-            } else {
-              this.isSearch = false;
-            }
-            this.totalDoctors = res?.data?.doctors_count;
-            this.specialitiesList = res?.data?.specialists;
-            this.specialitiesList?.forEach(element => {
-              if (element?.id == this.specialistId) {
-                this.filterForm.patchValue({
-                  category: element
-                });
-              }
-            });
-            this.isLoadingDoctors = false;
-            this.cdr.detectChanges();
-          } else {
-            this.isLoadingDoctors = false;
-            res?.message ? this.alertsService?.openToast('error', 'error', res?.message) : '';
-          }
-        },
-        (err: any) => {
-          err ? this.alertsService?.openToast('error', 'error', err) : '';
-          this.isLoadingDoctors = false;
-        }
-      );
-    }
-  }
   private updateMetaTags(): void {
     this.metadataService.updateTitle('تلبينة | الأطباء');
     this.metadataService.updateMetaTagsName([
@@ -157,11 +146,53 @@ export class DoctorsListComponent {
     ]);
   }
 
+  /* Start Get Doctors List Functions */
+  getDoctorsList(): void {
+    this.isLoadingDoctors = true;
+    let doctorsSubscription: Subscription = this.doctorsService?.getAll(this.page, this.perPage, this.search, this.startPrice, this.endPrice, this.gender, this.specialistId, this.topRated)
+      .pipe(
+        tap((res: any) => this.processDoctorsListResponse(res)),
+        catchError(err => this.handleError(err)),
+        finalize(() => this.finalizeUserDoctorsLoading())
+      ).subscribe();
+    this.subscriptions.push(doctorsSubscription);
+  }
+  private processDoctorsListResponse(response: any): void {
+    if (response?.status == true) {
+      this.doctorsList = response?.data?.doctors;
+      if (this.search != null || this.search != '' || this.startPrice != null || this.endPrice != null || this.gender != null || this.specialistId != null || this.topRated != null) {
+        this.isSearch = true;
+      } else {
+        this.isSearch = false;
+      }
+      this.totalDoctors = response?.data?.doctors_count;
+      this.specialitiesList = response?.data?.specialists;
+      this.specialitiesList?.forEach((element: any) => {
+        if (element?.id == this.specialistId) {
+          this.filterForm.patchValue({
+            category: element
+          });
+        }
+      });
+    } else {
+      this.handleError(response.error);
+      return;
+    }
+    this.isLoadingDoctors = false;
+  }
+  private finalizeUserDoctorsLoading(): void {
+    this.isLoadingDoctors = false;
+  }
+  /* End Get Doctors List Functions */
+
+  // Start Pagination
   onPageChange(event: any): void {
     this.page = event?.page + 1;
-    this.getDoctors();
+    this.getDoctorsList();
   }
+  // End Pagination
 
+  // Start Search
   handleSearch(event: any): void {
     this.searchSubject.next(event);
   }
@@ -169,15 +200,16 @@ export class DoctorsListComponent {
     this.search = event;
     this.page = 1;
     this.isLoadingDoctors = true;
-    this.getDoctors();
+    this.getDoctorsList();
   }
   clearSearchValue(event: any): void {
     event.value = '';
     this.page = 1;
     this.search = null;
     this.isLoadingDoctors = true;
-    this.getDoctors();
+    this.getDoctorsList();
   }
+  // End Search
 
   filterNow(): void {
     this.page = 1;
@@ -186,7 +218,7 @@ export class DoctorsListComponent {
     this.endPrice = this.filterForm.value?.end_price;
     this.gender = this.filterForm.value?.gender == 'male' ? 0 : this.filterForm.value?.gender == 'female' ? 1 : null;
     this.topRated = this.filterForm.value?.rate == 'yes' ? 1 : null;
-    this.getDoctors();
+    this.getDoctorsList();
   }
   reset(): void {
     this.page = 1;
@@ -197,11 +229,24 @@ export class DoctorsListComponent {
       start_price: 0,
       end_price: 500
     });
-    this.getDoctors();
+    this.getDoctorsList();
+  }
+
+  /* --- Handle api requests error messages --- */
+  private handleError(err: any): any {
+    this.setErrorMessage(err || 'An error has occurred');
+  }
+  private setErrorMessage(message: string): void {
+    // Implementation for displaying the error message, e.g., using a sweetalert
+    this.alertsService?.openToast('error', 'error', message);
   }
 
   ngOnDestroy(): void {
-    this.unsubscribe?.forEach((sb) => sb?.unsubscribe());
+    this.subscriptions.forEach((subscription: Subscription) => {
+      if (subscription && subscription.closed) {
+        subscription.unsubscribe();
+      }
+    });
   }
 }
 

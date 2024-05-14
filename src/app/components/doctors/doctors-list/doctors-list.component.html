@@ -29,8 +29,8 @@
               <div class="mt-3">
                 <div *ngFor="let category of specialitiesList"
                   class="field-checkbox d-flex align-items-center gap-3 mb-3">
-                  <p-checkbox name="group2" value="category" [value]="category" [(ngModel)]="selectedCategories"
-                    [inputId]="category.id" [disabled]="false"></p-checkbox>
+                  <p-checkbox value="category" [value]="category" formControlName="category" [inputId]="category.id"
+                    [disabled]="false"></p-checkbox>
                   <label [for]="category.id" class="mb-0">{{category.name}}</label>
                 </div>
               </div>
@@ -247,8 +247,8 @@
             <div class="mt-3">
               <div *ngFor="let category of specialitiesList"
                 class="field-checkbox d-flex align-items-center gap-3 mb-3">
-                <p-checkbox name="group2" value="category" [value]="category" [(ngModel)]="selectedCategories"
-                  [inputId]="category.id" [disabled]="false"></p-checkbox>
+                <p-checkbox value="category" [value]="category" formControlName="category" [inputId]="category.id"
+                  [disabled]="false"></p-checkbox>
                 <label [for]="category.id" class="mb-0">{{category.name}}</label>
               </div>
             </div>
