@@ -1,6 +1,6 @@
 <div
   class="doctor-card bg-white-color p-3 w-100 d-sm-flex d-none justify-content-center align-items-center gap-3 flex-column">
-  <div class="doctor-img rounded-circle">
+  <div class="doctor-img rounded-circle" [routerLink]="'/Doctors/Details/'+item.id">
     <img [src]="item?.image" class="w-100 h-100 rounded-circle" [alt]="item.full_name"
       onerror="src='assets/images/not-found/no-woman-doctor.svg'">
   </div>

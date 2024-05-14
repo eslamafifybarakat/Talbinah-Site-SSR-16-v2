@@ -1,4 +1,5 @@
 import { ErrorsComponent } from "../errors/errors.component";
+import { DoctorDetailsComponent } from "./doctor-details/doctor-details.component";
 import { DoctorsListComponent } from "./doctors-list/doctors-list.component";
 
 export const doctorsChildrenRoutes: any[] = [
@@ -6,10 +7,11 @@ export const doctorsChildrenRoutes: any[] = [
   {
     path: 'List',
     component: DoctorsListComponent,
-    data: {
-      permission: 'Pages.doctors.List',
-      page: 'Doctors'
-    },
+    pathMatch: 'full'
+  },
+  {
+    path: "Details/:id",
+    component: DoctorDetailsComponent,
     pathMatch: 'full'
   },
 
