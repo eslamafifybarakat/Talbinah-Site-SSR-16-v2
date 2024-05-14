@@ -32,7 +32,10 @@
     "appStore":"app store",
     "googlePlay":"google play",
     "downloadApps": "حمّل التطبيـــق الآن",
-    "downloadAppsText": "لحجز موعد عند هذا الدكتور فم بتنزيل التطبيق بالضغط الروابط الآتية"
+    "downloadAppsText": "لحجز موعد عند هذا الدكتور فم بتنزيل التطبيق بالضغط الروابط الآتية",
+    "search":"بحث",
+    "reset":"اعادة ضبط",
+    "sr":"ريال"
   },
   "home": {
     "hero": {
@@ -80,7 +83,10 @@
 "commonFilter":"الفلتر الشائع",
 "specialties":"التخصصات",
 "type":"النوع",
-"priceValue":"قيمة السعر"
+"priceValue":"قيمة السعر",
+"gender":"النوع",
+"male":"ذكر",
+"female":"أنثي"
       },
   "auth": {
     "startRecruitment": "ابدأ رحلة التوظيف الخاصة بك الآن",
@@ -159,6 +165,8 @@
     "postNumber": "رقم البريد"
   },
   "placeholders": {
+    "setMin":"تعيين الحد الأدنى",
+    "setMax":"تعيين الحد الأقصى",
     "searchEstkdam": "ابحث عن الوظيفة التي تريدها",
     "username": "أدخل اسم المستخدم",
     "password": "أدخل كلمة المرور",

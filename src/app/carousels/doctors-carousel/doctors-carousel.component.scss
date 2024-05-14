@@ -17,6 +17,8 @@
         position: absolute;
         bottom: 2px;
         border-radius: 50%;
+        width: 3rem;
+        height: 3rem;
         color: var(--text-main-color);
         background-color: transparent;
         &:hover {
@@ -36,6 +38,13 @@
       }
       .p-carousel-prev {
         right: 3rem;
+      }
+    }
+    @media (max-width: 776px) {
+      .p-carousel-next,
+      .p-carousel-prev {
+        width: 2.5rem;
+        height: 2.5rem;
       }
     }
   }

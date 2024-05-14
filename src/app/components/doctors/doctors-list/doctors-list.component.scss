@@ -1,11 +1,49 @@
 #doctors-list {
   padding-top: 6rem;
+  .btn-solid-main {
+    min-width: 7rem;
+    color: var(--text-white-color) !important;
+    background-color: var(--bg-main-color) !important;
+    border-color: var(--text-main-color) !important;
+    border-radius: 0.5rem;
+    padding: 0.65rem 1.25rem;
+    font-size: 1rem;
+    transition: all 0.4s ease-in-out;
+    z-index: 1;
+  }
+
+  .btn-solid-main:hover,
+  .btn-solid-main:focus {
+    color: var(--text-white-color) !important;
+  }
+
+  .btn-outline-main {
+    border: 2px solid var(--bg-main-color);
+    color: var(--text-main-color);
+    border-radius: 10px;
+    padding: 0.7rem 1.2rem;
+  }
   .sidebar-card {
     background: #f9fafb;
     border-radius: 18px;
+    position: sticky;
+    top: 6rem;
     hr {
       border-color: #d2d1d1;
     }
+  }
+
+  .price {
+    border: 1px solid #f4f6f8;
+    color: #5a7184;
+    &.active {
+      border-color: var(--bg-main-color);
+      color: var(--text-main-color);
+    }
+  }
+  .form-container {
+    height: calc(100vh - 5rem);
+    overflow: auto;
   }
   .overlay-search {
     inset: 0;
@@ -28,23 +66,59 @@
 
 :host::ng-deep {
   #doctors-list {
+    .p-radiobutton {
+      .p-radiobutton-box {
+        border-radius: 6px;
+        box-shadow: none;
+        &:hover {
+          border-color: #ced4da;
+        }
+        &.p-highlight {
+          background-color: var(--bg-main-color);
+          border-color: var(--bg-main-color);
+          &:hover {
+            border-color: var(--bg-main-color);
+          }
+        }
+      }
+      .p-radiobutton-icon {
+        background-color: transparent;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        &::before {
+          font-family: "primeicons";
+          content: "\e909";
+          color: var(--text-white-color);
+          font-size: 0.8rem;
+        }
+      }
+    }
+
     .p-inputtext {
       height: 2.6rem !important;
     }
     .p-inputgroup {
-      background-color: #f9fafb !important;
+      border: 1px solid #ededed;
       border-radius: 10px;
       overflow: hidden;
+      .p-inputgroup-addon {
+        background-color: #f4f6f8;
+        .dollar-icon {
+          width: 1.5rem;
+          min-width: 1.5rem;
+          height: 1.5rem;
+        }
+      }
     }
 
     .p-paginator {
       .p-link {
-        border-radius: 5px !important;
+        border-radius: 50% !important;
       }
-
       .p-paginator-page.p-highlight {
-        background-color: var(--bg-main-color) !important;
-        color: var(--text-white-color) !important;
+        background-color: #f9fafb !important;
+        color: #000 !important;
       }
     }
 
@@ -62,8 +136,7 @@
     }
 
     .sidebar-info {
-      padding: 0 1.2rem;
-      height: calc(100% - 64px);
+      padding: 0 0.6rem;
     }
 
     .p-sidebar-content {
@@ -76,38 +149,18 @@
     .p-sidebar .p-sidebar-footer {
       display: none;
     }
-
-    .mat-mdc-slider .mdc-slider__thumb-knob {
-      background-color: var(--bg-main-color) !important;
-      border-color: var(--bg-main-color) !important;
-    }
-
-    .mat-mdc-slider.mat-primary {
-      --mdc-slider-handle-color: var(--bg-main-color) !important;
-      --mdc-slider-focus-handle-color: var(--bg-main-color) !important;
-      --mdc-slider-hover-handle-color: var(--bg-main-color) !important;
-      --mdc-slider-active-track-color: var(--bg-main-color) !important;
-      --mdc-slider-inactive-track-color: var(--bg-main-color) !important;
-      --mdc-slider-with-tick-marks-active-container-color: #fff;
-      --mdc-slider-with-tick-marks-inactive-container-color: var(
-        --bg-main-color
-      ) !important;
-      --mat-mdc-slider-ripple-color: var(--bg-main-color) !important;
-      --mat-mdc-slider-hover-ripple-color: rgba(132, 84, 142, 0.05) !important;
-      --mat-mdc-slider-focus-ripple-color: rgba(132, 84, 142, 0.2) !important;
+  }
+  &.ar-doctors-content {
+    .p-paginator-prev,
+    .p-paginator-next,
+    .p-paginator-first,
+    .p-paginator-last {
+      transform: scaleX(-1);
     }
   }
 }
-
-.empty-div {
-  width: 40px;
-}
-
-.content1 {
-  flex: 1;
-}
-
-.sidebar {
-  position: sticky;
-  top: 15px;
+@media (max-width: 1220px) {
+  #doctors-list {
+    padding-top: 1rem;
+  }
 }

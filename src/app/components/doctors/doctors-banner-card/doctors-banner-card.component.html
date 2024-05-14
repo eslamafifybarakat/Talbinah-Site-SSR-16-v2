@@ -1,0 +1,37 @@
+<div class="banner-card">
+  <div class="row align-items-center">
+    <div class="col-lg-6">
+      <img src="assets/images/home/apps.svg" alt="apps" class="app-img w-100">
+    </div>
+    <div class="col-lg-6">
+      <h4 class="fs-lg fw-bold">
+        {{'home.apps.title'|translate}}
+      </h4>
+      <p class="mt-3 mb-0 description-font">
+        {{'home.apps.description'|translate}}
+      </p>
+      <div class="d-flex gap-3 mt-4 flex-wrap">
+        <a href="https://apps.apple.com/us/app/%D8%AA%D9%84%D8%A8%D9%8A%D9%86%D8%A9-talbinah/id6464413895"
+          target="_blank" rel="noopener noreferrer" class="d-flex gap-2 align-items-center app-btn py-2 px-3">
+          <app-dynamic-svg [name]="'color-app-store-icon'"></app-dynamic-svg>
+          <div class="lh-1">
+            <small class="fs-6-1 fw-500">{{'general.downloadNow'|translate}}</small>
+            <p class="mb-0 fw-500 text-capitalize fs-4 lh-1">
+              {{'general.appStore'|translate}}
+            </p>
+          </div>
+        </a>
+        <a href="https://play.google.com/store/apps/details?id=com.talbinah.talbinah&pli=1" target="_blank"
+          rel="noopener noreferrer" class="d-flex gap-2 align-items-center app-btn py-2 px-3">
+          <app-dynamic-svg [name]="'color-google-play-icon'"></app-dynamic-svg>
+          <div class="lh-1">
+            <small class="fs-6-1 fw-500">{{'general.downloadNow'|translate}}</small>
+            <p class="mb-0 fw-500 text-capitalize fs-4 lh-1">
+              {{'general.googlePlay'|translate}}
+            </p>
+          </div>
+        </a>
+      </div>
+    </div>
+  </div>
+</div>

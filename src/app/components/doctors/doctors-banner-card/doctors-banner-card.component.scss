@@ -1,0 +1,28 @@
+.banner-card {
+  .app-btn {
+    background-color: #000000;
+    color: var(--text-white-color);
+    border-radius: 7px;
+  }
+  .description-font {
+    color: #404040;
+    width: 80%;
+  }
+  .app-img {
+    object-fit: cover;
+  }
+  @media (max-width: 991px) {
+    .fs-lg {
+      font-size: 2rem;
+    }
+    .description-font {
+      width: 90%;
+    }
+  }
+
+  @media (max-width: 776px) {
+    .fs-lg {
+      font-size: 1.5rem;
+    }
+  }
+}

@@ -32,7 +32,10 @@
     "appStore":"app store",
     "googlePlay":"google play",
     "downloadApps": "Download Apps",
-    "downloadAppsText": "To book an appointment with this doctor, download the application by clicking on the following links"
+    "downloadAppsText": "To book an appointment with this doctor, download the application by clicking on the following links",
+    "search":"Search",
+    "reset":"Reset",
+    "sr":"SR"
   },
   "home": {
     "hero": {
@@ -80,7 +83,10 @@
 "commonFilter":"Common filter",
 "specialties":"Specialties",
 "type":"Type",
-"priceValue":"Price value"
+"priceValue":"Price value",
+"gender":"gender",
+"male":"male",
+"female":"female"
   },
   "auth": {
     "startRecruitment": "Start your recruitment journey now",
@@ -159,6 +165,8 @@
     "postNumber": "Post Number"
   },
   "placeholders": {
+    "setMin":"Set the minimum",
+    "setMax":"Set the maximum",
     "searchEstkdam": "Find the employment you want",
     "username": "Enter username",
     "password": "Enter password",

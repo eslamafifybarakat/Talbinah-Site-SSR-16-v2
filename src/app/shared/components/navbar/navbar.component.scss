@@ -6,7 +6,8 @@
   &.headerScroll,
   &.headerBg {
     box-shadow: 0 0.125rem 0.25rem #bebebebd;
-    backdrop-filter: blur(4px);
+    // backdrop-filter: blur(4px);
+    background-color: var(--bg-white-color);
   }
 
   .logo {

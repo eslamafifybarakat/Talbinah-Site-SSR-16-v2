@@ -164,7 +164,7 @@
 
   // Start Experience
   #experience {
-    // background-image: url(../../../assets/images/home/services-bg.webp);
+    background-image: url(../../../assets/images/home/services-bg.webp);
     background-repeat: no-repeat;
     background-position: center;
     .experience-content {
@@ -198,6 +198,14 @@
         .experience-description {
           color: #404040;
         }
+      }
+    }
+    @media (min-width: 992px) {
+      & {
+        height: calc(100vh - 4.5rem);
+      }
+      .redmi-phone {
+        height: calc(100vh - 7.5rem);
       }
     }
   }

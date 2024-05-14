@@ -1,3 +1,4 @@
+import { BannerCarouselComponent } from './../../../carousels/banner-carousel/banner-carousel.component';
 import { SkeletonComponent } from './../../../shared/components/skeleton/skeleton.component';
 import { AlertsService } from './../../../services/generic/alerts.service';
 import { PublicService } from './../../../services/generic/public.service';
@@ -17,10 +18,11 @@ import { PaginatorModule } from 'primeng/paginator';
 import { SidebarModule } from 'primeng/sidebar';
 import { DoctorCardComponent } from '../../home/doctor-card/doctor-card.component';
 import { CheckboxModule } from 'primeng/checkbox';
+import { RadioButtonModule } from 'primeng/radiobutton';
 
 @Component({
   standalone: true,
-  imports: [TranslateModule, FormsModule, ReactiveFormsModule, DropdownModule, RouterModule, CommonModule, SkeletonComponent, RatingModule, PaginatorModule, SidebarModule, DoctorCardComponent, CheckboxModule],
+  imports: [TranslateModule, FormsModule, ReactiveFormsModule, DropdownModule, RouterModule, CommonModule, SkeletonComponent, RatingModule, PaginatorModule, SidebarModule, DoctorCardComponent, CheckboxModule, RadioButtonModule, BannerCarouselComponent],
   selector: 'app-doctors-list',
   templateUrl: './doctors-list.component.html',
   styleUrls: ['./doctors-list.component.scss']

@@ -1,0 +1,30 @@
+<div id="banner-slider" [class.ar-slider]="currentLanguage=='ar'">
+  <ng-container *ngIf="items?.length>0; else noFeatures">
+    <ng-container *ngIf="items?.length>1; else noSlider">
+      <p-carousel [value]="items" [numVisible]="1" [numScroll]="1" [showIndicators]="true" [autoplayInterval]="7000"
+        [showNavigators]="false">
+        <ng-template let-slide pTemplate="item">
+          <app-doctors-banner-card class="w-100 feature-card p-lg-3 p-4" [item]="slide"></app-doctors-banner-card>
+        </ng-template>
+      </p-carousel>
+    </ng-container>
+    <ng-template #noSlider>
+      <div class="row">
+        <app-doctors-banner-card [item]="items[0]"></app-doctors-banner-card>
+      </div>
+    </ng-template>
+  </ng-container>
+  <!-- No Features -->
+  <ng-template #noFeatures>
+    <div class="row justify-content-center">
+      <div class="col-xl-5 col-lg-6 col-md-8 col-sm-11">
+        <div class="d-flex flex-column justify-content-center align-items-center gap-2">
+          <img src="assets/images/not-found/no-data.svg" alt="no-data" class="w-100">
+          <p class="mb-0">
+            {{'general.noData'|translate}}
+          </p>
+        </div>
+      </div>
+    </div>
+  </ng-template>
+</div>
