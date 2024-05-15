@@ -9,9 +9,18 @@
       object-fit: cover;
     }
   }
-  .doctor-bio {
+  .doctor-bio,
+  .category {
     background-color: #f9fafb;
     border-radius: 12px;
+  }
+  .price-container {
+    border: 1px solid #f2f4f7;
+    border-radius: 10px;
+    max-width: 12.5rem;
+  }
+  .text-gray {
+    color: #475467;
   }
   // ==================
   .outline-btn-favourite {

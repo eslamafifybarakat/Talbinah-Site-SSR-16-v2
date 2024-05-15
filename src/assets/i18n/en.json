@@ -36,7 +36,8 @@
     "search":"Search",
     "reset":"Reset",
     "sr":"SR",
-"noSearchResult":"There are no search results"
+"noSearchResult":"There are no search results",
+"minute":"minute"
   },
   "home": {
     "hero": {
@@ -88,7 +89,14 @@
 "gender":"Gender",
 "male":"Male",
 "female":"Female",
-"noDoctors":"There are no doctors"
+"noDoctors":"There are no doctors",
+"sessionFees": "Session Fees",
+"rating": "Rating",
+"session": "Session",
+"currencyUsd": "USD",
+"currencyRsa": "RSA",
+"sortedFrom":"Sorted from:",
+"commission":"Saudi Commission for Health Specialties"
   },
   "auth": {
     "startRecruitment": "Start your recruitment journey now",

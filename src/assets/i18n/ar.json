@@ -36,8 +36,8 @@
     "search":"بحث",
     "reset":"اعادة ضبط",
     "sr":"ريال",
-"noSearchResult":"لا يوجد نتائج للبحث"
-
+"noSearchResult":"لا يوجد نتائج للبحث",
+"minute":"دقيقة"
   },
   "home": {
     "hero": {
@@ -89,7 +89,14 @@
 "gender":"النوع",
 "male":"ذكر",
 "female":"أنثي",
-"noDoctors":"لا يوجد أطباء"
+"noDoctors":"لا يوجد أطباء",
+"sessionFees": "سعر الجلسة",
+"rating": "التقييم",
+"session": "الجلسة",
+"currencyUsd": "دولار",
+"currencyRsa": "ر.س",
+"sortedFrom":"مصنف من :",
+"commission":"الهيئة السعودية للتخصصات الصحية"
       },
   "auth": {
     "startRecruitment": "ابدأ رحلة التوظيف الخاصة بك الآن",
