@@ -1,237 +1,54 @@
-#contact-us {
-  padding-top: 5rem;
-  padding-bottom: 3rem;
-  min-height: calc(100vh - 60px);
+.contact-us {
+  padding-top: 3.5rem;
+  .area-control {
+    height: 12rem !important;
+  }
+  .overlay-search {
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #11111151;
+    z-index: 2;
+    border-radius: 20px;
+  }
 
-  // Start Hero Section
-  #hero-section {
-    background-color: #DAEAF4;
-    clip-path: polygon(0 0, 100% 0%, 100% 74%, 0% 100%);
+  .spinner-grow {
+    width: 0.7rem;
+    height: 0.7rem;
+    background-color: var(--bg-main-color);
+  }
+  .contact-form {
+    width: 70%;
 
-    .title {
-      font-size: 32px;
-      font-weight: 600;
-      line-height: 25px;
-      color: var(--text-main-color);
+    @media (max-width: 991px) {
+      width: 90%;
     }
 
-    .subtitle {
-      font-size: 16px;
-      font-weight: 600;
-      line-height: 25px;
-      color: #213039;
+    @media (max-width: 767px) {
+      width: 100%;
     }
   }
 
-  #social {
-    .social-icon {
-      width: 31px;
-      min-width: 31px;
-      height: 31px;
-      background-color: #0c293533;
+  form {
+    .form-control {
+      background-color: #eee !important;
+      border-radius: 5px;
+    }
+
+    textarea {
+      // border: 0 !important;
+      background-color: #eee !important;
+      height: 150px;
+      width: 100%;
+      border-radius: 5px;
+      resize: none;
+      padding: 10px;
     }
   }
 
-  // End Hero Section
-
-  // Start Contact Us Form
-  #contact-us-form {
-    .conatct-box {
-      box-shadow: 0px 0px 20px 6px #26282A14;
-      background-color: var(--bg-white-color);
-      border-radius: 14px;
-
-
-      .title {
-        font-size: 2rem;
-        font-weight: 700;
-        line-height: 53.57px;
-        color: var(--text-main-color);
-      }
-
-      .description {
-        font-size: 20px;
-        font-weight: 500;
-        line-height: 30px;
-        color: #213039;
-      }
-
-      //Start Contact Form
-      // Input Form
-      .inputbox {
-        position: relative;
-
-        input,
-        textarea {
-          position: relative;
-          width: 100%;
-          padding: 20px 10px 10px;
-          background: transparent;
-          outline: none;
-          box-shadow: none;
-          border: none;
-          color: #23242a;
-          font-size: 1em;
-          letter-spacing: 0.05em;
-          transition: 0.5s;
-          z-index: 10;
-
-          &:valid~span,
-          &:focus~span {
-            color: #B1ADAD;
-            transform: translateX(-10px) translateY(-34px);
-            font-size: 0.75em;
-          }
-
-          &:valid~i,
-          &:focus~i {
-            // height: 44px;
-          }
-
-          &.border-red {
-            border-top: 0 !important;
-            border-right: 0 !important;
-            border-left: 0 !important;
-            border-bottom: 0 !important;
-            border-width: 2px !important;
-            border-radius: 0 !important;
-
-            &:valid~span,
-            &:focus~span {
-              color: red;
-            }
-          }
-        }
-
-        textarea {
-          min-height: 16rem;
-        }
-
-        span {
-          position: absolute;
-          left: 0;
-          padding: 20px 10px 10px;
-          font-size: 1em;
-          color: #8f8f8f;
-          letter-spacing: 0.05em;
-          transition: 0.5s;
-          pointer-events: none;
-
-          &:dir(rtl) {
-            left: inherit !important;
-            right: 0;
-          }
-        }
-
-        i {
-          position: absolute;
-          left: 0;
-          bottom: 0;
-          width: 100%;
-          height: 2px;
-          background: #B1ADAD;
-          border-radius: 4px;
-          transition: 0.5s;
-          pointer-events: none;
-          z-index: 9;
-        }
-      }
-
-      // Button Form
-      .btn-solid-main:focus,
-      .btn-solid-main:active {
-        background-color: var(--bg-main-color);
-        border-color: var(--bg-main-color);
-        color: var(--text-white-color);
-      }
-
-      .btn-solid-main {
-        background-color: var(--bg-main-color);
-        border-color: var(--bg-main-color);
-        color: var(--text-white-color);
-        height: 3.2rem;
-        border-radius: var(--border-input-radius);
-        min-width: 9rem;
-      }
-
-      //End Contact Form
-      .contact-img {
-        height: 30rem;
-
-        &:dir(ltr) {
-          img {
-            /* This will flip the image */
-            transform: scaleX(-1);
-          }
-        }
-      }
-    }
-  }
-  // End Contact Us Form
-
-  // Start Hepful Info Section
-  #helpful-info {
-    .contact-img {
-      height: 30rem;
- 
-      &:dir(ltr) {
-        img {
-          /* This will flip the image */
-          transform: scaleX(-1);
-        }
-      }
-    }
-    .btn-outline-main {
-      border: 2px solid var(--bg-main-color);
-      color: var(--text-main-color);
-      border-radius: 10px;
-      padding: 0.7rem 1.2rem;
-    }
-  }
-  // End Hepful Info Section
-}
-
-#upload-files {
-  .label {
-    cursor: pointer;
-    border: 1px solid #000000;
-    border-radius: 30px;
-    padding: 5px 15px;
-    margin: 5px;
-    background: #DAEAF4;
-    color: #000000;
-    display: inline-block;
-    // &:hover {
-    //   background: var(--bg-main-color);
-    //   color: #ffffff;
-    // }
-
-    // &:active {
-    //   background: var(--bg-main-color);
-    //   color: #ffffff;
-    // }
-
-    input[type="file"] {
-      position: absolute;
-      top: -1000px;
-    }
-
-    &:invalid + span {
-      color: #000000;
-    }
-
-    &:valid + span {
-      color: #ffffff;
-    }
-  }
-}
-
-
-@media only screen and (max-width: 600px) {
-  #contact-us {
-    padding-top: 1rem;
-    padding-bottom: 1rem;
-    height: auto;
-    min-height: auto;
+  .form-btn {
+    padding-right: 5rem;
+    padding-left: 5rem;
   }
 }
