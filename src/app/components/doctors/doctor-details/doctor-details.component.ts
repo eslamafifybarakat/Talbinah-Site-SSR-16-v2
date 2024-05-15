@@ -62,6 +62,8 @@ export class DoctorDetailsComponent {
     this.activatedRoute.queryParams.subscribe(params => {
       if (params['id']) {
         this.doctorId = params['id'];
+        console.log(this.doctorId);
+
         this.getDoctorDetails(this.doctorId);
       }
     });

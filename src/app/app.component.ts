@@ -24,6 +24,7 @@ export class AppComponent {
   platform: any;
   currentLanguage: any;
   showLoader: boolean = false;
+  data: any;
 
   constructor(
     @Inject(PLATFORM_ID) private platformId: Object,
@@ -58,6 +59,7 @@ export class AppComponent {
     ).subscribe((data: any) => {
       if (data) {
         this.publicService.pageData.next(data);
+        this.data = data;
         // subscribe data
       }
     });

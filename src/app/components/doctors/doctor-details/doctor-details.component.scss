@@ -1,5 +1,19 @@
 .doctor-details {
-  padding-top: 6rem;
+  padding-top: 7rem;
+  .doctor-img {
+    width: 7rem;
+    min-width: 7rem;
+    height: 7rem;
+    img {
+      border-radius: 10px;
+      object-fit: cover;
+    }
+  }
+  .doctor-bio {
+    background-color: #f9fafb;
+    border-radius: 12px;
+  }
+  // ==================
   .outline-btn-favourite {
     color: var(--text-main-color) !important;
     background: var(--text-white-color);

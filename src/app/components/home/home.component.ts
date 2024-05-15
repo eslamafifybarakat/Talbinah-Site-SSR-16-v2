@@ -22,6 +22,7 @@ import { ReviewsCarouselComponent } from './../../carousels/reviews-carousel/rev
 import { DoctorsCarouselComponent } from './../../carousels/doctors-carousel/doctors-carousel.component';
 import { DynamicSvgComponent } from './../../shared/components/icons/dynamic-svg/dynamic-svg.component';
 import { SkeletonComponent } from './../../shared/components/skeleton/skeleton.component';
+import { FooterComponent } from './../../shared/components/footer/footer.component';
 
 @Component({
   standalone: true,
@@ -39,6 +40,7 @@ import { SkeletonComponent } from './../../shared/components/skeleton/skeleton.c
     DoctorsCarouselComponent,
     DynamicSvgComponent,
     SkeletonComponent,
+    FooterComponent,
   ],
   selector: 'app-home',
   templateUrl: './home.component.html',
