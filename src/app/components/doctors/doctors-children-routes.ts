@@ -12,7 +12,10 @@ export const doctorsChildrenRoutes: any[] = [
   {
     path: "Details/:id",
     component: DoctorDetailsComponent,
-    pathMatch: 'full'
+    pathMatch: 'full',
+    data: {
+      page: 'Doctor-Details'
+    }
   },
 
   { path: '**', component: ErrorsComponent }

@@ -28,3 +28,14 @@
     }
   }
 }
+.btn-solid-main {
+  min-width: 7rem;
+  color: var(--text-white-color) !important;
+  background-color: var(--bg-main-color) !important;
+  border-color: var(--text-main-color) !important;
+  border-radius: 0.5rem;
+  padding: 0.65rem 1.25rem;
+  font-size: 1rem;
+  transition: all 0.4s ease-in-out;
+  z-index: 1;
+}

@@ -1,5 +1,8 @@
 .doctor-details {
   padding-top: 7rem;
+  background-image: url(../../../../assets/images/doctors/doctor-details-bg.svg);
+  background-repeat: no-repeat;
+  background-size: cover;
   .doctor-img {
     width: 7rem;
     min-width: 7rem;
@@ -21,6 +24,46 @@
   }
   .text-gray {
     color: #475467;
+  }
+  .icon {
+    width: 3rem;
+    min-width: 3rem;
+    height: 3rem;
+    background-color: #eaedf1;
+  }
+  .box-content {
+    border: 2px solid #bdc8d3;
+    border-radius: 6px;
+  }
+  .box-container {
+    width: calc(100% - 3rem);
+  }
+  .icons {
+    width: 3rem;
+    border-radius: 7px;
+    background: #f6faff;
+  }
+  .heart {
+    width: 1.8rem;
+    min-width: 1.8rem;
+    height: 1.8rem;
+    border-radius: 8px;
+  }
+  .btn-solid-main {
+    min-width: 7rem;
+    color: var(--text-white-color) !important;
+    background-color: var(--bg-main-color) !important;
+    border-color: var(--text-main-color) !important;
+    border-radius: 0.5rem;
+    padding: 0.65rem 1.25rem;
+    font-size: 1rem;
+    transition: all 0.4s ease-in-out;
+    z-index: 1;
+  }
+  @media (max-width: 1220px) {
+    .doctor-details {
+      padding-top: 1rem;
+    }
   }
   // ==================
   .outline-btn-favourite {

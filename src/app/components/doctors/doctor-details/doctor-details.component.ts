@@ -8,6 +8,7 @@ import { FormsModule } from '@angular/forms';
 import { AvailableDoctorAppointmentsComponent } from '../available-doctor-appointments/available-doctor-appointments.component';
 import { ReviewsCarouselComponent } from './../../../carousels/reviews-carousel/reviews-carousel.component';
 import { SkeletonComponent } from './../../../shared/components/skeleton/skeleton.component';
+import { FooterComponent } from './../../../shared/components/footer/footer.component';
 
 // Services
 import { MetadataService } from './../../../services/generic/metadata.service';
@@ -23,6 +24,7 @@ import { Subscription } from 'rxjs';
 @Component({
   standalone: true,
   imports: [
+    // Modules
     TranslateModule,
     CommonModule,
     RatingModule,
@@ -31,7 +33,8 @@ import { Subscription } from 'rxjs';
     // Components
     AvailableDoctorAppointmentsComponent,
     ReviewsCarouselComponent,
-    SkeletonComponent
+    SkeletonComponent,
+    FooterComponent,
   ],
   selector: 'app-doctor-details',
   templateUrl: './doctor-details.component.html',
@@ -72,8 +75,6 @@ export class DoctorDetailsComponent {
     this.activatedRoute.queryParams.subscribe(params => {
       if (params['id']) {
         this.doctorId = params['id'];
-        console.log(this.doctorId);
-
         this.getDoctorDetails(this.doctorId);
       }
     });

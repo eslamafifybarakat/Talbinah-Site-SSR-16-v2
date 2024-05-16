@@ -101,7 +101,10 @@
 "availableApp": "Available Dates",
 "noAvailableApp": "There is no available dates, now",
 "bookSessionNow": "Book Session Now",
-"views":"Views"
+"views":"Views",
+"sessions":"Sessions",
+"experiences":"Experiences",
+"years":"Years"
   },
   "auth": {
     "startRecruitment": "Start your recruitment journey now",

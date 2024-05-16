@@ -101,7 +101,10 @@
 "bookSessionNow": "احجز جلستك الآن",
 "availableApp": "المواعيد المتاحة",
 "noAvailableApp": "لا يوجد مواعيد متاحة الآن",
-"views":"الآراء"
+"views":"الآراء",
+"sessions":"الجلسات",
+"experiences":"الخبرات",
+"years":"سنين"
       },
   "auth": {
     "startRecruitment": "ابدأ رحلة التوظيف الخاصة بك الآن",
