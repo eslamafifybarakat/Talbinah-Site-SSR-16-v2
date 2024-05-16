@@ -1,0 +1,30 @@
+#available-doctor-appointments {
+  .border-active-appointment {
+    border: 1px solid var(--text-main-color) !important;
+    background-color: #ecf4f1 !important;
+  }
+
+  .border-booked-appointment {
+    border: 1px solid #eee !important;
+    background-color: #eee !important;
+  }
+
+  .check-status {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 4px;
+    border: 3px solid #fff;
+    right: -25px;
+  }
+
+  .lock-status {
+    background-color: rgba(255, 0, 0, 0.15);
+  }
+
+  @media (max-width: 567px) {
+    .min-width-small {
+      min-width: 8rem;
+    }
+  }
+}
