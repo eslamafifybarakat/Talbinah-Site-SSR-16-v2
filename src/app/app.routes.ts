@@ -94,6 +94,23 @@ export const appRoutes: Routes = [
     // canActivate: [LanguageGuard] // Optional: Use a guard to validate the language parameter\
   },
 
+  {
+    path: ':lang/Join-Us',
+    loadComponent: () =>
+      import('./components/join-us/join-us.component').then(
+        (c) => c.JoinUsComponent
+      ),
+    // canActivate: [LanguageGuard] // Optional: Use a guard to validate the language parameter
+  },
+  {
+    path: 'Join-Us',
+    loadComponent: () =>
+      import('./components/join-us/join-us.component').then(
+        (c) => c.JoinUsComponent
+      ),
+    // canActivate: [LanguageGuard] // Optional: Use a guard to validate the language parameter
+  },
+
   // Errors
   {
     path: ':lang/Errors',

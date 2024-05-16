@@ -1,0 +1,43 @@
+:host::ng-deep {
+  #join-us {
+    padding-top: 5rem;
+  }
+  .content-hero {
+    position: relative;
+    min-height: 70vh;
+  }
+
+  .steps-join {
+    width: 3.25rem;
+    height: 3.25rem;
+    background: var(--bg-white-color);
+    border-radius: 0.5rem;
+    font-size: 1.3rem;
+    box-shadow: 0 0 10px 0 rgb(82 63 105 / 15%);
+
+    .img {
+      width: 2.75rem;
+      height: 2.75rem;
+    }
+  }
+
+  .overlay-img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 45% !important;
+    padding: 0;
+    z-index: -1;
+    transform: scaleX(-1);
+  }
+
+  #join-us {
+    @media (max-width: 767px) {
+      .image-sm {
+        width: 90% !important;
+        margin: 15px auto 0 !important;
+        text-align: center !important;
+      }
+    }
+  }
+}

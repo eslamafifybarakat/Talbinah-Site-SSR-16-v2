@@ -106,6 +106,16 @@
 "experiences":"Experiences",
 "years":"Years"
   },
+  "joinUs": {
+    "joinNow": "Join now",
+    "mainTitle": "Join us and contribute now",
+    "mainDescription": "Enjoy practicing psychotherapy online; Now you can communicate with thousands of clients from all over the world privately. Join us with other psychiatrists and psychologists from around the world.",
+    "stepsTitle": "How to join the team of doctors talbinah",
+    "step1": "Click Join Us Now",
+    "step2": "Upload your CV",
+    "step3": "Complete your profile",
+    "step4": "Add your available dates to start receiving clients"
+  },
   "auth": {
     "startRecruitment": "Start your recruitment journey now",
     "joinMasdar": "Join the Al Masdar International Recruitment platform to be able to obtain the workers allocated to you",
