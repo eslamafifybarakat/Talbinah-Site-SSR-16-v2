@@ -21,7 +21,7 @@
                 <h2 class="mb-0">
                   {{doctorDetails?.full_name|| ''}}
                 </h2>
-                <p class="mb-0 fs-5-1">
+                <p class="mb-0 text-grey-color fs-5-1">
                   <ng-container *ngIf="doctorDetails?.specialties[0]?.name">
                     {{doctorDetails?.specialties[0]?.name}}
                   </ng-container>
@@ -158,280 +158,38 @@
               </div>
             </div>
           </div>
-          <div class="content-details position-relative d-none">
-            <div
-              class="btn-favorite-position justify-content-lg-end justify-content-between d-flex align-items-center gap-2 w-100 px-lg-0 px-4 py-3">
-              <a class="d-flex align-items-center gap-2" (click)="share()">
-                <i class="pi pi-share-alt text-main-color fs-5"></i>
-              </a>
-              <button type="button" class="btn outline-btn-favourite p-0 mx-1 text-center">
-                <i class="p-0 custom-heart" [ngClass]="doctorDetails?.is_favorite?'fa fa-heart ':'far fa-heart'"></i>
-              </button>
-            </div>
-            <div
-              class="d-flex justify-content-start flex-column-meduim justify-content-center-meduim align-items-center-meduim text-center-meduim">
-              <div class="img-doctor">
-                <div [ngClass]="doctorDetails?.isActive? 'online': ''"></div>
-                <ng-container *ngIf="doctorDetails?.profile?.gender==0; else elseFemale">
-                  <img class="rounded doc-img-details rounded-circle" [src]="doctorDetails?.image?.url"
-                    onerror="this.src='assets/images/not-found/no-woman-doctor.svg'" alt="photo" />
-                </ng-container>
-                <ng-template #elseFemale>
-                  <img class="rounded doc-img-details rounded-circle" [src]="doctorDetails?.image?.url"
-                    onerror="src='assets/images/not-found/no-woman-doctor.svg'" alt="photo" />
-                </ng-template>
-              </div>
-              <div class="flex-grow-1 px-xl-3 px-sm-0 mt-2">
-                <div class="d-flex align-items-center justify-content-center-meduim mb-0">
-                  <p class="text-grey-700 font-p fw-bold mb-0 mx-3">
-                    {{doctorDetails?.full_name|| ''}}
-                  </p>
-                </div>
-                <div class="mb-2">
-                  <p class="text-grey-700 font-p mb-0 mx-3 fs-10">
-                    <ng-container *ngIf="doctorDetails?.specialties[0]?.name">
-                      {{doctorDetails?.specialties[0]?.name}}
-                    </ng-container>
-                  </p>
-                </div>
-                <div class="d-flex align-items-center mb-1" *ngIf="doctorDetails?.profile?.bio">
-                  <span class="text-grey-700 mb-0 mx-3 fs-10">
-                    {{doctorDetails?.profile?.bio }}
-                  </span>
-                </div>
-                <div class="mt-3 nav rating mx-3 justify-content-center-meduim">
-                  <div class="d-flex align-items-center">
-                    <span class="session-icon d-flex justify-content-center align-items-meduim p-1">
-                      <i class="pi pi-play scaleX-rtl"></i>
-                    </span>
-                    <span class="px-2 text-grey-700">
-                      {{doctorDetails?.reservation_count}}
-                      {{'general.session' | translate}}
-                    </span>
-
-                  </div>
-                </div>
-                <ng-container *ngIf="socialLinks">
-                  <div class="d-flex align-items-center mx-2 mt-4 mb-2 justify-content-center-meduim">
-                    <div class="mx-1 facebook" *ngIf="socialLinks?.facebook">
-                      <a target="_blank" [href]="socialLinks?.facebook">
-                        <i class='pi pi-facebook bg-color-social-icon rounded-circle icon-padding fs-5-1'></i>
-                      </a>
-                    </div>
-                    <div class="mx-1 twitter" *ngIf="socialLinks?.twitter">
-                      <a target="_blank" class="rounded-circle twitter-icon" [href]="socialLinks?.twitter">
-                        <span>
-                          <svg [classList]="'hover-icon'" xmlns="http://www.w3.org/2000/svg" width="16" height="16"
-                            fill="currentColor" class=" bi
-                      bi-twitter-x " viewBox=" 0 0 16 16">
-                            <path
-                              d="M12.6.75h2.454l-5.36 6.142L16 15.25h-4.937l-3.867-5.07-4.425 5.07H.316l5.733-6.57L0 .75h5.063l3.495 4.633L12.601.75Zm-.86 13.028h1.36L4.323 2.145H2.865l8.875 11.633Z" />
-                          </svg>
-                        </span>
-                      </a>
-                    </div>
-                    <div class="mx-1 linkedin" *ngIf="socialLinks?.linkedin">
-                      <a target="_blank" [href]="socialLinks?.linkedin">
-                        <i class='pi pi-linkedin bg-color-social-icon rounded-circle icon-padding fs-5-1'></i>
-                      </a>
-                    </div>
-                    <div class="mx-1 github" *ngIf="socialLinks?.youtube">
-                      <a target="_blank" [href]="socialLinks?.youtube">
-                        <i class='pi pi-youtube bg-color-social-icon rounded-circle icon-padding fs-5-1'></i>
-                      </a>
-                    </div>
-                  </div>
-                </ng-container>
-                <!-- <ng-container *ngIf="doctorDetails.avg_rate!==null || doctorDetails.avg_rate!==undefined"> -->
-                <ng-container>
-                  <div
-                    class="d-flex align-items-center justify-content-between justify-content-center-meduim rate mx-3 mt-1">
-                    <div class="d-flex align-items-center justify-content-between">
-                      <div class="d-flex align-items-center">
-                        <!-- <p-rating [(ngModel)]="doctorDetails.avg_rate" [disabled]="true" [cancel]="false"></p-rating> -->
-                        <p-rating [disabled]="true" [cancel]="false"></p-rating>
-                        <span class="px-1 text-white-color fw-bold fs-10">
-                          {{doctorDetails?.avg_rate}}
-                        </span>
-                      </div>
-                    </div>
-                  </div>
-                </ng-container>
-              </div>
-            </div>
-
-            <div class="px-2">
-              <div class="row mt-3 text-center m-auto row-cols-1 row-cols-sm-1 row-cols-md-2 row-cols-xl-2">
-                <ng-container *ngFor="let interval of priceInterval,let i = index">
-                  <ng-container *ngIf="priceObject[interval]">
-                    <div class="col">
-                      <p class="text-grey-700 bg-body-secondary font-p mb-2 rounded py-1 px-3 mx-1">
-                        <i class="fas fa-coins text-main-color px-1"></i>
-                        <span class="text-grey-700 fs-6">
-                          <ng-container *ngIf="currency == 'RSA'; else dollar">
-                            <span class="fs-6">
-                              <span>
-                                {{'doctors.session_fees'| translate}}
-                              </span>
-                              {{interval}}
-                              {{'general.minute'| translate}}
-                            </span>
-                            :&nbsp;
-                            <span class="fw-bold">
-                              {{priceObject[interval]?.rsa}}
-                              {{'doctorDetails.currency_rsa'| translate}}
-                            </span>
-                          </ng-container>
-                          <ng-template #dollar>
-                            <span class="fs-6">
-                              <span>
-                                {{'doctors.session_fees'| translate}}
-                              </span>
-                              {{interval}}
-                              {{'general.minute'| translate}}
-                            </span>
-                            &nbsp;:
-                            <span class="fw-bold">
-                              {{priceObject[interval]?.usd }}
-                              {{'doctorDetails.currency_usd'| translate}}
-                            </span>
-                          </ng-template>
-                        </span>
-                      </p>
-                    </div>
-                  </ng-container>
-                </ng-container>
-              </div>
-            </div>
-            <div class="px-2">
-              <!-- <div class="row mt-3 text-center m-auto row-cols-2 row-cols-sm-2 row-cols-md-4 row-cols-xl-4">
-                <div class="col">
-                  <circle-progress [percent]="95" [radius]="42" [outerStrokeWidth]="5" [space]="-5"
-                    [innerStrokeWidth]="5" [outerStrokeColor]="'#ffa873'" [subtitle]="''" [backgroundColor]="'#fff'"
-                    [innerStrokeColor]="'#ffa97383'" [animation]="true" [animationDuration]="600"
-                    [titleFontSize]="'14px'">
-                  </circle-progress>
-                  <div class="d-flex justify-content-center">
-                    <span class="px-2 fs-10">
-                      {{'doctorDetails.eval.communication' |translate}}
-                    </span>
-                  </div>
-                </div>
-                <div class="col">
-                  <circle-progress [percent]="95" [radius]="42" [outerStrokeWidth]="5" [space]="-5"
-                    [innerStrokeWidth]="5" [outerStrokeColor]="'#ffa873'" [subtitle]="''" [backgroundColor]="'#fff'"
-                    [innerStrokeColor]="'#ffa97383'" [animation]="true" [animationDuration]="600"
-                    [titleFontSize]="'14px'">
-                  </circle-progress>
-                  <div class="d-flex justify-content-center">
-                    <span class="px-2 fs-10">
-                      {{'doctorDetails.eval.underst_dsit'|translate}}
-                    </span>
-                  </div>
-                </div>
-                <div class="col">
-                  <circle-progress [percent]="85" [radius]="42" [outerStrokeWidth]="5" [space]="-5"
-                    [innerStrokeWidth]="5" [outerStrokeColor]="'#ffa873'" [subtitle]="''" [backgroundColor]="'#fff'"
-                    [innerStrokeColor]="'#ffa97383'" [animation]="true" [animationDuration]="600"
-                    [titleFontSize]="'14px'">
-                  </circle-progress>
-                  <div class="d-flex justify-content-center">
-                    <span class="px-2 fs-10">
-                      {{'doctorDetails.eval.effective_solutions' | translate}}
-                    </span>
-                  </div>
-                </div>
-                <div class="col">
-                  <circle-progress [percent]="95" [radius]="42" [outerStrokeWidth]="5" [space]="-5"
-                    [innerStrokeWidth]="5" [outerStrokeColor]="'#ffa873'" [subtitle]="''" [backgroundColor]="'#fff'"
-                    [innerStrokeColor]="'#ffa97383'" [animation]="true" [animationDuration]="600"
-                    [titleFontSize]="'14px'">
-                  </circle-progress>
-                  <div class="d-flex justify-content-center">
-                    <span class="px-2 fs-10">
-                      {{'doctorDetails.eval.start_times' | translate}}
-                    </span>
-                  </div>
-                </div>
-              </div> -->
-
-              <ng-container *ngIf="doctorDetails?.certificates?.length>0 || doctorDetails?.experiences?.length>0">
-                <div class="mt-5">
-                  <nav>
-                    <div class="nav nav-tabs" id="nav-tab" role="tablist">
-                      <ng-container *ngIf="doctorDetails?.certificates?.length>0">
-                        <button class="nav-link active" id="nav-certificates-tab" data-bs-toggle="tab"
-                          data-bs-target="#nav-certificates" type="button" role="tab" aria-controls="nav-certificates"
-                          aria-selected="true">
-                          {{'doctorDetails.certificates' | translate}}
-                        </button>
-                      </ng-container>
-                      <ng-container *ngIf="doctorDetails?.experiences?.length>0">
-                        <button class="nav-link" id="nav-experiences-tab" data-bs-toggle="tab"
-                          data-bs-target="#nav-experiences" type="button" role="tab" aria-controls="nav-experiences"
-                          aria-selected="false">
-                          {{'doctorDetails.experiences' |translate}}
-                        </button>
-                      </ng-container>
-                    </div>
-                  </nav>
-                  <div class="tab-content" id="nav-tabContent">
-                    <div class="tab-pane fade show active" id="nav-certificates" role="tabpanel"
-                      aria-labelledby="nav-certificates-tab">
-                      <ng-container *ngIf="doctorDetails?.certificates?.length>0; else noCertification">
-                        <ng-container *ngFor="let cert of doctorDetails?.certificates; let i=index">
-                          <div class="certificate mx-2 my-4">
-                            <h5 class="text-main-color mb-1">
-                              {{cert?.title}}
-                            </h5>
-                            <p class="text-grey-700 font-p mb-0">
-                              {{cert?.description}}</p>
-                            <p class="text-grey-700 font-p mb-0">
-                              {{cert?.expiration}}</p>
-                          </div>
-                        </ng-container>
-                      </ng-container>
-                      <ng-template #noCertification>
-                        <p class="text-grey-700 font-p mt-3 mb-0 mx-3">
-                          {{'doctorDetails.no_cert' | translate}}
-                        </p>
-                      </ng-template>
-                    </div>
-                    <div class="tab-pane fade" id="nav-experiences" role="tabpanel"
-                      aria-labelledby="nav-experiences-tab">
-                      <ng-container *ngIf="doctorDetails?.experiences?.length>0; else noExperiences">
-                        <ng-container *ngFor="let exp of doctorDetails?.experiences;let i=index">
-                          <div class="certificate mx-2 my-4">
-                            <h5 class="text-main-color mb-1">
-                              {{exp?.title}}
-                            </h5>
-                            <p class="text-grey-700 font-p mb-0">
-                              {{exp?.description}}</p>
-                            <p class="text-grey-700 font-p mb-0">
-                              {{exp?.end_at}}
-                            </p>
-                          </div>
-                        </ng-container>
-                      </ng-container>
-                      <ng-template #noExperiences>
-                        <p class="text-grey-700 font-p mt-3 mb-0 mx-3">
-                          {{'doctorDetails.no_exp' | translate}}
-                        </p>
-                      </ng-template>
-                    </div>
-                  </div>
-                </div>
-              </ng-container>
-            </div>
-          </div>
         </div>
         <div class="col-lg-5 col-md-12">
           <div class="book-now">
-            <!-- <app-available-doctor-appointments [data]="doctorDetails"></app-available-doctor-appointments> -->
+            <app-available-doctor-appointments [data]="doctorDetails"></app-available-doctor-appointments>
           </div>
         </div>
       </div>
     </div>
+    <!--========== Start Reviews ================= -->
+    <section id="reviews" class="pt-5">
+      <div class="container">
+        <ng-container *ngIf="isLoading; else noReviewsLoading">
+          <app-skeleton [type]="'home-reviews'"></app-skeleton>
+        </ng-container>
+        <ng-template #noReviewsLoading>
+          <h5 class="fs-1">
+            {{'doctors.views'|translate}}
+          </h5>
+          <div class="row">
+            <div class="col-xl-3 col-lg-6 col-md-9">
+              <p class="mb-0 text-grey-color">
+                {{'home.reviews.description'|translate}}
+              </p>
+            </div>
+          </div>
+          <div class="mt-4">
+            <app-reviews-carousel [items]="doctorDetails?.reviews_doctor"></app-reviews-carousel>
+          </div>
+        </ng-template>
+      </div>
+    </section>
+    <!--========== End Reviews ================= -->
 
     <ng-container *ngIf="this.doctorDetails?.reviews_doctor?.length>0">
       <div class="testimonials mt-4">

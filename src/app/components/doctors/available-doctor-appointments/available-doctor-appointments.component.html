@@ -10,7 +10,7 @@
     <div class="global-card">
       <div class="p-3">
         <h5 class="text-main-color dectorated-title">
-          {{'doctorDetails.bookSeesionNow' | translate}}:
+          {{'doctors.bookSessionNow' | translate}}:
         </h5>
       </div>
       <h5 class="mb-0 text-center py-3 px-3 text-grey-700 d-flex justify-content-center align-items-center gap-3">
@@ -18,7 +18,7 @@
           [disabled]="preDisable">
           <i class="fas" [ngClass]="currentLanguage==='en'?'fa-angle-left': 'fa-angle-right'"></i>
         </button>
-        <span class="vector-bg">{{'doctorDetails.available_app' | translate}}</span>
+        <span class="vector-bg">{{'doctors.availableApp' | translate}}</span>
         <button class="bg-transparent border-0 text-grey-700 next-previous-appointment" (click)="next()">
           <i class="fas" [ngClass]="currentLanguage==='en'?'fa-angle-right': 'fa-angle-left'"></i>
         </button>

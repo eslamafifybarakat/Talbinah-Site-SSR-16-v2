@@ -37,7 +37,8 @@
     "reset":"اعادة ضبط",
     "sr":"ريال",
 "noSearchResult":"لا يوجد نتائج للبحث",
-"minute":"دقيقة"
+"minute":"دقيقة",
+"bookNow":"احجز الان"
   },
   "home": {
     "hero": {
@@ -96,7 +97,11 @@
 "currencyUsd": "دولار",
 "currencyRsa": "ر.س",
 "sortedFrom":"مصنف من :",
-"commission":"الهيئة السعودية للتخصصات الصحية"
+"commission":"الهيئة السعودية للتخصصات الصحية",
+"bookSessionNow": "احجز جلستك الآن",
+"availableApp": "المواعيد المتاحة",
+"noAvailableApp": "لا يوجد مواعيد متاحة الآن",
+"views":"الآراء"
       },
   "auth": {
     "startRecruitment": "ابدأ رحلة التوظيف الخاصة بك الآن",

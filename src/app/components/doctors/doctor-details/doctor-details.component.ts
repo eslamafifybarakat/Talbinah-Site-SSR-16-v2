@@ -1,17 +1,24 @@
-import { SkeletonComponent } from './../../../shared/components/skeleton/skeleton.component';
-import { keys } from './../../../shared/configs/localstorage-key';
-import { DialogService } from 'primeng/dynamicdialog';
-import { AlertsService } from './../../../services/generic/alerts.service';
-import { PublicService } from './../../../services/generic/public.service';
-import { ActivatedRoute, Router } from '@angular/router';
-import { DoctorsService } from './../../../services/doctors.service';
-import { MetadataService } from './../../../services/generic/metadata.service';
+// Modules
 import { CommonModule, isPlatformBrowser, isPlatformServer } from '@angular/common';
-import { Component, Inject, PLATFORM_ID, ChangeDetectorRef } from '@angular/core';
-import { Subscription } from 'rxjs';
 import { TranslateModule } from '@ngx-translate/core';
 import { RatingModule } from 'primeng/rating';
 import { FormsModule } from '@angular/forms';
+
+// Components
+import { AvailableDoctorAppointmentsComponent } from '../available-doctor-appointments/available-doctor-appointments.component';
+import { ReviewsCarouselComponent } from './../../../carousels/reviews-carousel/reviews-carousel.component';
+import { SkeletonComponent } from './../../../shared/components/skeleton/skeleton.component';
+
+// Services
+import { MetadataService } from './../../../services/generic/metadata.service';
+import { Component, Inject, PLATFORM_ID, ChangeDetectorRef } from '@angular/core';
+import { AlertsService } from './../../../services/generic/alerts.service';
+import { PublicService } from './../../../services/generic/public.service';
+import { DoctorsService } from './../../../services/doctors.service';
+import { keys } from './../../../shared/configs/localstorage-key';
+import { ActivatedRoute, Router } from '@angular/router';
+import { DialogService } from 'primeng/dynamicdialog';
+import { Subscription } from 'rxjs';
 
 @Component({
   standalone: true,
@@ -21,6 +28,9 @@ import { FormsModule } from '@angular/forms';
     RatingModule,
     FormsModule,
 
+    // Components
+    AvailableDoctorAppointmentsComponent,
+    ReviewsCarouselComponent,
     SkeletonComponent
   ],
   selector: 'app-doctor-details',
