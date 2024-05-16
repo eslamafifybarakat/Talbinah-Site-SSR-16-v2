@@ -1,0 +1,108 @@
+<ng-container *ngIf="isLoading">
+  <div id="blog-details" class="my-xl-5 my-md-3 my-sm-3 my-3">
+    <div class="container">
+      <app-skeleton [type]="'blogDetails'"></app-skeleton>
+    </div>
+  </div>
+</ng-container>
+<ng-container *ngIf="!isLoading">
+  <ng-container *ngIf="blogDetails; else noDetails">
+    <div id="blog-details" class="my-xl-5 my-md-3 my-sm-3 my-3">
+      <div class="container">
+        <div class="global-card px-xl-5 px-md-3 px-sm-3 px-2 py-xl-4 py-md-2 py-md-2 py-2">
+          <div class="hero-content">
+            <div class="w-100 pb-3 d-flex align-items-baseline justify-content-between gap-2">
+              <div>
+                <div>
+                  <h2 class="fw-bold mt-2 text-main-color">
+                    {{blogDetails?.title}}
+                  </h2>
+                </div>
+                <ng-container *ngIf="blogDetails?.author">
+                  <div class="d-inline-block">
+                    <div class="d-flex align-items-center mx-2 mb-0" role="button"
+                      routerLink="/doctors/details/{{blogDetails?.author?.username}}">
+                      <img [src]="blogDetails?.author?.image" onerror="src='assets/images/main/defaults/default.png'"
+                        alt="doctor-img" class="doc-img-detail rounded-circle" width="40" height="40" />
+                      <div class="mx-2 d-flex flex-column">
+                        <span class="fs-8 color-secondary w-100 text-truncate">
+                          {{blogDetails?.author?.name}}
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+                </ng-container>
+
+                <div class="d-flex flex-column-small mb-2 mt-3">
+                  <p class="text-muted mx-2 mb-0 fs-10">
+                    <i class="fas fa-list-alt text-main-color mx-1"></i>
+                    <!-- <ng-container *ngFor="let item of blogDetails?.categories; let i =index">
+                    <span *ngIf="i>=1"> / </span>
+                    <span role="button" routerLink='/doctors' [queryParams]="{ category_id: item?.id}">
+                      {{item?.title}}
+                    </span>
+                  </ng-container> -->
+                    <span>
+                      {{blogDetails?.article_category?.name}}
+                    </span>
+                  </p>
+                  <p class="text-muted fs-12 mb-0">
+                    <i class="fas fa-clock text-main-color"></i>
+                    <span class="mx-1 fs-12">
+                      {{ blogDetails?.created_at | date: 'd MMM y HH:mm':'':currentLanguage }}
+                    </span>
+                  </p>
+                  <p class="text-muted fs-12 mb-0">
+                    <i class="fas fa-book text-main-color" data-toggle="tooltip" data-placement="top"
+                      title="وقت القراءة"></i>
+                    <span class="mx-1 fs-12">
+                      وقت القراءة : {{ blogDetails?.reading_time }} دقيقة
+                    </span>
+                  </p>
+
+                </div>
+              </div>
+              <a class="d-flex align-items-center gap-2" (click)="share()">
+                <i class="pi pi-share-alt text-main-color fs-5"></i>
+              </a>
+            </div>
+            <img class="w-100 image-center-cat rounded" [src]="blogDetails?.image?.url"
+              onerror="this.src='assets/images/dummy/blogs/blogsImage.png'" alt="logo" />
+          </div>
+          <div class="mt-4" [innerHTML]="blogDetails?.description">
+          </div>
+        </div>
+
+        <ng-container *ngIf="relatedArticles?.length>0">
+          <div class="mt-5">
+            <h3 class="text-main-color dectorated-title fw-bold">
+              {{'blogDetails.relatedBlogs' | translate}} :
+            </h3>
+            <!-- <app-blogs-slider [hideTitle]="true"></app-blogs-slider> -->
+          </div>
+        </ng-container>
+
+        <ng-container *ngIf="relatedDoctors?.length>0">
+          <div class="mt-5">
+            <h3 class="text-main-color dectorated-title fw-bold">
+              {{'blogDetails.relatedDoctors' | translate}} :
+            </h3>
+            <!-- <app-doctors-slider [hideTitle]="true"></app-doctors-slider> -->
+          </div>
+        </ng-container>
+      </div>
+    </div>
+  </ng-container>
+
+  <ng-template #noDetails>
+    <div class="col-12 mb-4 w-100">
+      <div class="card border-0 shadow-none bg-transparent nodata" data-aos-duration="300" data-aos-offset="100"
+        data-aos-easing="ease-in-sine">
+        <img src="assets/imgs/svg/noDoctors.svg" class="my-5 noData-img" alt="noData-img">
+        <p class="text-center primary-color mt-2 fs-3">{{'no_data' | translate}}</p>
+      </div>
+    </div>
+  </ng-template>
+
+
+</ng-container>

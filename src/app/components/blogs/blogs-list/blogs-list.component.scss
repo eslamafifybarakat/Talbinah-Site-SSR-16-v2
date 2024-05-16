@@ -1,0 +1,72 @@
+:host::ng-deep {
+  #blogs-list {
+    padding-top: 6rem;
+    .thumbil-img {
+      border: 2px solid var(--main-color);
+      border-radius: 50%;
+      height: 45px;
+      width: 45px;
+      object-fit: cover;
+      box-shadow: 0 0.125rem 0.65rem #00000013;
+    }
+    #someDiv {
+      -webkit-box-orient: vertical;
+      display: -webkit-box;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      -webkit-line-clamp: 3;
+    }
+    .card {
+      background-color: var(--bg-white-color);
+      border-radius: 20px;
+      box-shadow: 0px 3px 15px 0px #0000001a;
+      padding: 1rem;
+      border: none;
+    }
+
+    .hero-image {
+      border-radius: 5px;
+      height: 12rem;
+      box-shadow: 0 0.125rem 0.65rem #00000013;
+    }
+
+    li {
+      &.nav-item {
+        a {
+          &.nav-link {
+            cursor: pointer;
+            color: var(--grey-700);
+            font-size: 1.2rem;
+
+            @media (max-width: 767px) {
+              font-size: 0.8rem !important;
+            }
+          }
+
+          &.active {
+            color: var(--text-main-color);
+            font-weight: bold;
+          }
+        }
+      }
+    }
+
+    .p-paginator {
+      .p-link {
+        border-radius: 5px !important;
+      }
+
+      .p-paginator-page.p-highlight {
+        background-color: var(--bg-main-color) !important;
+        color: var(--text-white-color) !important;
+      }
+    }
+  }
+}
+
+@media (max-width: 767px) {
+  .py-small {
+    padding-top: 1rem !important;
+    padding-bottom: 1rem !important;
+  }
+}

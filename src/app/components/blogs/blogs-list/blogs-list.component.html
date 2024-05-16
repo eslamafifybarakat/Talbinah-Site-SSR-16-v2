@@ -1,0 +1,72 @@
+<ng-container *ngIf="isLoadingBlogs">
+  <div class="container">
+    <app-skeleton [type]="'blogList'"></app-skeleton>
+  </div>
+</ng-container>
+<ng-container *ngIf="!isLoadingBlogs">
+  <ng-container>
+    <div id="blogs-list" class="container">
+      <div class="my-xl-5 my-md-3 my-sm-3 my-3">
+        <nav class="navbar navbar-expand-lg navbar-light global-card py-0 rounded d-flex justify-content-center w-100">
+          <ul class="nav mb-2 mb-lg-0 py-4 d-flex align-items-center p-0">
+            <li class="nav-item" (click)="onChangeCategory(null)">
+              <a class="nav-link px-3" [ngClass]="categoryId===null?'active':'' ">
+                {{'general.all' | translate}}
+              </a>
+            </li>
+            <ng-container *ngFor="let cat of categoriesList">
+              <li class="nav-item" (click)="onChangeCategory(cat?.id)">
+                <a class="nav-link px-3" [ngClass]="categoryId===cat?.id?'active':'' ">
+                  <span class="">
+                    {{cat?.name}}
+                  </span>
+                </a>
+              </li>
+            </ng-container>
+          </ul>
+        </nav>
+        <ng-container>
+          <div class="my-xl-5 my-md-3 my-sm-3 my-3">
+            <div class="container">
+              <ng-container *ngIf="!isLoadingFilter; else laodingCards">
+                <ng-container *ngIf="blogsList?.length>0; else noBlogs">
+                  <div class="my-xl-5 my-md-3 my-sm-2 my-2">
+                    <div class="row">
+                      <ng-container *ngFor="let blog of blogsList; let i=index">
+                        <div class="col-xl-4 col-md-6 col-sm-12 mb-xl-4 mb-md-3 mb-sm-3 mb-3">
+                          <app-article-card [item]="blog"></app-article-card>
+                        </div>
+                      </ng-container>
+                      <ng-container *ngIf="totalBlogs>blogsList?.length">
+                        <div>
+                          <p-paginator [rows]="10" [totalRecords]="totalBlogs"
+                            (onPageChange)="onPageChange($event)"></p-paginator>
+                        </div>
+                      </ng-container>
+                    </div>
+                  </div>
+                </ng-container>
+
+                <ng-template #noBlogs>
+                  <div class="col-12 mb-4 w-100">
+                    <div class="card border-0 shadow-none bg-transparent nodata">
+                      <div class="row w-100 justify-content-center">
+                        <div class="col-lg-3 col-md-6 col-10">
+                          <img src="assets/images/not-found/no-search.svg" class="w-100" alt="no-data">
+                        </div>
+                      </div>
+                      <p class="text-center primary-color mt-2 fs-4">{{'no_blogs' | translate}}</p>
+                    </div>
+                  </div>
+                </ng-template>
+              </ng-container>
+              <ng-template #laodingCards>
+                <app-skeleton [type]="'blogs2'"></app-skeleton>
+              </ng-template>
+            </div>
+          </div>
+        </ng-container>
+      </div>
+    </div>
+  </ng-container>
+</ng-container>

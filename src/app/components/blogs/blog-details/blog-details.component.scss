@@ -1,0 +1,12 @@
+#blog-details {
+  .doc-img-details {
+    border: 2px solid var(--text-main-color);
+    object-fit: contain;
+    padding: 2px;
+  }
+
+  .image-center-cat {
+    height: 50vh;
+    object-fit: cover;
+  }
+}

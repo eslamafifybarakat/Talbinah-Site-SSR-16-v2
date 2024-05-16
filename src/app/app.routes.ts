@@ -6,6 +6,7 @@ import { Routes } from '@angular/router';
 import { authChildrenRoutes } from './components/auth/auth-children-routes';
 import { errorsChildrenRoutes } from './components/errors/errors-routes';
 import { doctorsChildrenRoutes } from './components/doctors/doctors-children-routes';
+import { blogsChildrenRoutes } from './components/blogs/blogs-children-routes';
 
 
 export const appRoutes: Routes = [
@@ -68,6 +69,28 @@ export const appRoutes: Routes = [
       ),
     children: doctorsChildrenRoutes
   },
+
+  // Doctors
+  {
+    path: 'Blogs',
+    loadComponent: () =>
+      import('./components/blogs/blogs.component').then(
+        (c) => c.BlogsComponent
+      ),
+    children: blogsChildrenRoutes,
+    data: {
+      page: 'Blogs'
+    }
+  },
+  {
+    path: ':lang/Blogs',
+    loadComponent: () =>
+      import('./components/blogs/blogs.component').then(
+        (c) => c.BlogsComponent
+      ),
+    children: blogsChildrenRoutes
+  },
+
   // Contact Us
   {
     path: ':lang/ContactUs',
