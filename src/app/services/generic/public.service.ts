@@ -2,8 +2,11 @@ import { keys } from './../../shared/configs/localstorage-key';
 import { AbstractControl, FormControl, FormGroup } from '@angular/forms';
 import { Inject, Injectable, PLATFORM_ID } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
-import { Subject } from 'rxjs';
+import { Observable, Subject } from 'rxjs';
 import { isPlatformBrowser } from '@angular/common';
+import { roots } from 'src/app/shared/configs/endPoints';
+import { environment } from 'src/environments/environment';
+import { HttpClient } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
@@ -11,10 +14,12 @@ import { isPlatformBrowser } from '@angular/common';
 export class PublicService {
   show_loader = new Subject<boolean>();
   pageData = new Subject<any>();
+  apiUrl: string = environment?.apiUrl;
 
   constructor(
     @Inject(PLATFORM_ID) private platformId: Object,
     private translate: TranslateService,
+    private http: HttpClient
   ) { }
   getCurrentLanguage(): any {
     if (isPlatformBrowser(this.platformId)) {
@@ -40,5 +45,9 @@ export class PublicService {
         this.validateAllFormFields(control);
       }
     });
+  }
+
+  getDiscountPloicy(): Observable<any> {
+    return this.http.get(`${this.apiUrl}/${roots?.discountPolicy}`);
   }
 }

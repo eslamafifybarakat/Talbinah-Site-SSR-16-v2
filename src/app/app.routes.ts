@@ -134,6 +134,22 @@ export const appRoutes: Routes = [
     // canActivate: [LanguageGuard] // Optional: Use a guard to validate the language parameter
   },
 
+  // Discount Policy
+  {
+    path: ':lang/DiscountPolicy',
+    loadComponent: () =>
+      import('./components/discount-policy/discount-policy.component').then(
+        (c) => c.DiscountPolicyComponent
+      ),
+  },
+  {
+    path: 'DiscountPolicy',
+    loadComponent: () =>
+      import('./components/discount-policy/discount-policy.component').then(
+        (c) => c.DiscountPolicyComponent
+      ),
+  },
+
   // Errors
   {
     path: ':lang/Errors',

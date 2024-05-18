@@ -1,0 +1,14 @@
+#discount-policy {
+  padding-top: 7rem;
+  background-image: url(../../../assets/images/doctors/doctor-details-bg.svg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  min-height: 100vh;
+}
+
+@media (max-width: 1200px) {
+  #discount-policy {
+    padding-top: 1.5rem;
+  }
+}
+

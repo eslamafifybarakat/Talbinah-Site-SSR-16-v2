@@ -1,4 +1,5 @@
 export const roots: any = {
+  discountPolicy:'site/cancellation-terms-conditions',
   homePage: {
     getData: 'site/home',
     contactUs: 'site/contact-us'

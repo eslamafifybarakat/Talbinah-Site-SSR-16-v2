@@ -100,7 +100,6 @@ export class HomeComponent {
       }
     ]
   }
-
   private loadData(): void {
     this.updateMetaTagsForSEO();
   }
@@ -111,6 +110,7 @@ export class HomeComponent {
     }
     this.metadataService.updateMetaTagsForSEO(metaData);
   }
+  
   /* --- Start Hero Section Functions --- */
   getHomeData(): void {
     this.isLoadingHomeData = true;
