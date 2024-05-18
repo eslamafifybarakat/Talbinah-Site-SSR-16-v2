@@ -39,3 +39,16 @@
   transition: all 0.4s ease-in-out;
   z-index: 1;
 }
+.prev-appointment {
+  left: 0;
+}
+.prev-appointment,
+.next-appointment {
+  width: fit-content;
+}
+.ar-content {
+  .prev-appointment,
+  .next-appointment {
+    transform: scaleX(-1);
+  }
+}

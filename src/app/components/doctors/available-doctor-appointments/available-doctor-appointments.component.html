@@ -6,7 +6,7 @@
 </ng-container>
 <ng-container *ngIf="!isloadingCalender">
 
-  <div id="available-doctor-appointments">
+  <div id="available-doctor-appointments" [class.ar-content]="currentLanguage=='ar'">
     <div>
       <!-- <div class="global-card"> -->
       <!-- <div class="p-3">
@@ -14,7 +14,7 @@
           {{'doctors.bookSessionNow' | translate}}:
         </h5>
       </div> -->
-      <h5 class="mb-0 text-center py-3 px-3 text-grey-700 d-flex justify-content-center align-items-center gap-3">
+      <!-- <h5 class="mb-0 text-center py-3 px-3 text-grey-700 d-flex justify-content-center align-items-center gap-3">
         <button class="bg-transparent border-0 text-grey-700 next-previous-appointment" (click)="previous()"
           [disabled]="preDisable">
           <i class="fas" [ngClass]="currentLanguage==='en'?'fa-angle-left': 'fa-angle-right'"></i>
@@ -23,9 +23,19 @@
         <button class="bg-transparent border-0 text-grey-700 next-previous-appointment" (click)="next()">
           <i class="fas" [ngClass]="currentLanguage==='en'?'fa-angle-right': 'fa-angle-left'"></i>
         </button>
-      </h5>
+      </h5> -->
       <div>
-        <div class="row m-1">
+        <div class="row m-1 position-relative">
+          <button
+            class="bg-transparent border-0 text-grey-700 next-previous-appointment prev-appointment position-absolute"
+            (click)="previous()" [disabled]="preDisable">
+            <i class="fas" [ngClass]="currentLanguage==='en'?'fa-angle-left': 'fa-angle-right'"></i>
+          </button>
+          <button
+            class="bg-transparent border-0 text-grey-700 next-previous-appointment position-absolute next-appointment"
+            (click)="next()">
+            <i class="fas" [ngClass]="currentLanguage==='en'?'fa-angle-right': 'fa-angle-left'"></i>
+          </button>
           <ng-container *ngFor="let day of dates; let i=index">
             <div class="col">
               <div

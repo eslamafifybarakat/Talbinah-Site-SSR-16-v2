@@ -94,8 +94,10 @@ export class DoctorDetailsComponent {
   private processDoctorDetailsResponse(res: any): void {
     if (res?.status === true) {
       this.doctorDetails = res.data.doctor;
-      if (this.doctorDetails?.reviews_doctor) {
-        this.doctorsService.reviewsDoctorSubj.next(this.doctorDetails?.reviews_doctor);
+      if (this.doctorDetails?.reviews_doctor?.length > 0) {
+        this.doctorDetails?.reviews_doctor.forEach((item: any) => {
+          item['user_name'] = item?.user?.full_name;
+        });
       }
       // this.doctorDetails.avg_rate = this.publicService.transformDecimalToInteger(this.doctorDetails.avg_rate);
       this.socialLinks = this.doctorDetails.social;

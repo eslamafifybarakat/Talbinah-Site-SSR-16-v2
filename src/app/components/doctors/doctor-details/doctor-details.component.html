@@ -1,14 +1,9 @@
-<ng-container *ngIf="isLoading;else noLoading">
-  <section class="doctor-details pb-5">
-    <div class="container">
+<section class="doctor-details">
+  <div class="container">
+    <ng-container *ngIf="isLoading;else noLoading">
       <app-skeleton [type]="'doctorsDetails'"></app-skeleton>
-    </div>
-  </section>
-</ng-container>
-
-<ng-template #noLoading>
-  <section class="doctor-details">
-    <div class="container">
+    </ng-container>
+    <ng-template #noLoading>
       <div class="row">
         <!--========== Start Doctor Details ================= -->
         <div class="col-lg-7 col-md-12 mb-5">
@@ -229,15 +224,23 @@
               </span>
             </div>
           </div>
-          <div class="book-now">
+          <div class="book-now mt-4">
             <app-available-doctor-appointments [data]="doctorDetails"></app-available-doctor-appointments>
           </div>
         </div>
         <!--========== Start Appointments ================= -->
 
       </div>
+    </ng-template>
+  </div>
+
+  <!--========== Start Reviews ================= -->
+  <ng-container *ngIf="isLoading; else noLoadingAppointment">
+    <div class="container" class="pt-5">
+      <app-skeleton [type]="'home-reviews'"></app-skeleton>
     </div>
-    <!--========== Start Reviews ================= -->
+  </ng-container>
+  <ng-template #noLoadingAppointment>
     <section id="reviews" class="pt-5" *ngIf="this.doctorDetails?.reviews_doctor?.length>0">
       <div class="container">
         <ng-container *ngIf="isLoading; else noReviewsLoading">
@@ -260,9 +263,9 @@
         </ng-template>
       </div>
     </section>
-    <!--========== End Reviews ================= -->
+  </ng-template>
+  <!--========== End Reviews ================= -->
 
-    <app-footer></app-footer>
+  <app-footer></app-footer>
 
-  </section>
-</ng-template>
+</section>
