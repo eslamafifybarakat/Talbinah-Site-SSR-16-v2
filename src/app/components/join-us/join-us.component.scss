@@ -1,10 +1,13 @@
 :host::ng-deep {
   #join-us {
-    padding-top: 5rem;
+    padding-top: 7rem;
+    background-image: url(../../../assets/images/doctors/doctor-details-bg.svg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    min-height: 100vh;
   }
   .content-hero {
     position: relative;
-    min-height: 70vh;
   }
 
   .steps-join {
@@ -39,5 +42,25 @@
         text-align: center !important;
       }
     }
+  }
+}
+
+.btn-solid-main:focus,
+.btn-solid-main:active {
+  background-color: var(--bg-main-color);
+  border-color: var(--bg-main-color);
+  color: var(--text-white-color);
+}
+.btn-solid-main {
+  background-color: var(--bg-main-color);
+  border-color: var(--bg-main-color);
+  color: var(--text-white-color);
+  height: 3rem;
+  border-radius: var(--border-input-radius);
+  width: 10rem;
+}
+@media (max-width: 1200px) {
+  #join-us {
+    padding-top: 1.5rem;
   }
 }

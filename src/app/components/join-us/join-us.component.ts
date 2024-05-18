@@ -3,12 +3,14 @@ import { isPlatformBrowser, isPlatformServer } from '@angular/common';
 import { Component, Inject, PLATFORM_ID } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { TranslateModule } from '@ngx-translate/core';
+import { FooterComponent } from 'src/app/shared/components/footer/footer.component';
 
 @Component({
   standalone: true,
   imports: [
     TranslateModule,
-    RouterModule
+    RouterModule,
+    FooterComponent
   ],
   selector: 'app-join-us',
   templateUrl: './join-us.component.html',
