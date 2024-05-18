@@ -118,7 +118,7 @@ export const appRoutes: Routes = [
   },
 
   {
-    path: ':lang/Join-Us',
+    path: ':lang/JoinUs',
     loadComponent: () =>
       import('./components/join-us/join-us.component').then(
         (c) => c.JoinUsComponent
@@ -126,7 +126,7 @@ export const appRoutes: Routes = [
     // canActivate: [LanguageGuard] // Optional: Use a guard to validate the language parameter
   },
   {
-    path: 'Join-Us',
+    path: 'JoinUs',
     loadComponent: () =>
       import('./components/join-us/join-us.component').then(
         (c) => c.JoinUsComponent

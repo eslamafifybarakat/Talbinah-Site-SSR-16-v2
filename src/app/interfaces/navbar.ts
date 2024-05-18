@@ -26,7 +26,7 @@ export const navItems = [
   {
     title: 'navigationHeader.join',
     label: 'navigationHeader.join',
-    route: '/Join-Us',
+    route: '/JoinUs',
     icon: '',
     isActive: false
   },

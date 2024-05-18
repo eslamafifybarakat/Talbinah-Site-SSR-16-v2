@@ -10,27 +10,29 @@
         </p>
         <ul class="mt-4 d-flex gap-2 flex-wrap p-0">
           <li>
-            <a class="social-icon d-flex justify-content-center align-items-center rounded-circle">
+            <a href="https://www.instagram.com/talbinahco/" target="_blank" class="social-icon d-flex justify-content-center align-items-center rounded-circle">
               <app-dynamic-svg [name]="'instagram'"></app-dynamic-svg>
             </a>
           </li>
           <li>
-            <a class="social-icon d-flex justify-content-center align-items-center rounded-circle">
+            <a href="https://www.youtube.com/channel/UC9E9CQeyAkiWYjPqSG7FS_A"
+            target="_blank" class="social-icon d-flex justify-content-center align-items-center rounded-circle">
               <app-dynamic-svg [name]="'youtube'"></app-dynamic-svg>
             </a>
           </li>
           <li>
-            <a class="social-icon d-flex justify-content-center align-items-center rounded-circle">
+            <a href="https://twitter.com/Talbinahco" target="_blank" class="social-icon d-flex justify-content-center align-items-center rounded-circle">
               <app-dynamic-svg [name]="'twitter'"></app-dynamic-svg>
             </a>
           </li>
           <li>
-            <a class="social-icon d-flex justify-content-center align-items-center rounded-circle">
+            <a  href="https://www.linkedin.com/company/100702383/admin/feed/posts/?feedType=following&shareMsgArgs=null"
+            target="_blank" class="social-icon d-flex justify-content-center align-items-center rounded-circle">
               <app-dynamic-svg [name]="'linkedin'"></app-dynamic-svg>
             </a>
           </li>
           <li>
-            <a class="social-icon d-flex justify-content-center align-items-center rounded-circle">
+            <a href="https://www.facebook.com/Talbinahco" target="_blank" class="social-icon d-flex justify-content-center align-items-center rounded-circle">
               <app-dynamic-svg [name]="'facebook'"></app-dynamic-svg>
             </a>
           </li>
@@ -126,19 +128,19 @@
         </h6>
         <ul class="p-0 mt-3">
           <li>
-            <a [href]="'tel:'+phone" target="_blank" class="nav-link d-flex gap-2 align-items-center mb-3">
+            <a href="tel:{{'(+966) 552272756'}}" target="_blank" class="dir-ltr nav-link d-flex gap-2 align-items-center mb-3">
               <span>
                 <app-dynamic-svg [name]="'phone'"></app-dynamic-svg>
               </span>
-              {{phone}}
+              {{'(+966) 552272756'}}
             </a>
           </li>
           <li>
-            <a [href]="'mailto:'+phone" target="_blank" class="nav-link d-flex gap-2 align-items-center mb-3">
+            <a href="mailto:{{'info@talbinah.net'}}" class="nav-link d-flex gap-2 align-items-center mb-3">
               <span>
                 <app-dynamic-svg [name]="'email'"></app-dynamic-svg>
               </span>
-              {{emailText}}
+              {{'info@talbinah.net'}}
             </a>
           </li>
         </ul>
