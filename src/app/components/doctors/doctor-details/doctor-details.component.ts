@@ -21,6 +21,7 @@ import { keys } from './../../../shared/configs/localstorage-key';
 import { ActivatedRoute, Router } from '@angular/router';
 import { DialogService } from 'primeng/dynamicdialog';
 import { Subscription } from 'rxjs';
+import { DownloadAppsComponent } from 'src/app/shared/components/download-apps/download-apps.component';
 
 @Component({
   standalone: true,
@@ -101,7 +102,7 @@ export class DoctorDetailsComponent {
         });
       }
       // this.doctorDetails.avg_rate = this.publicService.transformDecimalToInteger(this.doctorDetails.avg_rate);
-      this.socialLinks = this.doctorDetails.social;
+      this.socialLinks = this.doctorDetails?.social;
       if (isPlatformServer(this.platformId)) {
         this.updateMetaTags();
       }
@@ -192,7 +193,15 @@ export class DoctorDetailsComponent {
       }
     });
   }
-
+  downloadApp(): void {
+    const ref = this?.dialogService?.open(DownloadAppsComponent, {
+      width: '35%',
+      showHeader: false,
+      styleClass: 'custom-modal download-app-dialog',
+      dismissableMask: true,
+      data: {}
+    });
+  }
   ngOnDestroy(): void {
     this.unsubscribe?.forEach((sb) => sb?.unsubscribe());
   }

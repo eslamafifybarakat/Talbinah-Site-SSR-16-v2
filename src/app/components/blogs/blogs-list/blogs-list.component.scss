@@ -1,6 +1,6 @@
 :host::ng-deep {
   #blogs-list {
-    padding-top: 6rem;
+    padding-top: 7rem;
     .thumbil-img {
       border: 2px solid var(--main-color);
       border-radius: 50%;
@@ -81,5 +81,13 @@
     .p-paginator-last {
       transform: scaleX(-1);
     }
+  }
+}
+@media (max-width: 1200px) {
+  #blogs-list {
+    padding-top: 1.5rem;
+  }
+  .border-bottom {
+    border-color: transparent !important;
   }
 }
