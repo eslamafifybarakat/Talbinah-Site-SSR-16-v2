@@ -27,11 +27,19 @@
                 {{'doctors.specialties' | translate}}
               </h5>
               <div class="mt-3">
-                <div *ngFor="let category of specialitiesList"
+                <!-- <div *ngFor="let category of specialitiesList"
                   class="field-checkbox d-flex align-items-center gap-3 mb-3">
                   <p-checkbox value="category" [value]="category" formControlName="category" [inputId]="category.id"
                     [disabled]="false"></p-checkbox>
                   <label [for]="category.id" class="mb-0">{{category.name}}</label>
+                </div> -->
+                <div *ngFor="let category of specialitiesList;let i=index"
+                  class="field-radiobutton d-flex align-items-center gap-2 mb-3">
+                  <p-radioButton [value]="category.id" formControlName="category"
+                    [inputId]="category.id"></p-radioButton>
+                  <label [for]="category.id+i" class="mb-0">
+                    {{category.name}}
+                  </label>
                 </div>
               </div>
             </div>
@@ -241,11 +249,18 @@
               {{'doctors.specialties' | translate}}
             </h5>
             <div class="mt-3">
-              <div *ngFor="let category of specialitiesList"
+              <!-- <div *ngFor="let category of specialitiesList"
                 class="field-checkbox d-flex align-items-center gap-3 mb-3">
                 <p-checkbox value="category" [value]="category" formControlName="category" [inputId]="category.id"
                   [disabled]="false"></p-checkbox>
                 <label [for]="category.id" class="mb-0">{{category.name}}</label>
+              </div> -->
+              <div *ngFor="let category of specialitiesList;let i=index"
+                class="field-radiobutton d-flex align-items-center gap-2 mb-3">
+                <p-radioButton [value]="category.id" formControlName="category" [inputId]="category.id"></p-radioButton>
+                <label [for]="category.id+i" class="mb-0">
+                  {{category.name}}
+                </label>
               </div>
             </div>
           </div>

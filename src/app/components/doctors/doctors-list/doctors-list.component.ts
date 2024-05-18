@@ -215,7 +215,7 @@ export class DoctorsListComponent {
 
   filterNow(): void {
     this.page = 1;
-    this.filterForm.value?.category ? this.specialistId = this.filterForm.value?.category[0]?.id : '';
+    this.filterForm.value?.category ? this.specialistId = this.filterForm.value?.category?.id : '';
     this.startPrice = this.filterForm.value?.startPrice;
     this.endPrice = this.filterForm.value?.endPrice;
     this.gender = this.filterForm.value?.gender == 'male' ? 0 : this.filterForm.value?.gender == 'female' ? 1 : null;
