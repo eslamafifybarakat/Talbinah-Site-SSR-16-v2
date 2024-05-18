@@ -62,7 +62,7 @@ export class HomeComponent {
     private publicService: PublicService,
     private homeService: HomeService
   ) {
-    localizationLanguageService.updatePathAccordingLang();
+    // localizationLanguageService.updatePathAccordingLang();
   }
 
   ngOnInit(): void {

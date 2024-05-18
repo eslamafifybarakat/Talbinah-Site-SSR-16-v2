@@ -178,6 +178,7 @@
     "joinNow": "Join now"
   },
   "labels": {
+    "subject":"Subject",
     "callNow": "Call Now",
     "callLater": "Call Later",
     "name": "Name",
@@ -205,6 +206,7 @@
     "postNumber": "Post Number"
   },
   "placeholders": {
+    "name":"Enter your name",
     "setMin": "Set the minimum",
     "setMax": "Set the maximum",
     "searchEstkdam": "Find the employment you want",
@@ -226,6 +228,7 @@
     "newPassword": "Enter new password"
   },
   "validations": {
+    "emailRequired": "Email Address is required",
     "username": "Username is required",
     "password": "Password is required",
     "email": "Email is required",

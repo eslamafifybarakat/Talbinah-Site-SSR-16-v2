@@ -1,5 +1,9 @@
 .contact-us {
-  padding-top: 3.5rem;
+  padding-top: 7rem;
+  background-image: url(../../../assets/images/doctors/doctor-details-bg.svg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  min-height: 100vh;
   .area-control {
     height: 12rem !important;
   }
@@ -50,5 +54,25 @@
   .form-btn {
     padding-right: 5rem;
     padding-left: 5rem;
+  }
+}
+.btn-solid-main:focus,
+.btn-solid-main:active {
+  background-color: var(--bg-main-color);
+  border-color: var(--bg-main-color);
+  color: var(--text-white-color);
+}
+.btn-solid-main {
+  background-color: var(--bg-main-color);
+  border-color: var(--bg-main-color);
+  color: var(--text-white-color);
+  height: 3rem;
+  border-radius: var(--border-input-radius);
+  min-width: 10rem;
+}
+
+@media (max-width: 1200px) {
+  .contact-us {
+    padding-top: 1.5rem;
   }
 }

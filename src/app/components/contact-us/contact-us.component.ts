@@ -16,6 +16,7 @@ import { Subscription } from 'rxjs';
 
 // Components
 import { ChangeDetectorRef, Component, Inject, PLATFORM_ID } from '@angular/core';
+import { FooterComponent } from 'src/app/shared/components/footer/footer.component';
 
 @Component({
   selector: 'app-contact-us',
@@ -23,6 +24,7 @@ import { ChangeDetectorRef, Component, Inject, PLATFORM_ID } from '@angular/core
   imports: [
     // Modules
     ReactiveFormsModule,
+    FooterComponent,
     TranslateModule,
     CommonModule
   ],
@@ -126,12 +128,12 @@ export class ContactUsComponent {
   private handleSuccessScenario(): void {
     this.isLoadingBtn = false;
     this.contactForm.reset();
-    this.alertsService?.openToast('success', 'success', 'تم إرسال طلبك بنجاح');
+    this.alertsService?.openToast('success', '', 'تم إرسال طلبك بنجاح');
     this.cdr.detectChanges();
   }
   private handleErrorResponse(err: any): void {
     const errorMessage = err?.message || 'An error occurred while sending the request.';
-    this.alertsService?.openToast('error', 'error', errorMessage);
+    this.alertsService?.openToast('error', '', errorMessage);
     this.isLoadingBtn = false;
   }
 

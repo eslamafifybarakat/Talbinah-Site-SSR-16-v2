@@ -1,6 +1,6 @@
 <div class="contact-us">
   <div class="container">
-    <div class="global-card my-5 position-relative">
+    <div class="my-5 position-relative">
       <div class="overlay-search position-absolute d-flex justify-content-center" *ngIf="isLoadingBtn">
         <div class="d-flex justify-content-center align-items-center gap-2">
           <ng-container *ngFor="let item of [8,8,9,8]">
@@ -28,7 +28,7 @@
                   <input type="text" id="name" class="form-control" formControlName="name"
                     [class.border-red]="formControls?.name?.invalid && (formControls?.name?.dirty || formControls?.name?.touched)"
                     autocomplete="cc-name" (input)="publicService.clearValidationErrors(formControls?.name)"
-                    placeholder="{{'placeholder.name'|translate}}">
+                    placeholder="{{'placeholders.name'|translate}}">
                 </div>
                 <div class="mt-2">
                   <ng-container
@@ -56,7 +56,7 @@
                   <input type="email" id="email" class="form-control" formControlName="email"
                     [class.border-red]="formControls?.email?.invalid && (formControls?.email?.dirty || formControls?.email?.touched)"
                     autocomplete="cc-name" (input)="publicService.clearValidationErrors(formControls?.email)"
-                    placeholder="{{'placeholder.email'|translate}}">
+                    placeholder="{{'placeholders.email'|translate}}">
                 </div>
                 <div class="mt-2">
                   <ng-container
@@ -87,7 +87,7 @@
                   <textarea type="text" id="subject" class="textarea form-control" formControlName="subject"
                     [class.border-red]="formControls?.subject?.invalid && (formControls?.subject?.dirty || formControls?.subject?.touched)"
                     autocomplete="cc-name" (input)="publicService.clearValidationErrors(formControls?.subject)"
-                    placeholder="{{'placeholder.contactText'|translate}}"></textarea>
+                    placeholder="{{'labels.subject'|translate}}"></textarea>
                 </div>
                 <div class="mt-2">
                   <ng-container
@@ -118,4 +118,5 @@
       </div>
     </div>
   </div>
+  <app-footer></app-footer>
 </div>
