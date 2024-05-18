@@ -1,0 +1,15 @@
+<div *ngFor="let i of socialBtns">
+  <a *ngIf="type === i.name" (click)="share()">
+    <div class="icon-content text-center mb-4" id="share-button">
+      <div class="icon d-flex justify-content-center align-items-center mb-2 {{i.name}} m-auto">
+        <ng-container *ngIf="type=='twitter'; else notTwitter">
+          <img src="assets/images/icons/twitter.png" alt="twitter">
+        </ng-container>
+        <ng-template #notTwitter>
+          <i class="fab fa-{{i.icon}} fs-5"></i>
+        </ng-template>
+      </div>
+      <p class="fs-9 text-capitalize text-dark-color">{{i.name}}</p>
+    </div>
+  </a>
+</div>

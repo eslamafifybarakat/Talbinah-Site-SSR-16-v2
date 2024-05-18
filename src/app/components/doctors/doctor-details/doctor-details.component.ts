@@ -7,6 +7,7 @@ import { FormsModule } from '@angular/forms';
 // Components
 import { AvailableDoctorAppointmentsComponent } from '../available-doctor-appointments/available-doctor-appointments.component';
 import { ReviewsCarouselComponent } from './../../../carousels/reviews-carousel/reviews-carousel.component';
+import { ShareToSocialComponent } from 'src/app/shared/share-to-social/share-to-social.component';
 import { SkeletonComponent } from './../../../shared/components/skeleton/skeleton.component';
 import { FooterComponent } from './../../../shared/components/footer/footer.component';
 
@@ -177,19 +178,19 @@ export class DoctorDetailsComponent {
   }
 
   share(): void {
-    // const ref = this.dialogService.open(ShareComponent, {
-    //   header: 'مشاركة',
-    //   width: '40%',
-    //   baseZIndex: 10000,
-    //   data: {
-    //     link: this.fullUrl
-    //   },
-    //   styleClass: 'rate'
-    // });
-    // ref.onClose.subscribe((res: any) => {
-    //   if (res) {
-    //   }
-    // })
+    const ref = this.dialogService.open(ShareToSocialComponent, {
+      header: 'مشاركة',
+      width: '40%',
+      baseZIndex: 10000,
+      data: {
+        link: this.fullUrl
+      },
+      styleClass: 'rate'
+    });
+    ref.onClose.subscribe((res: any) => {
+      if (res) {
+      }
+    });
   }
 
   ngOnDestroy(): void {

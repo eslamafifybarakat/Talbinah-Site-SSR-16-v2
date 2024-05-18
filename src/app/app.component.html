@@ -10,7 +10,7 @@
   <section>
     <router-outlet></router-outlet>
   </section>
-  <footer *ngIf="shouldRender&&data.page!='Home'&&data.page!='Doctor-Details'">
+  <footer *ngIf="shouldRender&&data?.page!='Home'&&data?.page!='Doctor-Details'">
     <app-footer></app-footer>
     <!-- <bottom-navigation class="d-block d-xl-none"></bottom-navigation> -->
   </footer>

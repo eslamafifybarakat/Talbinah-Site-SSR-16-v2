@@ -21,25 +21,25 @@
     "signUp": "Sign Up"
   },
   "general": {
-    "all":"All",
+    "all": "All",
     "attachFile": "Attach File",
     "send": "Send",
     "backToHome": "Back to home",
     "moreDetails": "More Details",
     "errorOccur": "An error has occurred",
-    "browseMore":"Browse more",
-    "noData":"There is no Data",
-    "downloadNow":"Download Now",
-    "appStore":"app store",
-    "googlePlay":"google play",
+    "browseMore": "Browse more",
+    "noData": "There is no Data",
+    "downloadNow": "Download Now",
+    "appStore": "app store",
+    "googlePlay": "google play",
     "downloadApps": "Download Apps",
     "downloadAppsText": "To book an appointment with this doctor, download the application by clicking on the following links",
-    "search":"Search",
-    "reset":"Reset",
-    "sr":"SR",
-"noSearchResult":"There are no search results",
-"minute":"minute",
-"bookNow":"Book Now"
+    "search": "Search",
+    "reset": "Reset",
+    "sr": "SR",
+    "noSearchResult": "There are no search results",
+    "minute": "minute",
+    "bookNow": "Book Now"
   },
   "home": {
     "hero": {
@@ -47,65 +47,65 @@
       "heroSubtitle": "We Are Here to Support You in",
       "heroDescription": "Let us help you build a bridge of hope and optimism towards a better tomorrow, where happiness and mental peace are the prevailing features in your life."
     },
-    "ourSpecialties":{
-      "title":"Our Specialties",
-      "description":"At Talbinah, we bring together a team of experts specialized in multiple fields to provide personalized support and guidance suitable for each individual. Whether you need psychological guidance, behavioral therapy, or any other specialty, we are here to help you on the path to recovery and overall improvement of your psychological state."
+    "ourSpecialties": {
+      "title": "Our Specialties",
+      "description": "At Talbinah, we bring together a team of experts specialized in multiple fields to provide personalized support and guidance suitable for each individual. Whether you need psychological guidance, behavioral therapy, or any other specialty, we are here to help you on the path to recovery and overall improvement of your psychological state."
     },
-    "doctors":{
-      "title":"We connect you with your specialist therapist",
-      "description":"At Talbinah, we bring together a team of experts specialized in multiple fields to provide personalized support and guidance suitable for each individual. Whether you need psychological guidance, behavioral therapy, or any other specialty, we are here to help you on the path to recovery and overall improvement of your psychological state."
+    "doctors": {
+      "title": "We connect you with your specialist therapist",
+      "description": "At Talbinah, we bring together a team of experts specialized in multiple fields to provide personalized support and guidance suitable for each individual. Whether you need psychological guidance, behavioral therapy, or any other specialty, we are here to help you on the path to recovery and overall improvement of your psychological state."
     },
-    "features":{
-      "title":"Features",
-      "description":"World-class care for everyone. Our health system provides unparalleled specialized health care."
+    "features": {
+      "title": "Features",
+      "description": "World-class care for everyone. Our health system provides unparalleled specialized health care."
     },
-    "experience":{
-      "title":"How to have the best experience?",
-      "contact":"Contact the appropriate doctor",
-      "answer":"Answer some questions through which we will connect you with the appropriate therapist. You can also choose the therapist yourself",
-      "book":"Book your session now",
-      "choose":"Choose the appropriate time and date, as you can pay using different payment methods",
-      "start":"Start your treatment session",
-      "communicate":"You can communicate with your therapist in different ways during the session"
+    "experience": {
+      "title": "How to have the best experience?",
+      "contact": "Contact the appropriate doctor",
+      "answer": "Answer some questions through which we will connect you with the appropriate therapist. You can also choose the therapist yourself",
+      "book": "Book your session now",
+      "choose": "Choose the appropriate time and date, as you can pay using different payment methods",
+      "start": "Start your treatment session",
+      "communicate": "You can communicate with your therapist in different ways during the session"
     },
-    "articles":{
-      "title":"Articles",
-      "description":"World-class care for everyone. Our health system provides unparalleled specialized health care."
+    "articles": {
+      "title": "Articles",
+      "description": "World-class care for everyone. Our health system provides unparalleled specialized health care."
     },
-    "apps":{
-      "title":"Take care of your mental health",
-      "description":"This text is an example of text that can be replaced in the same space. This text was generated from the Arabic text generator, where you can generate such text or many other texts."
+    "apps": {
+      "title": "Take care of your mental health",
+      "description": "This text is an example of text that can be replaced in the same space. This text was generated from the Arabic text generator, where you can generate such text or many other texts."
     },
-    "reviews":{
-      "title":"Customer reviews",
-      "description":"World-class care for everyone. Our health system provides unparalleled specialized health care."
+    "reviews": {
+      "title": "Customer reviews",
+      "description": "World-class care for everyone. Our health system provides unparalleled specialized health care."
     }
   },
-  "doctors":{
-"findDoctor":"Find a doctor or specialist",
-"filterOptions":"Filter options",
-"commonFilter":"Common filter",
-"specialties":"Specialties",
-"type":"Type",
-"priceValue":"Price value",
-"gender":"Gender",
-"male":"Male",
-"female":"Female",
-"noDoctors":"There are no doctors",
-"sessionFees": "Session Fees",
-"rating": "Rating",
-"session": "Session",
-"currencyUsd": "USD",
-"currencyRsa": "RSA",
-"sortedFrom":"Sorted from:",
-"commission":"Saudi Commission for Health Specialties",
-"availableApp": "Available Dates",
-"noAvailableApp": "There is no available dates, now",
-"bookSessionNow": "Book Session Now",
-"views":"Views",
-"sessions":"Sessions",
-"experiences":"Experiences",
-"years":"Years"
+  "doctors": {
+    "findDoctor": "Find a doctor or specialist",
+    "filterOptions": "Filter options",
+    "commonFilter": "Common filter",
+    "specialties": "Specialties",
+    "type": "Type",
+    "priceValue": "Price value",
+    "gender": "Gender",
+    "male": "Male",
+    "female": "Female",
+    "noDoctors": "There are no doctors",
+    "sessionFees": "Session Fees",
+    "rating": "Rating",
+    "session": "Session",
+    "currencyUsd": "USD",
+    "currencyRsa": "RSA",
+    "sortedFrom": "Sorted from:",
+    "commission": "Saudi Commission for Health Specialties",
+    "availableApp": "Available Dates",
+    "noAvailableApp": "There is no available dates, now",
+    "bookSessionNow": "Book Session Now",
+    "views": "Views",
+    "sessions": "Sessions",
+    "experiences": "Experiences",
+    "years": "Years"
   },
   "joinUs": {
     "joinNow": "Join now",
@@ -117,8 +117,16 @@
     "step3": "Complete your profile",
     "step4": "Add your available dates to start receiving clients"
   },
-  "blogs":{
-"noBlogs":"No Blogs"
+  "blogs": {
+    "noBlogs": "No Blogs"
+  },
+  "blogDetails": {
+    "relatedBlogs": "Related Blogs",
+    "relatedDoctors": "Related Doctors"
+  },
+  "contact": {
+    "contactUs": "Contact Us",
+    "contactDescription": "If you have any questions, requests or suggestions, feel free to contact us"
   },
   "auth": {
     "startRecruitment": "Start your recruitment journey now",
@@ -197,8 +205,8 @@
     "postNumber": "Post Number"
   },
   "placeholders": {
-    "setMin":"Set the minimum",
-    "setMax":"Set the maximum",
+    "setMin": "Set the minimum",
+    "setMax": "Set the maximum",
     "searchEstkdam": "Find the employment you want",
     "username": "Enter username",
     "password": "Enter password",
@@ -250,7 +258,7 @@
     "containChar": "It must contain at least one capital letter",
     "notContainInfo": "It does not contain information such as name"
   },
-  "footer":{
+  "footer": {
     "description": "Talbinah, your go-to mental health support app! Connecting experts with those in need in a secure, family-friendly environment. Lets nurture our mental health together!",
     "pages": "Pages",
     "aboutUs": "About Us",
@@ -271,5 +279,4 @@
     "contactUs": "Contact Us",
     "download": "Download our application on:"
   }
-
 }

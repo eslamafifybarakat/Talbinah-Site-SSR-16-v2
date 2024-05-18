@@ -1,4 +1,10 @@
 #blog-details {
+  padding-top: 7rem;
+  background-image: url(../../../../assets/images/doctors/doctor-details-bg.svg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  min-height: 100vh;
+
   .doc-img-details {
     border: 2px solid var(--text-main-color);
     object-fit: contain;
@@ -10,3 +16,10 @@
     object-fit: cover;
   }
 }
+
+@media (max-width: 1200px) {
+  #blog-details {
+    padding-top: 1.5rem;
+  }
+}
+

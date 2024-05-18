@@ -1,15 +1,19 @@
+import { ShareToSocialComponent } from 'src/app/shared/share-to-social/share-to-social.component';
 import { SkeletonComponent } from './../../../shared/components/skeleton/skeleton.component';
-import { keys } from './../../../shared/configs/localstorage-key';
-import { BlogsService } from './../../../services/blogs.service';
-import { PublicService } from './../../../services/generic/public.service';
-import { AlertsService } from './../../../services/generic/alerts.service';
-import { ActivatedRoute, Router, RouterModule } from '@angular/router';
-import { MetadataService } from './../../../services/generic/metadata.service';
 import { CommonModule, isPlatformBrowser, isPlatformServer } from '@angular/common';
 import { ChangeDetectorRef, Component, Inject, PLATFORM_ID } from '@angular/core';
+import { MetadataService } from './../../../services/generic/metadata.service';
+import { AlertsService } from './../../../services/generic/alerts.service';
+import { PublicService } from './../../../services/generic/public.service';
+import { ActivatedRoute, Router, RouterModule } from '@angular/router';
+import { keys } from './../../../shared/configs/localstorage-key';
+import { BlogsService } from './../../../services/blogs.service';
+import { DialogService } from 'primeng/dynamicdialog';
 import { TranslateModule } from '@ngx-translate/core';
 import { Subscription } from 'rxjs';
-import { DialogService } from 'primeng/dynamicdialog';
+import { FooterComponent } from 'src/app/shared/components/footer/footer.component';
+import { ArticlesCarouselComponent } from 'src/app/carousels/articles-carousel/articles-carousel.component';
+import { DoctorsCarouselComponent } from 'src/app/carousels/doctors-carousel/doctors-carousel.component';
 
 @Component({
   standalone: true,
@@ -17,6 +21,9 @@ import { DialogService } from 'primeng/dynamicdialog';
     CommonModule,
     TranslateModule,
     SkeletonComponent,
+    FooterComponent,
+    ArticlesCarouselComponent,
+    DoctorsCarouselComponent,
     RouterModule
   ],
   selector: 'app-blog-details',
@@ -28,7 +35,7 @@ export class BlogDetailsComponent {
   currentLanguage: any;
   fullUrl: any = null;
 
-  isLoading: boolean = false;
+  isLoadingBlogDetails: boolean = false;
   blogDetails: any;
   blogId: any;
 
@@ -55,7 +62,7 @@ export class BlogDetailsComponent {
       this.fullUrl = baseUrl + path;
     }
 
-    this.activatedRoute.queryParams.subscribe(params => {
+    this.activatedRoute?.params?.subscribe(params => {
       if (params['id']) {
         this.blogId = params['id'];
       }
@@ -64,7 +71,7 @@ export class BlogDetailsComponent {
   }
 
   getBlogDetails(id: any): void {
-    this.isLoading = true;
+    this.isLoadingBlogDetails = true;
     this.blogsService.getBlogById(id).subscribe(
       (res: any) => {
         this.processBlogDetailsResponse(res);
@@ -79,11 +86,9 @@ export class BlogDetailsComponent {
       this.blogDetails = res?.data?.article;
       if (res?.data?.articles) {
         this.relatedArticles = res?.data?.articles;
-        this.blogsService.blogRelatedArticlesSubj.next(this.relatedArticles);
       }
       if (res?.data?.doctors) {
         this.relatedDoctors = res?.data?.doctors;
-        this.blogsService.blogRelatedDoctorsSubj.next(this.relatedDoctors);
       }
       if (isPlatformBrowser(this.platformId)) {
         this.updateMetaTags();
@@ -94,7 +99,7 @@ export class BlogDetailsComponent {
     } else {
       this.alertsService.openToast('error', 'error', res.message);
     }
-    this.isLoading = false;
+    this.isLoadingBlogDetails = false;
     this.cdr.detectChanges();
   }
   private updateMetaTags(): void {
@@ -109,7 +114,7 @@ export class BlogDetailsComponent {
       { name: 'twitter:card', content: 'summary_large_image' },
       { name: 'twitter:url', content: 'http://talbinah.net/' },
       { name: 'twitter:site', content: '@Talbinahco' },
-      { name: 'twitter:title', content: `تلبينة | ${this.blogDetails.title}` },
+      { name: 'twitter:title', content: `تلبينة | ${this.blogDetails?.title}` },
       { name: 'twitter:description', content: `${this.blogDetails?.description}` },
       { name: 'twitter:image', content: `${this.blogDetails?.image?.url}` },
     ]);
@@ -120,7 +125,7 @@ export class BlogDetailsComponent {
 
       { property: 'og:type', content: 'website' },
       { property: 'og:url', content: 'http://talbinah.net/' },
-      { property: 'og:title', content: `تلبينة | ${this.blogDetails.title}` },
+      { property: 'og:title', content: `تلبينة | ${this.blogDetails?.title}` },
       { property: 'og:description', content: `${this.blogDetails?.description}` },
       { property: 'og:image', content: `${this.blogDetails?.image?.url || 'https://talbinah.net/assets/images/main/logos/logo_talbinah.png'}` },
       { property: 'twitter:site_name', content: 'تطبيق تلبينة' }
@@ -128,22 +133,22 @@ export class BlogDetailsComponent {
   }
   private handleError(err: any): void {
     this.alertsService.openToast('error', 'error', err);
-    this.isLoading = false;
+    this.isLoadingBlogDetails = false;
   }
   share(): void {
-    // const ref = this.dialogService.open(ShareComponent, {
-    //   header: 'مشاركة',
-    //   width: '40%',
-    //   baseZIndex: 10000,
-    //   data: {
-    //     link: this.fullUrl
-    //   },
-    //   styleClass: 'rate'
-    // });
-    // ref.onClose.subscribe((res: any) => {
-    //   if (res) {
-    //   }
-    // })
+    const ref = this.dialogService.open(ShareToSocialComponent, {
+      header: 'مشاركة',
+      width: '40%',
+      baseZIndex: 10000,
+      data: {
+        link: this.fullUrl
+      },
+      styleClass: 'rate'
+    });
+    ref.onClose.subscribe((res: any) => {
+      if (res) {
+      }
+    })
   }
   ngOnDestroy(): void {
     this.unsubscribe?.forEach((sb) => sb?.unsubscribe());

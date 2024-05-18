@@ -1,16 +1,16 @@
 <div
   class="doctor-card bg-white-color p-3 w-100 d-sm-flex d-none justify-content-center align-items-center gap-3 flex-column">
-  <div class="doctor-img rounded-circle" [routerLink]="'/Doctors/Details/'+item.full_name"
-    [queryParams]="{ id: item.id}">
-    <img [src]="item?.image" class="w-100 h-100 rounded-circle" [alt]="item.full_name"
+  <div class="doctor-img rounded-circle" [routerLink]="'/Doctors/Details/'+item?.full_name"
+    [queryParams]="{ id: item?.id}">
+    <img [src]="item?.image" class="w-100 h-100 rounded-circle" [alt]="item?.full_name"
       onerror="src='assets/images/not-found/no-woman-doctor.svg'">
   </div>
   <div class="text-center">
     <h5 class="fw-500 mb-1 title fw-bold">
-      {{item.full_name||''}}
+      {{item?.full_name||'لا يوجد'}}
     </h5>
     <p class="mb-0 description fw-500">
-      {{item.specialist[0]||''}}
+      {{item?.specialist[0]||'لا يوجد'}}
     </p>
     <div class="d-flex justify-content-center gap-1 count-rate py-1 px-3 rounded-pill mx-auto mt-2 fw-500">
       <span>
@@ -21,7 +21,7 @@
         </svg>
       </span>
       <span>
-        ({{item.reservation_count||0}}) {{item.count_rate||0}}
+        ({{item?.reservation_count||0}}) {{item?.count_rate||0}}
       </span>
     </div>
   </div>

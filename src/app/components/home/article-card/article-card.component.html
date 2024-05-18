@@ -1,7 +1,7 @@
-<div class="article-card w-100 p-3 h-100" [routerLink]="['/Blogs/Details/',item.title,{ id: item.id}]">
+<div class="article-card w-100 p-3 h-100" [routerLink]="['/Blogs/Details/',item?.title,{ id: item?.id}]">
   <div class="article-img w-100">
     <img [src]="item?.image" alt="article" class="w-100 h-100"
-      onerror="src='../../../../assets/images/not-found/no-article.svg'">
+      onerror="src='assets/images/not-found/no-article.svg'">
   </div>
   <div class="mt-3">
     <div>

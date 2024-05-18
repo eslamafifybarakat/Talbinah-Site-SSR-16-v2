@@ -27,19 +27,19 @@ export class LocalizationLanguageService {
     return 'ar';
   }
 
-  updatePathAccordingLang(): string {
-    const currentUrl = this.getCurrentUrl();
-    const currentUrlSegments = currentUrl.startsWith('/') ? currentUrl.substring(1).split('/') : currentUrl.split('/');
+  updatePathAccordingLang(): any {
+    // const currentUrl = this.getCurrentUrl();
+    // const currentUrlSegments = currentUrl.startsWith('/') ? currentUrl.substring(1).split('/') : currentUrl.split('/');
 
-    if (['ar', 'en', 'ru', 'zh'].includes(currentUrlSegments[0])) {
-      currentUrlSegments[0] = this.currentLanguage;
-    } else {
-      currentUrlSegments.unshift(this.currentLanguage);
-    }
+    // if (['ar', 'en', 'ru', 'zh'].includes(currentUrlSegments[0])) {
+    //   currentUrlSegments[0] = this.currentLanguage;
+    // } else {
+    //   currentUrlSegments.unshift(this.currentLanguage);
+    // }
 
-    const newPath = '/' + currentUrlSegments.join('/');
-    this.updatePath(newPath);
-    return newPath;
+    // const newPath = '/' + currentUrlSegments.join('/');
+    // this.updatePath(newPath);
+    // return newPath;
   }
 
   getFullURL(): string {
