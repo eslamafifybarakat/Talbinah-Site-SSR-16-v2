@@ -29,7 +29,7 @@
         <ng-container>
           <div class="my-xl-5 my-md-3 my-sm-3 my-3">
             <div class="">
-              <ng-container *ngIf="!isLoadingFilter; else laodingCards">
+              <ng-container *ngIf="!isLoadingFilter; else loadingCards">
                 <ng-container *ngIf="blogsList?.length>0; else noBlogs">
                   <div class="my-xl-5 my-md-3 my-sm-2 my-2">
                     <div class="row">
@@ -57,7 +57,7 @@
                   </div>
                 </ng-template>
               </ng-container>
-              <ng-template #laodingCards>
+              <ng-template #loadingCards>
                 <app-skeleton [type]="'blogs2'"></app-skeleton>
               </ng-template>
             </div>

@@ -3,7 +3,13 @@
     border: 1px solid var(--text-main-color) !important;
     background-color: #ecf4f1 !important;
   }
-
+  .appointments {
+    border: 1px solid #f2f4f7;
+    border-radius: 15px;
+    hr {
+      border-color: #e4e9ef;
+    }
+  }
   .border-booked-appointment {
     border: 1px solid #eee !important;
     background-color: #eee !important;
