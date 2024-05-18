@@ -1,0 +1,80 @@
+<div id="faqs">
+  <div class="container">
+    <div class="faqs-content mb-5">
+      <ng-container *ngIf="faqs?.general?.length>0">
+        <div id="general">
+          <ng-container *ngIf="false; else noFaq">
+            <app-skeleton [type]="'faqs'"></app-skeleton>
+          </ng-container>
+          <ng-template #noFaq>
+            <h3 class="dectorated-title text-main-color fw-bold mb-5">
+              عام
+            </h3>
+            <!-- <div class="accordion" id="accordionGeneral">
+              <div class="accordion-item mb-3" *ngFor="let item of faqs?.general let i = index">
+                <h2 class="accordion-header" [id]="'headingGeneral'+i">
+                  <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                    [attr.data-bs-target]="'#collapseGeneral'+i" aria-expanded="true"
+                    [attr.aria-controls]="'collapse'+i">
+                    <span [innerHTML]="item?.question"></span>
+                  </button>
+                </h2>
+                <div [id]="'collapseGeneral'+i" class="accordion-collapse collapse"
+                  [attr.aria-labelledby]="'headingGeneral'+i" data-bs-parent="#accordionGeneral">
+                  <div class="accordion-body">
+                    <span [innerHTML]="item?.answer"></span>
+                  </div>
+                </div>
+              </div>
+            </div> -->
+            <p-accordion [expandIcon]="'pi pi-plus'" [collapseIcon]="'pi pi-minus'">
+              <ng-container *ngFor="let item of faqs?.general let i = index">
+                <p-accordionTab [header]="item?.question">
+                  <span [innerHTML]="item?.answer"></span>
+                </p-accordionTab>
+              </ng-container>
+            </p-accordion>
+          </ng-template>
+        </div>
+      </ng-container>
+
+      <ng-container *ngIf="faqs?.others?.length>0">
+        <div id="others" class="mt-5">
+          <ng-container *ngIf="false; else noOther">
+            <app-skeleton [type]="'faqs'"></app-skeleton>
+          </ng-container>
+          <ng-template #noOther>
+            <h3 class="dectorated-title text-main-color fw-bold mb-5">
+              مشاكل أخري
+            </h3>
+            <p-accordion [expandIcon]="'pi pi-plus'" [collapseIcon]="'pi pi-minus'">
+              <ng-container *ngFor="let item of faqs?.others let i = index">
+                <p-accordionTab [header]="item?.question">
+                  <span [innerHTML]="item?.answer"></span>
+                </p-accordionTab>
+              </ng-container>
+            </p-accordion>
+            <!-- <div class="accordion" id="accordionOthers">
+              <div class="accordion-item mb-3" *ngFor="let item of faqs?.others; let i = index">
+                <h2 class="accordion-header" [id]="'headingOthers'+i">
+                  <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                    [attr.data-bs-target]="'#collapseOthers'+i" aria-expanded="true"
+                    [attr.aria-controls]="'collapse'+i">
+                    <span [innerHTML]="item?.question"></span>
+                  </button>
+                </h2>
+                <div [id]="'collapseOthers'+i" class="accordion-collapse collapse"
+                  [attr.aria-labelledby]="'headingOthers'+i" data-bs-parent="#accordionOthers">
+                  <div class="accordion-body">
+                    <span [innerHTML]="item?.answer"></span>
+                  </div>
+                </div>
+              </div>
+            </div> -->
+          </ng-template>
+        </div>
+      </ng-container>
+    </div>
+  </div>
+  <app-footer></app-footer>
+</div>

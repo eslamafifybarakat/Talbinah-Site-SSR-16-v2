@@ -150,6 +150,22 @@ export const appRoutes: Routes = [
       ),
   },
 
+  // FAQs
+  {
+    path: ':lang/FAQs',
+    loadComponent: () =>
+      import('./components/faqs/faqs.component').then(
+        (c) => c.FaqsComponent
+      ),
+  },
+  {
+    path: 'FAQs',
+    loadComponent: () =>
+      import('./components/faqs/faqs.component').then(
+        (c) => c.FaqsComponent
+      ),
+  },
+
   // Errors
   {
     path: ':lang/Errors',

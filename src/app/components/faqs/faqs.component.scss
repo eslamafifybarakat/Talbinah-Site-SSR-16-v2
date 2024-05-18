@@ -1,0 +1,73 @@
+.faqs-content {
+  .accordion {
+    border: none;
+    margin-bottom: 15px !important;
+
+    .accordion-item {
+      border: none;
+      box-shadow: rgba(0, 0, 0, 0.16) 0rem 0.0625rem 0.25rem;
+      border-radius: 0.5rem;
+
+      .accordion-button {
+        color: var(--text-white-color) !important;
+        background-color: var(--bg-main-color);
+        border-radius: 0.5rem;
+
+        &:after {
+          // background-image: url("../../../../../assets/images/icons/select-arrow-down.svg") !important;
+        }
+      }
+
+      &:first-of-type {
+        .accordion-button {
+          border-radius: 0.5rem;
+        }
+      }
+
+      &:last-of-type {
+        border-radius: 0.5rem;
+
+        .accordion-button.collapsed {
+          border-radius: 0.5rem;
+        }
+      }
+    }
+  }
+}
+:host::ng-deep {
+  #faqs {
+    .p-accordion-tab {
+      margin-bottom: 15px !important;
+    }
+    .p-accordion-content {
+      box-shadow: 0px 3px 15px 0px rgba(0, 0, 0, 0.1019607843);
+      background-color: var(--bg-white-color);
+      border: 0 !important;
+      border-bottom-right-radius: 10px;
+      border-bottom-left-radius: 10px;
+    }
+    .p-accordion-header-link {
+      flex-direction: row-reverse;
+      justify-content: space-between;
+      background-color: var(--bg-main-color);
+      color: var(--text-white-color);
+      border-radius: 10px;
+    }
+  }
+}
+
+#faqs {
+  padding-top: 7rem;
+  background-image: url(../../../assets/images/doctors/doctor-details-bg.svg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  min-height: 100vh;
+}
+
+@media (max-width: 1200px) {
+  #faqs {
+    padding-top: 1.5rem;
+  }
+}
+
+
