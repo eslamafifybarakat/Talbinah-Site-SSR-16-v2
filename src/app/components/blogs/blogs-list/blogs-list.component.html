@@ -5,18 +5,19 @@
 </ng-container>
 <ng-container *ngIf="!isLoadingBlogs">
   <ng-container>
-    <div id="blogs-list" class="container">
-      <div class="my-xl-5 my-md-3 my-sm-3 my-3">
-        <nav class="navbar navbar-expand-lg navbar-light global-card py-0 rounded d-flex justify-content-center w-100">
-          <ul class="nav mb-2 mb-lg-0 py-4 d-flex align-items-center p-0">
+    <div id="blogs-list" class="container" [class.ar-blogs-content]="currentLanguage=='ar'">
+      <div>
+        <nav
+          class="navbar navbar-expand-lg navbar-light border-bottom py-0 rounded d-flex justify-content-center w-100">
+          <ul class="nav mb-2 mb-lg-0 d-flex align-items-center p-0">
             <li class="nav-item" (click)="onChangeCategory(null)">
-              <a class="nav-link px-3" [ngClass]="categoryId===null?'active':'' ">
+              <a class="nav-link px-3 py-4" [ngClass]="categoryId===null?'active':'' ">
                 {{'general.all' | translate}}
               </a>
             </li>
             <ng-container *ngFor="let cat of categoriesList">
               <li class="nav-item" (click)="onChangeCategory(cat?.id)">
-                <a class="nav-link px-3" [ngClass]="categoryId===cat?.id?'active':'' ">
+                <a class="nav-link px-3 py-4" [ngClass]="categoryId===cat?.id?'active':'' ">
                   <span class="">
                     {{cat?.name}}
                   </span>
@@ -27,7 +28,7 @@
         </nav>
         <ng-container>
           <div class="my-xl-5 my-md-3 my-sm-3 my-3">
-            <div class="container">
+            <div class="">
               <ng-container *ngIf="!isLoadingFilter; else laodingCards">
                 <ng-container *ngIf="blogsList?.length>0; else noBlogs">
                   <div class="my-xl-5 my-md-3 my-sm-2 my-2">
@@ -48,15 +49,11 @@
                 </ng-container>
 
                 <ng-template #noBlogs>
-                  <div class="col-12 mb-4 w-100">
-                    <div class="card border-0 shadow-none bg-transparent nodata">
-                      <div class="row w-100 justify-content-center">
-                        <div class="col-lg-3 col-md-6 col-10">
-                          <img src="assets/images/not-found/no-search.svg" class="w-100" alt="no-data">
-                        </div>
-                      </div>
-                      <p class="text-center primary-color mt-2 fs-4">{{'no_blogs' | translate}}</p>
-                    </div>
+                  <div class="col-12 mb-4 w-100 text-center">
+                    <app-dynamic-svg [name]="'no-data'"></app-dynamic-svg>
+                    <p>
+                      {{'blogs.noBlogs'|translate}}
+                    </p>
                   </div>
                 </ng-template>
               </ng-container>

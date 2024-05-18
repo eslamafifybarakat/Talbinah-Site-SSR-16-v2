@@ -45,20 +45,10 @@
 
           &.active {
             color: var(--text-main-color);
+            border-bottom: 2px solid var(--bg-main-color);
             font-weight: bold;
           }
         }
-      }
-    }
-
-    .p-paginator {
-      .p-link {
-        border-radius: 5px !important;
-      }
-
-      .p-paginator-page.p-highlight {
-        background-color: var(--bg-main-color) !important;
-        color: var(--text-white-color) !important;
       }
     }
   }
@@ -68,5 +58,28 @@
   .py-small {
     padding-top: 1rem !important;
     padding-bottom: 1rem !important;
+  }
+}
+:host::ng-deep {
+  .p-paginator {
+    .p-link {
+      border-radius: 50% !important;
+    }
+    .p-paginator-page {
+      min-width: 2.5rem;
+      height: 2.5rem;
+    }
+    .p-paginator-page.p-highlight {
+      background-color: #f9fafb !important;
+      color: #000 !important;
+    }
+  }
+  &.ar-blogs-content {
+    .p-paginator-prev,
+    .p-paginator-next,
+    .p-paginator-first,
+    .p-paginator-last {
+      transform: scaleX(-1);
+    }
   }
 }

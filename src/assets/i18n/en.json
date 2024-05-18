@@ -21,6 +21,7 @@
     "signUp": "Sign Up"
   },
   "general": {
+    "all":"All",
     "attachFile": "Attach File",
     "send": "Send",
     "backToHome": "Back to home",
@@ -115,6 +116,9 @@
     "step2": "Upload your CV",
     "step3": "Complete your profile",
     "step4": "Add your available dates to start receiving clients"
+  },
+  "blogs":{
+"noBlogs":"No Blogs"
   },
   "auth": {
     "startRecruitment": "Start your recruitment journey now",
