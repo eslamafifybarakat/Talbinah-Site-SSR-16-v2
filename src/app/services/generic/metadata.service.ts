@@ -55,7 +55,6 @@ export class MetadataService {
   }
 
   updateMetaTagsForSEO(meta: MetaDetails, fullPageUrl?: string): void {
-    console.log(meta);
     const title = meta.title || this.defaultTitle;
     const description = meta.description || this.defaultDescription;
     const image =

@@ -52,7 +52,6 @@ export class AvailableDoctorAppointmentsComponent {
       // ... [rest of the browser-specific initialization code]
     }
     // this.data?.appointments.forEach(element => {
-    //   console.log(element);
     //   let appointment: any = {
     //     available: 0,
     //     day_id: element?.day_id,
@@ -61,7 +60,6 @@ export class AvailableDoctorAppointmentsComponent {
     //     selected: true
     //   }
     //   this.appointmentDay.push(appointment);
-    //   console.log(appointment);
     // });
 
     this.dateChanged(this.date);
@@ -74,8 +72,6 @@ export class AvailableDoctorAppointmentsComponent {
     this.dates = Array.from(
       moment.range(this.startDate, date.clone().add(2, "days")).by("day")
     );
-    // console.log(this.startDate);
-    // console.log(this.endDate);
 
     this.getAppointmentDoctor(this.startDate.format("YYYY-MM-DD"), this.endDate.format("YYYY-MM-DD"));
   }
@@ -114,7 +110,6 @@ export class AvailableDoctorAppointmentsComponent {
         }
       });
     }
-    // console.log(this.appointmentDay);
   }
   next(): void {
     this.preDisable = false;

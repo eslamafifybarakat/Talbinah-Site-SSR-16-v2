@@ -72,7 +72,6 @@ export class ContactUsSectionComponent {
   }
   private setErrorMessage(message: string): void {
     // Implementation for displaying the error message, e.g., using a sweetalert
-    console.log(message);
     // this.alertsService?.openSweetAlert('error', message);
   }
 

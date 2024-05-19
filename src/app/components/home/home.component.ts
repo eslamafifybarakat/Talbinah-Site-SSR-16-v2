@@ -148,7 +148,6 @@ export class HomeComponent {
       });
       response.data['services'] = this.features;
       this.homeData = response?.data;
-      console.log(this.homeData);
     } else {
       this.handleError(response.error);
       return;

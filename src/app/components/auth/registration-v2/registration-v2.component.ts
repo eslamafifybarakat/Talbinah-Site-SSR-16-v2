@@ -48,8 +48,6 @@ export class RegistrationV2Component {
 
   submit(): void {
     const formData = this.collectFormData();
-    console.log(formData);
-
     if (!formData) return;
     this.publicService?.show_loader?.next(true);
     let registerSubscription = this.authService?.register(formData)?.subscribe(
