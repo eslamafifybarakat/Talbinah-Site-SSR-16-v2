@@ -1,11 +1,12 @@
-import { Component } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { FooterComponent } from 'src/app/shared/components/footer/footer.component';
-import { MetaDetails, MetadataService } from 'src/app/services/generic/metadata.service';
-import { AlertsService } from 'src/app/services/generic/alerts.service';
 import { LocalizationLanguageService } from 'src/app/services/generic/localization-language.service';
+import { SkeletonComponent } from 'src/app/shared/components/skeleton/skeleton.component';
+import { MetaDetails, MetadataService } from 'src/app/services/generic/metadata.service';
+import { FooterComponent } from 'src/app/shared/components/footer/footer.component';
+import { AlertsService } from 'src/app/services/generic/alerts.service';
 import { PublicService } from 'src/app/services/generic/public.service';
 import { catchError, finalize, tap } from 'rxjs/operators';
+import { CommonModule } from '@angular/common';
+import { Component } from '@angular/core';
 import { Subscription } from 'rxjs';
 
 @Component({
@@ -13,7 +14,8 @@ import { Subscription } from 'rxjs';
   standalone: true,
   imports: [
     CommonModule,
-    FooterComponent
+    FooterComponent,
+    SkeletonComponent
   ],
   templateUrl: './discount-policy.component.html',
   styleUrls: ['./discount-policy.component.scss']
@@ -47,18 +49,18 @@ export class DiscountPolicyComponent {
     this.metadataService.updateMetaTagsForSEO(metaData);
   }
 
-  /* --- Start Hero Section Functions --- */
+  /* --- Start Get Discount Policy Functions --- */
   getDiscountPloicy(): void {
     this.isLoadingDiscountPloicy = true;
     let homeDataSubscription: Subscription = this.publicService?.getDiscountPloicy()
       .pipe(
-        tap((res: any) => this.processHomeDataResponse(res)),
+        tap((res: any) => this.processDiscountPolicyResponse(res)),
         catchError(err => this.handleError(err)),
-        finalize(() => this.finalizeUserHomeLoading())
+        finalize(() => this.finalizeDiscountPolicy())
       ).subscribe();
     this.subscriptions.push(homeDataSubscription);
   }
-  private processHomeDataResponse(response: any): void {
+  private processDiscountPolicyResponse(response: any): void {
     if (response?.status == true) {
       this.discountPloicyData = response.data;
     } else {
@@ -66,23 +68,25 @@ export class DiscountPolicyComponent {
       return;
     }
   }
-  private finalizeUserHomeLoading(): void {
+  private finalizeDiscountPolicy(): void {
     this.isLoadingDiscountPloicy = false;
   }
-  /* --- End Hero Section Functions --- */
+  /* --- End Get Discount Policy Functions --- */
 
-  /* --- Handle api requests error messages --- */
-  private handleError(err: any): any {
-    this.setErrorMessage(err || 'An error has occurred');
+  /* --- Handle api requests messages --- */
+  private handleSuccess(msg: string | null): any {
+    this.setMessage(msg || 'تم تنفيذ طلبك بنجاح', 'succss');
   }
-  private setErrorMessage(message: string): void {
-    // Implementation for displaying the error message, e.g., using a sweetalert
-    this.alertsService?.openToast('error', 'error', message);
+  private handleError(err: string | null): any {
+    this.setMessage(err || 'حدث خطأ', 'error');
+  }
+  private setMessage(message: string, type?: string | null): void {
+    this.alertsService.openToast(type, type, message);
   }
 
   ngOnDestroy(): void {
     this.subscriptions.forEach((subscription: Subscription) => {
-      if (subscription && subscription.closed) {
+      if (subscription && !subscription.closed) {
         subscription.unsubscribe();
       }
     });

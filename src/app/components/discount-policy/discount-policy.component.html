@@ -1,9 +1,14 @@
 <section id="discount-policy">
-   <div class="container">
-    <h3 class="fw-blod mb-5 text-center">
-      {{discountPloicyData?.key || ''}}
-    </h3>
-    <div [innerHTML]="discountPloicyData?.value"></div>
-   </div>
+  <div class="container">
+    <ng-container *ngIf="isLoadingDiscountPloicy; else DiscountPloicyContent">
+      <app-skeleton type="blogDetails"></app-skeleton>
+    </ng-container>
+    <ng-template #DiscountPloicyContent>
+      <h3 class="fw-blod mb-5 text-center">
+        {{discountPloicyData?.key || ''}}
+      </h3>
+      <div [innerHTML]="discountPloicyData?.value"></div>
+    </ng-template>
+  </div>
   <app-footer></app-footer>
 </section>
