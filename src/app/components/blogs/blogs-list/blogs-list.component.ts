@@ -1,17 +1,22 @@
+// Modules
+import { CommonModule, isPlatformBrowser, isPlatformServer } from '@angular/common';
+import { TranslateModule } from '@ngx-translate/core';
+import { PaginatorModule } from 'primeng/paginator';
+import { RouterModule } from '@angular/router';
+
+// Components
 import { DynamicSvgComponent } from './../../../shared/components/icons/dynamic-svg/dynamic-svg.component';
 import { SkeletonComponent } from './../../../shared/components/skeleton/skeleton.component';
 import { ArticleCardComponent } from '../../home/article-card/article-card.component';
-import { CommonModule, isPlatformBrowser, isPlatformServer } from '@angular/common';
+import { FooterComponent } from 'src/app/shared/components/footer/footer.component';
+
+// Services
 import { ChangeDetectorRef, Component, Inject, PLATFORM_ID } from '@angular/core';
 import { MetadataService } from './../../../services/generic/metadata.service';
 import { AlertsService } from './../../../services/generic/alerts.service';
 import { keys } from './../../../shared/configs/localstorage-key';
 import { BlogsService } from './../../../services/blogs.service';
 import { Subscription, catchError, finalize, tap } from 'rxjs';
-import { TranslateModule } from '@ngx-translate/core';
-import { PaginatorModule } from 'primeng/paginator';
-import { RouterModule } from '@angular/router';
-import { FooterComponent } from 'src/app/shared/components/footer/footer.component';
 
 @Component({
   standalone: true,
@@ -48,7 +53,7 @@ export class BlogsListComponent {
     private metadataService: MetadataService,
     private alertsService: AlertsService,
     private blogsService: BlogsService,
-    private cdr:ChangeDetectorRef
+    private cdr: ChangeDetectorRef
   ) { }
 
   ngOnInit(): void {
@@ -91,7 +96,7 @@ export class BlogsListComponent {
 
   /* Start Get Blogs List Functions */
   getBlogsList(hideFullLoading?: boolean): void {
-    hideFullLoading ? this.isLoadingFilter = true : this.isLoadingBlogs = true; 
+    hideFullLoading ? this.isLoadingFilter = true : this.isLoadingBlogs = true;
     let blogsSubscription: Subscription = this.blogsService?.getAll(this.page, this.perPage, this.categoryId)
       .pipe(
         tap((res: any) => this.processBlogsListResponse(res)),
@@ -114,7 +119,7 @@ export class BlogsListComponent {
   private finalizeBlogsLoading(): void {
     this.isLoadingBlogs = false;
     this.isLoadingFilter = false;
-    
+
   }
   /* End Get Blogs List Functions */
 

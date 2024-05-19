@@ -26,8 +26,6 @@ import { ActivatedRoute, Router, RouterModule } from '@angular/router';
 import { DoctorsService } from './../../../services/doctors.service';
 import { keys } from './../../../shared/configs/localstorage-key';
 import { DialogService } from 'primeng/dynamicdialog';
-
-
 @Component({
   standalone: true,
   imports: [
@@ -157,7 +155,7 @@ export class DoctorsListComponent {
       .pipe(
         tap((res: any) => this.processDoctorsListResponse(res)),
         catchError(err => this.handleError(err)),
-        finalize(() => this.finalizeUserDoctorsLoading())
+        finalize(() => this.finalizeDoctorsLoading())
       ).subscribe();
     this.subscriptions.push(doctorsSubscription);
   }
@@ -178,13 +176,13 @@ export class DoctorsListComponent {
           });
         }
       });
+      this.cdr.markForCheck();
     } else {
       this.handleError(response.error);
       return;
     }
-    this.isLoadingDoctors = false;
   }
-  private finalizeUserDoctorsLoading(): void {
+  private finalizeDoctorsLoading(): void {
     this.isLoadingDoctors = false;
   }
   /* End Get Doctors List Functions */
@@ -237,13 +235,16 @@ export class DoctorsListComponent {
   }
 
   /* --- Handle api requests error messages --- */
-  private handleError(err: any): any {
-    this.setErrorMessage(err || 'An error has occurred');
+  private handleSuccess(msg: string | null): any {
+    this.setMessage(msg || 'تم تنفيذ طلبك بنجاح', 'succss');
   }
-  private setErrorMessage(message: string): void {
-    // Implementation for displaying the error message, e.g., using a sweetalert
-    this.alertsService?.openToast('error', 'error', message);
+  private handleError(err: string | null): any {
+    this.setMessage(err || 'حدث خطأ', 'error');
   }
+  private setMessage(message: string, type?: string | null): void {
+    this.alertsService.openToast(type, type, message);
+  }
+
 
   ngOnDestroy(): void {
     this.subscriptions.forEach((subscription: Subscription) => {
