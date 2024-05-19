@@ -1,78 +1,46 @@
-.contact-us {
+#contact-us {
   padding-top: 7rem;
-  background-image: url(../../../assets/images/doctors/doctor-details-bg.svg);
-  background-repeat: no-repeat;
-  background-size: cover;
+  background: url(../../../assets/images/doctors/doctor-details-bg.svg) no-repeat center center/cover;
   min-height: 100vh;
-  .area-control {
-    height: 12rem !important;
-  }
+
   .overlay-search {
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-color: #11111151;
+    position: absolute;
+    inset: 0;
+    background-color: rgba(17, 17, 17, 0.32);
     z-index: 2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     border-radius: 20px;
   }
 
-  .spinner-grow {
-    width: 0.7rem;
-    height: 0.7rem;
-    background-color: var(--bg-main-color);
-  }
   .contact-form {
-    width: 70%;
+    width: 60%;
 
     @media (max-width: 991px) {
-      width: 90%;
+      width: 85%;
     }
 
     @media (max-width: 767px) {
-      width: 100%;
-    }
-  }
-
-  form {
-    .form-control {
-      background-color: #eee !important;
-      border-radius: 5px;
+      width: 95%;
     }
 
+    .form-control,
     textarea {
-      // border: 0 !important;
-      background-color: #eee !important;
-      height: 150px;
-      width: 100%;
+      background-color: #eee;
       border-radius: 5px;
+      height: auto;
       resize: none;
-      padding: 10px;
     }
-  }
 
-  .form-btn {
-    padding-right: 5rem;
-    padding-left: 5rem;
-  }
-}
-.btn-solid-main:focus,
-.btn-solid-main:active {
-  background-color: var(--bg-main-color);
-  border-color: var(--bg-main-color);
-  color: var(--text-white-color);
-}
-.btn-solid-main {
-  background-color: var(--bg-main-color);
-  border-color: var(--bg-main-color);
-  color: var(--text-white-color);
-  height: 3rem;
-  border-radius: var(--border-input-radius);
-  min-width: 10rem;
-}
-
-@media (max-width: 1200px) {
-  .contact-us {
-    padding-top: 1.5rem;
+    .form-btn {
+      padding: 0 5rem;
+      background-color: var(--bg-main-color);
+      border-color: var(--bg-main-color);
+      color: var(--text-white-color);
+      height: 3rem;
+      border-radius: var(--border-input-radius);
+      min-width: 10rem;
+    }
   }
 }

@@ -32,7 +32,7 @@ import { FooterComponent } from 'src/app/shared/components/footer/footer.compone
   styleUrls: ['./contact-us.component.scss']
 })
 export class ContactUsComponent {
-  private unsubscribe: Subscription[] = [];
+  private subscriptions: Subscription[] = [];
 
   contactForm = this.fb.group(
     {
@@ -92,8 +92,9 @@ export class ContactUsComponent {
     ]);
   }
 
+  // Start Contact Us Functions
   submit(): void {
-    const isFormValid = this.contactForm?.valid;
+    const isFormValid: any = this.contactForm?.valid;
     if (isFormValid) {
       this.isLoadingBtn = true;
       const formData: FormData = this.createFormData();
@@ -112,32 +113,44 @@ export class ContactUsComponent {
     return formData;
   }
   private sendContactFormData(formData: FormData): void {
-    this.homeService?.contactUs(formData)?.subscribe(
-      (res: any) => this.handleSuccessResponse(res),
-      (err: any) => this.handleErrorResponse(err)
-    );
+    let contactUsSubscription: Subscription = this.homeService?.contactUs(formData)
+      .pipe(
+        tap((res: any) => this.handleSuccessResponse(res)),
+        catchError(err => this.handleError(err)),
+        finalize(() => this.finalizeContactRequest())
+      ).subscribe();
+    this.subscriptions.push(contactUsSubscription);
   }
   private handleSuccessResponse(res: any): void {
     if (res?.status == true) {
-      this.handleSuccessScenario();
+      this.contactForm.reset();
+      this.cdr.detectChanges();
+      this.handleSuccess(res?.message);
     } else {
-      const errorMessage = res?.message || 'An error occurred while sending the request.';
-      this.alertsService?.openToast('error', 'error', errorMessage);
+      this.handleError(res?.message);
     }
   }
-  private handleSuccessScenario(): void {
+  private finalizeContactRequest(): void {
     this.isLoadingBtn = false;
-    this.contactForm.reset();
-    this.alertsService?.openToast('success', '', 'تم إرسال طلبك بنجاح');
-    this.cdr.detectChanges();
   }
-  private handleErrorResponse(err: any): void {
-    const errorMessage = err?.message || 'An error occurred while sending the request.';
-    this.alertsService?.openToast('error', '', errorMessage);
-    this.isLoadingBtn = false;
+  // End Contact Us Functio
+
+  /* --- Handle api requests messages --- */
+  private handleSuccess(msg: string | null): any {
+    this.setMessage(msg || 'تم تنفيذ طلبك بنجاح', 'succss');
+  }
+  private handleError(err: string | null): any {
+    this.setMessage(err || 'حدث خطأ', 'error');
+  }
+  private setMessage(message: string, type?: string | null): void {
+    this.alertsService.openToast(type, type, message);
   }
 
   ngOnDestroy(): void {
-    this.unsubscribe?.forEach((sb) => sb?.unsubscribe());
+    this.subscriptions.forEach((subscription: Subscription) => {
+      if (subscription && !subscription.closed) {
+        subscription.unsubscribe();
+      }
+    });
   }
 }

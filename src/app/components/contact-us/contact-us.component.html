@@ -1,119 +1,78 @@
-<div class="contact-us">
+<div id="contact-us">
   <div class="container">
     <div class="my-5 position-relative">
-      <div class="overlay-search position-absolute d-flex justify-content-center" *ngIf="isLoadingBtn">
-        <div class="d-flex justify-content-center align-items-center gap-2">
-          <ng-container *ngFor="let item of [8,8,9,8]">
-            <div class="spinner-grow" role="status">
-              <span class="visually-hidden">Loading...</span>
-            </div>
-          </ng-container>
+      <div *ngIf="isLoadingBtn"
+        class="overlay-search position-absolute d-flex justify-content-center align-items-center">
+        <div *ngFor="let item of [1,2,3,4]" class="spinner-grow" role="status">
+          <span class="visually-hidden">Loading...</span>
         </div>
       </div>
-      <h1 class="text-main-color text-center vector-bg m-3 fs-3">
-        {{"contact.contactUs"|translate}}
+      <h1 class="text-main-color text-center m-3 fs-3">
+        <!-- {{ 'contact.contactUs' | translate }} -->
+        تواصل معنا
       </h1>
       <p class="description text-center mt-4">
-        {{"contact.contactDescription" |translate}}
+        <!-- {{ 'contact.contactDescription' | translate }} -->
+        إذا كان لديك أي سؤال، طلب أو اقتراح، لا تتردد في التواصل معنا
       </p>
-      <div class="d-flex justify-content-center mt-5">
-        <form [formGroup]="contactForm" class="contact-form" (ngSubmit)="submit()">
-          <div class="row">
-            <div class="col-md-6">
-              <div class="mb-3">
-                <div>
-                  <label for="name" class="mb-2 required fw-500">
-                    {{'labels.name'|translate}}
-                  </label>
-                  <input type="text" id="name" class="form-control" formControlName="name"
-                    [class.border-red]="formControls?.name?.invalid && (formControls?.name?.dirty || formControls?.name?.touched)"
-                    autocomplete="cc-name" (input)="publicService.clearValidationErrors(formControls?.name)"
-                    placeholder="{{'placeholders.name'|translate}}">
-                </div>
-                <div class="mt-2">
-                  <ng-container
-                    *ngIf="formControls?.name?.invalid && (formControls?.name?.dirty || formControls?.name?.touched)">
-                    <ng-container *ngIf="formControls?.name?.errors?.['required']">
-                      <span class="text-danger fs-8">
-                        {{'validations.requiredField'|translate}}
-                      </span>
-                    </ng-container>
-                    <ng-container *ngIf="formControls?.name?.errors?.['minlength']">
-                      <span class="text-danger fs-8">
-                        {{'validations.length'|translate}}
-                      </span>
-                    </ng-container>
-                  </ng-container>
-                </div>
+      <div class="d-flex justify-content-center w-100">
+        <form [formGroup]="contactForm" (ngSubmit)="submit()"
+          class="contact-form d-flex flex-column align-items-center mt-5">
+          <div class="form-group mb-3 w-100">
+            <label for="name" class="mb-2 required fw-500">
+              <!-- {{ 'labels.name' | translate }} -->
+              الإسم
+            </label>
+            <input type="text" id="name" class="form-control" formControlName="name"
+              [ngClass]="{'border-red': formControls?.name?.invalid && (formControls?.name?.dirty || formControls?.name?.touched)}"
+              autocomplete="name" placeholder="{{ 'placeholders.name' | translate }}">
+            <div *ngIf="formControls?.name?.invalid && (formControls?.name?.dirty || formControls?.name?.touched)"
+              class="text-danger fs-8 mt-2">
+              <div *ngIf="formControls?.name?.errors?.required">
+                {{ 'validations.requiredField' | translate }}
               </div>
-            </div>
-            <div class="col-md-6">
-              <div class="mb-3">
-                <div>
-                  <label for="email" class="mb-2 required fw-500">
-                    {{'labels.email'|translate}}
-                  </label>
-                  <input type="email" id="email" class="form-control" formControlName="email"
-                    [class.border-red]="formControls?.email?.invalid && (formControls?.email?.dirty || formControls?.email?.touched)"
-                    autocomplete="cc-name" (input)="publicService.clearValidationErrors(formControls?.email)"
-                    placeholder="{{'placeholders.email'|translate}}">
-                </div>
-                <div class="mt-2">
-                  <ng-container
-                    *ngIf="formControls?.email?.invalid && (formControls?.email?.dirty || formControls?.email?.touched)">
-                    <ng-container
-                      *ngIf="formControls?.email?.invalid && (formControls?.email?.dirty || formControls?.email?.touched)">
-                      <ng-container *ngIf="formControls?.email?.errors?.['required']">
-                        <span class="text-danger fs-8">
-                          {{'validations.emailRequired'|translate}}
-                        </span>
-                      </ng-container>
-                      <ng-container *ngIf="formControls?.email?.errors?.['pattern']">
-                        <span class="text-danger fs-8 d-block lh-base">
-                          {{'validations.emailNotValid'|translate}}
-                        </span>
-                      </ng-container>
-                    </ng-container>
-                  </ng-container>
-                </div>
-              </div>
-            </div>
-            <div class="col-12">
-              <div class="mb-3">
-                <div>
-                  <label for="subject" class="mb-2 required fw-500">
-                    {{'labels.subject'|translate}}
-                  </label>
-                  <textarea type="text" id="subject" class="textarea form-control" formControlName="subject"
-                    [class.border-red]="formControls?.subject?.invalid && (formControls?.subject?.dirty || formControls?.subject?.touched)"
-                    autocomplete="cc-name" (input)="publicService.clearValidationErrors(formControls?.subject)"
-                    placeholder="{{'labels.subject'|translate}}"></textarea>
-                </div>
-                <div class="mt-2">
-                  <ng-container
-                    *ngIf="formControls?.subject?.invalid && (formControls?.subject?.dirty || formControls?.subject?.touched)">
-                    <ng-container *ngIf="formControls?.subject?.errors?.['required']">
-                      <span class="text-danger fs-8">
-                        {{'validations.requiredField'|translate}}
-                      </span>
-                    </ng-container>
-                    <ng-container *ngIf="formControls?.rateText?.errors?.['minlength']">
-                      <span class="text-danger fs-8">
-                        {{'validations.length'|translate}}
-                      </span>
-                    </ng-container>
-                  </ng-container>
-                </div>
+              <div *ngIf="formControls?.name?.errors?.minlength">
+                {{ 'validations.length' | translate }}
               </div>
             </div>
           </div>
-          <div class="d-flex justify-content-center mt-2 mb-3">
-            <button type="submit" class="btn btn-solid-main form-btn">
-              <span>
-                {{'general.send'|translate}}
-              </span>
-            </button>
+          <div class="form-group mb-3 w-100">
+            <label for="email" class="mb-2 required fw-500">
+              <!-- {{ 'labels.email' | translate }} -->
+              البريد الإلكتروني
+            </label>
+            <input type="email" id="email" class="form-control" formControlName="email"
+              [ngClass]="{'border-red': formControls?.email?.invalid && (formControls?.email?.dirty || formControls?.email?.touched)}"
+              autocomplete="email" placeholder="{{ 'placeholders.email' | translate }}">
+            <div *ngIf="formControls?.email?.invalid && (formControls?.email?.dirty || formControls?.email?.touched)"
+              class="text-danger fs-8 mt-2">
+              <div *ngIf="formControls?.email?.errors?.required">
+                {{ 'validations.emailRequired' | translate }}
+              </div>
+              <div *ngIf="formControls?.email?.errors?.pattern">
+                {{ 'validations.emailNotValid' | translate }}
+              </div>
+            </div>
           </div>
+          <div class="form-group mb-3 w-100">
+            <label for="subject" class="mb-2 required fw-500">
+              <!-- {{ 'labels.subject' | translate }} -->
+              الموضوع
+            </label>
+            <textarea id="subject" class="form-control" formControlName="subject"
+              [ngClass]="{'border-red': formControls?.subject?.invalid && (formControls?.subject?.dirty || formControls?.subject?.touched)}"
+              placeholder="{{ 'labels.subject' | translate }}"></textarea>
+            <div
+              *ngIf="formControls?.subject?.invalid && (formControls?.subject?.dirty || formControls?.subject?.touched)"
+              class="text-danger fs-8 mt-2">
+              <div *ngIf="formControls?.subject?.errors?.required">
+                {{ 'validations.requiredField' | translate }}
+              </div>
+            </div>
+          </div>
+          <button type="submit" class="btn btn-solid-main form-btn mt-3">
+            {{ 'general.send' | translate }}
+          </button>
         </form>
       </div>
     </div>
