@@ -13,6 +13,7 @@ import { RatingModule } from 'primeng/rating';
 // Components
 import { BannerCarouselComponent } from './../../../carousels/banner-carousel/banner-carousel.component';
 import { SkeletonComponent } from './../../../shared/components/skeleton/skeleton.component';
+import { FooterComponent } from 'src/app/shared/components/footer/footer.component';
 import { DoctorCardComponent } from '../doctor-card/doctor-card.component';
 
 // Services
@@ -48,6 +49,7 @@ import { DialogService } from 'primeng/dynamicdialog';
     DynamicSvgComponent,
     DoctorCardComponent,
     SkeletonComponent,
+    FooterComponent
   ],
   selector: 'app-doctors-list',
   templateUrl: './doctors-list.component.html',
