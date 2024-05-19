@@ -2,13 +2,15 @@ import { DynamicDialogConfig, DynamicDialogRef } from 'primeng/dynamicdialog';
 import { ShareButtonComponent } from './share-button/share-button.component';
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
+import { ClipboardModule } from 'ngx-clipboard';
 
 @Component({
   selector: 'app-share-to-social',
   standalone: true,
   imports: [
     CommonModule,
-    ShareButtonComponent
+    ShareButtonComponent,
+    ClipboardModule
   ],
   templateUrl: './share-to-social.component.html',
   styleUrls: ['./share-to-social.component.scss']
