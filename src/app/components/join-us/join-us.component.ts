@@ -3,6 +3,8 @@ import { isPlatformBrowser, isPlatformServer } from '@angular/common';
 import { Component, Inject, PLATFORM_ID } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { TranslateModule } from '@ngx-translate/core';
+import { DialogService } from 'primeng/dynamicdialog';
+import { DownloadAppsComponent } from 'src/app/shared/components/download-apps/download-apps.component';
 import { FooterComponent } from 'src/app/shared/components/footer/footer.component';
 
 @Component({
@@ -20,7 +22,8 @@ export class JoinUsComponent {
 
   constructor(
     @Inject(PLATFORM_ID) private platformId: Object,
-    private metadataService: MetadataService
+    private metadataService: MetadataService,
+    private dialogService:DialogService
   ) { }
 
   ngOnInit(): void {
@@ -58,5 +61,15 @@ export class JoinUsComponent {
       { property: 'og:image', content: 'https://talbinah.net/assets/images/main/logos/logo_talbinah.png' },
       { property: 'twitter:site_name', content: 'تطبيق تلبينة' }
     ]);
+  }
+
+  downloadApp(): void {
+    const ref = this?.dialogService?.open(DownloadAppsComponent, {
+      width: '35%',
+      showHeader: false,
+      styleClass: 'custom-modal download-app-dialog',
+      dismissableMask: true,
+      data: {}
+    });
   }
 }

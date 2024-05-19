@@ -11,7 +11,7 @@
           </p>
           <div class="w-100 text-center-small">
             <!-- <button type="button" [routerLink]="['/doctor-registeration']" class="btn btn-solid-main"> -->
-              <button type="button" class="btn btn-solid-main">
+              <button type="button" class="btn btn-solid-main" (click)="downloadApp()">
               {{"joinUs.joinNow"| translate}}
             </button>
           </div>
@@ -82,7 +82,7 @@
 
       <div class="d-flex justify-content-center">
         <!-- <button type="button" class="btn btn-solid-main my-5" [routerLink]="['/doctor-registeration']"> -->
-          <button type="button" class="btn btn-solid-main my-5">
+          <button type="button" class="btn btn-solid-main my-5" (click)="downloadApp()">
           {{"joinUs.joinNow"| translate}}
         </button>
       </div>
