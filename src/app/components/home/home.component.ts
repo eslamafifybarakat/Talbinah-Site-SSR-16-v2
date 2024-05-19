@@ -105,8 +105,8 @@ export class HomeComponent {
   }
   private updateMetaTagsForSEO(): void {
     let metaData: MetaDetails = {
-      title: 'الرئيسية',
-      description: 'الرئيسية'
+      title: 'الرئيسية | تلبينة',
+      description: 'الرئيسية | تلبينة'
     }
     this.metadataService.updateMetaTagsForSEO(metaData);
   }

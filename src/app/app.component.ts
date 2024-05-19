@@ -7,6 +7,7 @@ import { TranslateService } from '@ngx-translate/core';
 import localeAr from '@angular/common/locales/ar'
 import { PrimeNGConfig } from 'primeng/api';
 import { filter, map } from 'rxjs';
+import { TranslationService } from './services/generic/translation.service';
 
 registerLocaleData(localeAr);
 @Component({
@@ -28,6 +29,7 @@ export class AppComponent {
 
   constructor(
     @Inject(PLATFORM_ID) private platformId: Object,
+    private translationService:TranslationService,
     @Inject(DOCUMENT) private document: Document,
     private translateService: TranslateService,
     private activatedRoute: ActivatedRoute,
@@ -123,6 +125,7 @@ export class AppComponent {
 
   ngDoCheck(): void {
     this.renderCheck();
+    this.translationService.changeLang('ar');
   }
   renderCheck(): void {
     if (
