@@ -59,7 +59,7 @@ export class BlogDetailsComponent implements OnInit, OnDestroy {
   // Start Blog Details Functions
   getBlogDetails(id: any): void {
     this.isLoadingBlogDetails = true;
-    const blogDetailsSubscription :Subscription= this.blogsService.getBlogById(id).pipe(
+    const blogDetailsSubscription: Subscription = this.blogsService.getBlogById(id).pipe(
       tap(res => this.processBlogDetailsResponse(res)),
       catchError(err => {
         this.handleError(err);

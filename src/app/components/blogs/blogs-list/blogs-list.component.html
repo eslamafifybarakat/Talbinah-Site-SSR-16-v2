@@ -1,69 +1,58 @@
-<ng-container *ngIf="isLoadingBlogs">
-  <div id="blogs-list" class="container">
-    <app-skeleton [type]="'blogList'"></app-skeleton>
-  </div>
-</ng-container>
-<ng-container *ngIf="!isLoadingBlogs">
-  <ng-container>
-    <div id="blogs-list" class="container" [class.ar-blogs-content]="currentLanguage=='ar'">
-      <div>
+<div id="blogs-list">
+  <div class="container">
+    <ng-container *ngIf="isLoadingBlogs">
+      <app-skeleton type="blogList"></app-skeleton>
+    </ng-container>
+    <ng-container *ngIf="!isLoadingBlogs">
+      <div [class.ar-blogs-content]="currentLanguage === 'ar'">
         <nav
           class="navbar navbar-expand-lg navbar-light border-bottom py-0 rounded d-flex justify-content-center w-100">
           <ul class="nav mb-2 mb-lg-0 d-flex align-items-center p-0">
             <li class="nav-item" (click)="onChangeCategory(null)">
-              <a class="nav-link px-3 py-4" [ngClass]="categoryId===null?'active':'' ">
-                {{'general.all' | translate}}
+              <a class="nav-link px-3 py-4" [class.active]="categoryId === null">
+                <!-- {{ 'general.all' | translate }} -->
+                الكل
               </a>
             </li>
             <ng-container *ngFor="let cat of categoriesList">
               <li class="nav-item" (click)="onChangeCategory(cat?.id)">
-                <a class="nav-link px-3 py-4" [ngClass]="categoryId===cat?.id?'active':'' ">
-                  <span class="">
-                    {{cat?.name}}
-                  </span>
+                <a class="nav-link px-3 py-4" [class.active]="categoryId === cat?.id">
+                  {{ cat?.name }}
                 </a>
               </li>
             </ng-container>
           </ul>
         </nav>
-        <ng-container>
-          <div class="my-xl-5 my-md-3 my-sm-3 my-3">
-            <div class="">
-              <ng-container *ngIf="!isLoadingFilter; else loadingCards">
-                <ng-container *ngIf="blogsList?.length>0; else noBlogs">
-                  <div class="my-xl-5 my-md-3 my-sm-2 my-2">
-                    <div class="row">
-                      <ng-container *ngFor="let blog of blogsList; let i=index">
-                        <div class="col-xl-4 col-md-6 col-sm-12 mb-xl-4 mb-md-3 mb-sm-3 mb-3">
-                          <app-article-card [item]="blog"></app-article-card>
-                        </div>
-                      </ng-container>
-                      <ng-container *ngIf="totalBlogs>blogsList?.length">
-                        <div>
-                          <p-paginator [rows]="10" [totalRecords]="totalBlogs"
-                            (onPageChange)="onPageChange($event)"></p-paginator>
-                        </div>
-                      </ng-container>
-                    </div>
+        <div class="my-xl-5 my-md-3 my-sm-3 my-3">
+          <ng-container *ngIf="!isLoadingFilter; else loadingCards">
+            <ng-container *ngIf="blogsList?.length > 0; else noBlogs">
+              <div class="row">
+                <ng-container *ngFor="let blog of blogsList; let i = index">
+                  <div class="col-xl-4 col-md-6 col-sm-12 mb-4">
+                    <app-article-card [item]="blog"></app-article-card>
                   </div>
                 </ng-container>
-
-                <ng-template #noBlogs>
-                  <div class="col-12 mb-4 w-100 text-center">
-                    <app-dynamic-svg [name]="'no-data'"></app-dynamic-svg>
-                    <p>
-                      {{'blogs.noBlogs'|translate}}
-                    </p>
-                  </div>
-                </ng-template>
-              </ng-container>
-              <ng-template #loadingCards>
-                <app-skeleton [type]="'blogs2'"></app-skeleton>
-              </ng-template>
-            </div>
-          </div>
-        </ng-container>
+                <ng-container *ngIf="totalBlogs > blogsList?.length">
+                  <p-paginator [rows]="10" [totalRecords]="totalBlogs"
+                    (onPageChange)="onPageChange($event)"></p-paginator>
+                </ng-container>
+              </div>
+            </ng-container>
+            <ng-template #noBlogs>
+              <div class="col-12 mb-4 w-100 text-center">
+                <app-dynamic-svg name="no-data"></app-dynamic-svg>
+                <p>
+                  لا يوجد بيانات لعرضها
+                </p>
+              </div>
+            </ng-template>
+          </ng-container>
+          <ng-template #loadingCards>
+            <app-skeleton type="blogs2"></app-skeleton>
+          </ng-template>
+        </div>
       </div>
-    </div>
-  </ng-container>
-</ng-container>
+    </ng-container>
+  </div>
+  <app-footer></app-footer>
+</div>

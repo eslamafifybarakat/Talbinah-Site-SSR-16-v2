@@ -5,13 +5,13 @@ import { CommonModule, isPlatformBrowser, isPlatformServer } from '@angular/comm
 import { ChangeDetectorRef, Component, Inject, PLATFORM_ID } from '@angular/core';
 import { MetadataService } from './../../../services/generic/metadata.service';
 import { AlertsService } from './../../../services/generic/alerts.service';
-import { PublicService } from './../../../services/generic/public.service';
 import { keys } from './../../../shared/configs/localstorage-key';
 import { BlogsService } from './../../../services/blogs.service';
 import { Subscription, catchError, finalize, tap } from 'rxjs';
 import { TranslateModule } from '@ngx-translate/core';
 import { PaginatorModule } from 'primeng/paginator';
 import { RouterModule } from '@angular/router';
+import { FooterComponent } from 'src/app/shared/components/footer/footer.component';
 
 @Component({
   standalone: true,
@@ -23,6 +23,7 @@ import { RouterModule } from '@angular/router';
     RouterModule,
     ArticleCardComponent,
     DynamicSvgComponent,
+    FooterComponent
   ],
   selector: 'app-blogs-list',
   templateUrl: './blogs-list.component.html',
@@ -45,10 +46,9 @@ export class BlogsListComponent {
   constructor(
     @Inject(PLATFORM_ID) private platformId: Object,
     private metadataService: MetadataService,
-    private publicService: PublicService,
     private alertsService: AlertsService,
     private blogsService: BlogsService,
-    private cdr: ChangeDetectorRef
+    private cdr:ChangeDetectorRef
   ) { }
 
   ngOnInit(): void {
@@ -91,7 +91,8 @@ export class BlogsListComponent {
 
   /* Start Get Blogs List Functions */
   getBlogsList(hideFullLoading?: boolean): void {
-    hideFullLoading ? this.isLoadingFilter = true : this.isLoadingBlogs = true; let blogsSubscription: Subscription = this.blogsService?.getAll(this.page, this.perPage, this.categoryId)
+    hideFullLoading ? this.isLoadingFilter = true : this.isLoadingBlogs = true; 
+    let blogsSubscription: Subscription = this.blogsService?.getAll(this.page, this.perPage, this.categoryId)
       .pipe(
         tap((res: any) => this.processBlogsListResponse(res)),
         catchError(err => this.handleError(err)),
@@ -104,6 +105,7 @@ export class BlogsListComponent {
       this.blogsList = response?.data?.articles;
       this.totalBlogs = response?.data?.blogs_count || 0;
       this.categoriesList = response?.data?.articlesCategories;
+      this.cdr.markForCheck();
     } else {
       this.handleError(response.error);
       return;
@@ -112,6 +114,7 @@ export class BlogsListComponent {
   private finalizeBlogsLoading(): void {
     this.isLoadingBlogs = false;
     this.isLoadingFilter = false;
+    
   }
   /* End Get Blogs List Functions */
 
@@ -124,18 +127,20 @@ export class BlogsListComponent {
     this.getBlogsList(true);
   }
 
-  /* --- Handle api requests error messages --- */
-  private handleError(err: any): any {
-    this.setErrorMessage(err || 'An error has occurred');
+  /* --- Handle api requests messages --- */
+  private handleSuccess(msg: string | null): any {
+    this.setMessage(msg || 'تم تنفيذ طلبك بنجاح', 'succss');
   }
-  private setErrorMessage(message: string): void {
-    // Implementation for displaying the error message, e.g., using a sweetalert
-    this.alertsService?.openToast('error', 'error', message);
+  private handleError(err: string | null): any {
+    this.setMessage(err || 'حدث خطأ', 'error');
+  }
+  private setMessage(message: string, type?: string | null): void {
+    this.alertsService.openToast(type, type, message);
   }
 
   ngOnDestroy(): void {
     this.subscriptions.forEach((subscription: Subscription) => {
-      if (subscription && subscription.closed) {
+      if (subscription && !subscription.closed) {
         subscription.unsubscribe();
       }
     });
