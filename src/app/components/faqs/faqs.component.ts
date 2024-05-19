@@ -1,9 +1,9 @@
-import { Component, Inject, PLATFORM_ID } from '@angular/core';
-import { CommonModule, isPlatformBrowser, isPlatformServer } from '@angular/common';
-import { MetadataService } from 'src/app/services/generic/metadata.service';
 import { SkeletonComponent } from 'src/app/shared/components/skeleton/skeleton.component';
-import { AccordionModule } from 'primeng/accordion';
+import { CommonModule, isPlatformBrowser, isPlatformServer } from '@angular/common';
 import { FooterComponent } from 'src/app/shared/components/footer/footer.component';
+import { MetadataService } from 'src/app/services/generic/metadata.service';
+import { Component, Inject, PLATFORM_ID } from '@angular/core';
+import { AccordionModule } from 'primeng/accordion';
 
 @Component({
   selector: 'app-faqs',
