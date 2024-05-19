@@ -1,66 +1,35 @@
-:host::ng-deep {
-  #join-us {
-    padding-top: 7rem;
-    background-image: url(../../../assets/images/doctors/doctor-details-bg.svg);
-    background-repeat: no-repeat;
-    background-size: cover;
-    min-height: 100vh;
-  }
-  .content-hero {
-    position: relative;
-  }
+#join-us {
+  padding-top: 7rem;
+  background: url('../../../assets/images/doctors/doctor-details-bg.svg') no-repeat center/cover;
+  min-height: 100vh;
 
-  .steps-join {
-    width: 3.25rem;
-    height: 3.25rem;
-    background: var(--bg-white-color);
-    border-radius: 0.5rem;
-    font-size: 1.3rem;
-    box-shadow: 0 0 10px 0 rgb(82 63 105 / 15%);
-
-    .img {
-      width: 2.75rem;
-      height: 2.75rem;
-    }
+  @media (max-width: 1200px) {
+    padding-top: 1.5rem;
   }
 
   .overlay-img {
     position: absolute;
     top: 0;
     left: 0;
-    width: 45% !important;
-    padding: 0;
-    z-index: -1;
+    width: 45%;
     transform: scaleX(-1);
+    z-index: -1;
   }
 
-  #join-us {
-    @media (max-width: 767px) {
-      .image-sm {
-        width: 90% !important;
-        margin: 15px auto 0 !important;
-        text-align: center !important;
-      }
-    }
+  .steps-join-icon {
+    width: 3.25rem;
+    height: 3.25rem;
+    margin-right: 1rem;
+    border-radius: 0.5rem;
+    box-shadow: 0 0 10px rgba(82, 63, 105, 0.15);
   }
-}
 
-.btn-solid-main:focus,
-.btn-solid-main:active {
-  background-color: var(--bg-main-color);
-  border-color: var(--bg-main-color);
-  color: var(--text-white-color);
-}
-.btn-solid-main {
-  background-color: var(--bg-main-color);
-  border-color: var(--bg-main-color);
-  color: var(--text-white-color);
-  height: 3rem;
-  border-radius: var(--border-input-radius);
-  width: 10rem;
-}
-@media (max-width: 1200px) {
-  #join-us {
-    padding-top: 1.5rem;
+  .btn-solid-main {
+    background-color: var(--bg-main-color);
+    border-color: var(--bg-main-color);
+    color: var(--text-white-color);
+    height: 3rem;
+    width: 10rem;
+    border-radius: var(--border-input-radius);
   }
 }

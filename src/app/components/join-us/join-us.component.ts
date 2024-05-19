@@ -1,5 +1,5 @@
 import { MetadataService } from './../../services/generic/metadata.service';
-import { isPlatformBrowser, isPlatformServer } from '@angular/common';
+import { CommonModule, isPlatformBrowser, isPlatformServer } from '@angular/common';
 import { Component, Inject, PLATFORM_ID } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { TranslateModule } from '@ngx-translate/core';
@@ -12,7 +12,8 @@ import { FooterComponent } from 'src/app/shared/components/footer/footer.compone
   imports: [
     TranslateModule,
     RouterModule,
-    FooterComponent
+    FooterComponent,
+    CommonModule
   ],
   selector: 'app-join-us',
   templateUrl: './join-us.component.html',
