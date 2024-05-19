@@ -10,7 +10,7 @@ import { blogsChildrenRoutes } from './components/blogs/blogs-children-routes';
 
 
 export const appRoutes: Routes = [
-  { path: '', redirectTo: '/en/Home', pathMatch: 'full' },
+  { path: '', redirectTo: '/Home', pathMatch: 'full' },
   // Authentication
   {
     path: 'Auth',
