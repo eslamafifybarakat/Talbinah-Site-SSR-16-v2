@@ -166,6 +166,22 @@ export const appRoutes: Routes = [
       ),
   },
 
+  // Privacy
+  {
+    path: ':lang/PrivacyAndPolicy',
+    loadComponent: () =>
+      import('./components/privacy-and-policy/privacy-and-policy.component').then(
+        (c) => c.PrivacyAndPolicyComponent
+      )
+  },
+  {
+    path: 'PrivacyAndPolicy',
+    loadComponent: () =>
+      import('./components/privacy-and-policy/privacy-and-policy.component').then(
+        (c) => c.PrivacyAndPolicyComponent
+      )
+  },
+  
   // Errors
   {
     path: ':lang/Errors',
