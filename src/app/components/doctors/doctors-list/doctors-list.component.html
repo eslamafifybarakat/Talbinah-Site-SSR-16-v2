@@ -18,13 +18,15 @@
             </div>
           </div>
           <h5 class="p-4 mb-0 fw-bold">
-            {{'doctors.filterOptions'|translate}}
+            <!-- {{'doctors.filterOptions'|translate}} -->
+            خيارات التصفية
           </h5>
           <hr class="m-0">
           <form (ngSubmit)="filterNow()" [formGroup]="filterForm">
             <div class="p-4">
               <h5 class="mb-0 fs-5-1 fw-bold">
-                {{'doctors.specialties' | translate}}
+                <!-- {{'doctors.specialties' | translate}} -->
+                التخصصات
               </h5>
               <div class="mt-3">
                 <!-- <div *ngFor="let category of specialitiesList"
@@ -46,19 +48,22 @@
             <hr class="m-0">
             <div class="p-4">
               <h5 class="mb-0 fs-5-1 fw-bold">
-                {{'doctors.gender' | translate}}
+                <!-- {{'doctors.gender' | translate}} -->
+                النوع
               </h5>
               <div class="mt-3">
                 <div class="field-radiobutton d-flex align-items-center gap-2 mb-3">
                   <p-radioButton value="male" formControlName="gender" inputId="male"></p-radioButton>
                   <label for="male" class="mb-0">
-                    {{'doctors.male'|translate}}
+                    رجل
+                    <!-- {{'doctors.male'|translate}} -->
                   </label>
                 </div>
                 <div class="field-radiobutton d-flex align-items-center gap-2">
                   <p-radioButton value="female" formControlName="gender" inputId="female"></p-radioButton>
                   <label for="female" class="mb-0">
-                    {{'doctors.female'|translate}}
+                    <!-- {{'doctors.female'|translate}} -->
+                    أنثي
                   </label>
                 </div>
 
@@ -80,7 +85,8 @@
             <hr class="m-0">
             <div class="p-4">
               <h5 class="mb-0 fs-5-1 fw-bold">
-                {{'doctors.priceValue' | translate}}
+                <!-- {{'doctors.priceValue' | translate}} -->
+                قيمة السعر
               </h5>
               <div class="p-inputgroup mt-3">
                 <span class="p-inputgroup-addon border-0">
@@ -90,7 +96,8 @@
                   </span>
                 </span>
                 <input type="text" formControlName="startPrice" class="border-0 bg-transparent px-2" pInputText
-                  placeholder="{{'placeholders.setMin'|translate}}">
+                  placeholder="تعيين الحد الأدنى">
+                <!-- placeholder="{{'placeholders.setMin'|translate}}"> -->
               </div>
               <div class="p-inputgroup mt-3">
                 <span class="p-inputgroup-addon border-0">
@@ -100,7 +107,8 @@
                   </span>
                 </span>
                 <input type="text" formControlName="endPrice" class="border-0 bg-transparent px-2" pInputText
-                  placeholder="{{'placeholders.setMax'|translate}}">
+                  placeholder="تعيين الحد الأقصى">
+                <!-- placeholder="{{'placeholders.setMax'|translate}}"> -->
               </div>
               <div class="mt-3 d-flex align-items-center flex-wrap gap-2">
                 <div class="rounded-pill p-2 fs-5-2 price fw-500 active">
@@ -108,7 +116,8 @@
                     0-150
                   </span>
                   <span>
-                    {{'general.sr'|translate}}
+                    <!-- {{'general.sr'|translate}} -->
+                    ريال
                   </span>
                 </div>
                 <div class="rounded-pill p-2 fs-5-2 price fw-500 active">
@@ -116,7 +125,8 @@
                     150-300
                   </span>
                   <span>
-                    {{'general.sr'|translate}}
+                    <!-- {{'general.sr'|translate}} -->
+                    ريال
                   </span>
                 </div>
                 <div class="rounded-pill p-2 fs-5-2 price fw-500">
@@ -124,7 +134,8 @@
                     300-500
                   </span>
                   <span>
-                    {{'general.sr'|translate}}
+                    <!-- {{'general.sr'|translate}} -->
+                    ريال
                   </span>
                 </div>
                 <div class="rounded-pill p-2 fs-5-2 price fw-500">
@@ -132,17 +143,20 @@
                     500-1
                   </span>
                   <span>
-                    {{'general.sr'|translate}}
+                    <!-- {{'general.sr'|translate}} -->
+                    ريال
                   </span>
                 </div>
               </div>
             </div>
             <div class="d-flex flex-wrap justify-content-center align-items-center gap-2 p-4">
               <button type="submit" class="btn btn-solid-main">
-                {{'general.search'|translate}}
+                <!-- {{'general.search'|translate}} -->
+                بحث
               </button>
               <button class="btn btn-outline-main" (click)="reset()">
-                {{'general.reset'|translate}}
+                <!-- {{'general.reset'|translate}} -->
+                إعادة ضبط
               </button>
             </div>
           </form>
@@ -162,8 +176,8 @@
               </ng-container>
             </div>
           </div>
-          <input type="text" class="form-control border-0 bg-transparent"
-            placeholder="{{'doctors.findDoctor'|translate}}" #searchInput (keyup)="handleSearch(searchInput.value)">
+          <input type="text" class="form-control border-0 bg-transparent" placeholder="ابحث عن طبيب أو مختص"
+            #searchInput (keyup)="handleSearch(searchInput.value)">
           <div class="d-flex align-items-center gap-3">
             <ng-container *ngIf="searchInput.value">
               <span class="pointer" (click)="clearSearchValue(searchInput)">
@@ -200,13 +214,15 @@
                 <ng-container *ngIf="isSearch; else noSearch">
                   <app-dynamic-svg [name]="'no-data'"></app-dynamic-svg>
                   <p>
-                    {{'general.noSearchResult'|translate}}
+                    <!-- {{'general.noSearchResult'|translate}} -->
+                    لا يوجد نتائج للبحث
                   </p>
                 </ng-container>
                 <ng-template #noSearch>
                   <app-dynamic-svg [name]="'no-data'"></app-dynamic-svg>
                   <p>
-                    {{'doctors.noDoctors'|translate}}
+                    <!-- {{'doctors.noDoctors'|translate}} -->
+                    لا يوجد أطباء
                   </p>
                 </ng-template>
               </div>
@@ -225,7 +241,8 @@
     <p-sidebar [(visible)]="displayFilter" [position]="currentLanguage=='ar'?'right':'left'">
       <div class="d-flex justify-content-between align-items-center p-3">
         <h5 class="mb-0 fw-bold">
-          {{'doctors.filterOptions'|translate}}
+          خيارات التصفية
+          <!-- {{'doctors.filterOptions'|translate}} -->
         </h5>
         <a (click)="displayFilter=false" class="close d-flex justify-content-center align-items-center">
           <i class="pi pi-times"></i>
@@ -246,7 +263,8 @@
         <form (ngSubmit)="filterNow()" [formGroup]="filterForm" class="form-container" aria-label="filter">
           <div class="p-4 pt-0">
             <h5 class="mb-0 fs-5-1 fw-bold">
-              {{'doctors.specialties' | translate}}
+              <!-- {{'doctors.specialties' | translate}} -->
+              التخصصات
             </h5>
             <div class="mt-3">
               <!-- <div *ngFor="let category of specialitiesList"
@@ -267,19 +285,22 @@
           <hr class="m-0">
           <div class="p-4">
             <h5 class="mb-0 fs-5-1 fw-bold">
-              {{'doctors.gender' | translate}}
+              <!-- {{'doctors.gender' | translate}} -->
+              النوع
             </h5>
             <div class="mt-3">
               <div class="field-radiobutton d-flex align-items-center gap-2 mb-3">
                 <p-radioButton value="male" formControlName="gender" inputId="male"></p-radioButton>
                 <label for="male" class="mb-0">
-                  {{'doctors.male'|translate}}
+                  <!-- {{'doctors.male'|translate}} -->
+                  ذكر
                 </label>
               </div>
               <div class="field-radiobutton d-flex align-items-center gap-2">
                 <p-radioButton value="female" formControlName="gender" inputId="female"></p-radioButton>
                 <label for="female" class="mb-0">
-                  {{'doctors.female'|translate}}
+                  <!-- {{'doctors.female'|translate}} -->
+                  أنثي
                 </label>
               </div>
             </div>
@@ -287,7 +308,8 @@
           <hr class="m-0">
           <div class="p-4">
             <h5 class="mb-0 fs-5-1 fw-bold">
-              {{'doctors.priceValue' | translate}}
+              <!-- {{'doctors.priceValue' | translate}} -->
+              قيمة السعر
             </h5>
             <div class="p-inputgroup mt-3">
               <span class="p-inputgroup-addon border-0">
@@ -297,7 +319,8 @@
                 </span>
               </span>
               <input type="text" formControlName="startPrice" class="border-0 bg-transparent px-2" pInputText
-                placeholder="{{'placeholders.setMin'|translate}}">
+                placeholder="تعيين الحد الأدنى">
+              <!-- placeholder="{{'placeholders.setMin'|translate}}"> -->
             </div>
             <div class="p-inputgroup mt-3">
               <span class="p-inputgroup-addon border-0">
@@ -307,7 +330,8 @@
                 </span>
               </span>
               <input type="text" formControlName="endPrice" class="border-0 bg-transparent px-2" pInputText
-                placeholder="{{'placeholders.setMax'|translate}}">
+                placeholder="تعيين الحد الأقصى">
+              <!-- placeholder="{{'placeholders.setMax'|translate}}"> -->
             </div>
             <div class="mt-3 d-flex align-items-center flex-wrap gap-2">
               <div class="rounded-pill p-2 fs-5-2 price fw-500 active">
@@ -315,7 +339,8 @@
                   0-150
                 </span>
                 <span>
-                  {{'general.sr'|translate}}
+                  <!-- {{'general.sr'|translate}} -->
+                  ريال
                 </span>
               </div>
               <div class="rounded-pill p-2 fs-5-2 price fw-500 active">
@@ -323,7 +348,8 @@
                   150-300
                 </span>
                 <span>
-                  {{'general.sr'|translate}}
+                  <!-- {{'general.sr'|translate}} -->
+                  ريال
                 </span>
               </div>
               <div class="rounded-pill p-2 fs-5-2 price fw-500">
@@ -331,7 +357,8 @@
                   300-500
                 </span>
                 <span>
-                  {{'general.sr'|translate}}
+                  <!-- {{'general.sr'|translate}} -->
+                  ريال
                 </span>
               </div>
               <div class="rounded-pill p-2 fs-5-2 price fw-500">
@@ -339,17 +366,20 @@
                   500-1
                 </span>
                 <span>
-                  {{'general.sr'|translate}}
+                  <!-- {{'general.sr'|translate}} -->
+                  ريال
                 </span>
               </div>
             </div>
           </div>
           <div class="d-flex flex-wrap justify-content-center align-items-center gap-2 p-4">
             <button type="submit" class="btn btn-solid-main">
-              {{'general.search'|translate}}
+              <!-- {{'general.search'|translate}} -->
+              بحث
             </button>
             <button class="btn btn-outline-main" (click)="reset()">
-              {{'general.reset'|translate}}
+              <!-- {{'general.reset'|translate}} -->
+              إعادة ضبط
             </button>
           </div>
         </form>
