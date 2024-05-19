@@ -9,13 +9,17 @@
         <div class="row align-items-center">
           <div class="col-lg-6 order-lg-1 order-2 p-0">
             <p class="sub-title mt-2 mb-0">
-              {{ 'home.hero.heroSubtitle' | translate }}
+              <!-- {{ 'home.hero.heroSubtitle' | translate }} -->
+              نحــــــــن هنـــــا لدعمــــك في
             </p>
             <h1 class="title w-content text-capitalize fw-bold">
-              {{ 'home.hero.heroTitle' | translate }}
+              <!-- {{ 'home.hero.heroTitle' | translate }} -->
+              رحلتك نحــو الصـحة النفسيـة والسعـــادة.
             </h1>
             <p class="description mt-2">
-              {{ 'home.hero.heroDescription' | translate }}
+              <!-- {{ 'home.hero.heroDescription' | translate }} -->
+              دعنا نساعدك في بناء جسر من الأمل والتفاؤل نحو غدٍ أفضل، حيث يكون السعادة والسلام النفسي هما السمتان
+              السائدتان في حياتك.
             </p>
             <div
               class="d-flex justify-content-sm-start justify-content-center gap-3 mt-2 mt-xl-4 mt-md-3 mt-sm-3 flex-wrap">
@@ -23,9 +27,13 @@
                 target="_blank" rel="noopener noreferrer" class="d-flex gap-2 align-items-center app-btn py-2 px-3">
                 <app-dynamic-svg [name]="'color-app-store-icon'"></app-dynamic-svg>
                 <div class="lh-1">
-                  <small class="fs-6-1 fw-500">{{'general.downloadNow'|translate}}</small>
+                  <small class="fs-6-1 fw-500">
+                    <!-- {{'general.downloadNow'|translate}} -->
+                    حمل الان
+                  </small>
                   <p class="mb-0 fw-500 text-capitalize fs-4 lh-1">
-                    {{'general.appStore'|translate}}
+                    <!-- {{'general.appStore'|translate}} -->
+                    app store
                   </p>
                 </div>
               </a>
@@ -33,9 +41,13 @@
                 rel="noopener noreferrer" class="d-flex gap-2 align-items-center app-btn py-2 px-3">
                 <img src="assets/images/home/google-play-logo.svg" alt="google-play" width="27px">
                 <div class="lh-1">
-                  <small class="fs-6-1 fw-500">{{'general.downloadNow'|translate}}</small>
+                  <small class="fs-6-1 fw-500">
+                    <!-- {{'general.downloadNow'|translate}} -->
+                    حمل الان
+                  </small>
                   <p class="mb-0 fw-500 text-capitalize fs-4 lh-1">
-                    {{'general.googlePlay'|translate}}
+                    <!-- {{'general.googlePlay'|translate}} -->
+                    google play
                   </p>
                 </div>
               </a>
@@ -63,10 +75,14 @@
             <div class="col-lg-6">
               <div>
                 <h2 class="fs-lg fw-bold">
-                  {{'home.ourSpecialties.title'|translate}}
+                  <!-- {{'home.ourSpecialties.title'|translate}} -->
+                  تخصصاتنا
                 </h2>
                 <p class="description-font mt-md-3">
-                  {{'home.ourSpecialties.description'|translate}}
+                  <!-- {{'home.ourSpecialties.description'|translate}} -->
+                  في تلبينة، نجمع بين فريق من الخبراء المتخصصين في مجالات متعددة لتقديم الدعم والإرشاد الشخصي المناسب
+                  لكل فرد. سواء كنت بحاجة إلى التوجيه النفسي، العلاج السلوكي، أو أي تخصص آخر، نحن هنا لنساعدك في الطريق
+                  نحو الشفاء والتحسين الشامل لحالتك النفسية.
                 </p>
                 <ng-container *ngIf="homeData?.specialists?.length>0; else noSpecialists">
                   <div class="row specialties d-sm-flex d-none">
@@ -137,15 +153,20 @@
               <div class="row">
                 <div class="col-xl-8 col-lg-10">
                   <h2 class="fs-lg fw-bold">
-                    {{'home.doctors.title'|translate}}
+                    <!-- {{'home.doctors.title'|translate}} -->
+                    نقوم بتوصيلك بمعالجك المختص
                   </h2>
                   <p class="mb-0 description-font mt-3">
-                    {{'home.doctors.description'|translate}}
+                    <!-- {{'home.doctors.description'|translate}} -->
+                    في تلبينة، نجمع بين فريق من الخبراء المتخصصين في مجالات متعددة لتقديم الدعم والإرشاد الشخصي المناسب
+                    لكل فرد. سواء كنت بحاجة إلى التوجيه النفسي، العلاج السلوكي، أو أي تخصص آخر، نحن هنا لنساعدك في
+                    الطريق نحو الشفاء والتحسين الشامل لحالتك النفسية.
                   </p>
                 </div>
               </div>
               <button class="btn btn-solid-main text-nowrap rounded-pill px-3 py-2">
-                {{"general.browseMore" | translate}}
+                <!-- {{"general.browseMore" | translate}} -->
+                تصفح المزيد
               </button>
             </div>
           </div>
@@ -165,12 +186,14 @@
         </ng-container>
         <ng-template #noFeaturesLoading>
           <h3 class="fs-lg">
-            {{'home.features.title'|translate}}
+            <!-- {{'home.features.title'|translate}} -->
+            المميزات
           </h3>
           <div class="row">
             <div class="col-xl-3 col-lg-6 col-md-9">
               <p class="description-font mt-3">
-                {{'home.features.description'|translate}}
+                <!-- {{'home.features.description'|translate}} -->
+                رعاية عالمية المستوى للجميع. ,يقدم نظامنا الصحي رعاية صحية متخصصة لا مثيل لها.
               </p>
             </div>
           </div>
@@ -192,7 +215,8 @@
           <div class="row align-items-center">
             <div class="col-lg-6 order-lg-1 order-2">
               <h4 class="fs-lg fw-bold text-white-color">
-                {{'home.experience.title'|translate}}
+                <!-- {{'home.experience.title'|translate}} -->
+                كيف تتمتع بأفضل تجربة؟
               </h4>
               <div class="mt-4">
                 <div class="experience-content">
@@ -202,12 +226,15 @@
                     </div>
                     <div class="experience-info">
                       <h5 class="experience-title fs-5 fw-bold">
-                        {{'home.experience.contact'|translate}}
+                        <!-- {{'home.experience.contact'|translate}} -->
+                        تواصل مع الطبيب المناسب
                       </h5>
                       <div class="row">
                         <div class="col-xl-10 col-lg-11">
                           <p class="mb-0 experience-description mt-1">
-                            {{'home.experience.answer'|translate}}
+                            <!-- {{'home.experience.answer'|translate}} -->
+                            اجب على بعض الأسئلة التي من خلالها سنقوم بتوصيلك بالمعالج المناسب بإمكانك أيضاً اختيار
+                            المعالج بنفسك
                           </p>
                         </div>
                       </div>
@@ -221,12 +248,14 @@
                     </div>
                     <div class="experience-info">
                       <h5 class="experience-title fs-5 fw-bold">
-                        {{'home.experience.book'|translate}}
+                        <!-- {{'home.experience.book'|translate}} -->
+                        احجز جلستك الآن
                       </h5>
                       <div class="row">
                         <div class="col-xl-10 col-lg-11">
                           <p class="mb-0 experience-description mt-1">
-                            {{'home.experience.choose'|translate}}
+                            <!-- {{'home.experience.choose'|translate}} -->
+                            .اختر الوقت والتاريخ المناسبين، حيث بإمكانك الدفع بوسائل دفع مختلفة
                           </p>
                         </div>
                       </div>
@@ -240,12 +269,14 @@
                     </div>
                     <div class="experience-info">
                       <h5 class="experience-title fs-5 fw-bold">
-                        {{'home.experience.start'|translate}}
+                        <!-- {{'home.experience.start'|translate}} -->
+                        ابدأ جلستك العلاجية
                       </h5>
                       <div class="row">
                         <div class="col-xl-10 col-lg-11">
                           <p class="mb-0 experience-description mt-1">
-                            {{'home.experience.communicate'|translate}}
+                            <!-- {{'home.experience.communicate'|translate}} -->
+                            بإمكانك التواصل مع معالجك بطرق مختلفة خلال الجلسة
                           </p>
                         </div>
                       </div>
@@ -274,15 +305,18 @@
             <div class="row">
               <div class="col-xl-8 col-lg-10">
                 <h2 class="fs-lg fw-bold">
-                  {{'home.articles.title'|translate}}
+                  <!-- {{'home.articles.title'|translate}} -->
+                  المقالات
                 </h2>
                 <p class="mb-0 description-font mt-3">
-                  {{'home.articles.description'|translate}}
+                  <!-- {{'home.articles.description'|translate}} -->
+                  رعاية عالمية المستوى للجميع. ,يقدم نظامنا الصحي رعاية صحية متخصصة لا مثيل لها.
                 </p>
               </div>
             </div>
             <button class="btn btn-solid-main text-nowrap rounded-pill px-3 py-2">
-              {{"general.browseMore" | translate}}
+              <!-- {{"general.browseMore" | translate}} -->
+              تصفح المزيد
             </button>
           </div>
           <div class="mt-4">
@@ -306,19 +340,26 @@
             </div>
             <div class="col-lg-6">
               <h4 class="fs-lg fw-bold">
-                {{'home.apps.title'|translate}}
+                <!-- {{'home.apps.title'|translate}} -->
+                اهتم بصحتك النفسية
               </h4>
               <p class="mt-3 mb-0 description-font">
-                {{'home.apps.description'|translate}}
+                <!-- {{'home.apps.description'|translate}} -->
+                هذا النص هو مثال لنص يمكن أن يستبدل في نفس المساحة، لقد تم توليد هذا النص من مولد النص العربى، حيث يمكنك
+                أن تولد مثل هذا النص أو العديد من النصوص الأخرى
               </p>
               <div class="d-flex gap-3 mt-4 flex-wrap">
                 <a href="https://apps.apple.com/us/app/%D8%AA%D9%84%D8%A8%D9%8A%D9%86%D8%A9-talbinah/id6464413895"
                   target="_blank" rel="noopener noreferrer" class="d-flex gap-2 align-items-center app-btn py-2 px-3">
                   <app-dynamic-svg [name]="'color-app-store-icon'"></app-dynamic-svg>
                   <div class="lh-1">
-                    <small class="fs-6-1 fw-500">{{'general.downloadNow'|translate}}</small>
+                    <small class="fs-6-1 fw-500">
+                      <!-- {{'general.downloadNow'|translate}} -->
+                      حمل الان
+                    </small>
                     <p class="mb-0 fw-500 text-capitalize fs-4 lh-1">
-                      {{'general.appStore'|translate}}
+                      <!-- {{'general.appStore'|translate}} -->
+                      app store
                     </p>
                   </div>
                 </a>
@@ -326,9 +367,13 @@
                   rel="noopener noreferrer" class="d-flex gap-2 align-items-center app-btn py-2 px-3">
                   <img src="assets/images/home/google-play-logo.svg" alt="google-play" width="27px">
                   <div class="lh-1">
-                    <small class="fs-6-1 fw-500">{{'general.downloadNow'|translate}}</small>
+                    <small class="fs-6-1 fw-500">
+                      <!-- {{'general.downloadNow'|translate}} -->
+                      حمل الان
+                    </small>
                     <p class="mb-0 fw-500 text-capitalize fs-4 lh-1">
-                      {{'general.googlePlay'|translate}}
+                      <!-- {{'general.googlePlay'|translate}} -->
+                      google play
                     </p>
                   </div>
                 </a>
@@ -350,10 +395,12 @@
           <div class="row">
             <div class="col-xl-8 col-lg-10">
               <h5 class="fs-1">
-                {{'home.reviews.title'|translate}}
+                <!-- {{'home.reviews.title'|translate}} -->
+                تقييمات العمــــلاء
               </h5>
               <p class="mb-0">
-                {{'home.reviews.description'|translate}}
+                <!-- {{'home.reviews.description'|translate}} -->
+                رعاية عالمية المستوى للجميع. ,يقدم نظامنا الصحي رعاية صحية متخصصة لا مثيل لها.
               </p>
             </div>
           </div>
