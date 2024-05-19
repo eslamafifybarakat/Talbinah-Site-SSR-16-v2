@@ -7,6 +7,7 @@ import { FormsModule } from '@angular/forms';
 // Components
 import { AvailableDoctorAppointmentsComponent } from '../available-doctor-appointments/available-doctor-appointments.component';
 import { ReviewsCarouselComponent } from './../../../carousels/reviews-carousel/reviews-carousel.component';
+import { DownloadAppsComponent } from 'src/app/shared/components/download-apps/download-apps.component';
 import { ShareToSocialComponent } from 'src/app/shared/share-to-social/share-to-social.component';
 import { SkeletonComponent } from './../../../shared/components/skeleton/skeleton.component';
 import { FooterComponent } from './../../../shared/components/footer/footer.component';
@@ -18,10 +19,9 @@ import { AlertsService } from './../../../services/generic/alerts.service';
 import { PublicService } from './../../../services/generic/public.service';
 import { DoctorsService } from './../../../services/doctors.service';
 import { keys } from './../../../shared/configs/localstorage-key';
+import { Subscription, catchError, finalize, tap } from 'rxjs';
 import { ActivatedRoute, Router } from '@angular/router';
 import { DialogService } from 'primeng/dynamicdialog';
-import { Subscription } from 'rxjs';
-import { DownloadAppsComponent } from 'src/app/shared/components/download-apps/download-apps.component';
 
 @Component({
   standalone: true,
@@ -43,7 +43,8 @@ import { DownloadAppsComponent } from 'src/app/shared/components/download-apps/d
   styleUrls: ['./doctor-details.component.scss']
 })
 export class DoctorDetailsComponent {
-  private unsubscribe: Subscription[] = [];
+  private subscriptions: Subscription[] = [];
+
   currentLanguage: any;
   fullUrl: any = null;
 
@@ -82,26 +83,30 @@ export class DoctorDetailsComponent {
     });
   }
 
+  // Start Doctor Details Functions
   getDoctorDetails(id: any): void {
     this.isLoading = true;
-    this.doctorsService.getDoctorById(id).subscribe(
-      (res: any) => {
-        this.processDoctorDetailsResponse(res);
-      },
-      (err: any) => {
+    const doctorDetailsSubscription: Subscription = this.doctorsService.getDoctorById(id).pipe(
+      tap(res => this.processDoctorDetailsResponse(res)),
+      catchError(err => {
         this.handleError(err);
-      }
-    );
+        throw err;
+      }),
+      finalize(() => {
+        this.isLoading = false;
+        this.cdr.detectChanges();
+      })
+    ).subscribe();
+    this.subscriptions.push(doctorDetailsSubscription);
   }
   private processDoctorDetailsResponse(res: any): void {
-    if (res?.status === true) {
+    if (res?.status) {
       this.doctorDetails = res.data.doctor;
       if (this.doctorDetails?.reviews_doctor?.length > 0) {
         this.doctorDetails?.reviews_doctor.forEach((item: any) => {
           item['user_name'] = item?.user?.full_name;
         });
       }
-      // this.doctorDetails.avg_rate = this.publicService.transformDecimalToInteger(this.doctorDetails.avg_rate);
       this.socialLinks = this.doctorDetails?.social;
       if (isPlatformServer(this.platformId)) {
         this.updateMetaTags();
@@ -110,12 +115,13 @@ export class DoctorDetailsComponent {
         this.updateMetaTags();
       }
       this.updatePriceObject();
+      this.updateMetaTags();
     } else {
-      this.alertsService.openToast('error', 'error', res.message);
+      this.handleError('حدث خطأ');
     }
-    this.isLoading = false;
-    this.cdr.detectChanges();
   }
+  // End Doctor Details Functions
+
   private updateMetaTags(): void {
     if (this.doctorDetails?.full_name) {
       this.metadataService.updateTitle(`تلبينة | ${this.doctorDetails?.full_name}`);
@@ -173,10 +179,6 @@ export class DoctorDetailsComponent {
       }
     });
   }
-  private handleError(err: any): void {
-    this.alertsService.openToast('error', 'error', err);
-    this.isLoading = false;
-  }
 
   share(): void {
     const ref = this.dialogService.open(ShareToSocialComponent, {
@@ -202,8 +204,24 @@ export class DoctorDetailsComponent {
       data: {}
     });
   }
+
+  /* --- Handle api requests messages --- */
+  private handleSuccess(msg: string | null): any {
+    this.setMessage(msg || 'تم تنفيذ طلبك بنجاح', 'succss');
+  }
+  private handleError(err: string | null): any {
+    this.setMessage(err || 'حدث خطأ', 'error');
+  }
+  private setMessage(message: string, type?: string | null): void {
+    this.alertsService.openToast(type, type, message);
+  }
+
   ngOnDestroy(): void {
-    this.unsubscribe?.forEach((sb) => sb?.unsubscribe());
+    this.subscriptions.forEach((subscription: Subscription) => {
+      if (subscription && !subscription.closed) {
+        subscription.unsubscribe();
+      }
+    });
   }
 }
 
