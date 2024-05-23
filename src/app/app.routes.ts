@@ -10,7 +10,7 @@ import { blogsChildrenRoutes } from './components/blogs/blogs-children-routes';
 
 
 export const appRoutes: Routes = [
-  { path: '', redirectTo: '/Doctors', pathMatch: 'full' },
+  { path: '', redirectTo: '/Home', pathMatch: 'full' },
   // Authentication
   {
     path: 'Auth',
@@ -29,26 +29,26 @@ export const appRoutes: Routes = [
     children: authChildrenRoutes,
   },
   // Home Page
-  // {
-  //   path: 'Home',
-  //   loadComponent: () =>
-  //     import('./components/home/home.component').then(
-  //       (c) => c.HomeComponent
-  //     ),
-  //   data: {
-  //     page: 'Home'
-  //   }
-  // },
-  // {
-  //   path: ':lang/Home',
-  //   loadComponent: () =>
-  //     import('./components/home/home.component').then(
-  //       (c) => c.HomeComponent
-  //     ),
-  //   data: {
-  //     page: 'Home'
-  //   }
-  // },
+  {
+    path: 'Home',
+    loadComponent: () =>
+      import('./components/home/home.component').then(
+        (c) => c.HomeComponent
+      ),
+    data: {
+      page: 'Home'
+    }
+  },
+  {
+    path: ':lang/Home',
+    loadComponent: () =>
+      import('./components/home/home.component').then(
+        (c) => c.HomeComponent
+      ),
+    data: {
+      page: 'Home'
+    }
+  },
   // Doctors
   {
     path: 'Doctors',
@@ -107,14 +107,6 @@ export const appRoutes: Routes = [
         (c) => c.ContactUsComponent
       ),
     // canActivate: [LanguageGuard] // Optional: Use a guard to validate the language parameter
-  },
-  {
-    path: ':lang/ContactUs',
-    loadComponent: () =>
-      import('./components/contact-us/contact-us.component').then(
-        (c) => c.ContactUsComponent
-      ),
-    // canActivate: [LanguageGuard] // Optional: Use a guard to validate the language parameter\
   },
 
   {

@@ -1,4 +1,14 @@
 /
+/Home
+/Doctors
+/Auth
+/Blogs
+/ContactUs
+/JoinUs
+/DiscountPolicy
+/FAQs
+/PrivacyAndPolicy
+/Errors
 
 
 
