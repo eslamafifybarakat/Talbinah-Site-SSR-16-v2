@@ -64,4 +64,50 @@ export class HomePageComponent {
   ) {
     // localizationLanguageService.updatePathAccordingLang();
   }
+
+  ngOnInit(): void {
+    this.currentLanguage = this.publicService.getCurrentLanguage();
+    this.loadData();
+    // this.getHomeData();
+    this.features = [
+      {
+        id: 1,
+        image: 'assets/images/home/dummy/features/feature1.svg',
+        title: 'البرامج الطبية',
+        description: 'نحن نقدم برامج طبية متميزة تشمل قواعد بيانات شاملة تضم معلومات مفصلة عن الأمراض المختلفة والعلاجات المتاحة، مما يمكن المستخدمين من الوصول إلى المعلومات الطبية بسهولة ودقة. بالإضافة إلى ذلك، نقدم تطبيقات لتتبع الصحة العامة، مثل تتبع الوزن والتغذية ومستويات اللياقة البدنية، لمساعدة المستخدمين في اتخاذ قرارات صحية مستنيرة.',
+        link: 'string',
+      },
+      {
+        id: 1,
+        image: 'assets/images/home/dummy/features/feature1.svg',
+        title: '2البرامج الطبية',
+        description: 'نحن نقدم برامج طبية متميزة تشمل قواعد بيانات شاملة تضم معلومات مفصلة عن الأمراض المختلفة والعلاجات المتاحة، مما يمكن المستخدمين من الوصول إلى المعلومات الطبية بسهولة ودقة. بالإضافة إلى ذلك، نقدم تطبيقات لتتبع الصحة العامة، مثل تتبع الوزن والتغذية ومستويات اللياقة البدنية، لمساعدة المستخدمين في اتخاذ قرارات صحية مستنيرة.',
+        link: 'string',
+      },
+      {
+        id: 1,
+        image: 'assets/images/home/dummy/features/feature1.svg',
+        title: '3البرامج الطبية',
+        description: 'نحن نقدم برامج طبية متميزة تشمل قواعد بيانات شاملة تضم معلومات مفصلة عن الأمراض المختلفة والعلاجات المتاحة، مما يمكن المستخدمين من الوصول إلى المعلومات الطبية بسهولة ودقة. بالإضافة إلى ذلك، نقدم تطبيقات لتتبع الصحة العامة، مثل تتبع الوزن والتغذية ومستويات اللياقة البدنية، لمساعدة المستخدمين في اتخاذ قرارات صحية مستنيرة.',
+        link: 'string',
+      },
+      {
+        id: 1,
+        image: 'assets/images/home/dummy/features/feature1.svg',
+        title: '3البرامج الطبية',
+        description: 'نحن نقدم برامج طبية متميزة تشمل قواعد بيانات شاملة تضم معلومات مفصلة عن الأمراض المختلفة والعلاجات المتاحة، مما يمكن المستخدمين من الوصول إلى المعلومات الطبية بسهولة ودقة. بالإضافة إلى ذلك، نقدم تطبيقات لتتبع الصحة العامة، مثل تتبع الوزن والتغذية ومستويات اللياقة البدنية، لمساعدة المستخدمين في اتخاذ قرارات صحية مستنيرة.',
+        link: 'string',
+      }
+    ];
+  }
+  private loadData(): void {
+    this.updateMetaTagsForSEO();
+  }
+  private updateMetaTagsForSEO(): void {
+    let metaData: MetaDetails = {
+      title: 'الرئيسية | تلبينة',
+      description: 'الرئيسية | تلبينة'
+    }
+    this.metadataService.updateMetaTagsForSEO(metaData);
+  }
 }
