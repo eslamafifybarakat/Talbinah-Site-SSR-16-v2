@@ -124,7 +124,7 @@ export class HomeComponent {
   }
   private processHomeDataResponse(response: any): void {
     if (response?.status == true) {
-      response?.data.specialists.forEach((element: any) => {
+      response?.data?.specialists?.forEach((element: any) => {
         switch (element.id) {
           case 1:
             element['backgroundColor'] = '#8fdaf73b';
@@ -169,7 +169,7 @@ export class HomeComponent {
 
   ngOnDestroy(): void {
     this.subscriptions.forEach((subscription: Subscription) => {
-      if (subscription && subscription.closed) {
+      if (subscription && !subscription.closed) {
         subscription.unsubscribe();
       }
     });
