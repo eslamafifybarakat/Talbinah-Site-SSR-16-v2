@@ -18,11 +18,15 @@
       </ng-container>
     </h2>
     <div class="text-center mt-2">
-      <p class="fs-3 mb-4">{{'errors.serverError'|translate}}</p>
-      <a class="backToHome text-capitalize d-flex align-items-center justify-content-center gap-2 fs-5-1 m-auto"
-        title="back to home" [routerLink]="'/home'">
+      <p class="fs-3 mb-4">
+        <!-- {{'errors.serverError'|translate}} -->
+      حدث خطأ ما
+      </p>
+      <a class="backToHome text-capitalize w-100 d-flex align-items-center justify-content-center gap-2 fs-5-1 m-auto"
+        title="back to home" [routerLink]="'/Home'">
         <i class="pi pi-home"></i>
-        {{'errors.backToHome'|translate}}
+        <!-- {{'errors.backToHome'|translate}} -->
+        العودة إلى الصفحة الرئيسية
       </a>
     </div>
   </div>

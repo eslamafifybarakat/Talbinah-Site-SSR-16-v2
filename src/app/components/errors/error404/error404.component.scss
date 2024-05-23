@@ -1,11 +1,11 @@
 :host::ng-deep {
   .error {
-    min-height: 100vh;
     background-color: #fafafa;
-    // background-image: url(../../../../../assets/images/restaurants/background.png);
+    padding-top: 7rem;
+    background-image: url(../../../../assets/images/doctors/doctor-details-bg.svg);
     background-repeat: no-repeat;
-    background-attachment: fixed;
     background-size: cover;
+    min-height: 100vh;
     .title2 {
       font-size: 180px;
     }

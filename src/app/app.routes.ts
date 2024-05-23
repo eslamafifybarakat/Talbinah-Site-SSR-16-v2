@@ -4,7 +4,7 @@ import { Routes } from '@angular/router';
 
 // TS Files for child routes
 import { authChildrenRoutes } from './components/auth/auth-children-routes';
-import { errorsChildrenRoutes } from './components/errors/errors-routes';
+import { errorsChildrenRoutes } from './components/errors/errors-children-routes';
 import { doctorsChildrenRoutes } from './components/doctors/doctors-children-routes';
 import { blogsChildrenRoutes } from './components/blogs/blogs-children-routes';
 
@@ -181,7 +181,7 @@ export const appRoutes: Routes = [
         (c) => c.PrivacyAndPolicyComponent
       )
   },
-  
+
   // Errors
   {
     path: ':lang/Errors',
@@ -200,5 +200,5 @@ export const appRoutes: Routes = [
       ),
     children: errorsChildrenRoutes
   },
-  { path: '**', redirectTo: '/en/Errors' } // Redirect all unknown paths to '/Errors'
+  { path: '**', redirectTo: '/Errors/404' } // Redirect all unknown paths to '/Errors'
 ];

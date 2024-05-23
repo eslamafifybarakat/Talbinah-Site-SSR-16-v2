@@ -4,7 +4,7 @@ import { VerificationCodeComponent } from './verification-code/verification-code
 import { RegistrationV2Component } from './registration-v2/registration-v2.component';
 import { ForgetPasswordComponent } from './forget-password/forget-password.component';
 import { ResetPasswordComponent } from './reset-password/reset-password.component';
-import { ErrorsComponent } from "../errors/errors.component";
+import { errorsChildrenRoutes } from '../errors/errors-children-routes';
 import { LoginComponent } from "./login/login.component";
 
 export const authChildrenRoutes: any[] = [
@@ -44,5 +44,23 @@ export const authChildrenRoutes: any[] = [
     component: ResetPasswordComponent,
     pathMatch: 'full'
   },
-  { path: '**', component: ErrorsComponent }
+  // Errors
+  {
+    path: ':lang/Errors',
+    loadComponent: () =>
+      import('./../../components/errors/errors.component').then(
+        (c) => c.ErrorsComponent
+      ),
+    children: errorsChildrenRoutes
+  },
+
+  {
+    path: 'Errors',
+    loadComponent: () =>
+      import('./../../components/errors/errors.component').then(
+        (c) => c.ErrorsComponent
+      ),
+    children: errorsChildrenRoutes
+  },
+  { path: '**', redirectTo: '/Errors/404' } // Redirect all unknown paths to '/Errors'
 ];

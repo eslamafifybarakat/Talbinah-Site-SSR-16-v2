@@ -1,6 +1,6 @@
 import { BlogDetailsComponent } from './blog-details/blog-details.component';
 import { BlogsListComponent } from './blogs-list/blogs-list.component';
-import { errorsChildrenRoutes } from '../errors/errors-routes';
+import { errorsChildrenRoutes } from '../errors/errors-children-routes';
 
 export const blogsChildrenRoutes: any[] = [
   { path: '', redirectTo: 'List', pathMatch: 'full' },
@@ -36,5 +36,5 @@ export const blogsChildrenRoutes: any[] = [
       ),
     children: errorsChildrenRoutes
   },
-  { path: '**', redirectTo: '/Errors' } // Redirect all unknown paths to '/Errors'
+  { path: '**', redirectTo: '/Errors/404' } // Redirect all unknown paths to '/Errors'
 ];
