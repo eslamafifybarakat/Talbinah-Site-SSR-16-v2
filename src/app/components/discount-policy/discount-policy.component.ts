@@ -85,10 +85,10 @@ export class DiscountPolicyComponent {
   }
 
   ngOnDestroy(): void {
-    // this.subscriptions.forEach((subscription: Subscription) => {
-    //   if (subscription && !subscription.closed) {
-    //     subscription.unsubscribe();
-    //   }
-    // });
+    this.subscriptions.forEach((subscription: Subscription) => {
+      if (subscription && !subscription.closed) {
+        subscription.unsubscribe();
+      }
+    });
   }
 }

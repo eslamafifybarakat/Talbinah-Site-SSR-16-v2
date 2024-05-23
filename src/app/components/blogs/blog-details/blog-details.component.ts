@@ -116,10 +116,10 @@ export class BlogDetailsComponent implements OnInit, OnDestroy {
   }
 
   ngOnDestroy(): void {
-    // this.subscriptions.forEach((subscription: Subscription) => {
-    //   if (subscription && !subscription.closed) {
-    //     subscription.unsubscribe();
-    //   }
-    // });
+    this.subscriptions.forEach((subscription: Subscription) => {
+      if (subscription && !subscription.closed) {
+        subscription.unsubscribe();
+      }
+    });
   }
 }
