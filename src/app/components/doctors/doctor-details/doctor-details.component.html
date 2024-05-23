@@ -10,8 +10,8 @@
           <div class="content-details">
             <div class="d-flex gap-3">
               <div class="doctor-img">
-                <img [src]="doctorDetails?.image?.url" alt="doctor" class="w-100 h-100"
-                  onerror="this.src='assets/images/not-found/no-woman-doctor.svg'">
+                <img [src]="doctorDetails?.image?.url" class="w-100 h-100"
+                  onerror="this.src='assets/images/not-found/no-woman-doctor.svg'" loading="lazy" alt="doctor">
               </div>
               <div>
                 <h2 class="mb-0">

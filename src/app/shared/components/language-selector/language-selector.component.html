@@ -5,11 +5,11 @@
       <span class="d-xl-flex d-none">
         <ng-container *ngIf="currentLanguage=='ar'">
           <img class="main-flag rounded-circle" ngSrc="assets/images/flag/sa.svg" width="200" height="150" priority
-            alt="saudi flag">
+             loading="lazy" alt="saudi flag">
         </ng-container>
         <ng-container *ngIf="currentLanguage=='en'">
           <img class="main-flag rounded-circle" ngSrc="assets/images/flag/us.svg" width="200" height="150" priority
-            alt="english flag">
+             loading="lazy" alt="english flag">
         </ng-container>
       </span>
       <i class="pi pi-language fs-4 d-xl-none d-flex"></i>
@@ -21,7 +21,7 @@
       <li class="nav-item " (click)="translationService.changeLang('ar')">
         <span class="nav-link px-2 p-1 d-flex align-items-center gap-2">
           <img class="flag rounded-circle" ngSrc="assets/images/flag/sa.svg" width="200" height="150" priority
-            alt="Arabic flag">
+             loading="lazy" alt="Arabic flag">
           <span>
             العربية
           </span>
@@ -30,7 +30,7 @@
       <li class="nav-item " (click)="translationService.changeLang('en')">
         <span class="nav-link px-2 p-1 d-flex align-items-center gap-2">
           <img class="flag rounded-circle" ngSrc="assets/images/flag/us.svg" width="200" height="150" priority
-            alt="English flag">
+             loading="lazy" alt="English flag">
           <span>
             English
           </span>

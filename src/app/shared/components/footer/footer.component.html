@@ -3,7 +3,7 @@
     <div class="row">
       <div class="col-lg-4">
         <div class="footer-logo">
-          <img src="assets/images/logo/lg-logo.webp" alt="footer-logo" class="w-100">
+          <img src="assets/images/logo/lg-logo.webp" class="w-100" loading="lazy" alt="footer-logo">
         </div>
         <p class="mt-3">
           <!-- {{'footer.description'|translate}} -->
@@ -100,7 +100,7 @@
         </h6>
         <ul class="p-0 mt-3">
           <li>
-            <a class="nav-link mb-3">
+            <a class="nav-link mb-3" [routerLink]="['/Blogs/List']">
               <!-- {{'footer.blog'|translate}} -->
               المدونة
             </a>

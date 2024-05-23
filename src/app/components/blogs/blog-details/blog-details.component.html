@@ -14,9 +14,9 @@
                 </h2>
                 <div *ngIf="blogDetails?.author" class="d-inline-block">
                   <div class="d-flex align-items-center mx-2 mb-0" role="button"
-                       [routerLink]="['/doctors/details', blogDetails?.author?.username]">
+                    [routerLink]="['/doctors/details', blogDetails?.author?.username]">
                     <img [src]="blogDetails?.author?.image" onerror="this.src='assets/images/main/defaults/default.png'"
-                         alt="doctor-img" class="doc-img-detail rounded-circle" width="40" height="40">
+                      class="doc-img-detail rounded-circle" width="40" height="40" loading="lazy" alt="doctor-img">
                     <div class="mx-2 d-flex flex-column">
                       <span class="fs-8 color-secondary w-100 text-truncate">
                         {{ blogDetails?.author?.name }}
@@ -48,7 +48,7 @@
               </a>
             </div>
             <img class="w-100 image-center-cat rounded" [src]="blogDetails?.image?.url"
-                 onerror="this.src='assets/images/dummy/blogs/blogsImage.png'" alt="logo">
+              onerror="this.src='assets/images/dummy/blogs/blogsImage.png'" loading="lazy" alt="logo">
           </div>
           <div class="mt-4" [innerHTML]="blogDetails?.description"></div>
         </div>
@@ -69,7 +69,7 @@
     <ng-template #noDetails>
       <div class="col-12 mb-4 w-100">
         <div class="card border-0 shadow-none bg-transparent nodata">
-          <img src="assets/images/no-data.png" class="my-5 noData-img" alt="no data available">
+          <img src="assets/images/no-data.png" class="my-5 noData-img" loading="lazy" alt="no data available">
           <p class="text-center primary-color mt-2 fs-3">
             لا يوجد بيانات لعرضها
           </p>
