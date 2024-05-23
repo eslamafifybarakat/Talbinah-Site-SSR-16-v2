@@ -28,20 +28,20 @@ import { FooterComponent } from './../../shared/components/footer/footer.compone
   selector: 'app-home-page',
   standalone: true,
   imports: [
-     // Modules
-     TranslateModule,
-     RouterModule,
-     CommonModule,
- 
-     // Components
-     FeaturesVerticalCarouselComponent,
-     HomeSponsorCarouselComponent,
-     ArticlesCarouselComponent,
-     ReviewsCarouselComponent,
-     DoctorsCarouselComponent,
-     DynamicSvgComponent,
-     SkeletonComponent,
-     FooterComponent,
+    // Modules
+    TranslateModule,
+    RouterModule,
+    CommonModule,
+
+    // Components
+    FeaturesVerticalCarouselComponent,
+    HomeSponsorCarouselComponent,
+    ArticlesCarouselComponent,
+    ReviewsCarouselComponent,
+    DoctorsCarouselComponent,
+    DynamicSvgComponent,
+    SkeletonComponent,
+    FooterComponent,
   ],
   templateUrl: './home-page.component.html',
   styleUrls: ['./home-page.component.scss']
@@ -109,5 +109,22 @@ export class HomePageComponent {
       description: 'الرئيسية | تلبينة'
     }
     this.metadataService.updateMetaTagsForSEO(metaData);
+  }
+
+  /* --- Handle api requests messages --- */
+  private handleError(err: any): any {
+    this.setErrorMessage(err || 'An error has occurred');
+  }
+  private setErrorMessage(message: string): void {
+    // Implementation for displaying the error message, e.g., using a sweetalert
+    this.alertsService?.openToast('error', 'error', message);
+  }
+
+  ngOnDestroy(): void {
+    this.subscriptions.forEach((subscription: Subscription) => {
+      if (subscription && !subscription.closed) {
+        subscription.unsubscribe();
+      }
+    });
   }
 }
