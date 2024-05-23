@@ -68,7 +68,7 @@ export class HomePageComponent {
   ngOnInit(): void {
     this.currentLanguage = this.publicService.getCurrentLanguage();
     this.loadData();
-    // this.getHomeData();
+    this.getHomeData();
     this.features = [
       {
         id: 1,
@@ -110,6 +110,53 @@ export class HomePageComponent {
     }
     this.metadataService.updateMetaTagsForSEO(metaData);
   }
+
+   /* --- Start Hero Section Functions --- */
+   getHomeData(): void {
+    this.isLoadingHomeData = true;
+    let homeDataSubscription: Subscription = this.homeService?.getHomeData()
+      .pipe(
+        tap((res: homeApiResponse) => this.processHomeDataResponse(res)),
+        catchError(err => this.handleError(err)),
+        finalize(() => this.finalizeUserHomeLoading())
+      ).subscribe();
+    this.subscriptions.push(homeDataSubscription);
+  }
+  private processHomeDataResponse(response: any): void {
+    if (response?.status == true) {
+      response?.data?.specialists?.forEach((element: any) => {
+        switch (element.id) {
+          case 1:
+            element['backgroundColor'] = '#8fdaf73b';
+            element['color'] = '#0091D3';
+            break;
+          case 2:
+            element['backgroundColor'] = '#A86BFC3b';
+            element['color'] = '#A86BFC';
+            break;
+          case 3:
+            element['backgroundColor'] = '#A86BFC3b';
+            element['color'] = '#A86BFC';
+            break;
+          case 4:
+            element['backgroundColor'] = '#FFC07E3b';
+            element['color'] = '#FFC07E';
+            break;
+          default:
+          // Handle default case if needed
+        }
+      });
+      response.data['services'] = this.features;
+      this.homeData = response?.data;
+    } else {
+      this.handleError(response.error);
+      return;
+    }
+  }
+  private finalizeUserHomeLoading(): void {
+    this.isLoadingHomeData = false;
+  }
+  /* --- End Hero Section Functions --- */
 
   /* --- Handle api requests messages --- */
   private handleError(err: any): any {
