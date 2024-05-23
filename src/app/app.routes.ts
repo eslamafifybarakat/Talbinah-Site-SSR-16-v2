@@ -10,7 +10,7 @@ import { blogsChildrenRoutes } from './components/blogs/blogs-children-routes';
 
 
 export const appRoutes: Routes = [
-  { path: '', redirectTo: '/Home-Page', pathMatch: 'full' },
+  { path: '', redirectTo: '/Home', pathMatch: 'full' },
   // Authentication
   {
     path: 'Auth',
@@ -30,24 +30,18 @@ export const appRoutes: Routes = [
   },
   // Home Page
   {
-    path: 'Home-Page',
+    path: 'Home',
     loadComponent: () =>
-      import('./components/home/home.component').then(
-        (c) => c.HomeComponent
+      import('./components/contact-us/contact-us.component').then(
+        (c) => c.ContactUsComponent
       ),
-    data: {
-      page: 'Home'
-    }
   },
   {
-    path: ':lang/Home-Page',
+    path: ':lang/Home',
     loadComponent: () =>
-      import('./components/home/home.component').then(
-        (c) => c.HomeComponent
+      import('./components/contact-us/contact-us.component').then(
+        (c) => c.ContactUsComponent
       ),
-    data: {
-      page: 'Home'
-    }
   },
   // Doctors
   {
