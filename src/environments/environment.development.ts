@@ -1,7 +1,7 @@
 export const environment = {
   production: false,
   // apiUrl: "https://api.dev.talbinah.net",
-  apiUrl: "https://talbinah.net/api",
+  apiUrl: "https://api.talbinah.net",
   publicUrl: "http://Talbinah.net",
   imageBaseUrl: "https://Talbinah.net",
   chatGptApi: "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",
