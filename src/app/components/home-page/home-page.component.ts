@@ -47,5 +47,21 @@ import { FooterComponent } from './../../shared/components/footer/footer.compone
   styleUrls: ['./home-page.component.scss']
 })
 export class HomePageComponent {
+  private subscriptions: Subscription[] = [];
+  currentLanguage: string = '';
 
+  translatedText: any = {};
+  isLoadingHomeData: boolean = false;
+  homeData: any;
+  features: Feature[] = [];
+
+  constructor(
+    private localizationLanguageService: LocalizationLanguageService,
+    private metadataService: MetadataService,
+    private alertsService: AlertsService,
+    private publicService: PublicService,
+    private homeService: HomeService
+  ) {
+    // localizationLanguageService.updatePathAccordingLang();
+  }
 }
