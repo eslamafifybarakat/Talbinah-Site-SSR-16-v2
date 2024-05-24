@@ -1,10 +1,10 @@
 :host::ng-deep {
-  #review-slider {
+  #doctor-slider {
     .p-carousel-item {
       display: flex;
       align-items: center;
       justify-content: center;
-      padding: 1.5rem 0;
+      padding: 0.7rem 0;
     }
     .p-carousel-items-content {
       direction: ltr;
@@ -16,13 +16,22 @@
       .p-carousel-prev {
         position: absolute;
         bottom: 2px;
-        background-color: var(--bg-main-color);
-        color: var(--text-white-color);
         border-radius: 50%;
-      }
-      .p-disabled {
-        background-color: transparent;
+        width: 3rem;
+        height: 3rem;
         color: var(--text-main-color);
+        background-color: transparent;
+        &:hover {
+          background-color: var(--bg-main-color);
+          color: var(--text-white-color);
+        }
+        // .carousel-prev-icon {
+        //   font-family: "primeicons";
+        //   content: "\e91b";
+        // }
+        // svg {
+        //   display: none;
+        // }
       }
       .p-carousel-next {
         right: 0;
@@ -31,13 +40,16 @@
         right: 3rem;
       }
     }
+    @media (max-width: 776px) {
+      .p-carousel-next,
+      .p-carousel-prev {
+        width: 2.5rem;
+        height: 2.5rem;
+      }
+    }
   }
   .ar-slider {
-    .p-carousel-next,
-    .p-carousel-prev {
-      transform: scaleX(-1);
-    }
-    .review-card {
+    .doctor-card {
       direction: rtl;
     }
   }
