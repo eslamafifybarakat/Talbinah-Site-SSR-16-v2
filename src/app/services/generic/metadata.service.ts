@@ -55,10 +55,10 @@ export class MetadataService {
   }
 
   updateMetaTagsForSEO(meta: MetaDetails, fullPageUrl?: string): void {
-    const title = meta.title || this.defaultTitle;
-    const description = meta.description || this.defaultDescription;
+    const title = meta?.title || this.defaultTitle;
+    const description = meta?.description || this.defaultDescription;
     const image =
-      meta.image ? `${this.imageBaseUrl}/${meta.image}` : this.defaultImage;
+      meta?.image ? `${this.imageBaseUrl}/${meta?.image}` : this.defaultImage;
     const url = fullPageUrl || this.defaultURL;
 
     this.updateTitle(title);

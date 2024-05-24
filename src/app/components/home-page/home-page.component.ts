@@ -106,7 +106,8 @@ export class HomePageComponent {
   private updateMetaTagsForSEO(): void {
     let metaData: MetaDetails = {
       title: 'الرئيسية | تلبينة',
-      description: 'الرئيسية | تلبينة'
+      description: 'الرئيسية | تلبينة',
+      image:'https://talbinah.net/assets/images/main/logos/logo_talbinah.png'
     }
     this.metadataService.updateMetaTagsForSEO(metaData);
   }
