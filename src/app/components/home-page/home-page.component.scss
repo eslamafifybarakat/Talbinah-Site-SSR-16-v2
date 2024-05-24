@@ -1,0 +1,382 @@
+#home-page {
+  .home-bg {
+    background-image: url(../../../assets/images/home/home-bg.svg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+  }
+  .pt-hero {
+    padding-top: 11rem;
+  }
+  .pt-7 {
+    padding-top: 8rem;
+  }
+  .fs-lg {
+    font-size: 3.3rem;
+  }
+  .description-font {
+    font-size: 1.15rem;
+    color: #404040;
+  }
+  @media (max-width: 991px) {
+    .pt-7 {
+      padding-top: 5rem;
+    }
+    .fs-lg {
+      font-size: 2.6rem;
+    }
+  }
+  @media (max-width: 776px) {
+    .pt-7 {
+      padding-top: 4rem;
+    }
+    .fs-lg {
+      font-size: 2.3rem;
+    }
+    .description-font {
+      font-size: 1.05rem;
+    }
+  }
+  @media (max-width: 567px) {
+    .pt-7 {
+      padding-top: 3rem;
+    }
+    .fs-lg {
+      font-size: 1.5rem;
+    }
+    .description-font {
+      font-size: 1rem;
+    }
+  }
+
+  // Start Hero Section
+  #hero-section {
+    background-image: url(../../../assets/images/home/hero-section-bg.svg);
+    min-height: calc(100vh + 1rem);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+
+    .title {
+      font-size: 55px;
+      font-weight: 700;
+      line-height: 64px;
+      color: var(--bg-dark-color);
+    }
+
+    .sub-title {
+      color: var(--bg-dark-color);
+      font-size: 32px;
+      font-weight: 700;
+      line-height: 64px;
+    }
+
+    .description {
+      color: var(--bg-grey-color);
+      font-size: 18px;
+      font-weight: 400;
+      line-height: 30px;
+    }
+    .app-btn {
+      background-color: #000000;
+      color: var(--text-white-color);
+      border-radius: 7px;
+    }
+    .main-hero-image-container img {
+      width: 100%;
+      object-fit: fill;
+      transform: scale(1.25);
+    }
+    @media (max-width: 991px) {
+      .main-hero-image-container img {
+        height: 100% !important;
+        padding: 3rem 0;
+      }
+    }
+    @media (max-width: 776px) {
+      .main-hero-image-container img {
+        padding: 0.5rem 0;
+      }
+    }
+  }
+  // End Hero Section
+
+  // Start Specialties
+  #specialties {
+    .specialty-content {
+      .specialty-icon {
+        width: 66px;
+        min-width: 66px;
+        height: 66px;
+        border-radius: 12px;
+        // background-color: #8fdaf73b;
+      }
+    }
+    .specialty-video {
+      object-fit: cover;
+      // mix-blend-mode: lighten;
+    }
+    @media (max-width: 567px) {
+      .specialty-content {
+        .specialty-icon {
+          width: 60px;
+          min-width: 60px;
+          height: 60px;
+        }
+      }
+      .fs-5 {
+        font-size: 0.95rem !important;
+      }
+    }
+  }
+  // End Specialties
+
+  // Start Doctors
+  #doctors {
+    // background-image: url(../../../assets/images/home/elipse-bg.webp);
+    background-repeat: no-repeat;
+    background-position: left;
+    background-size: 70%;
+    .btn-solid-main {
+      min-width: fit-content !important;
+    }
+  }
+  &.ar-home-content {
+    #doctors {
+      // background-image: url(../../../assets/images/home/elipse-bg-rtl.webp);
+      background-position: right;
+    }
+  }
+  // End Doctors
+
+  // Start Features
+  #features {
+    // background-image: url(../../../assets/images/home/features-bg.webp);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 60%;
+    .features-container {
+      background-color: #f2f4f7;
+      border-radius: 20px;
+    }
+  }
+  // End Features
+
+  // Start Experience
+  #experience {
+    background-image: url(../../../assets/images/home/services-bg.webp);
+    background-repeat: no-repeat;
+    background-position: center;
+    .experience-content {
+      border-radius: 15px;
+      // transition: all 0.5s ease-in-out;
+      padding: 1rem;
+      .experience-num {
+        width: 2rem;
+        min-width: 2rem;
+        height: 2rem;
+        color: var(--text-main-color);
+        background-color: var(--bg-white-color);
+        border-radius: 10px;
+      }
+      .experience-title {
+        color: var(--text-white-color);
+      }
+      .experience-description {
+        color: #e5e5e5;
+      }
+      &:hover {
+        transition: all 0.5s ease-in-out;
+        background-color: var(--bg-white-color);
+        margin: 0 2rem;
+        .experience-num {
+          background-color: var(--bg-main-color);
+          color: var(--text-white-color);
+        }
+        .experience-title {
+          color: #181a1e;
+        }
+        .experience-description {
+          color: #404040;
+        }
+      }
+    }
+    @media (min-width: 992px) {
+      & {
+        height: calc(100vh - 4.5rem);
+      }
+      .redmi-phone {
+        height: calc(100vh - 7.5rem);
+      }
+    }
+  }
+  // End Experience
+
+  // Start Articles
+  #articles {
+    // background-image: url(../../../assets/images/home/elipse-bg-rtl.webp);
+    background-repeat: no-repeat;
+    background-position: right;
+    background-size: 70%;
+  }
+  &.ar-home-content {
+    #articles {
+      // background-image: url(../../../assets/images/home/elipse-bg.webp);
+      background-position: left;
+    }
+  }
+  // End Articles
+
+  // Start Apps
+  #apps {
+    .app-btn {
+      background-color: #000000;
+      color: var(--text-white-color);
+      border-radius: 7px;
+    }
+    .app-img {
+      object-fit: cover;
+      height: 550px;
+    }
+    @media (max-width: 1024px) {
+      .app-img {
+        height: auto;
+      }
+    }
+  }
+  // End Apps
+
+  // Start Reviews
+  #reviews {
+    // background-image: url(../../../assets/images/home/elipse-bg.webp);
+    background-repeat: no-repeat;
+    background-position: left;
+    background-size: 50%;
+  }
+  &.ar-home-content {
+    #reviews {
+      // background-image: url(../../../assets/images/home/elipse-bg-rtl.webp);
+      background-position: right;
+    }
+  }
+  // End Reviews
+
+  .btn-solid-main {
+    min-width: 7rem;
+    color: var(--text-white-color) !important;
+    background-color: var(--bg-main-color) !important;
+    border-color: var(--text-main-color) !important;
+    border-radius: 0.5rem;
+    padding: 0.65rem 1.25rem;
+    font-size: 1rem;
+    transition: all 0.4s ease-in-out;
+    z-index: 1;
+  }
+
+  .btn-solid-main:hover,
+  .btn-solid-main:focus {
+    color: var(--text-white-color) !important;
+  }
+
+  .btn-outline-main {
+    border: 2px solid var(--bg-main-color);
+    color: var(--text-main-color);
+    border-radius: 10px;
+    padding: 0.7rem 1.2rem;
+  }
+}
+
+@media only screen and (max-width: 1199px) {
+  #home-page {
+    #hero-section {
+      padding-top: 0rem;
+      padding-bottom: 1rem;
+
+      .title {
+        font-size: 2.5rem;
+      }
+
+      .description {
+        width: 100% !important;
+      }
+
+      .title,
+      .sub-title,
+      .description {
+        line-height: inherit;
+      }
+
+      .apps-image {
+        height: 2.6rem;
+        width: 8rem;
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  #home-page {
+    #hero-section {
+      height: auto;
+      min-height: auto;
+
+      .title {
+        font-size: 2.2rem;
+      }
+
+      .apps-image {
+        height: 2rem;
+        width: 8rem;
+      }
+
+      .main-hero-image-container img {
+        transform: scale(1.1);
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 576px) {
+  #home-page {
+    .fs-2,
+    .fs-1 {
+      font-size: 1.3rem !important;
+    }
+
+    .w-75 {
+      width: 100% !important;
+    }
+
+    .fs-5-2 {
+      font-size: 0.9rem !important;
+    }
+
+    #hero-section {
+      .title {
+        text-align: center;
+        margin: auto;
+        font-size: 1.4rem;
+      }
+
+      .sub-title {
+        text-align: center;
+        font-size: 1.1rem;
+      }
+
+      .description {
+        text-align: center;
+        font-size: 0.8rem;
+        margin-top: 0.25rem !important;
+      }
+
+      .apps-image {
+        height: 1.8rem;
+        width: 8rem;
+      }
+
+      .main-hero-image-container img {
+        transform: scale(1);
+      }
+    }
+  }
+}
