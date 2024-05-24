@@ -1,3 +1,10 @@
 <div id="home-page" [class.ar-home-content]="currentLanguage=='ar'">
- {{homeData | json}}
+    <!--========== Start Hero Section ================= -->
+    <ng-container *ngIf="isLoadingHomeData; else noHeroLoading">
+      <app-skeleton [type]="'home-hero-section'"></app-skeleton>
+    </ng-container>
+    <ng-template #noHeroLoading>
+      {{homeData | json}}
+    </ng-template>
+    <!--============= End Hero Section ================= -->
 </div>
