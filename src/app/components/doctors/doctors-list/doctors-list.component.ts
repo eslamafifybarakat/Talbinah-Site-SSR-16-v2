@@ -119,7 +119,6 @@ export class DoctorsListComponent {
       this.searchService(event);
     });
   }
-
   private updateMetaTags(): void {
     this.metadataService.updateTitle('تلبينة | الأطباء');
     this.metadataService.updateMetaTagsName([
