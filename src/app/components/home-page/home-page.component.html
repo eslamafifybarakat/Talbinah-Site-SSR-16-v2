@@ -1,6 +1,6 @@
-<!--========== Start Hero Section ================= -->
-<div id="home-page">
-<ng-container *ngIf="isLoadingHomeData; else noHeroLoading">
+<div id="home-page" [class.ar-home-content]="currentLanguage=='ar'">
+  <!--========== Start Hero Section ================= -->
+  <ng-container *ngIf="isLoadingHomeData; else noHeroLoading">
     <app-skeleton [type]="'home-hero-section'"></app-skeleton>
   </ng-container>
   <ng-template #noHeroLoading>
@@ -84,49 +84,6 @@
                   لكل فرد. سواء كنت بحاجة إلى التوجيه النفسي، العلاج السلوكي، أو أي تخصص آخر، نحن هنا لنساعدك في الطريق
                   نحو الشفاء والتحسين الشامل لحالتك النفسية.
                 </p>
-                <ng-container *ngIf="homeData?.specialists?.length>0; else noSpecialists">
-                  <div class="row specialties d-sm-flex d-none">
-                    <ng-container *ngFor="let item of homeData?.specialists; let i=index">
-                      <div *ngIf="i<4" class="col-md-5 col-6"
-                        [ngClass]="{'mt-2': i == 1, 'd-flex justify-content-end mt-sm-5 mt-4': i > 1}">
-                        <div class="specialty-content">
-                          <div class="specialty-icon d-flex align-items-center justify-content-center"
-                            [ngStyle]="{ 'background': item.backgroundColor, 'color': item?.color }">
-                            <app-dynamic-svg [name]="'specialty-' + (i + 1)"></app-dynamic-svg>
-                          </div>
-                          <p class="mb-0 fs-5 mt-4 fw-bold">{{ item?.name || '' }}</p>
-                        </div>
-                      </div>
-                    </ng-container>
-                  </div>
-
-                  <div class="specialties-sm d-sm-none d-flex justify-content-between flex-wrap gap-3">
-                    <ng-container *ngFor="let item of homeData?.specialists; let i=index">
-                      <div *ngIf="i<4">
-                        <div
-                          class="specialty-content d-flex flex-column justify-content-center align-items-center gap-2">
-                          <div class="specialty-icon d-flex align-items-center justify-content-center rounded-circle"
-                            [ngStyle]="{ 'background': item.backgroundColor, 'color': item?.color }">
-                            <app-dynamic-svg [name]="'specialty-' + (i + 1)"></app-dynamic-svg>
-                          </div>
-                          <p class="mb-0 fs-6-1 fw-500">{{ item?.name || '' }}</p>
-                        </div>
-                      </div>
-                    </ng-container>
-                  </div>
-                </ng-container>
-                <ng-template #noSpecialists>
-                  <div class="row justify-content-center">
-                    <div class="col-lg-6 col-md-8 col-sm-11">
-                      <div class="d-flex flex-column justify-content-center align-items-center gap-2">
-                        <img src="assets/images/not-found/no-data.svg" class="w-100" loading="lazy" alt="no-data">
-                        <p class="mb-0">
-                          {{'general.noData'|translate}}
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-                </ng-template>
               </div>
             </div>
             <div class="col-lg-6">
