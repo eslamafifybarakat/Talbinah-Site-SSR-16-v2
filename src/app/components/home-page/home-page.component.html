@@ -1,231 +1,205 @@
 <div id="home-page" [class.ar-home-content]="currentLanguage=='ar'">
-    <!--========== Start Hero Section ================= -->
-    <ng-container *ngIf="isLoadingHomeData; else noHeroLoading">
-      <app-skeleton [type]="'home-hero-section'"></app-skeleton>
-    </ng-container>
-    <ng-template #noHeroLoading>
-      <section id="hero-section" class="pt-hero overflow-hidden" role="banner">
-        <div class="container mx-auto">
-          <div class="row align-items-center">
-            <div class="col-lg-6 order-lg-1 order-2 p-0">
-              <p class="sub-title mt-2 mb-0">
-                <!-- {{ 'home.hero.heroSubtitle' | translate }} -->
-                نحــــــــن هنـــــا لدعمــــك في
-              </p>
-              <h1 class="title w-content text-capitalize fw-bold">
-                <!-- {{ 'home.hero.heroTitle' | translate }} -->
-                رحلتك نحــو الصـحة النفسيـة والسعـــادة.
-              </h1>
-              <p class="description mt-2">
-                <!-- {{ 'home.hero.heroDescription' | translate }} -->
-                دعنا نساعدك في بناء جسر من الأمل والتفاؤل نحو غدٍ أفضل، حيث يكون السعادة والسلام النفسي هما السمتان
-                السائدتان في حياتك.
-              </p>
-              <div
-                class="d-flex justify-content-sm-start justify-content-center gap-3 mt-2 mt-xl-4 mt-md-3 mt-sm-3 flex-wrap">
-                <a href="https://apps.apple.com/us/app/%D8%AA%D9%84%D8%A8%D9%8A%D9%86%D8%A9-talbinah/id6464413895"
-                  target="_blank" rel="noopener noreferrer" class="d-flex gap-2 align-items-center app-btn py-2 px-3">
-                  <app-dynamic-svg [name]="'color-app-store-icon'"></app-dynamic-svg>
-                  <div class="lh-1">
-                    <small class="fs-6-1 fw-500">
-                      <!-- {{'general.downloadNow'|translate}} -->
-                      حمل الان
-                    </small>
-                    <p class="mb-0 fw-500 text-capitalize fs-4 lh-1">
-                      <!-- {{'general.appStore'|translate}} -->
-                      app store
-                    </p>
-                  </div>
-                </a>
-                <a href="https://play.google.com/store/apps/details?id=com.talbinah.talbinah&pli=1" target="_blank"
-                  rel="noopener noreferrer" class="d-flex gap-2 align-items-center app-btn py-2 px-3">
-                  <img src="assets/images/home/google-play-logo.svg" width="27px" loading="lazy" alt="google-play">
-                  <div class="lh-1">
-                    <small class="fs-6-1 fw-500">
-                      <!-- {{'general.downloadNow'|translate}} -->
-                      حمل الان
-                    </small>
-                    <p class="mb-0 fw-500 text-capitalize fs-4 lh-1">
-                      <!-- {{'general.googlePlay'|translate}} -->
-                      google play
-                    </p>
-                  </div>
-                </a>
-              </div>
-            </div>
-            <div class="col-lg-6 col-md-8 col-sm-9 col-11 m-lg-0 m-auto order-lg-2 order-1 mb-lg-0 mb-3 p-0">
-              <div class="main-hero-image-container">
-                <img src="assets/images/home/hero-image.webp" class="w-100" width="800" height="600" loading="lazy" alt="hero-image">
-              </div>
+  <!--========== Start Hero Section ================= -->
+  <ng-container *ngIf="isLoadingHomeData; else noHeroLoading">
+    <app-skeleton [type]="'home-hero-section'"></app-skeleton>
+  </ng-container>
+  <ng-template #noHeroLoading>
+    <section id="hero-section" class="pt-hero overflow-hidden" role="banner">
+      <div class="container mx-auto">
+        <div class="row align-items-center">
+          <div class="col-lg-6 order-lg-1 order-2 p-0">
+            <p class="sub-title mt-2 mb-0">
+              <!-- {{ 'home.hero.heroSubtitle' | translate }} -->
+              نحــــــــن هنـــــا لدعمــــك في
+            </p>
+            <h1 class="title w-content text-capitalize fw-bold">
+              <!-- {{ 'home.hero.heroTitle' | translate }} -->
+              رحلتك نحــو الصـحة النفسيـة والسعـــادة.
+            </h1>
+            <p class="description mt-2">
+              <!-- {{ 'home.hero.heroDescription' | translate }} -->
+              دعنا نساعدك في بناء جسر من الأمل والتفاؤل نحو غدٍ أفضل، حيث يكون السعادة والسلام النفسي هما السمتان
+              السائدتان في حياتك.
+            </p>
+            <div
+              class="d-flex justify-content-sm-start justify-content-center gap-3 mt-2 mt-xl-4 mt-md-3 mt-sm-3 flex-wrap">
+              <a href="https://apps.apple.com/us/app/%D8%AA%D9%84%D8%A8%D9%8A%D9%86%D8%A9-talbinah/id6464413895"
+                target="_blank" rel="noopener noreferrer" class="d-flex gap-2 align-items-center app-btn py-2 px-3">
+                <app-dynamic-svg [name]="'color-app-store-icon'"></app-dynamic-svg>
+                <div class="lh-1">
+                  <small class="fs-6-1 fw-500">
+                    <!-- {{'general.downloadNow'|translate}} -->
+                    حمل الان
+                  </small>
+                  <p class="mb-0 fw-500 text-capitalize fs-4 lh-1">
+                    <!-- {{'general.appStore'|translate}} -->
+                    app store
+                  </p>
+                </div>
+              </a>
+              <a href="https://play.google.com/store/apps/details?id=com.talbinah.talbinah&pli=1" target="_blank"
+                rel="noopener noreferrer" class="d-flex gap-2 align-items-center app-btn py-2 px-3">
+                <img src="assets/images/home/google-play-logo.svg" width="27px" loading="lazy" alt="google-play">
+                <div class="lh-1">
+                  <small class="fs-6-1 fw-500">
+                    <!-- {{'general.downloadNow'|translate}} -->
+                    حمل الان
+                  </small>
+                  <p class="mb-0 fw-500 text-capitalize fs-4 lh-1">
+                    <!-- {{'general.googlePlay'|translate}} -->
+                    google play
+                  </p>
+                </div>
+              </a>
             </div>
           </div>
-        </div>
-      </section>
-    </ng-template>
-    <!--============= End Hero Section ================= -->
-    <div class="home-bg">
-      <!--========== Start Our Specialties ================= -->
-      <section id="specialties" class="pt-7">
-        <div class="container">
-          <ng-container *ngIf="isLoadingHomeData; else noSpecialtiesLoading">
-            <app-skeleton [type]="'home-specialties'"></app-skeleton>
-          </ng-container>
-          <ng-template #noSpecialtiesLoading>
-            <div class="row">
-              <div class="col-lg-6">
-                <div>
-                  <h2 class="fs-lg fw-bold">
-                    <!-- {{'home.ourSpecialties.title'|translate}} -->
-                    تخصصاتنا
-                  </h2>
-                  <p class="description-font mt-md-3">
-                    <!-- {{'home.ourSpecialties.description'|translate}} -->
-                    في تلبينة، نجمع بين فريق من الخبراء المتخصصين في مجالات متعددة لتقديم الدعم والإرشاد الشخصي المناسب
-                    لكل فرد. سواء كنت بحاجة إلى التوجيه النفسي، العلاج السلوكي، أو أي تخصص آخر، نحن هنا لنساعدك في الطريق
-                    نحو الشفاء والتحسين الشامل لحالتك النفسية.
-                  </p>
-                  <ng-container *ngIf="homeData?.specialists?.length>0; else noSpecialists">
-                    <div class="row specialties d-sm-flex d-none">
-                      <ng-container *ngFor="let item of homeData?.specialists; let i=index">
-                        <div *ngIf="i<4" class="col-md-5 col-6"
-                          [ngClass]="{'mt-2': i == 1, 'd-flex justify-content-end mt-sm-5 mt-4': i > 1}">
-                          <div class="specialty-content">
-                            <div class="specialty-icon d-flex align-items-center justify-content-center"
-                              [ngStyle]="{ 'background': item.backgroundColor, 'color': item?.color }">
-                              <app-dynamic-svg [name]="'specialty-' + (i + 1)"></app-dynamic-svg>
-                            </div>
-                            <p class="mb-0 fs-5 mt-4 fw-bold">{{ item?.name || '' }}</p>
-                          </div>
-                        </div>
-                      </ng-container>
-                    </div>
-  
-                    <div class="specialties-sm d-sm-none d-flex justify-content-between flex-wrap gap-3">
-                      <ng-container *ngFor="let item of homeData?.specialists; let i=index">
-                        <div *ngIf="i<4">
-                          <div
-                            class="specialty-content d-flex flex-column justify-content-center align-items-center gap-2">
-                            <div class="specialty-icon d-flex align-items-center justify-content-center rounded-circle"
-                              [ngStyle]="{ 'background': item.backgroundColor, 'color': item?.color }">
-                              <app-dynamic-svg [name]="'specialty-' + (i + 1)"></app-dynamic-svg>
-                            </div>
-                            <p class="mb-0 fs-6-1 fw-500">{{ item?.name || '' }}</p>
-                          </div>
-                        </div>
-                      </ng-container>
-                    </div>
-                  </ng-container>
-                  <ng-template #noSpecialists>
-                    <div class="row justify-content-center">
-                      <div class="col-lg-6 col-md-8 col-sm-11">
-                        <div class="d-flex flex-column justify-content-center align-items-center gap-2">
-                          <img src="assets/images/not-found/no-data.svg" class="w-100" loading="lazy" alt="no-data">
-                          <p class="mb-0">
-                            {{'general.noData'|translate}}
-                          </p>
-                        </div>
-                      </div>
-                    </div>
-                  </ng-template>
-                </div>
-              </div>
-              <div class="col-lg-6">
-                <!-- <video preload autoplay muted loop class="w-100 specialty-video">
-                <source src="assets/images/home/features.mp4" type="video/mp4">
-              </video> -->
-                <img src="assets/images/home/specialities-img.svg" class="w-100" loading="lazy" alt="image">
-              </div>
+          <div class="col-lg-6 col-md-8 col-sm-9 col-11 m-lg-0 m-auto order-lg-2 order-1 mb-lg-0 mb-3 p-0">
+            <div class="main-hero-image-container">
+              <img src="assets/images/home/hero-image.webp" class="w-100" width="800" height="600" loading="lazy"
+                alt="hero-image">
             </div>
-          </ng-template>
-        </div>
-      </section>
-      <!--========== End Our Specialties ================= -->
-    </div>
-
- <!--========== Start Apps ================= -->
- <section id="apps" class="mt-5">
-  <div class="container">
-    <ng-container *ngIf="isLoadingHomeData; else noAppsLoading">
-      <app-skeleton [type]="'box'"></app-skeleton>
-    </ng-container>
-    <ng-template #noAppsLoading>
-      <div class="row align-items-center">
-        <div class="col-lg-6">
-          <img src="assets/images/home/apps.svg" class="app-img w-100" loading="lazy" alt="apps">
-        </div>
-        <div class="col-lg-6">
-          <h4 class="fs-lg fw-bold">
-            <!-- {{'home.apps.title'|translate}} -->
-            اهتم بصحتك النفسية
-          </h4>
-          <p class="mt-3 mb-0 description-font">
-            <!-- {{'home.apps.description'|translate}} -->
-            هذا النص هو مثال لنص يمكن أن يستبدل في نفس المساحة، لقد تم توليد هذا النص من مولد النص العربى، حيث يمكنك
-            أن تولد مثل هذا النص أو العديد من النصوص الأخرى
-          </p>
-          <div class="d-flex gap-3 mt-4 flex-wrap">
-            <a href="https://apps.apple.com/us/app/%D8%AA%D9%84%D8%A8%D9%8A%D9%86%D8%A9-talbinah/id6464413895"
-              target="_blank" rel="noopener noreferrer" class="d-flex gap-2 align-items-center app-btn py-2 px-3">
-              <app-dynamic-svg [name]="'color-app-store-icon'"></app-dynamic-svg>
-              <div class="lh-1">
-                <small class="fs-6-1 fw-500">
-                  <!-- {{'general.downloadNow'|translate}} -->
-                  حمل الان
-                </small>
-                <p class="mb-0 fw-500 text-capitalize fs-4 lh-1">
-                  <!-- {{'general.appStore'|translate}} -->
-                  app store
-                </p>
-              </div>
-            </a>
-            <a href="https://play.google.com/store/apps/details?id=com.talbinah.talbinah&pli=1" target="_blank"
-              rel="noopener noreferrer" class="d-flex gap-2 align-items-center app-btn py-2 px-3">
-              <img src="assets/images/home/google-play-logo.svg" width="27px" loading="lazy" alt="google-play">
-              <div class="lh-1">
-                <small class="fs-6-1 fw-500">
-                  <!-- {{'general.downloadNow'|translate}} -->
-                  حمل الان
-                </small>
-                <p class="mb-0 fw-500 text-capitalize fs-4 lh-1">
-                  <!-- {{'general.googlePlay'|translate}} -->
-                  google play
-                </p>
-              </div>
-            </a>
           </div>
         </div>
       </div>
-    </ng-template>
-  </div>
-</section>
-<!--========== End Apps ================= -->
-
-      <!--========== Start Reviews ================= -->
-    <section id="reviews" class="pt-5">
+    </section>
+  </ng-template>
+  <!--============= End Hero Section ================= -->
+  <div class="home-bg">
+    <!--========== Start Our Specialties ================= -->
+    <section id="specialties" class="pt-7">
       <div class="container">
-        <ng-container *ngIf="isLoadingHomeData; else noReviewsLoading">
-          <app-skeleton [type]="'home-reviews'"></app-skeleton>
+        <ng-container *ngIf="isLoadingHomeData; else noSpecialtiesLoading">
+          <app-skeleton [type]="'home-specialties'"></app-skeleton>
         </ng-container>
-        <ng-template #noReviewsLoading>
+        <ng-template #noSpecialtiesLoading>
           <div class="row">
-            <div class="col-xl-8 col-lg-10">
-              <h5 class="fs-1">
-                <!-- {{'home.reviews.title'|translate}} -->
-                تقييمات العمــــلاء
-              </h5>
-              <p class="mb-0">
-                <!-- {{'home.reviews.description'|translate}} -->
-                رعاية عالمية المستوى للجميع. ,يقدم نظامنا الصحي رعاية صحية متخصصة لا مثيل لها.
-              </p>
+            <div class="col-lg-6">
+              <div>
+                <h2 class="fs-lg fw-bold">
+                  <!-- {{'home.ourSpecialties.title'|translate}} -->
+                  تخصصاتنا
+                </h2>
+                <p class="description-font mt-md-3">
+                  <!-- {{'home.ourSpecialties.description'|translate}} -->
+                  في تلبينة، نجمع بين فريق من الخبراء المتخصصين في مجالات متعددة لتقديم الدعم والإرشاد الشخصي المناسب
+                  لكل فرد. سواء كنت بحاجة إلى التوجيه النفسي، العلاج السلوكي، أو أي تخصص آخر، نحن هنا لنساعدك في الطريق
+                  نحو الشفاء والتحسين الشامل لحالتك النفسية.
+                </p>
+                <ng-container *ngIf="homeData?.specialists?.length>0; else noSpecialists">
+                  <div class="row specialties d-sm-flex d-none">
+                    <ng-container *ngFor="let item of homeData?.specialists; let i=index">
+                      <div *ngIf="i<4" class="col-md-5 col-6"
+                        [ngClass]="{'mt-2': i == 1, 'd-flex justify-content-end mt-sm-5 mt-4': i > 1}">
+                        <div class="specialty-content">
+                          <div class="specialty-icon d-flex align-items-center justify-content-center"
+                            [ngStyle]="{ 'background': item.backgroundColor, 'color': item?.color }">
+                            <app-dynamic-svg [name]="'specialty-' + (i + 1)"></app-dynamic-svg>
+                          </div>
+                          <p class="mb-0 fs-5 mt-4 fw-bold">{{ item?.name || '' }}</p>
+                        </div>
+                      </div>
+                    </ng-container>
+                  </div>
+
+                  <div class="specialties-sm d-sm-none d-flex justify-content-between flex-wrap gap-3">
+                    <ng-container *ngFor="let item of homeData?.specialists; let i=index">
+                      <div *ngIf="i<4">
+                        <div
+                          class="specialty-content d-flex flex-column justify-content-center align-items-center gap-2">
+                          <div class="specialty-icon d-flex align-items-center justify-content-center rounded-circle"
+                            [ngStyle]="{ 'background': item.backgroundColor, 'color': item?.color }">
+                            <app-dynamic-svg [name]="'specialty-' + (i + 1)"></app-dynamic-svg>
+                          </div>
+                          <p class="mb-0 fs-6-1 fw-500">{{ item?.name || '' }}</p>
+                        </div>
+                      </div>
+                    </ng-container>
+                  </div>
+                </ng-container>
+                <ng-template #noSpecialists>
+                  <div class="row justify-content-center">
+                    <div class="col-lg-6 col-md-8 col-sm-11">
+                      <div class="d-flex flex-column justify-content-center align-items-center gap-2">
+                        <img src="assets/images/not-found/no-data.svg" class="w-100" loading="lazy" alt="no-data">
+                        <p class="mb-0">
+                          {{'general.noData'|translate}}
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </ng-template>
+              </div>
             </div>
-          </div>
-          <div class="mt-4">
-            <app-reviews-carousel [items]="homeData?.reviews"></app-reviews-carousel>
+            <div class="col-lg-6">
+              <!-- <video preload autoplay muted loop class="w-100 specialty-video">
+                <source src="assets/images/home/features.mp4" type="video/mp4">
+              </video> -->
+              <img src="assets/images/home/specialities-img.svg" class="w-100" loading="lazy" alt="image">
+            </div>
           </div>
         </ng-template>
       </div>
     </section>
-    <!--========== End Reviews ================= -->
+    <!--========== End Our Specialties ================= -->
+  </div>
 
-    <app-footer></app-footer>
+  <!--========== Start Apps ================= -->
+  <section id="apps" class="mt-5">
+    <div class="container">
+      <ng-container *ngIf="isLoadingHomeData; else noAppsLoading">
+        <app-skeleton [type]="'box'"></app-skeleton>
+      </ng-container>
+      <ng-template #noAppsLoading>
+        <div class="row align-items-center">
+          <div class="col-lg-6">
+            <img src="assets/images/home/apps.svg" class="app-img w-100" loading="lazy" alt="apps">
+          </div>
+          <div class="col-lg-6">
+            <h4 class="fs-lg fw-bold">
+              <!-- {{'home.apps.title'|translate}} -->
+              اهتم بصحتك النفسية
+            </h4>
+            <p class="mt-3 mb-0 description-font">
+              <!-- {{'home.apps.description'|translate}} -->
+              هذا النص هو مثال لنص يمكن أن يستبدل في نفس المساحة، لقد تم توليد هذا النص من مولد النص العربى، حيث يمكنك
+              أن تولد مثل هذا النص أو العديد من النصوص الأخرى
+            </p>
+            <div class="d-flex gap-3 mt-4 flex-wrap">
+              <a href="https://apps.apple.com/us/app/%D8%AA%D9%84%D8%A8%D9%8A%D9%86%D8%A9-talbinah/id6464413895"
+                target="_blank" rel="noopener noreferrer" class="d-flex gap-2 align-items-center app-btn py-2 px-3">
+                <app-dynamic-svg [name]="'color-app-store-icon'"></app-dynamic-svg>
+                <div class="lh-1">
+                  <small class="fs-6-1 fw-500">
+                    <!-- {{'general.downloadNow'|translate}} -->
+                    حمل الان
+                  </small>
+                  <p class="mb-0 fw-500 text-capitalize fs-4 lh-1">
+                    <!-- {{'general.appStore'|translate}} -->
+                    app store
+                  </p>
+                </div>
+              </a>
+              <a href="https://play.google.com/store/apps/details?id=com.talbinah.talbinah&pli=1" target="_blank"
+                rel="noopener noreferrer" class="d-flex gap-2 align-items-center app-btn py-2 px-3">
+                <img src="assets/images/home/google-play-logo.svg" width="27px" loading="lazy" alt="google-play">
+                <div class="lh-1">
+                  <small class="fs-6-1 fw-500">
+                    <!-- {{'general.downloadNow'|translate}} -->
+                    حمل الان
+                  </small>
+                  <p class="mb-0 fw-500 text-capitalize fs-4 lh-1">
+                    <!-- {{'general.googlePlay'|translate}} -->
+                    google play
+                  </p>
+                </div>
+              </a>
+            </div>
+          </div>
+        </div>
+      </ng-template>
+    </div>
+  </section>
+  <!--========== End Apps ================= -->
+
+  <app-footer></app-footer>
 </div>
