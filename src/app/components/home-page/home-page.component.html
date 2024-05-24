@@ -388,32 +388,5 @@
   </section>
   <!--========== End Apps ================= -->
 
-   <!--========== Start Reviews ================= -->
-   <section id="reviews" class="pt-5">
-    <div class="container">
-      <ng-container *ngIf="isLoadingHomeData; else noReviewsLoading">
-        <app-skeleton [type]="'home-reviews'"></app-skeleton>
-      </ng-container>
-      <ng-template #noReviewsLoading>
-        <div class="row">
-          <div class="col-xl-8 col-lg-10">
-            <h5 class="fs-1">
-              <!-- {{'home.reviews.title'|translate}} -->
-              تقييمات العمــــلاء
-            </h5>
-            <p class="mb-0">
-              <!-- {{'home.reviews.description'|translate}} -->
-              رعاية عالمية المستوى للجميع. ,يقدم نظامنا الصحي رعاية صحية متخصصة لا مثيل لها.
-            </p>
-          </div>
-        </div>
-        <div class="mt-4">
-          <app-reviews-carousel [items]="homeData?.reviews"></app-reviews-carousel>
-        </div>
-      </ng-template>
-    </div>
-  </section>
-  <!--========== End Reviews ================= -->
-
   <app-footer></app-footer>
 </div>

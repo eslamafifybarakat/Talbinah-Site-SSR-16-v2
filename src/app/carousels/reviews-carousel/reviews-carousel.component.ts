@@ -15,20 +15,20 @@ export class ReviewsCarouselComponent {
   currentLanguage: string = '';
 
   @Input() items: any = [];
-  doctorOptions: any = [
+  reviewOptions: any = [
     {
       breakpoint: '1024px',
-      numVisible: 4,
-      numScroll: 1
-    },
-    {
-      breakpoint: '768px',
       numVisible: 3,
       numScroll: 1
     },
     {
+      breakpoint: '768px',
+      numVisible: 2,
+      numScroll: 1
+    },
+    {
       breakpoint: '560px',
-      numVisible: 1.5,
+      numVisible: 1,
       numScroll: 1
     },
     {
