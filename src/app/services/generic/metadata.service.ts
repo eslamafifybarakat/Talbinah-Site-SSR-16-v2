@@ -12,12 +12,12 @@ export interface MetaDetails {
   providedIn: 'root',
 })
 export class MetadataService {
-  private readonly imageBaseUrl = environment.imageBaseUrl;
+  private readonly imageBaseUrl = environment?.imageBaseUrl;
   private readonly defaultURL = 'https://talbinah.net/';
-  private readonly defaultTitle = 'Talbinah';
-  private readonly defaultDescription = 'Talbinah Site Description';
+  private readonly defaultTitle = 'تلبينة | Talbinah';
+  private readonly defaultDescription = 'احصل على الصحة النفسية التي تحتاجها مع تطبيق تلبينة. جلسات علاج نفسي مع أفضل أخصائي الطب النفسي في السعودية، متاحة لك في راحة بمنزلك عبر الإنترنت. ابدأ علاجك النفسي اليوم';
   private readonly defaultImage =
-    'https://avatars.githubusercontent.com/u/52158422?s=48&v=4';
+    'https://talbinah.net/assets/images/main/logos/logo_talbinah.png';
 
   constructor(private titleService: Title, private metaService: Meta) { }
 
