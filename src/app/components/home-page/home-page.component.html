@@ -143,6 +143,39 @@
     <!--========== End Our Specialties ================= -->
   </div>
 
+  <!--========== Start Articles ================= -->
+  <section id="articles" class="pt-5">
+    <div class="container">
+      <ng-container *ngIf="isLoadingHomeData; else noArticlesLoading">
+        <app-skeleton [type]="'home-articles'"></app-skeleton>
+      </ng-container>
+      <ng-template #noArticlesLoading>
+        <div class="d-flex align-items-end justify-content-between gap-md-5 gap-3 flex-md-nowrap flex-wrap">
+          <div class="row">
+            <div class="col-xl-8 col-lg-10">
+              <h2 class="fs-lg fw-bold">
+                <!-- {{'home.articles.title'|translate}} -->
+                المقالات
+              </h2>
+              <p class="mb-0 description-font mt-3">
+                <!-- {{'home.articles.description'|translate}} -->
+                رعاية عالمية المستوى للجميع. ,يقدم نظامنا الصحي رعاية صحية متخصصة لا مثيل لها.
+              </p>
+            </div>
+          </div>
+          <button class="btn btn-solid-main text-nowrap rounded-pill px-3 py-2">
+            <!-- {{"general.browseMore" | translate}} -->
+            تصفح المزيد
+          </button>
+        </div>
+        <div class="mt-4">
+          <app-articles-carousel [items]="homeData?.latestArticles"></app-articles-carousel>
+        </div>
+      </ng-template>
+    </div>
+  </section>
+  <!--========== End Articles ================= -->
+
   <!--========== Start Apps ================= -->
   <section id="apps" class="mt-5">
     <div class="container">
