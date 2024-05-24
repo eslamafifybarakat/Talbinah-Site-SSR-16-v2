@@ -4,11 +4,11 @@
       [ngClass]="'text-dark-color dark-toggle'" data-bs-toggle="dropdown" aria-expanded="false">
       <span class="d-xl-flex d-none">
         <ng-container *ngIf="currentLanguage=='ar'">
-          <img class="main-flag rounded-circle" ngSrc="assets/images/flag/sa.svg" width="200" height="150" priority
+          <img class="main-flag rounded-circle" src="assets/images/flag/sa.svg" width="200" height="150" priority
              loading="lazy" alt="saudi flag">
         </ng-container>
         <ng-container *ngIf="currentLanguage=='en'">
-          <img class="main-flag rounded-circle" ngSrc="assets/images/flag/us.svg" width="200" height="150" priority
+          <img class="main-flag rounded-circle" src="assets/images/flag/us.svg" width="200" height="150" priority
              loading="lazy" alt="english flag">
         </ng-container>
       </span>
@@ -20,7 +20,7 @@
     <ul class="dropdown-menu rounded-25 border-0 shadow p-3" aria-labelledby="dropdownMenuButton1">
       <li class="nav-item " (click)="translationService.changeLang('ar')">
         <span class="nav-link px-2 p-1 d-flex align-items-center gap-2">
-          <img class="flag rounded-circle" ngSrc="assets/images/flag/sa.svg" width="200" height="150" priority
+          <img class="flag rounded-circle" src="assets/images/flag/sa.svg" width="200" height="150" priority
              loading="lazy" alt="Arabic flag">
           <span>
             العربية
@@ -29,7 +29,7 @@
       </li>
       <li class="nav-item " (click)="translationService.changeLang('en')">
         <span class="nav-link px-2 p-1 d-flex align-items-center gap-2">
-          <img class="flag rounded-circle" ngSrc="assets/images/flag/us.svg" width="200" height="150" priority
+          <img class="flag rounded-circle" src="assets/images/flag/us.svg" width="200" height="150" priority
              loading="lazy" alt="English flag">
           <span>
             English
