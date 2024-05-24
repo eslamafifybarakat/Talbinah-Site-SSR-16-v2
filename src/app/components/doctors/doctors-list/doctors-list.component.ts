@@ -132,7 +132,7 @@ export class DoctorsListComponent {
       { name: 'twitter:site', content: '@Talbinahco' },
       { name: 'twitter:title', content: 'تلبينة | الأطباء' },
       { name: 'twitter:description', content: 'احصل على الصحة النفسية التي تحتاجها مع تطبيق تلبينة. جلسات علاج نفسي مع أفضل أخصائي الطب النفسي في السعودية، متاحة لك في راحة بمنزلك عبر الإنترنت. ابدأ علاجك النفسي اليوم' },
-      { name: 'twitter:image', content: 'https://talbinah.net/images/meta-tags.png' },
+      { name: 'twitter:image', content: 'https://talbinah.net/assets/images/main/logos/logo_talbinah.png' },
     ]);
     this.metadataService.updateMetaTagsProperty([
       { property: 'og:locale', content: 'ar_AR' },
@@ -143,7 +143,7 @@ export class DoctorsListComponent {
       { property: 'og:url', content: 'https://talbinah.net/' },
       { property: 'og:title', content: 'تلبينة | الأطباء' },
       { property: 'og:description', content: 'احصل على الصحة النفسية التي تحتاجها مع تطبيق تلبينة. جلسات علاج نفسي مع أفضل أخصائي الطب النفسي في السعودية، متاحة لك في راحة بمنزلك عبر الإنترنت. ابدأ علاجك النفسي اليوم' },
-      { property: 'og:image', content: 'https://talbinah.net/images/meta-tags.png' },
+      { property: 'og:image', content: 'https://talbinah.net/assets/images/main/logos/logo_talbinah.png' },
       { property: 'twitter:site_name', content: 'تطبيق تلبينة' }
     ]);
   }
