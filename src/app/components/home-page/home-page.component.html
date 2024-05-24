@@ -1,6 +1,6 @@
-<div id="home-page" [class.ar-home-content]="currentLanguage=='ar'">
-  <!--========== Start Hero Section ================= -->
-  <ng-container *ngIf="isLoadingHomeData; else noHeroLoading">
+<!--========== Start Hero Section ================= -->
+<div id="home-page">
+<ng-container *ngIf="isLoadingHomeData; else noHeroLoading">
     <app-skeleton [type]="'home-hero-section'"></app-skeleton>
   </ng-container>
   <ng-template #noHeroLoading>
