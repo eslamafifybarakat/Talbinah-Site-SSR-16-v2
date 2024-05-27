@@ -1,12 +1,12 @@
-import { PublicService } from './../../../services/generic/public.service';
-import { DialogService } from 'primeng/dynamicdialog';
 // Services
 import { NavItem, navItems } from './../../../interfaces/navbar';
+import { DialogService } from 'primeng/dynamicdialog';
+import { filter, map } from 'rxjs';
 // Modules
 import { CommonModule, NgOptimizedImage, isPlatformBrowser } from '@angular/common';
+import { Router, RouterModule, ActivatedRoute, NavigationEnd } from '@angular/router';
 import { Component, HostListener, Inject, PLATFORM_ID } from '@angular/core';
 import { TranslateModule } from '@ngx-translate/core';
-import { Router, RouterModule } from '@angular/router';
 // Components
 import { LanguageSelectorComponent } from '../language-selector/language-selector.component';
 import { DownloadAppsComponent } from '../download-apps/download-apps.component';
@@ -29,7 +29,7 @@ import { DownloadAppsComponent } from '../download-apps/download-apps.component'
   styleUrls: ['./navbar.component.scss']
 })
 export class NavbarComponent {
-  page: string = '';
+  currentUrl: string = '';
 
   collapse: boolean = false;
   displayMenu: boolean = false;
@@ -68,24 +68,28 @@ export class NavbarComponent {
   stopClickPropagation(event: Event): void {
     event.stopPropagation();
   }
-
   openPlace(): void {
     this.collapse = false;
   }
+
   constructor(
     @Inject(PLATFORM_ID) private platformId: Object,
+    private activatedRoute:ActivatedRoute,
     private dialogService: DialogService,
-    private publicService: PublicService,
     private router: Router
   ) {
     this.navItems = navItems;
-    publicService.pageData.subscribe((res: any) => {
-      this.page = res?.page;
-    })
+    // Listen to changes in the route
+    this.router?.events?.pipe(
+      filter(event => event instanceof NavigationEnd),
+      map(() => this.activatedRoute)
+    ).subscribe((event) => {
+      // Logic to execute on NavigationEnd
+      this.currentUrl = event?.root?.firstChild?.snapshot?.url?.join('');
+    });
   }
 
-  ngOnInit(): void {
-  }
+  ngOnInit(): void {}
 
   login(): void {
   }

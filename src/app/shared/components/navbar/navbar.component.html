@@ -13,27 +13,27 @@
     <div class="collapse navbar-collapse m-auto">
       <ul class="navbar-nav m-auto mb-2 mb-lg-0 gap-3">
         <ng-container *ngFor="let link of navItems">
-          <li class="nav-item mb-2 text-nowrap" *ngIf="!link.children">
-            <a class="nav-link" href="{{link.route}}" [routerLink]="[link.route]" routerLinkActive="active-link"
-              [class.active-link]="link.route.includes(page)">
-              <!-- {{ link.label | translate }} -->
-              {{link.label}}
+          <li class="nav-item mb-2 text-nowrap" *ngIf="!link?.children">
+            <a class="nav-link" href="{{link?.route}}" [routerLink]="[link?.route]" routerLinkActive="active-link"
+              [class.active-link]="link?.route?.includes(currentUrl)">
+              <!-- {{ link?.label | translate }} -->
+              {{link?.label}}
             </a>
           </li>
-          <li class="nav-item dropdown" *ngIf="link.children">
-            <a class="nav-link dropdown-toggle d-flex align-items-center gap-2" href="{{link.route}}"
-              id="navbarDropdown" role="button" [routerLink]="[link.route]" data-bs-toggle="dropdown"
+          <li class="nav-item dropdown" *ngIf="link?.children">
+            <a class="nav-link dropdown-toggle d-flex align-items-center gap-2" href="{{link?.route}}"
+              id="navbarDropdown" role="button" [routerLink]="[link?.route]" data-bs-toggle="dropdown"
               aria-expanded="false">
-              <!-- {{ link.label | translate }} -->
-              {{link.label}}
+              <!-- {{ link?.label | translate }} -->
+              {{link?.label}}
               <i class="pi pi-angle-down fs-8"></i>
             </a>
             <ul class="dropdown-menu border-0 shadow" aria-labelledby="navbarDropdown">
-              <li *ngFor="let child of link.children; let i = index" [class.mb-1]="i < link.children.length - 1">
+              <li *ngFor="let child of link?.children; let i = index" [class.mb-1]="i < link?.children.length - 1">
                 <a class="dropdown-item" href="{{child.route}}" [routerLink]="[child.route]"
                   routerLinkActive="active-link" [title]="child.label">
                   <!-- {{ child.label | translate }} -->
-                  {{link.label}}
+                  {{link?.label}}
                 </a>
               </li>
             </ul>
