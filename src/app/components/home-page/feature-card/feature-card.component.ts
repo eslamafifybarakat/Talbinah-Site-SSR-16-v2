@@ -1,7 +1,7 @@
-import { DownloadAppsComponent } from './../../../shared/components/download-apps/download-apps.component';
+import { DownloadAppsComponent } from '../../../shared/components/download-apps/download-apps.component';
 import { DialogService } from 'primeng/dynamicdialog';
 import { TranslateModule } from '@ngx-translate/core';
-import { Feature } from './../../../interfaces/home';
+import { Feature } from '../../../interfaces/home';
 import { Component, Input } from '@angular/core';
 
 @Component({

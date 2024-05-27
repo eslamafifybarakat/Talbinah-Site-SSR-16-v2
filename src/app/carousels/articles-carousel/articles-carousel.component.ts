@@ -1,4 +1,4 @@
-import { ArticleCardComponent } from './../../components/home/article-card/article-card.component';
+import { ArticleCardComponent } from 'src/app/components/home-page/article-card/article-card.component';
 import { PublicService } from '../../services/generic/public.service';
 import { TranslateModule } from '@ngx-translate/core';
 import { CarouselModule } from 'primeng/carousel';

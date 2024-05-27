@@ -1,4 +1,4 @@
-import { ReviewCardComponent } from './../../components/home/review-card/review-card.component';
+import { ReviewCardComponent } from 'src/app/components/home-page/review-card/review-card.component';
 import { PublicService } from '../../services/generic/public.service';
 import { TranslateModule } from '@ngx-translate/core';
 import { CarouselModule } from 'primeng/carousel';

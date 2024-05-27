@@ -251,12 +251,12 @@
   </div>
 
   <!--========== Start Reviews ================= -->
-  <ng-container *ngIf="isLoading; else noLoadingAppointment">
-    <div class="container" class="pt-5">
+  <ng-container *ngIf="isLoading; else noLoadingReviews">
+    <div class="container pt-5">
       <app-skeleton [type]="'home-reviews'"></app-skeleton>
     </div>
   </ng-container>
-  <ng-template #noLoadingAppointment>
+  <ng-template #noLoadingReviews>
     <section id="reviews" class="pt-5" *ngIf="this.doctorDetails?.reviews_doctor?.length>0">
       <div class="container">
         <ng-container *ngIf="isLoading; else noReviewsLoading">

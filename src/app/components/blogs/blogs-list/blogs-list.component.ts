@@ -6,8 +6,8 @@ import { RouterModule } from '@angular/router';
 
 // Components
 import { DynamicSvgComponent } from './../../../shared/components/icons/dynamic-svg/dynamic-svg.component';
+import { ArticleCardComponent } from 'src/app/components/home-page/article-card/article-card.component';
 import { SkeletonComponent } from './../../../shared/components/skeleton/skeleton.component';
-import { ArticleCardComponent } from '../../home/article-card/article-card.component';
 import { FooterComponent } from 'src/app/shared/components/footer/footer.component';
 
 // Services
@@ -21,7 +21,7 @@ import { Subscription, catchError, finalize, tap } from 'rxjs';
 @Component({
   standalone: true,
   imports: [
-    CommonModule,
+  CommonModule,
     TranslateModule,
     SkeletonComponent,
     PaginatorModule,

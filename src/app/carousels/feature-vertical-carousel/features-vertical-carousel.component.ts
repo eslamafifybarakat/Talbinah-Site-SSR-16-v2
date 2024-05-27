@@ -1,4 +1,4 @@
-import { FeatureCardComponent } from './../../components/home/feature-card/feature-card.component';
+import { FeatureCardComponent } from '../../components/home-page/feature-card/feature-card.component';
 import { PublicService } from '../../services/generic/public.service';
 import { TranslateModule } from '@ngx-translate/core';
 import { CarouselModule } from 'primeng/carousel';
