@@ -57,7 +57,7 @@
             <div class="main-hero-image-container">
               <!-- <img src="assets/images/home/hero-image.webp" class="w-100" width="800" height="600" loading="lazy"
                 alt="hero-image"> -->
-                <img src="assets/images/home/hero-img.svg" class="w-100" width="800" height="600" loading="lazy"
+              <img src="assets/images/home/hero-img.svg" class="w-100" width="800" height="600" loading="lazy"
                 alt="hero-image">
             </div>
           </div>
@@ -183,8 +183,8 @@
   </section>
   <!--========== End Doctors ================= -->
 
-   <!--========== Start Features ================= -->
-   <section id="features" class="pt-7">
+  <!--========== Start Features ================= -->
+  <section id="features" class="pt-7">
     <div class="container">
       <ng-container *ngIf="isLoadingHomeData; else noFeaturesLoading">
         <app-skeleton [type]="'home-features'"></app-skeleton>
@@ -291,7 +291,8 @@
             </div>
           </div>
           <div class="col-lg-6 order-lg-2 order-1">
-            <img src="assets/images/home/redmi-phone.svg" class="w-100 d-lg-block d-none redmi-phone" loading="lazy" alt="phone">
+            <img src="assets/images/home/redmi-phone.svg" class="w-100 d-lg-block d-none redmi-phone" loading="lazy"
+              alt="phone">
           </div>
         </div>
       </ng-template>
@@ -388,6 +389,33 @@
     </div>
   </section>
   <!--========== End Apps ================= -->
+
+  <!--========== Start Reviews ================= -->
+
+  <!-- <section id="reviews" class="pt-5">
+    <div class="container">
+      <ng-container *ngIf="isLoadingHomeData; else noReviewsLoading">
+        <app-skeleton [type]="'home-reviews'"></app-skeleton>
+      </ng-container>
+      <ng-template #noReviewsLoading>
+        <div class="row">
+          <div class="col-xl-8 col-lg-10">
+            <h5 class="fs-1">
+              تقييمات العمــــلاء
+            </h5>
+            <p class="mb-0">
+              رعاية عالمية المستوى للجميع. ,يقدم نظامنا الصحي رعاية صحية متخصصة لا مثيل لها.
+            </p>
+          </div>
+        </div>
+        <div class="mt-4">
+          <app-reviews-carousel [items]="homeData?.reviews"></app-reviews-carousel>
+        </div>
+      </ng-template>
+    </div>
+  </section> -->
+
+  <!--========== End Reviews ================= -->
 
   <app-footer></app-footer>
 </div>
