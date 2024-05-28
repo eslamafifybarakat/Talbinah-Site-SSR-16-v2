@@ -26,6 +26,7 @@ import { ActivatedRoute, Router, RouterModule } from '@angular/router';
 import { DoctorsService } from './../../../services/doctors.service';
 import { keys } from './../../../shared/configs/localstorage-key';
 import { DialogService } from 'primeng/dynamicdialog';
+import { doctorsListSliderData } from 'src/app/interfaces/home';
 @Component({
   standalone: true,
   imports: [
@@ -72,6 +73,7 @@ export class DoctorsListComponent {
   specialistId: any;
   topRated: any;
 
+  doctorsListSliderData: doctorsListSliderData[] = [];
   specialitiesList: any = [];
 
   filterForm = this.fb?.group({
@@ -102,6 +104,27 @@ export class DoctorsListComponent {
   ) { }
 
   ngOnInit(): void {
+    this.doctorsListSliderData = [
+      {
+        id: 1,
+        image: 'assets/images/home/apps.svg',
+        title: 'وفر الوقت والجهد',
+        description: 'احصل على جلستك عبر الإنترنت. لا قوائم انتظار، لا متاعب نقل.'
+      },
+      {
+        id: 2, // Note: corrected ID to ensure uniqueness
+        image: 'assets/images/home/apps.svg',
+        title: 'فريق استجابة',
+        description: 'فريق الدعم لدينا متاح لمساعدتك في اتخاذ خطوتك الأولى والإجابة على الاستفسارات غير السريرية.'
+      },
+      {
+        id: 3, // Note: corrected ID to ensure uniqueness
+        image: 'assets/images/home/apps.svg',
+        title: 'تنوع الخيارات',
+        description: 'عدد كبير من المعالجين في تخصصات متنوعة جاهزون لمساعدتك في مواجهة ما تعاني منه.'
+      }
+    ];
+
     if (isPlatformBrowser(this.platformId)) {
       this.currentLanguage = window.localStorage.getItem(keys.language);
       this.updateMetaTags();

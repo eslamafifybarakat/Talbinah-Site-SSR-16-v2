@@ -1,4 +1,5 @@
 import { PublicService } from './../../../services/generic/public.service';
+import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
 import { CommonModule, registerLocaleData } from '@angular/common';
 import { Article } from '../../../interfaces/home';
 import localeAr from '@angular/common/locales/ar'
@@ -19,11 +20,16 @@ export class ArticleCardComponent {
   currentLanguage: string = '';
 
   constructor(
-    private publicService: PublicService
+    private publicService: PublicService,
+    private sanitizer: DomSanitizer
   ) { }
 
   ngOnInit(): void {
     this.currentLanguage = this.publicService.getCurrentLanguage();
+  }
+
+  getSafeHtml(html: string): SafeHtml {
+    return this.sanitizer.bypassSecurityTrustHtml(html);
   }
 }
 

@@ -10,7 +10,9 @@
     </ng-container>
     <ng-template #noSlider>
       <div class="row">
-        <app-doctors-banner-card [item]="items[0]"></app-doctors-banner-card>
+        <ng-container *ngFor="let item of items">
+        <app-doctors-banner-card [item]="item"></app-doctors-banner-card>
+        </ng-container>
       </div>
     </ng-template>
   </ng-container>

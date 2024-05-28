@@ -1,16 +1,15 @@
 <div class="banner-card">
   <div class="row align-items-center">
     <div class="col-lg-6">
-      <img src="assets/images/home/apps.svg" class="app-img w-100" loading="lazy" alt="apps">
+      <img [src]="item?.image" class="app-img w-100" loading="lazy" alt="apps">
     </div>
     <div class="col-lg-6">
       <h4 class="fs-lg fw-bold">
-        اهتم بصحتك النفسية
+        {{item?.title}}
         <!-- {{'home.apps.title'|translate}} -->
       </h4>
       <p class="mt-3 mb-0 description-font">
-        هذا النص هو مثال لنص يمكن أن يستبدل في نفس المساحة، لقد تم توليد هذا النص من مولد النص العربى، حيث يمكنك أن تولد
-        مثل هذا النص أو العديد من النصوص الأخرى
+        {{item?.description}}
         <!-- {{'home.apps.description'|translate}} -->
       </p>
       <div class="d-flex gap-3 mt-4 flex-wrap">

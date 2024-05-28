@@ -63,9 +63,16 @@ interface Specialty {
 
 
 export interface Feature {
-  id: number;
-  image: string | null;
+  id?: number;
+  image?: string | null;
   title: string;
   description: string;
-  link: string;
+  link?: string;
 }
+export interface doctorsListSliderData {
+  id?: number;
+  image?: string | null;
+  title: string;
+  description: string;
+}
+
