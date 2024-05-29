@@ -134,9 +134,8 @@
   padding: 1.5rem 0;
 }
 .logo {
-  width: 11rem;
-  height: 3rem;
-  border-radius: 3rem;
+  width: auto;  /* Allow the width to auto-adjust based on the height, preserving the aspect ratio */
+  height: 70px; /* Fixed height to control size, adjust as needed */
 }
 .close {
   width: 27px;

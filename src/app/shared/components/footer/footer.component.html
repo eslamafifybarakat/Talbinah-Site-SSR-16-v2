@@ -13,131 +13,122 @@
         <ul class="mt-4 d-flex gap-2 flex-wrap p-0">
           <li>
             <a href="https://www.instagram.com/talbinahco/" target="_blank"
-              class="social-icon d-flex justify-content-center align-items-center rounded-circle">
+              class="social-icon d-flex justify-content-center align-items-center rounded-circle"
+              aria-label="Follow on Instagram">
               <app-dynamic-svg [name]="'instagram'"></app-dynamic-svg>
             </a>
           </li>
           <li>
             <a href="https://www.youtube.com/channel/UC9E9CQeyAkiWYjPqSG7FS_A" target="_blank"
-              class="social-icon d-flex justify-content-center align-items-center rounded-circle">
+              class="social-icon d-flex justify-content-center align-items-center rounded-circle"
+              aria-label="Subscribe on YouTube">
               <app-dynamic-svg [name]="'youtube'"></app-dynamic-svg>
             </a>
           </li>
           <li>
             <a href="https://twitter.com/Talbinahco" target="_blank"
-              class="social-icon d-flex justify-content-center align-items-center rounded-circle">
+              class="social-icon d-flex justify-content-center align-items-center rounded-circle"
+              aria-label="Follow on Twitter">
               <app-dynamic-svg [name]="'twitter'"></app-dynamic-svg>
             </a>
           </li>
           <li>
             <a href="https://www.linkedin.com/company/100702383/admin/feed/posts/?feedType=following&shareMsgArgs=null"
-              target="_blank" class="social-icon d-flex justify-content-center align-items-center rounded-circle">
+              target="_blank" class="social-icon d-flex justify-content-center align-items-center rounded-circle"
+              aria-label="Connect on LinkedIn">
               <app-dynamic-svg [name]="'linkedin'"></app-dynamic-svg>
             </a>
           </li>
           <li>
             <a href="https://www.facebook.com/Talbinahco" target="_blank"
-              class="social-icon d-flex justify-content-center align-items-center rounded-circle">
+              class="social-icon d-flex justify-content-center align-items-center rounded-circle"
+              aria-label="Follow on Facebook">
               <app-dynamic-svg [name]="'facebook'"></app-dynamic-svg>
             </a>
           </li>
         </ul>
+        
       </div>
       <div class="col-lg-3 col-6 mt-lg-0 mt-4">
         <h6 class="fw-bold fs-5">
-          <!-- {{'footer.pages'|translate}} -->
           الصفحات
         </h6>
         <ul class="p-0 mt-3">
           <li>
-            <a class="nav-link mb-3">
-              <!-- {{'footer.aboutUs'|translate}} -->
+            <button class="nav-link mb-3">
               من نحن
-            </a>
+            </button>
           </li>
           <li>
-            <a class="nav-link mb-3">
-              <!-- {{'footer.virtual'|translate}} -->
+            <button class="nav-link mb-3">
               زيارة افتراضية
-            </a>
+            </button>
           </li>
           <li>
-            <a class="nav-link mb-3">
-              <!-- {{'footer.patient'|translate}} -->
+            <button class="nav-link mb-3">
               بوابة المريض
-            </a>
+            </button>
           </li>
           <li>
-            <a class="nav-link mb-3">
-              <!-- {{'footer.quality'|translate}} -->
+            <button class="nav-link mb-3">
               الجودة وسلامة المريض
-            </a>
+            </button>
           </li>
           <li>
-            <a class="nav-link mb-3">
-              <!-- {{'footer.career'|translate}} -->
+            <button class="nav-link mb-3">
               فرص العمل
-            </a>
+            </button>
           </li>
           <li>
-            <a class="nav-link mb-3">
-              <!-- {{'footer.site'|translate}} -->
+            <button class="nav-link mb-3">
               الموقع
-            </a>
+            </button>
           </li>
           <li>
-            <a class="nav-link mb-3">
-              <!-- {{'footer.education'|translate}} -->
+            <button class="nav-link mb-3">
               التعليم والتدريب
-            </a>
+            </button>
           </li>
         </ul>
       </div>
       <div class="col-lg-3 col-6 mt-lg-0 mt-4">
         <h6 class="fw-bold fs-5">
-          <!-- {{'footer.public'|translate}} -->
           العلاقات العامة
         </h6>
         <ul class="p-0 mt-3">
           <li>
-            <a class="nav-link mb-3" [routerLink]="['/Blogs/List']">
-              <!-- {{'footer.blog'|translate}} -->
+            <a class="nav-link mb-3" href="/blogs/list" [routerLink]="['/Blogs/List']">
               المدونة
             </a>
           </li>
           <li>
-            <a class="nav-link mb-3" [routerLink]="['/DiscountPolicy']">
-              <!-- {{'footer.policy'|translate}} -->
+            <a class="nav-link mb-3" href="/discount-policy" [routerLink]="['/DiscountPolicy']">
               سياسة الخصم
             </a>
           </li>
           <li>
-            <a class="nav-link mb-3" [routerLink]="['/PrivacyAndPolicy']">
-              <!-- {{'footer.privacy'|translate}} -->
+            <a class="nav-link mb-3" href="/privacy-policy" [routerLink]="['/PrivacyAndPolicy']">
               سياسة الخصوصية
             </a>
           </li>
           <li>
-            <a class="nav-link mb-3" [routerLink]="['/FAQs']">
-              <!-- {{'footer.inquiries'|translate}} -->
+            <a class="nav-link mb-3" href="/faqs" [routerLink]="['/FAQs']">
               الأسئلة والاستفسارات
             </a>
           </li>
         </ul>
+        
         <h6 class="fw-bold fs-5">
-          <!-- {{'footer.want'|translate}} -->
           أريد أن:
         </h6>
         <ul class="p-0 mt-3">
           <li>
-            <a class="nav-link mb-3">
-              <!-- {{'footer.ask'|translate}} -->
+            <button class="nav-link mb-3">
               طلب موعد
-            </a>
+            </button>
           </li>
           <li>
             <a class="nav-link mb-3" [routerLink]="['/Doctors/List']">
-              <!-- {{'footer.find'|translate}} -->
               العثور على طبيب
             </a>
           </li>
@@ -145,7 +136,6 @@
       </div>
       <div class="col-lg-2 mt-lg-0 mt-4">
         <h6 class="fw-bold fs-5">
-          <!-- {{'footer.public'|translate}} -->
           العلاقات العامة
         </h6>
         <ul class="p-0 mt-3">

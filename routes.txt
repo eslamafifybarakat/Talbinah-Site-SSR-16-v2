@@ -1,8 +1,12 @@
 /
 /Home
 /Doctors
+/Doctors/List
+/Doctors/Details
 /Auth
 /Blogs
+/Blogs/List
+/Blogs/Details
 /ContactUs
 /JoinUs
 /DiscountPolicy

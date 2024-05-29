@@ -11,7 +11,7 @@
             <div class="d-flex gap-3">
               <div class="doctor-img">
                 <img [src]="doctorDetails?.image?.url" class="w-100 h-100"
-                  onerror="this.src='assets/images/not-found/no-woman-doctor.svg'" loading="lazy" alt="doctor">
+                  onerror="this.src='assets/images/not-found/no-woman-doctor.svg'" loading="lazy" [alt]="doctorDetails?.full_name + ' - Profile Picture'">
               </div>
               <div>
                 <h2 class="mb-0">

@@ -15,7 +15,7 @@ export class MetadataService {
   private readonly imageBaseUrl = environment?.imageBaseUrl;
   private readonly defaultURL = 'https://talbinah.net/';
   private readonly defaultTitle = 'تلبينة | Talbinah';
-  private readonly defaultDescription = 'احصل على الصحة النفسية التي تحتاجها مع تطبيق تلبينة. جلسات علاج نفسي مع أفضل أخصائي الطب النفسي في السعودية، متاحة لك في راحة بمنزلك عبر الإنترنت. ابدأ علاجك النفسي اليوم';
+  private readonly defaultDescription = 'احصل على الدعم النفسي مع تطبيق تلبينة. جلسات علاجية عبر الإنترنت مع كبار الأخصائيين النفسيين في السعودية، متوفرة في راحة منزلك. ابدأ رحلة العلاج وحسّن صحتك النفسية اليوم.';
   private readonly defaultImage =
     'https://talbinah.net/assets/images/main/logos/logo_talbinah.png';
 

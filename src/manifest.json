@@ -1,0 +1,27 @@
+{
+  "name": "talbinah",
+  "short_name": "talbinah",
+  "theme_color": "#274d70",
+  "background_color": "#fafafa",
+  "display": "standalone",
+  "scope": "/",
+  "start_url": "/",
+  "icons": [
+    {
+      "src": "assets/images/logo/maskable_icon/talbinah-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "assets/images/logo/maskable_icon/talbinah-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    },
+    {
+      "src": "assets/images/logo/maskable_icon/talbinah_maskable_icon.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    }
+  ]
+}

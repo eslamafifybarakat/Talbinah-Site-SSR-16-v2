@@ -1,15 +1,18 @@
-<div
+<div aria-labelledby="doctorCard"
   class="doctor-card bg-white-color p-3 w-100 d-sm-flex d-none justify-content-center align-items-center gap-3 flex-column"
   [routerLink]="'/Doctors/Details/'+item?.full_name" [queryParams]="{ id: item?.id}">
   <div class="doctor-img rounded-circle">
+    <!-- Ensure that images do not stretch by controlling width and height in CSS -->
+    <!-- Image with alt attribute for SEO and accessibility -->
     <img [src]="item?.image" class="w-100 h-100 rounded-circle"
-      onerror="src='assets/images/not-found/no-woman-doctor.svg'" loading="lazy" [alt]="item?.full_name">
+      onerror="this.src='assets/images/not-found/no-woman-doctor.svg'" loading="lazy"
+      [alt]="item?.full_name + ' - Profile Picture'">
   </div>
   <div class="text-center">
-    <h5 class="fw-500 mb-1 title fw-bold">
+    <h3 id="firstIndeDoctorCard" class="fw-500 mb-1 title fw-bold">
       {{item?.full_name||'لا يوجد'}}
-    </h5>
-    <p class="mb-0 description fw-500">
+    </h3>
+    <p aria-describedby="describedIndeDoctorCard" class="mb-0 description fw-500">
       {{item?.specialist[0]||'لا يوجد'}}
     </p>
     <div class="d-flex justify-content-center gap-1 count-rate py-1 px-3 rounded-pill mx-auto mt-2 fw-500">
@@ -30,14 +33,17 @@
   [queryParams]="{ id: item?.id}">
   <div class="d-flex align-items-center gap-3">
     <div class="doctor-img-sm rounded-circle">
-      <img [src]="item?.image" class="w-100 h-100 rounded-circle"
-        onerror="src='assets/images/not-found/no-woman-doctor.svg'" loading="lazy" [alt]="item?.full_name">
+         <!-- Ensure that images do not stretch by controlling width and height in CSS -->
+    <!-- Image with alt attribute for SEO and accessibility -->
+    <img [src]="item?.image" class="w-100 h-100 rounded-circle"
+    onerror="this.src='assets/images/not-found/no-woman-doctor.svg'" loading="lazy"
+    [alt]="item?.full_name + ' - Profile Picture'">
     </div>
     <div>
-      <h5 class="fs-5-1 fw-500 mb-1">
+      <h3 id="secondIndeDoctorCard" class="fs-5-1 fw-500 mb-1">
         {{item?.full_name||''}}
-      </h5>
-      <p class="mb-0 description">
+      </h3>
+      <p aria-describedby="describedIndeDoctorCard" class="mb-0 description">
         {{item?.specialist[0]||''}}
       </p>
     </div>

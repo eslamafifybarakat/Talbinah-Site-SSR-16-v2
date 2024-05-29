@@ -146,14 +146,14 @@ export class DoctorsListComponent {
     this.metadataService.updateTitle('تلبينة | الأطباء');
     this.metadataService.updateMetaTagsName([
       { name: 'title', content: 'تلبينة | الأطباء' },
-      { name: 'description', content: 'احصل على الصحة النفسية التي تحتاجها مع تطبيق تلبينة. جلسات علاج نفسي مع أفضل أخصائي الطب النفسي في السعودية، متاحة لك في راحة بمنزلك عبر الإنترنت. ابدأ علاجك النفسي اليوم' },
+      { name: 'description', content: 'احصل على الدعم النفسي مع تطبيق تلبينة. جلسات علاجية عبر الإنترنت مع كبار الأخصائيين النفسيين في السعودية، متوفرة في راحة منزلك. ابدأ رحلة العلاج وحسّن صحتك النفسية اليوم.' },
       { name: 'date', content: '2023-10-29T09:28:59+00:00' },
 
       { name: 'twitter:card', content: 'summary_large_image' },
       { name: 'twitter:url', content: 'https://talbinah.net/' },
       { name: 'twitter:site', content: '@Talbinahco' },
       { name: 'twitter:title', content: 'تلبينة | الأطباء' },
-      { name: 'twitter:description', content: 'احصل على الصحة النفسية التي تحتاجها مع تطبيق تلبينة. جلسات علاج نفسي مع أفضل أخصائي الطب النفسي في السعودية، متاحة لك في راحة بمنزلك عبر الإنترنت. ابدأ علاجك النفسي اليوم' },
+      { name: 'twitter:description', content: 'احصل على الدعم النفسي مع تطبيق تلبينة. جلسات علاجية عبر الإنترنت مع كبار الأخصائيين النفسيين في السعودية، متوفرة في راحة منزلك. ابدأ رحلة العلاج وحسّن صحتك النفسية اليوم.' },
       { name: 'twitter:image', content: 'https://talbinah.net/assets/images/main/logos/logo_talbinah.png' },
     ]);
     this.metadataService.updateMetaTagsProperty([
@@ -164,7 +164,7 @@ export class DoctorsListComponent {
       { property: 'og:type', content: 'website' },
       { property: 'og:url', content: 'https://talbinah.net/' },
       { property: 'og:title', content: 'تلبينة | الأطباء' },
-      { property: 'og:description', content: 'احصل على الصحة النفسية التي تحتاجها مع تطبيق تلبينة. جلسات علاج نفسي مع أفضل أخصائي الطب النفسي في السعودية، متاحة لك في راحة بمنزلك عبر الإنترنت. ابدأ علاجك النفسي اليوم' },
+      { property: 'og:description', content: 'احصل على الدعم النفسي مع تطبيق تلبينة. جلسات علاجية عبر الإنترنت مع كبار الأخصائيين النفسيين في السعودية، متوفرة في راحة منزلك. ابدأ رحلة العلاج وحسّن صحتك النفسية اليوم.' },
       { property: 'og:image', content: 'https://talbinah.net/assets/images/main/logos/logo_talbinah.png' },
       { property: 'twitter:site_name', content: 'تطبيق تلبينة' }
     ]);
