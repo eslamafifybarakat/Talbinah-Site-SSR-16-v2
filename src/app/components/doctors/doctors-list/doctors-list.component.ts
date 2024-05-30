@@ -155,7 +155,7 @@ export class DoctorsListComponent {
       { name: 'twitter:card', content: 'summary_large_image' },
       { name: 'twitter:title', content: 'قابل أطباءنا | Talbinah | الأطباء والمعالجون المتخصصون في السعودية' },
       { name: 'twitter:description', content: 'تعرف على فريق الأطباء والمعالجين المتخصصين في Talbinah، السعودية. احجز موعدك الآن للحصول على استشارات نفسية وأسرية من خبراء معتمدين.' },
-      { name: 'twitter:url', content: 'https://talbinah.net/Home' },
+      { name: 'twitter:url', content: 'https://talbinah.net/Doctors/List' },
       { name: 'twitter:image', content: 'https://talbinah.net/assets/images/main/logos/logo_talbinah.png' },
     ]);
       // Open Graph Tags

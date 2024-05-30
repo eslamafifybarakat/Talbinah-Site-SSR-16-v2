@@ -46,6 +46,7 @@ export class DoctorDetailsComponent {
   private subscriptions: Subscription[] = [];
 
   currentLanguage: any;
+  pathUrl: any = null;
   fullUrl: any = null;
 
   doctorId: any;
@@ -71,9 +72,9 @@ export class DoctorDetailsComponent {
   ngOnInit(): void {
     if (isPlatformBrowser(this.platformId)) {
       this.currentLanguage = window.localStorage.getItem(keys?.language);
-      const baseUrl = window.location.origin;
-      const path = this.router.url;
-      this.fullUrl = baseUrl + path;
+      const baseUrl = window?.location?.origin;
+      this.pathUrl = this.router?.url;
+      this.fullUrl = baseUrl + this.pathUrl;
     }
     this.activatedRoute.queryParams.subscribe(params => {
       if (params['id']) {
@@ -108,48 +109,39 @@ export class DoctorDetailsComponent {
         });
       }
       this.socialLinks = this.doctorDetails?.social;
-      if (isPlatformServer(this.platformId)) {
-        this.updateMetaTags();
-      }
-      if (isPlatformBrowser(this.platformId)) {
-        this.updateMetaTags();
-      }
       this.updatePriceObject();
-      this.updateMetaTags();
+      this.updateMetaTagsForSEO();
     } else {
       this.handleError('حدث خطأ');
     }
   }
   // End Doctor Details Functions
 
-  private updateMetaTags(): void {
+  private updateMetaTagsForSEO(): void {
     if (this.doctorDetails?.full_name) {
-      this.metadataService.updateTitle(`تلبينة | ${this.doctorDetails?.full_name}`);
-      this.metadataService.updateMetaTagsName([
-        { name: 'title', content: `تلبينة | ${this.doctorDetails?.full_name}` },
-        { name: 'description', content: `${this.doctorDetails?.profile?.bio}` },
-        { name: 'date', content: `${this.doctorDetails?.created_at}` },
-
-        { name: 'twitter:title', content: `تلبينة | ${this.doctorDetails.full_name}` },
-        { name: 'twitter:description', content: `${this.doctorDetails?.profile?.bio}` },
-        { name: 'twitter:card', content: 'summary_large_image' },
-        { name: 'twitter:image', content: `${this.doctorDetails?.image?.url}` },
-        { name: 'twitter:url', content: 'http://talbinah.net/' },
-        { name: 'twitter:site', content: '@Talbinahco' },
-      ]);
-      this.metadataService.updateMetaTagsProperty([
-        { property: 'og:locale', content: 'ar_AR' },
-        { property: 'article:publisher', content: 'https://www.facebook.com/Talbinahco/' },
-        { property: 'article:modified_time', content: `${this.doctorDetails?.updated_at}` },
-
-        { property: 'og:type', content: 'website' },
-        { property: 'og:url', content: 'http://talbinah.net/' },
-        { property: 'og:title', content: `تلبينة | ${this.doctorDetails.full_name}` },
-        { property: 'og:description', content: `${this.doctorDetails?.profile?.bio}` },
-        { property: 'og:image', content: `${this.doctorDetails?.image?.url || 'https://talbinah.net/assets/images/main/logos/logo_talbinah.png'}` },
-        { property: 'twitter:site_name', content: 'تطبيق تلبينة' }
-      ]);
-    }
+    this.metadataService.updateCanonicalLink(`http://talbinah.net${this.pathUrl}`);
+    this.metadataService.updateLinkRelAlternate('ar', `http://talbinah.net${this.pathUrl}`);
+    this.metadataService.updateTitle(`تلبينة | ${this.doctorDetails?.full_name}`);
+    this.metadataService.updateMetaTagsName([
+      { name: 'title', content: `تلبينة | ${this.doctorDetails?.full_name}` },
+      { name: 'description', content: `${this.doctorDetails?.profile?.bio}` },
+      { name: 'keywords', content: 'أطباء نفسيون, معالجون أسريون, الصحة النفسية, استشارات, Talbinah, السعودية' },
+      { name: 'author', content: 'Talbinah' },
+      // Twitter Card Data
+      { name: 'twitter:card', content: 'summary_large_image' },
+      { name: 'twitter:title', content: `تلبينة | ${this.doctorDetails?.full_name}` },
+      { name: 'twitter:description', content: `${this.doctorDetails?.profile?.bio}` },
+      { name: 'twitter:url', content: `http://talbinah.net${this.pathUrl}` },
+      { name: 'twitter:image', content: `${this.doctorDetails?.image?.url}` },
+    ]);
+      // Open Graph Tags
+    this.metadataService.updateMetaTagsProperty([
+      { property: 'og:title', content: `تلبينة | ${this.doctorDetails?.full_name}` },
+      { property: 'og:description', content: `${this.doctorDetails?.profile?.bio}` },
+      { property: 'og:url', content: 'https://talbinah.net/' },
+      { property: 'og:image', content: `${this.doctorDetails?.image?.url}` },
+    ]);
+  }
   }
   private updatePriceObject(): void {
     this.priceInterval.forEach((interval: any) => {
