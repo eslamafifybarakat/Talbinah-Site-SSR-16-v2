@@ -35,8 +35,7 @@ export class PrivacyAndPolicyComponent {
       { name: 'description', content: 'احصل على الدعم النفسي مع تطبيق تلبينة. جلسات علاجية عبر الإنترنت مع كبار الأخصائيين النفسيين في السعودية، متوفرة في راحة منزلك. ابدأ رحلة العلاج وحسّن صحتك النفسية اليوم.' },
       { name: 'date', content: '2023-10-29T09:28:59+00:00' },
 
-      { name: 'twitter:card', content: 'summary_large_image' },
-      { name: 'twitter:url', content: 'http://talbinah.net/' },
+      { name: 'twitter:url', content: 'https://talbinah.net/' },
       { name: 'twitter:site', content: '@Talbinahco' },
       { name: 'twitter:title', content: 'تلبينة | السياسية و الخصوصية' },
       { name: 'twitter:description', content: 'احصل على الدعم النفسي مع تطبيق تلبينة. جلسات علاجية عبر الإنترنت مع كبار الأخصائيين النفسيين في السعودية، متوفرة في راحة منزلك. ابدأ رحلة العلاج وحسّن صحتك النفسية اليوم.' },
@@ -48,7 +47,7 @@ export class PrivacyAndPolicyComponent {
       { property: 'article:modified_time', content: '2023-10-29T09:28:59+00:00' },
 
       { property: 'og:type', content: 'website' },
-      { property: 'og:url', content: 'http://talbinah.net/' },
+      { property: 'og:url', content: 'https://talbinah.net/' },
       { property: 'og:title', content: 'تلبينة | السياسية و الخصوصية' },
       { property: 'og:description', content: 'احصل على الدعم النفسي مع تطبيق تلبينة. جلسات علاجية عبر الإنترنت مع كبار الأخصائيين النفسيين في السعودية، متوفرة في راحة منزلك. ابدأ رحلة العلاج وحسّن صحتك النفسية اليوم.' },
       { property: 'og:image', content: 'https://talbinah.net/assets/images/main/logos/logo_talbinah.png' },

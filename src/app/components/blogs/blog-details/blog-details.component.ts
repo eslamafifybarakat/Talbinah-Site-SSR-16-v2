@@ -84,29 +84,28 @@ export class BlogDetailsComponent implements OnInit, OnDestroy {
   }
   private updateMetaTagsForSEO(): void {
     if (this.blogDetails?.title) {
-    this.metadataService.updateCanonicalLink(`http://talbinah.net/Blogs/Details/${this.blogDetails?.title};id=${this.blogDetails?.id}`);
-    this.metadataService.updateLinkRelAlternate('ar', `http://talbinah.net/Blogs/Details/${this.blogDetails?.title};id=${this.blogDetails?.id}`);
-    this.metadataService.updateTitle(`تلبينة | ${this.blogDetails?.title}`);
-    this.metadataService.updateMetaTagsName([
-      { name: 'title', content: `تلبينة | ${this.blogDetails?.title}` },
-      { name: 'description', content: `${this.blogDetails?.description}` },
-      { name: 'keywords', content: 'مدونة, صحة نفسية, نصائح صحية, مقالات تثقيفية, Talbinah' },
-      { name: 'author', content: 'Talbinah' },
-      // Twitter Card Data
-      { name: 'twitter:card', content: 'summary_large_image' },
-      { name: 'twitter:title', content: `تلبينة | ${this.blogDetails?.title}` },
-      { name: 'twitter:description', content: `${this.blogDetails?.description}` },
-      { name: 'twitter:url', content: `http://talbinah.net/Blogs/Details/${this.blogDetails?.title};id=${this.blogDetails?.id}` },
-      { name: 'twitter:image', content: `${this.blogDetails?.image?.ur}` },
-    ]);
+      this.metadataService.updateCanonicalLink(`https://talbinah.net/Blogs/Details/${this.blogDetails?.title};id=${this.blogDetails?.id}`);
+      this.metadataService.updateLinkRelAlternate('ar', `https://talbinah.net/Blogs/Details/${this.blogDetails?.title};id=${this.blogDetails?.id}`);
+      this.metadataService.updateTitle(`تلبينة | ${this.blogDetails?.title}`);
+      this.metadataService.updateMetaTagsName([
+        { name: 'title', content: `تلبينة | ${this.blogDetails?.title}` },
+        { name: 'description', content: `${this.blogDetails?.description}` },
+        { name: 'keywords', content: 'مدونة, صحة نفسية, نصائح صحية, مقالات تثقيفية, Talbinah' },
+        { name: 'author', content: 'Talbinah' },
+        // Twitter Card Data
+        { name: 'twitter:title', content: `تلبينة | ${this.blogDetails?.title}` },
+        { name: 'twitter:description', content: `${this.blogDetails?.description}` },
+        { name: 'twitter:url', content: `https://talbinah.net/Blogs/Details/${this.blogDetails?.title};id=${this.blogDetails?.id}` },
+        { name: 'twitter:image', content: `${this.blogDetails?.image?.ur}` },
+      ]);
       // Open Graph Tags
-    this.metadataService.updateMetaTagsProperty([
-      { property: 'og:title', content: `تلبينة | ${this.blogDetails?.title}` },
-      { property: 'og:description', content: `${this.blogDetails?.description}` },
-      { property: 'og:url', content: 'https://talbinah.net/' },
-      { property: 'og:image', content: `${this.blogDetails?.image?.ur}` },
-    ]);
-  }
+      this.metadataService.updateMetaTagsProperty([
+        { property: 'og:title', content: `تلبينة | ${this.blogDetails?.title}` },
+        { property: 'og:description', content: `${this.blogDetails?.description}` },
+        { property: 'og:url', content: `https://talbinah.net/Blogs/Details/${this.blogDetails?.title};id=${this.blogDetails?.id}` },
+        { property: 'og:image', content: `${this.blogDetails?.image?.ur}` },
+      ]);
+    }
   }
   // End Blog Details Functions
 

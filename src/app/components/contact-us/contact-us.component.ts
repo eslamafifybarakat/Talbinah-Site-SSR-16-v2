@@ -58,37 +58,33 @@ export class ContactUsComponent {
 
   ngOnInit(): void {
     if (isPlatformBrowser(this.platformId)) {
-      this.updateMetaTags();
+      this.updateMetaTagsForSEO();
     }
     if (isPlatformServer(this.platformId)) {
-      this.updateMetaTags();
+      this.updateMetaTagsForSEO();
     }
   }
-  private updateMetaTags(): void {
-    this.metadataService.updateTitle('تلبينة | تواصل معنا');
+  private updateMetaTagsForSEO(): void {
+    this.metadataService.updateCanonicalLink('https://talbinah.net/ContactUs');
+    this.metadataService.updateLinkRelAlternate('ar', 'https://talbinah.net/ContactUs');
+    this.metadataService.updateTitle('تواصل معنا | Talbinah | الدعم والمساعدة في الصحة النفسية');
     this.metadataService.updateMetaTagsName([
-      { name: 'title', content: 'تلبينة | تواصل معنا' },
-      { name: 'description', content: 'احصل على الدعم النفسي مع تطبيق تلبينة. جلسات علاجية عبر الإنترنت مع كبار الأخصائيين النفسيين في السعودية، متوفرة في راحة منزلك. ابدأ رحلة العلاج وحسّن صحتك النفسية اليوم.' },
-      { name: 'date', content: '2023-10-29T09:28:59+00:00' },
-
-      { name: 'twitter:card', content: 'summary_large_image' },
-      { name: 'twitter:url', content: 'http://talbinah.net/' },
-      { name: 'twitter:site', content: '@Talbinahco' },
-      { name: 'twitter:title', content: 'تلبينة | تواصل معنا' },
-      { name: 'twitter:description', content: 'احصل على الدعم النفسي مع تطبيق تلبينة. جلسات علاجية عبر الإنترنت مع كبار الأخصائيين النفسيين في السعودية، متوفرة في راحة منزلك. ابدأ رحلة العلاج وحسّن صحتك النفسية اليوم.' },
+      { name: 'title', content: 'تواصل معنا | Talbinah | الدعم والمساعدة في الصحة النفسية' },
+      { name: 'description', content: 'لديك سؤال أو تحتاج إلى مساعدة؟ تواصل مع فريق Talbinah للحصول على الدعم والاستشارات النفسية. نحن هنا لمساعدتك.' },
+      { name: 'keywords', content: 'تواصل, دعم, استشارات نفسية, Talbinah, مساعدة' },
+      { name: 'author', content: 'Talbinah' },
+      // Twitter Card Data
+      { name: 'twitter:title', content: 'تواصل معنا | Talbinah | الدعم والمساعدة في الصحة النفسية' },
+      { name: 'twitter:description', content: 'لديك سؤال أو تحتاج إلى مساعدة؟ تواصل مع فريق Talbinah للحصول على الدعم والاستشارات النفسية. نحن هنا لمساعدتك.' },
+      { name: 'twitter:url', content: 'https://talbinah.net/ContactUs' },
       { name: 'twitter:image', content: 'https://talbinah.net/assets/images/main/logos/logo_talbinah.png' },
     ]);
+    // Open Graph Tags
     this.metadataService.updateMetaTagsProperty([
-      { property: 'og:locale', content: 'ar_AR' },
-      { property: 'article:publisher', content: 'https://www.facebook.com/Talbinahco/' },
-      { property: 'article:modified_time', content: '2023-10-29T09:28:59+00:00' },
-
-      { property: 'og:type', content: 'website' },
-      { property: 'og:url', content: 'http://talbinah.net/' },
-      { property: 'og:title', content: 'تلبينة | تواصل معنا' },
-      { property: 'og:description', content: 'احصل على الدعم النفسي مع تطبيق تلبينة. جلسات علاجية عبر الإنترنت مع كبار الأخصائيين النفسيين في السعودية، متوفرة في راحة منزلك. ابدأ رحلة العلاج وحسّن صحتك النفسية اليوم.' },
+      { property: 'og:title', content: 'تواصل معنا | Talbinah | الدعم والمساعدة في الصحة النفسية' },
+      { property: 'og:description', content: 'لديك سؤال أو تحتاج إلى مساعدة؟ تواصل مع فريق Talbinah للحصول على الدعم والاستشارات النفسية. نحن هنا لمساعدتك.' },
+      { property: 'og:url', content: 'https://talbinah.net/ContactUs' },
       { property: 'og:image', content: 'https://talbinah.net/assets/images/main/logos/logo_talbinah.png' },
-      { property: 'twitter:site_name', content: 'تطبيق تلبينة' }
     ]);
   }
 

@@ -143,8 +143,8 @@ export class DoctorsListComponent {
     });
   }
   private updateMetaTagsForSEO(): void {
-    this.metadataService.updateCanonicalLink('http://talbinah.net/Doctors/List');
-    this.metadataService.updateLinkRelAlternate('ar', 'http://talbinah.net/Doctors/List');
+    this.metadataService.updateCanonicalLink('https://talbinah.net/Doctors/List');
+    this.metadataService.updateLinkRelAlternate('ar', 'https://talbinah.net/Doctors/List');
     this.metadataService.updateTitle('قابل أطباءنا | Talbinah | الأطباء والمعالجون المتخصصون في السعودية');
     this.metadataService.updateMetaTagsName([
       { name: 'title', content: 'قابل أطباءنا | Talbinah | الأطباء والمعالجون المتخصصون في السعودية' },
@@ -152,17 +152,16 @@ export class DoctorsListComponent {
       { name: 'keywords', content: 'أطباء نفسيون, معالجون أسريون, الصحة النفسية, استشارات, Talbinah, السعودية' },
       { name: 'author', content: 'Talbinah' },
       // Twitter Card Data
-      { name: 'twitter:card', content: 'summary_large_image' },
       { name: 'twitter:title', content: 'قابل أطباءنا | Talbinah | الأطباء والمعالجون المتخصصون في السعودية' },
       { name: 'twitter:description', content: 'تعرف على فريق الأطباء والمعالجين المتخصصين في Talbinah، السعودية. احجز موعدك الآن للحصول على استشارات نفسية وأسرية من خبراء معتمدين.' },
       { name: 'twitter:url', content: 'https://talbinah.net/Doctors/List' },
       { name: 'twitter:image', content: 'https://talbinah.net/assets/images/main/logos/logo_talbinah.png' },
     ]);
-      // Open Graph Tags
+    // Open Graph Tags
     this.metadataService.updateMetaTagsProperty([
       { property: 'og:title', content: 'قابل أطباءنا | Talbinah | الأطباء والمعالجون المتخصصون في السعودية' },
       { property: 'og:description', content: 'تعرف على فريق الأطباء والمعالجين المتخصصين في Talbinah، السعودية. احجز موعدك الآن للحصول على استشارات نفسية وأسرية من خبراء معتمدين.' },
-      { property: 'og:url', content: 'https://talbinah.net/' },
+      { property: 'og:url', content: 'https://talbinah.net/Doctors/List' },
       { property: 'og:image', content: 'https://talbinah.net/assets/images/main/logos/logo_talbinah.png' },
     ]);
   }

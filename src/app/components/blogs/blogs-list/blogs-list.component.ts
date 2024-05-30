@@ -67,8 +67,8 @@ export class BlogsListComponent {
     this.getBlogsList();
   }
   private updateMetaTagsForSEO(): void {
-    this.metadataService.updateCanonicalLink('http://talbinah.net/Blogs/List');
-    this.metadataService.updateLinkRelAlternate('ar', 'http://talbinah.net/Blogs/List');
+    this.metadataService.updateCanonicalLink('https://talbinah.net/Blogs/List');
+    this.metadataService.updateLinkRelAlternate('ar', 'https://talbinah.net/Blogs/List');
     this.metadataService.updateTitle('مدونة Talbinah | مقالات تثقيفية في الصحة النفسية');
     this.metadataService.updateMetaTagsName([
       { name: 'title', content: 'مدونة Talbinah | مقالات تثقيفية في الصحة النفسية' },
@@ -76,7 +76,6 @@ export class BlogsListComponent {
       { name: 'keywords', content: 'مدونة, صحة نفسية, نصائح صحية, مقالات تثقيفية, Talbinah' },
       { name: 'author', content: 'Talbinah' },
       // Twitter Card Data
-      { name: 'twitter:card', content: 'summary_large_image' },
       { name: 'twitter:title', content: 'مدونة Talbinah | مقالات تثقيفية في الصحة النفسية' },
       { name: 'twitter:description', content: 'تعرف على فريق الأطباء والمعالجين المتخصصين في Talbinah، السعودية. احجز موعدك الآن للحصول على استشارات نفسية وأسرية من خبراء معتمدين.' },
       { name: 'twitter:url', content: 'https://talbinah.net/Doctors/List' },
@@ -86,7 +85,7 @@ export class BlogsListComponent {
     this.metadataService.updateMetaTagsProperty([
       { property: 'og:title', content: 'مدونة Talbinah | مقالات تثقيفية في الصحة النفسية' },
       { property: 'og:description', content: 'تعرف على فريق الأطباء والمعالجين المتخصصين في Talbinah، السعودية. احجز موعدك الآن للحصول على استشارات نفسية وأسرية من خبراء معتمدين.' },
-      { property: 'og:url', content: 'https://talbinah.net/' },
+      { property: 'og:url', content: 'https://talbinah.net/Blogs/List' },
       { property: 'og:image', content: 'https://talbinah.net/assets/images/main/logos/logo_talbinah.png' },
     ]);
   }

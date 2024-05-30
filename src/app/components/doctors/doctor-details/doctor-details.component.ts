@@ -119,29 +119,28 @@ export class DoctorDetailsComponent {
 
   private updateMetaTagsForSEO(): void {
     if (this.doctorDetails?.full_name) {
-    this.metadataService.updateCanonicalLink(`http://talbinah.net/Doctors/Details/${this.doctorDetails?.full_name};id=${this.doctorDetails?.id}`);
-    this.metadataService.updateLinkRelAlternate('ar', `http://talbinah.net/Doctors/Details/${this.doctorDetails?.full_name};id=${this.doctorDetails?.id}`);
-    this.metadataService.updateTitle(`تلبينة | ${this.doctorDetails?.full_name}`);
-    this.metadataService.updateMetaTagsName([
-      { name: 'title', content: `تلبينة | ${this.doctorDetails?.full_name}` },
-      { name: 'description', content: `${this.doctorDetails?.profile?.bio}` },
-      { name: 'keywords', content: 'أطباء نفسيون, معالجون أسريون, الصحة النفسية, استشارات, Talbinah, السعودية' },
-      { name: 'author', content: 'Talbinah' },
-      // Twitter Card Data
-      { name: 'twitter:card', content: 'summary_large_image' },
-      { name: 'twitter:title', content: `تلبينة | ${this.doctorDetails?.full_name}` },
-      { name: 'twitter:description', content: `${this.doctorDetails?.profile?.bio}` },
-      { name: 'twitter:url', content: `http://talbinah.net/Doctors/Details/${this.doctorDetails?.full_name};id=${this.doctorDetails?.id}` },
-      { name: 'twitter:image', content: `${this.doctorDetails?.image?.url}` },
-    ]);
+      this.metadataService.updateCanonicalLink(`https://talbinah.net/Doctors/Details/${this.doctorDetails?.full_name};id=${this.doctorDetails?.id}`);
+      this.metadataService.updateLinkRelAlternate('ar', `https://talbinah.net/Doctors/Details/${this.doctorDetails?.full_name};id=${this.doctorDetails?.id}`);
+      this.metadataService.updateTitle(`تلبينة | ${this.doctorDetails?.full_name}`);
+      this.metadataService.updateMetaTagsName([
+        { name: 'title', content: `تلبينة | ${this.doctorDetails?.full_name}` },
+        { name: 'description', content: `${this.doctorDetails?.profile?.bio}` },
+        { name: 'keywords', content: 'أطباء نفسيون, معالجون أسريون, الصحة النفسية, استشارات, Talbinah, السعودية' },
+        { name: 'author', content: 'Talbinah' },
+        // Twitter Card Data
+        { name: 'twitter:title', content: `تلبينة | ${this.doctorDetails?.full_name}` },
+        { name: 'twitter:description', content: `${this.doctorDetails?.profile?.bio}` },
+        { name: 'twitter:url', content: `https://talbinah.net/Doctors/Details/${this.doctorDetails?.full_name};id=${this.doctorDetails?.id}` },
+        { name: 'twitter:image', content: `${this.doctorDetails?.image?.url}` },
+      ]);
       // Open Graph Tags
-    this.metadataService.updateMetaTagsProperty([
-      { property: 'og:title', content: `تلبينة | ${this.doctorDetails?.full_name}` },
-      { property: 'og:description', content: `${this.doctorDetails?.profile?.bio}` },
-      { property: 'og:url', content: 'https://talbinah.net/' },
-      { property: 'og:image', content: `${this.doctorDetails?.image?.url}` },
-    ]);
-  }
+      this.metadataService.updateMetaTagsProperty([
+        { property: 'og:title', content: `تلبينة | ${this.doctorDetails?.full_name}` },
+        { property: 'og:description', content: `${this.doctorDetails?.profile?.bio}` },
+        { property: 'og:url', content: `https://talbinah.net/Doctors/Details/${this.doctorDetails?.full_name};id=${this.doctorDetails?.id}` },
+        { property: 'og:image', content: `${this.doctorDetails?.image?.url}` },
+      ]);
+    }
   }
   private updatePriceObject(): void {
     this.priceInterval.forEach((interval: any) => {

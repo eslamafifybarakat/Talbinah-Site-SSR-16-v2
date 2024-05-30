@@ -104,8 +104,8 @@ export class HomePageComponent {
     this.updateMetaTagsForSEO();
   }
   private updateMetaTagsForSEO(): void {
-    this.metadataService.updateCanonicalLink('http://talbinah.net/Home');
-    this.metadataService.updateLinkRelAlternate('ar', 'http://talbinah.net/Home');
+    this.metadataService.updateCanonicalLink('https://talbinah.net/Home');
+    this.metadataService.updateLinkRelAlternate('ar', 'https://talbinah.net/Home');
     this.metadataService.updateTitle('Talbinah | التطبيق الأمثل للصحة النفسية في السعودية');
     this.metadataService.updateMetaTagsName([
       { name: 'title', content: 'Talbinah | التطبيق الأمثل للصحة النفسية في السعودية' },
@@ -113,17 +113,16 @@ export class HomePageComponent {
       { name: 'keywords', content: 'Talbinah, الصحة النفسية, استشارات نفسية, استشارات أسرية, حجز مواعيد مع الطبيب, السعودية' },
       { name: 'author', content: 'Talbinah' },
       // Twitter Card Data
-      { name: 'twitter:card', content: 'summary_large_image' },
       { name: 'twitter:title', content: 'Talbinah | التطبيق الأمثل للصحة النفسية في السعودية' },
       { name: 'twitter:description', content: 'اكتشف Talbinah، التطبيق الأمثل للصحة النفسية في السعودية. استشارات نفسية وأسرية من أخصائيين معتمدين، حجز فوري وسرية تامة.' },
       { name: 'twitter:url', content: 'https://talbinah.net/Home' },
       { name: 'twitter:image', content: 'https://talbinah.net/assets/images/main/logos/logo_talbinah.png' },
     ]);
-      // Open Graph Tags
+    // Open Graph Tags
     this.metadataService.updateMetaTagsProperty([
       { property: 'og:title', content: 'Talbinah | التطبيق الأمثل للصحة النفسية في السعودية' },
       { property: 'og:description', content: 'اكتشف Talbinah، التطبيق الأمثل للصحة النفسية في السعودية. استشارات نفسية وأسرية من أخصائيين معتمدين، حجز فوري وسرية تامة.' },
-      { property: 'og:url', content: 'https://talbinah.net/' },
+      { property: 'og:url', content:'https://talbinah.net/Home' },
       { property: 'og:image', content: 'https://talbinah.net/assets/images/main/logos/logo_talbinah.png' },
     ]);
   }
