@@ -59,38 +59,32 @@ export class BlogsListComponent {
   ngOnInit(): void {
     if (isPlatformBrowser(this.platformId)) {
       this.currentLanguage = window.localStorage.getItem(keys.language);
-      this.updateMetaTags();
-    }
-    if (isPlatformServer(this.platformId)) {
-      this.updateMetaTags();
+      this.updateMetaTagsForSEO();
     }
     this.getBlogsList();
   }
-  private updateMetaTags(): void {
-    this.metadataService.updateTitle('تلبينة | المقالات');
+  private updateMetaTagsForSEO(): void {
+    this.metadataService.updateCanonicalLink('http://talbinah.net/Blogs/List');
+    this.metadataService.updateLinkRelAlternate('ar', 'http://talbinah.net/Blogs/List');
+    this.metadataService.updateTitle('مدونة Talbinah | مقالات تثقيفية في الصحة النفسية');
     this.metadataService.updateMetaTagsName([
-      { name: 'title', content: 'تلبينة | المقالات' },
-      { name: 'description', content: 'احصل على الدعم النفسي مع تطبيق تلبينة. جلسات علاجية عبر الإنترنت مع كبار الأخصائيين النفسيين في السعودية، متوفرة في راحة منزلك. ابدأ رحلة العلاج وحسّن صحتك النفسية اليوم.' },
-      { name: 'date', content: '2023-10-29T09:28:59+00:00' },
-
+      { name: 'title', content: 'مدونة Talbinah | مقالات تثقيفية في الصحة النفسية' },
+      { name: 'description', content: 'استكشف مدونة Talbinah للحصول على أحدث المقالات والنصائح التثقيفية حول الصحة النفسية. موارد مفيدة من أخصائيين لدعم صحتك النفسية.' },
+      { name: 'keywords', content: 'مدونة, صحة نفسية, نصائح صحية, مقالات تثقيفية, Talbinah' },
+      { name: 'author', content: 'Talbinah' },
+      // Twitter Card Data
       { name: 'twitter:card', content: 'summary_large_image' },
-      { name: 'twitter:url', content: 'http://talbinah.net/' },
-      { name: 'twitter:site', content: '@Talbinahco' },
-      { name: 'twitter:title', content: 'تلبينة | المقالات' },
-      { name: 'twitter:description', content: 'احصل على الدعم النفسي مع تطبيق تلبينة. جلسات علاجية عبر الإنترنت مع كبار الأخصائيين النفسيين في السعودية، متوفرة في راحة منزلك. ابدأ رحلة العلاج وحسّن صحتك النفسية اليوم.' },
+      { name: 'twitter:title', content: 'مدونة Talbinah | مقالات تثقيفية في الصحة النفسية' },
+      { name: 'twitter:description', content: 'تعرف على فريق الأطباء والمعالجين المتخصصين في Talbinah، السعودية. احجز موعدك الآن للحصول على استشارات نفسية وأسرية من خبراء معتمدين.' },
+      { name: 'twitter:url', content: 'https://talbinah.net/Doctors/List' },
       { name: 'twitter:image', content: 'https://talbinah.net/assets/images/main/logos/logo_talbinah.png' },
     ]);
+      // Open Graph Tags
     this.metadataService.updateMetaTagsProperty([
-      { property: 'og:locale', content: 'ar_AR' },
-      { property: 'article:publisher', content: 'https://www.facebook.com/Talbinahco/' },
-      { property: 'article:modified_time', content: '2023-10-29T09:28:59+00:00' },
-
-      { property: 'og:type', content: 'website' },
-      { property: 'og:url', content: 'http://talbinah.net/' },
-      { property: 'og:title', content: 'تلبينة | المقالات' },
-      { property: 'og:description', content: 'احصل على الدعم النفسي مع تطبيق تلبينة. جلسات علاجية عبر الإنترنت مع كبار الأخصائيين النفسيين في السعودية، متوفرة في راحة منزلك. ابدأ رحلة العلاج وحسّن صحتك النفسية اليوم.' },
+      { property: 'og:title', content: 'مدونة Talbinah | مقالات تثقيفية في الصحة النفسية' },
+      { property: 'og:description', content: 'تعرف على فريق الأطباء والمعالجين المتخصصين في Talbinah، السعودية. احجز موعدك الآن للحصول على استشارات نفسية وأسرية من خبراء معتمدين.' },
+      { property: 'og:url', content: 'https://talbinah.net/' },
       { property: 'og:image', content: 'https://talbinah.net/assets/images/main/logos/logo_talbinah.png' },
-      { property: 'twitter:site_name', content: 'تطبيق تلبينة' }
     ]);
   }
 

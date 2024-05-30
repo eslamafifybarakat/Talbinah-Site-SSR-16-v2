@@ -119,8 +119,8 @@ export class DoctorDetailsComponent {
 
   private updateMetaTagsForSEO(): void {
     if (this.doctorDetails?.full_name) {
-    this.metadataService.updateCanonicalLink(`http://talbinah.net${this.pathUrl}`);
-    this.metadataService.updateLinkRelAlternate('ar', `http://talbinah.net${this.pathUrl}`);
+    this.metadataService.updateCanonicalLink(`http://talbinah.net/Doctors/Details/${this.doctorDetails?.full_name};id=${this.doctorDetails?.id}`);
+    this.metadataService.updateLinkRelAlternate('ar', `http://talbinah.net/Doctors/Details/${this.doctorDetails?.full_name};id=${this.doctorDetails?.id}`);
     this.metadataService.updateTitle(`تلبينة | ${this.doctorDetails?.full_name}`);
     this.metadataService.updateMetaTagsName([
       { name: 'title', content: `تلبينة | ${this.doctorDetails?.full_name}` },
@@ -131,7 +131,7 @@ export class DoctorDetailsComponent {
       { name: 'twitter:card', content: 'summary_large_image' },
       { name: 'twitter:title', content: `تلبينة | ${this.doctorDetails?.full_name}` },
       { name: 'twitter:description', content: `${this.doctorDetails?.profile?.bio}` },
-      { name: 'twitter:url', content: `http://talbinah.net${this.pathUrl}` },
+      { name: 'twitter:url', content: `http://talbinah.net/Doctors/Details/${this.doctorDetails?.full_name};id=${this.doctorDetails?.id}` },
       { name: 'twitter:image', content: `${this.doctorDetails?.image?.url}` },
     ]);
       // Open Graph Tags
