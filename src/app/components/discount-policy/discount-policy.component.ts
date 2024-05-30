@@ -42,11 +42,27 @@ export class DiscountPolicyComponent {
     this.updateMetaTagsForSEO();
   }
   private updateMetaTagsForSEO(): void {
-    let metaData: MetaDetails = {
-      title: 'سياسة الخصم | تلبينة',
-      description: 'سياسة الخصم | تلبينة'
-    }
-    // this.metadataService.updateMetaTagsForSEO(metaData);
+    this.metadataService.updateCanonicalLink('https://talbinah.net/DiscountPolicy');
+    this.metadataService.updateLinkRelAlternate('ar', 'https://talbinah.net/DiscountPolicy');
+    this.metadataService.updateTitle('سياسة الخصم | Talbinah | إجابات لاستفساراتك حول سياسة الخصم');
+    this.metadataService.updateMetaTagsName([
+      { name: 'title', content: 'سياسة الخصم | Talbinah | إجابات لاستفساراتك حول سياسة الخصم' },
+      { name: 'description', content: 'تصفح صفحة سياسة الخصم في Talbinah للحصول على إجابات شاملة لأكثر الاستفسارات شيوعًا حول خدماتنا والصحة النفسية.' },
+      { name: 'keywords', content: 'DiscountPolicy, أسئلة متكررة, الصحة النفسية,سياسة الخصم , استفسارات, Talbinah' },
+      { name: 'author', content: 'Talbinah' },
+      // Twitter Card Data
+      { name: 'twitter:title', content: 'سياسة الخصم | Talbinah | إجابات لاستفساراتك حول سياسة الخصم' },
+      { name: 'twitter:description', content: 'تصفح صفحة سياسة الخصم في Talbinah للحصول على إجابات شاملة لأكثر الاستفسارات شيوعًا حول خدماتنا والصحة النفسية.' },
+      { name: 'twitter:url', content: 'https://talbinah.net/DiscountPolicy' },
+      { name: 'twitter:image', content: 'https://talbinah.net/assets/images/main/logos/logo_talbinah.png' },
+    ]);
+    // Open Graph Tags
+    this.metadataService.updateMetaTagsProperty([
+      { property: 'og:title', content: 'سياسة الخصم | Talbinah | إجابات لاستفساراتك حول سياسة الخصم' },
+      { property: 'og:description', content: 'تصفح صفحة سياسة الخصم في Talbinah للحصول على إجابات شاملة لأكثر الاستفسارات شيوعًا حول خدماتنا والصحة النفسية.' },
+      { property: 'og:url', content: 'https://talbinah.net/DiscountPolicy' },
+      { property: 'og:image', content: 'https://talbinah.net/assets/images/main/logos/logo_talbinah.png' },
+    ]);
   }
 
   /* --- Start Get Discount Policy Functions --- */
