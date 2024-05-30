@@ -127,10 +127,10 @@ export class DoctorsListComponent {
 
     if (isPlatformBrowser(this.platformId)) {
       this.currentLanguage = window.localStorage.getItem(keys.language);
-      this.updateMetaTags();
+      this.updateMetaTagsForSEO();
     }
     if (isPlatformServer(this.platformId)) {
-      this.updateMetaTags();
+      this.updateMetaTagsForSEO();
     }
     this.activatedRoute.queryParams.subscribe(params => {
       if (params['category_id']) {
@@ -142,31 +142,28 @@ export class DoctorsListComponent {
       this.searchService(event);
     });
   }
-  private updateMetaTags(): void {
-    this.metadataService.updateTitle('تلبينة | الأطباء');
+  private updateMetaTagsForSEO(): void {
+    this.metadataService.updateCanonicalLink('http://talbinah.net/Doctors/List');
+    this.metadataService.updateLinkRelAlternate('ar', 'http://talbinah.net/Doctors/List');
+    this.metadataService.updateTitle('قابل أطباءنا | Talbinah | الأطباء والمعالجون المتخصصون في السعودية');
     this.metadataService.updateMetaTagsName([
-      { name: 'title', content: 'تلبينة | الأطباء' },
-      { name: 'description', content: 'احصل على الدعم النفسي مع تطبيق تلبينة. جلسات علاجية عبر الإنترنت مع كبار الأخصائيين النفسيين في السعودية، متوفرة في راحة منزلك. ابدأ رحلة العلاج وحسّن صحتك النفسية اليوم.' },
-      { name: 'date', content: '2023-10-29T09:28:59+00:00' },
-
+      { name: 'title', content: 'قابل أطباءنا | Talbinah | الأطباء والمعالجون المتخصصون في السعودية' },
+      { name: 'description', content: 'تعرف على فريق الأطباء والمعالجين المتخصصين في Talbinah، السعودية. احجز موعدك الآن للحصول على استشارات نفسية وأسرية من خبراء معتمدين.' },
+      { name: 'keywords', content: 'أطباء نفسيون, معالجون أسريون, الصحة النفسية, استشارات, Talbinah, السعودية' },
+      { name: 'author', content: 'Talbinah' },
+      // Twitter Card Data
       { name: 'twitter:card', content: 'summary_large_image' },
-      { name: 'twitter:url', content: 'https://talbinah.net/' },
-      { name: 'twitter:site', content: '@Talbinahco' },
-      { name: 'twitter:title', content: 'تلبينة | الأطباء' },
-      { name: 'twitter:description', content: 'احصل على الدعم النفسي مع تطبيق تلبينة. جلسات علاجية عبر الإنترنت مع كبار الأخصائيين النفسيين في السعودية، متوفرة في راحة منزلك. ابدأ رحلة العلاج وحسّن صحتك النفسية اليوم.' },
+      { name: 'twitter:title', content: 'قابل أطباءنا | Talbinah | الأطباء والمعالجون المتخصصون في السعودية' },
+      { name: 'twitter:description', content: 'تعرف على فريق الأطباء والمعالجين المتخصصين في Talbinah، السعودية. احجز موعدك الآن للحصول على استشارات نفسية وأسرية من خبراء معتمدين.' },
+      { name: 'twitter:url', content: 'https://talbinah.net/Home' },
       { name: 'twitter:image', content: 'https://talbinah.net/assets/images/main/logos/logo_talbinah.png' },
     ]);
+      // Open Graph Tags
     this.metadataService.updateMetaTagsProperty([
-      { property: 'og:locale', content: 'ar_AR' },
-      { property: 'article:publisher', content: 'https://www.facebook.com/Talbinahco/' },
-      { property: 'article:modified_time', content: '2023-10-29T09:28:59+00:00' },
-
-      { property: 'og:type', content: 'website' },
+      { property: 'og:title', content: 'قابل أطباءنا | Talbinah | الأطباء والمعالجون المتخصصون في السعودية' },
+      { property: 'og:description', content: 'تعرف على فريق الأطباء والمعالجين المتخصصين في Talbinah، السعودية. احجز موعدك الآن للحصول على استشارات نفسية وأسرية من خبراء معتمدين.' },
       { property: 'og:url', content: 'https://talbinah.net/' },
-      { property: 'og:title', content: 'تلبينة | الأطباء' },
-      { property: 'og:description', content: 'احصل على الدعم النفسي مع تطبيق تلبينة. جلسات علاجية عبر الإنترنت مع كبار الأخصائيين النفسيين في السعودية، متوفرة في راحة منزلك. ابدأ رحلة العلاج وحسّن صحتك النفسية اليوم.' },
       { property: 'og:image', content: 'https://talbinah.net/assets/images/main/logos/logo_talbinah.png' },
-      { property: 'twitter:site_name', content: 'تطبيق تلبينة' }
     ]);
   }
 
