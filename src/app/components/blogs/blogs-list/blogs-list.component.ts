@@ -61,6 +61,9 @@ export class BlogsListComponent {
       this.currentLanguage = window.localStorage.getItem(keys.language);
       this.updateMetaTagsForSEO();
     }
+    if (isPlatformServer(this.platformId)) {
+      this.updateMetaTagsForSEO();
+    }
     this.getBlogsList();
   }
   private updateMetaTagsForSEO(): void {
@@ -79,7 +82,7 @@ export class BlogsListComponent {
       { name: 'twitter:url', content: 'https://talbinah.net/Doctors/List' },
       { name: 'twitter:image', content: 'https://talbinah.net/assets/images/main/logos/logo_talbinah.png' },
     ]);
-      // Open Graph Tags
+    // Open Graph Tags
     this.metadataService.updateMetaTagsProperty([
       { property: 'og:title', content: 'مدونة Talbinah | مقالات تثقيفية في الصحة النفسية' },
       { property: 'og:description', content: 'تعرف على فريق الأطباء والمعالجين المتخصصين في Talbinah، السعودية. احجز موعدك الآن للحصول على استشارات نفسية وأسرية من خبراء معتمدين.' },
