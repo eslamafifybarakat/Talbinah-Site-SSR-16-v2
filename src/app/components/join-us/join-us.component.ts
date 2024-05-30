@@ -29,37 +29,33 @@ export class JoinUsComponent {
 
   ngOnInit(): void {
     if (isPlatformBrowser(this.platformId)) {
-      this.updateMetaTags();
+      this.updateMetaTagsForSEO();
     }
     if (isPlatformServer(this.platformId)) {
-      this.updateMetaTags();
+      this.updateMetaTagsForSEO();
     }
   }
-
-  private updateMetaTags(): void {
-    this.metadataService.updateTitle('تلبينة | انضم إلينا ');
+  private updateMetaTagsForSEO(): void {
+    this.metadataService.updateCanonicalLink('https://talbinah.net/JoinUs');
+    this.metadataService.updateLinkRelAlternate('ar', 'https://talbinah.net/JoinUs');
+    this.metadataService.updateTitle('انضم إلى فريقنا | Talbinah | هل أنت متخصص في الصحة النفسية؟');
     this.metadataService.updateMetaTagsName([
-      { name: 'title', content: 'تلبينة | انضم إلينا' },
-      { name: 'description', content: 'احصل على الدعم النفسي مع تطبيق تلبينة. جلسات علاجية عبر الإنترنت مع كبار الأخصائيين النفسيين في السعودية، متوفرة في راحة منزلك. ابدأ رحلة العلاج وحسّن صحتك النفسية اليوم.' },
-      { name: 'date', content: '2023-10-29T09:28:59+00:00' },
-
-      { name: 'twitter:url', content: 'https://talbinah.net/' },
-      { name: 'twitter:site', content: '@Talbinahco' },
-      { name: 'twitter:title', content: 'تلبينة | انضم إلينا' },
-      { name: 'twitter:description', content: 'احصل على الدعم النفسي مع تطبيق تلبينة. جلسات علاجية عبر الإنترنت مع كبار الأخصائيين النفسيين في السعودية، متوفرة في راحة منزلك. ابدأ رحلة العلاج وحسّن صحتك النفسية اليوم.' },
+      { name: 'title', content: 'انضم إلى فريقنا | Talbinah | هل أنت متخصص في الصحة النفسية؟' },
+      { name: 'description', content: 'هل أنت متخصص في الصحة النفسية؟ انضم إلى فريق Talbinah وساهم في تحسين الصحة النفسية بالسعودية. تقدم الآن لفرص العمل المتاحة.' },
+      { name: 'keywords', content: 'وظائف, الصحة النفسية, مهن في الصحة النفسية, Talbinah, انضم إلينا, فرص عمل بالسعودية' },
+      { name: 'author', content: 'Talbinah' },
+      // Twitter Card Data
+      { name: 'twitter:title', content: 'انضم إلى فريقنا | Talbinah | هل أنت متخصص في الصحة النفسية؟' },
+      { name: 'twitter:description', content: 'هل أنت متخصص في الصحة النفسية؟ انضم إلى فريق Talbinah وساهم في تحسين الصحة النفسية بالسعودية. تقدم الآن لفرص العمل المتاحة.' },
+      { name: 'twitter:url', content: 'https://talbinah.net/JoinUs' },
       { name: 'twitter:image', content: 'https://talbinah.net/assets/images/main/logos/logo_talbinah.png' },
     ]);
+    // Open Graph Tags
     this.metadataService.updateMetaTagsProperty([
-      { property: 'og:locale', content: 'ar_AR' },
-      { property: 'article:publisher', content: 'https://www.facebook.com/Talbinahco/' },
-      { property: 'article:modified_time', content: '2023-10-29T09:28:59+00:00' },
-
-      { property: 'og:type', content: 'website' },
-      { property: 'og:url', content: 'https://talbinah.net/' },
-      { property: 'og:title', content: 'تلبينة | انضم إلينا' },
-      { property: 'og:description', content: 'احصل على الدعم النفسي مع تطبيق تلبينة. جلسات علاجية عبر الإنترنت مع كبار الأخصائيين النفسيين في السعودية، متوفرة في راحة منزلك. ابدأ رحلة العلاج وحسّن صحتك النفسية اليوم.' },
+      { property: 'og:title', content: 'انضم إلى فريقنا | Talbinah | هل أنت متخصص في الصحة النفسية؟' },
+      { property: 'og:description', content: 'هل أنت متخصص في الصحة النفسية؟ انضم إلى فريق Talbinah وساهم في تحسين الصحة النفسية بالسعودية. تقدم الآن لفرص العمل المتاحة.' },
+      { property: 'og:url', content: 'https://talbinah.net/JoinUs' },
       { property: 'og:image', content: 'https://talbinah.net/assets/images/main/logos/logo_talbinah.png' },
-      { property: 'twitter:site_name', content: 'تطبيق تلبينة' }
     ]);
   }
 
