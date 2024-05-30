@@ -46,7 +46,7 @@ export class DiscountPolicyComponent {
       title: 'سياسة الخصم | تلبينة',
       description: 'سياسة الخصم | تلبينة'
     }
-    this.metadataService.updateMetaTagsForSEO(metaData);
+    // this.metadataService.updateMetaTagsForSEO(metaData);
   }
 
   /* --- Start Get Discount Policy Functions --- */
