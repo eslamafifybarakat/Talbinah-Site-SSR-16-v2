@@ -8,7 +8,8 @@
       </button>
       <div class="logo-app d-flex justify-content-center align-items-center p-1">
         <!-- Ensure the aspect ratio matches the natural size of the logo -->
-        <img src="assets/images/logo/lg-logo.webp" width="35" height="35" loading="lazy" alt="logo" style="object-fit: contain;">
+        <img src="assets/images/logo/lg-logo.webp" width="35" height="35" loading="lazy" alt="logo"
+          style="object-fit: contain;">
       </div>
     </div>
   </div>
@@ -18,15 +19,25 @@
   <div class="overlay position-absolute"></div>
   <div class="position-relative">
     <div class="d-flex align-items-center justify-content-end my-4">
-      <a class="close d-flex justify-content-center align-items-center rounded-circle text-white-color" title="Close sidebar" (click)="closeSidebar()" aria-label="Close Sidebar">
+      <a class="close d-flex justify-content-center align-items-center rounded-circle text-white-color"
+        title="Close sidebar" (click)="closeSidebar()" aria-label="Close Sidebar">
         <i class="pi pi-times fs-8"></i>
       </a>
     </div>
     <div class="d-flex flex-column align-items-center justify-content-center gap-2">
       <a class="log" (click)="closeSidebar()" [routerLink]="['/Home']" title="Home">
         <!-- Ensure the aspect ratio matches the natural size of the logo -->
-        <img src="assets/images/logo/lg-logo.webp" class="logo" width="70" height="70" loading="lazy" alt="logo" style="object-fit: contain;">
+        <img src="assets/images/logo/lg-logo.webp" class="logo" width="70" height="70" loading="lazy" alt="logo"
+          style="object-fit: contain;">
       </a>
+    </div>
+    <div class="links d-flex flex-column gap-2 mx-2 mt-4">
+      <ng-container *ngFor="let link of navItems">
+        <a class="nav-link" href="{{link?.route}}" [routerLink]="[link?.route]" routerLinkActive="active-link"
+          [class.active-link]="link?.route?.includes(currentUrl)" (click)="closeSidebar()">
+          {{link?.label}}
+        </a>
+      </ng-container>
     </div>
   </div>
 </p-sidebar>
