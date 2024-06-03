@@ -133,25 +133,14 @@
 
   // Start Doctors
   #doctors {
-    // background-image: url(../../../assets/images/home/elipse-bg.webp);
-    background-repeat: no-repeat;
-    background-position: left;
-    background-size: 70%;
     .btn-solid-main {
       min-width: fit-content !important;
-    }
-  }
-  &.ar-home-content {
-    #doctors {
-      // background-image: url(../../../assets/images/home/elipse-bg-rtl.webp);
-      background-position: right;
     }
   }
   // End Doctors
 
   // Start Features
   #features {
-    // background-image: url(../../../assets/images/home/features-bg.webp);
     background-repeat: no-repeat;
     background-position: center;
     background-size: 60%;
@@ -213,18 +202,7 @@
   // End Experience
 
   // Start Articles
-  #articles {
-    // background-image: url(../../../assets/images/home/elipse-bg-rtl.webp);
-    background-repeat: no-repeat;
-    background-position: right;
-    background-size: 70%;
-  }
-  &.ar-home-content {
-    #articles {
-      // background-image: url(../../../assets/images/home/elipse-bg.webp);
-      background-position: left;
-    }
-  }
+ 
   // End Articles
 
   // Start Apps
@@ -247,18 +225,7 @@
   // End Apps
 
   // Start Reviews
-  #reviews {
-    // background-image: url(../../../assets/images/home/elipse-bg.webp);
-    background-repeat: no-repeat;
-    background-position: left;
-    background-size: 50%;
-  }
-  &.ar-home-content {
-    #reviews {
-      // background-image: url(../../../assets/images/home/elipse-bg-rtl.webp);
-      background-position: right;
-    }
-  }
+
   // End Reviews
 
   .btn-solid-main {
