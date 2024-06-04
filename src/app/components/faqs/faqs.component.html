@@ -13,7 +13,7 @@
             <p-accordion [expandIcon]="'pi pi-plus'" [collapseIcon]="'pi pi-minus'">
               <ng-container *ngFor="let item of faqs?.general let i = index">
                 <p-accordionTab [header]="item?.question">
-                  <span [innerHTML]="item?.answer"></span>
+                  <span [innerHTML]="getSafeHtml(item?.answer)"></span>
                 </p-accordionTab>
               </ng-container>
             </p-accordion>
@@ -33,7 +33,7 @@
             <p-accordion [expandIcon]="'pi pi-plus'" [collapseIcon]="'pi pi-minus'">
               <ng-container *ngFor="let item of faqs?.others let i = index">
                 <p-accordionTab [header]="item?.question">
-                  <span [innerHTML]="item?.answer"></span>
+                  <span [innerHTML]="getSafeHtml(item?.answer)"></span>
                 </p-accordionTab>
               </ng-container>
             </p-accordion>

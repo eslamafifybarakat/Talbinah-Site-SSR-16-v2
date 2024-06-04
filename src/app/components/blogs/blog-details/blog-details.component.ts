@@ -16,7 +16,7 @@ import { ArticlesCarouselComponent } from 'src/app/carousels/articles-carousel/a
 import { DoctorsCarouselComponent } from 'src/app/carousels/doctors-carousel/doctors-carousel.component';
 import { keys } from './../../../shared/configs/localstorage-key';
 import { ShareToSocialComponent } from 'src/app/shared/share-to-social/share-to-social.component';
-
+import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
 @Component({
   standalone: true,
   imports: [CommonModule, TranslateModule, SkeletonComponent, FooterComponent, ArticlesCarouselComponent, DoctorsCarouselComponent, RouterModule],
@@ -41,6 +41,7 @@ export class BlogDetailsComponent implements OnInit, OnDestroy {
     private metadataService: MetadataService,
     private alertsService: AlertsService,
     private dialogService: DialogService,
+    private sanitizer: DomSanitizer,
     private cdr: ChangeDetectorRef
   ) { }
 
@@ -54,6 +55,10 @@ export class BlogDetailsComponent implements OnInit, OnDestroy {
       const path = this.router.url;
       this.fullUrl = window.location.origin + path;
     }
+  }
+
+  getSafeHtml(html: string): SafeHtml {
+    return this.sanitizer.bypassSecurityTrustHtml(html);
   }
 
   // Start Blog Details Functions

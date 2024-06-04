@@ -53,5 +53,12 @@
     .title {
       font-size: 1.4rem;
     }
+
+    .doctor-img,
+    .doctor-img-sm {
+      height: 6rem;
+      width: 6rem;
+      padding-top: initial !important;
+    }
   }
 }

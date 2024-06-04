@@ -2,7 +2,7 @@
   <ng-container *ngIf="items?.length>0; else noDoctors">
     <ng-container *ngIf="items?.length>4; else noSlider">
       <p-carousel [value]="items" [numVisible]="4" [numScroll]="1" [responsiveOptions]="doctorOptions"
-        [autoplayInterval]="7000" [showIndicators]="false" [showNavigators]="true">
+        [autoplayInterval]="7000000" [showIndicators]="false" [showNavigators]="true">
         <ng-template let-slide pTemplate="item">
           <app-doctor-card class="w-100 mx-sm-3 px-1 doctor-card" [item]="slide"></app-doctor-card>
         </ng-template>

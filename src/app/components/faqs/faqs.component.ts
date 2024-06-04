@@ -2,6 +2,7 @@ import { SkeletonComponent } from 'src/app/shared/components/skeleton/skeleton.c
 import { CommonModule, isPlatformBrowser, isPlatformServer } from '@angular/common';
 import { FooterComponent } from 'src/app/shared/components/footer/footer.component';
 import { MetadataService } from 'src/app/services/generic/metadata.service';
+import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
 import { Component, Inject, PLATFORM_ID } from '@angular/core';
 import { AccordionModule } from 'primeng/accordion';
 
@@ -81,7 +82,8 @@ export class FaqsComponent {
 
   constructor(
     @Inject(PLATFORM_ID) private platformId: Object,
-    private metadataService: MetadataService
+    private metadataService: MetadataService,
+    private sanitizer: DomSanitizer
   ) { }
 
   ngOnInit(): void {
@@ -114,6 +116,10 @@ export class FaqsComponent {
       { property: 'og:url', content: 'https://talbinah.net/FAQs' },
       { property: 'og:image', content: 'https://talbinah.net/assets/images/main/logos/logo_talbinah.png' },
     ]);
+  }
+
+  getSafeHtml(html: string): SafeHtml {
+    return this.sanitizer.bypassSecurityTrustHtml(html);
   }
 
 }

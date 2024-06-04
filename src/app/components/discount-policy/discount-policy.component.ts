@@ -4,6 +4,7 @@ import { MetaDetails, MetadataService } from 'src/app/services/generic/metadata.
 import { FooterComponent } from 'src/app/shared/components/footer/footer.component';
 import { AlertsService } from 'src/app/services/generic/alerts.service';
 import { PublicService } from 'src/app/services/generic/public.service';
+import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
 import { catchError, finalize, tap } from 'rxjs/operators';
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
@@ -29,7 +30,8 @@ export class DiscountPolicyComponent {
     private localizationLanguageService: LocalizationLanguageService,
     private metadataService: MetadataService,
     private alertsService: AlertsService,
-    private publicService: PublicService
+    private publicService: PublicService,
+    private sanitizer: DomSanitizer
   ) {
     // localizationLanguageService.updatePathAccordingLang();
   }
@@ -63,6 +65,10 @@ export class DiscountPolicyComponent {
       { property: 'og:url', content: 'https://talbinah.net/DiscountPolicy' },
       { property: 'og:image', content: 'https://talbinah.net/assets/images/main/logos/logo_talbinah.png' },
     ]);
+  }
+
+  getSafeHtml(html: string): SafeHtml {
+    return this.sanitizer.bypassSecurityTrustHtml(html);
   }
 
   /* --- Start Get Discount Policy Functions --- */

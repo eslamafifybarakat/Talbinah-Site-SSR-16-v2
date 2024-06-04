@@ -9,6 +9,7 @@ import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
 import { TransferHttpCacheModule } from '@nguniversal/common';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
+import { LazyLoadImageModule } from 'ng-lazyload-image';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { AsyncPipe, DatePipe } from '@angular/common';
 import { DialogService } from 'primeng/dynamicdialog';
@@ -19,11 +20,11 @@ import { registerLocaleData } from '@angular/common';
 import localeAr from '@angular/common/locales/ar';
 
 import { BottomNavigationComponent } from './shared/components/bottom-navigation/bottom-navigation.component';
+import { OverlayLoadingComponent } from './shared/components/overlay-loading/overlay-loading.component';
 import { NavbarMobileComponent } from './shared/components/navbar-mobile/navbar-mobile.component';
 import { ScrollTopComponent } from './shared/components/scroll-top/scroll-top.component';
 import { FooterComponent } from './shared/components/footer/footer.component';
 import { NavbarComponent } from './shared/components/navbar/navbar.component';
-import { OverlayLoadingComponent } from './shared/components/overlay-loading/overlay-loading.component';
 import { LoaderComponent } from './shared/components/loader/loader.component';
 
 registerLocaleData(localeAr);
@@ -44,6 +45,7 @@ registerLocaleData(localeAr);
 
     BrowserModule.withServerTransition({ appId: 'my-app', }),
     BrowserAnimationsModule,
+    LazyLoadImageModule, // add LazyLoadImageModule here
     AppRoutingModule,
     HttpClientModule,
     NgbModule,

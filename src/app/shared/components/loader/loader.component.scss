@@ -1,8 +1,9 @@
 .loader-container {
-  background-image: url(../../../../assets/images/splash-screen.webp);
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center;
+  // background-image: url(../../../../assets/images/splash-screen.webp);
+  // background-size: cover;
+  // background-repeat: no-repeat;
+  // background-position: center;
+  background-color: var(--bg-secondary-color);
   inset: 0;
   z-index: 1000;
   .logo {

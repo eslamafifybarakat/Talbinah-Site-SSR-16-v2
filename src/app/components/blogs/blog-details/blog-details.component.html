@@ -48,9 +48,9 @@
               </a>
             </div>
             <img class="w-100 image-center-cat rounded" [src]="blogDetails?.image?.url"
-              onerror="this.src='assets/images/dummy/blogs/blogsImage.png'" loading="lazy" alt="logo">
+              onerror="this.src='assets/images/not-found/no-article.svg'" loading="lazy" alt="logo">
           </div>
-          <div class="mt-4" [innerHTML]="blogDetails?.description"></div>
+          <div class="mt-4" [innerHTML]="getSafeHtml(blogDetails?.description)"></div>
         </div>
         <div *ngIf="relatedArticles?.length > 0" class="mt-5">
           <h3 class="text-main-color dectorated-title fw-bold">

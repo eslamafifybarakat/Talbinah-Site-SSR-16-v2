@@ -1,4 +1,5 @@
 // Modules
+import { LazyLoadImageModule } from 'ng-lazyload-image';
 import { TranslateModule } from '@ngx-translate/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
@@ -29,6 +30,7 @@ import { FooterComponent } from './../../shared/components/footer/footer.compone
   standalone: true,
   imports: [
     // Modules
+    LazyLoadImageModule, // add LazyLoadImageModule here
     TranslateModule,
     RouterModule,
     CommonModule,
