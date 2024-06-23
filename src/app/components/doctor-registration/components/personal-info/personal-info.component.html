@@ -1,0 +1,420 @@
+<form id="doctor-registration-form" [formGroup]="firstFormGroup" class="mt-md-5 mt-4">
+  <div class="row">
+    <div class="row justify-content-center">
+      <div class="col-lg-6">
+        <div class="upload d-flex justify-content-center align-items-start flex-column gap-3 mb-4 w-100">
+          <label for="profileImage" class="custom-label fw-bold vector-bg fs-4 m-auto required">
+            {{"labels.profileImage"|translate}}
+          </label>
+          <app-file-upload class="w-100" (uploadHandler)="uploadImage($event)" [image]="imageNameString"
+            [isEdit]="isEditImage" [showImage]="showImage" [name]="imageName"></app-file-upload>
+          <ng-container *ngIf="firstFormControls?.doctorImg?.touched || firstFormControls?.doctorImg?.dirty">
+            <div class="mb-2">
+              <ng-container *ngIf="firstFormControls?.doctorImg?.errors?.required">
+                <span class="text-danger fs-8">
+                  {{'validations.requiredField' | translate}}
+                </span>
+              </ng-container>
+            </div>
+          </ng-container>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-6 mb-3">
+      <label for="nameEn" class="custom-label mb-2 required">
+        {{"labels.nameEn"|translate}}
+      </label>
+      <input id="nameEn" type="text" class="form-control" formControlName="name_en"
+        (input)="publicService.clearValidationErrors(firstFormControls?.name_en)"
+        [class.border-red]="firstFormControls?.name_en?.invalid && (firstFormControls?.name_en?.dirty || firstFormControls?.name_en?.touched)"
+        placeholder="{{'labels.nameEn'|translate}}" autocomplete="cc-name">
+      <div class="my-2">
+        <ng-container
+          *ngIf="firstFormControls?.name_en?.invalid && (firstFormControls?.name_en?.dirty || firstFormControls?.name_en?.touched)">
+          <ng-container *ngIf="firstFormControls?.name_en?.errors?.['required']">
+            <span class="text-danger fs-8">
+              {{'validations.requiredField' | translate}}
+            </span>
+          </ng-container>
+          <ng-container *ngIf="firstFormControls?.name_en?.errors?.['minlength']">
+            <span class="text-danger fs-8">
+              {{'validations.length'| translate}}
+            </span>
+          </ng-container>
+          <ng-container *ngIf="firstFormControls?.name_en?.errors?.pattern">
+            <span class="text-danger fs-8 d-block">
+              <!-- {{'validations.valueNotValid'| translate}} -->
+              البيانات غير صالحة
+            </span>
+          </ng-container>
+        </ng-container>
+
+      </div>
+    </div>
+    <div class="col-md-6 mb-3">
+      <label for="nameAr" class="custom-label mb-2 required">
+        {{"labels.nameAr"|translate}}
+      </label>
+      <input id="nameAr" type="text" class="form-control" formControlName="name_ar"
+        (input)="publicService.clearValidationErrors(firstFormControls?.name_ar)"
+        [class.border-red]="firstFormControls?.name_ar?.invalid && (firstFormControls?.name_ar?.dirty || firstFormControls?.name_ar?.touched)"
+        placeholder="{{'labels.nameAr'|translate}}" autocomplete="cc-name">
+      <div class="my-2">
+        <ng-container
+          *ngIf="firstFormControls?.name_ar?.invalid && (firstFormControls?.name_ar?.dirty || firstFormControls?.name_ar?.touched)">
+          <ng-container *ngIf="firstFormControls?.name_ar?.errors?.['required']">
+            <span class="text-danger fs-8">
+              {{'validations.requiredField' | translate}}
+            </span>
+          </ng-container>
+          <ng-container *ngIf="firstFormControls?.name_ar?.errors?.['minlength']">
+            <span class="text-danger fs-8">
+              {{'validations.length'| translate}}
+            </span>
+          </ng-container>
+          <ng-container *ngIf="firstFormControls?.name_ar?.errors?.pattern">
+            <span class="text-danger fs-8 d-block">
+              <!-- {{'validations.valueNotValid'| translate}} -->
+              البيانات غير صالحة
+            </span>
+          </ng-container>
+        </ng-container>
+
+      </div>
+    </div>
+
+    <div class="col-md-6 mb-3">
+      <label for="email" class="custom-label mb-2 required">
+        {{'labels.email'|translate}}
+      </label>
+      <input type="email" id="email" class="form-control" formControlName="email"
+        [class.border-red]="firstFormControls?.email?.invalid && (firstFormControls?.email?.dirty || firstFormControls?.email?.touched)"
+        autocomplete="cc-name" (input)="publicService.clearValidationErrors(firstFormControls?.email)"
+        placeholder="{{'placeholders.email'|translate}}">
+      <div class="mt-2">
+        <ng-container
+          *ngIf="firstFormControls?.email?.invalid && (firstFormControls?.email?.dirty || firstFormControls?.email?.touched)">
+          <ng-container
+            *ngIf="firstFormControls?.email?.invalid && (firstFormControls?.email?.dirty || firstFormControls?.email?.touched)">
+            <ng-container *ngIf="firstFormControls?.email?.errors?.['required']">
+              <span class="text-danger fs-8">
+                {{'validations.emailRequired'|translate}}
+              </span>
+            </ng-container>
+            <ng-container *ngIf="firstFormControls?.email?.errors?.['pattern']">
+              <span class="text-danger fs-8 d-block lh-base">
+                {{'validations.emailNotValid'|translate}}
+              </span>
+            </ng-container>
+          </ng-container>
+        </ng-container>
+      </div>
+    </div>
+    <div class="col-md-6 mb-3">
+      <label for="phone" class="custom-label mb-2 required">
+        {{'labels.phoneNumber'|translate}}
+      </label>
+      <!-- <div formArrayName="phoneNumbers"> -->
+      <!-- <div *ngFor="let phoneControl of phoneNumbers.controls; let i = index" [formGroupName]="i"> -->
+      <div class="d-flex countryCode overflow-hidden"
+        [class.border-red]="firstFormControls?.phone?.invalid && (firstFormControls?.phone?.dirty || firstFormControls?.phone?.touched)">
+        <!-- Dropdown for Country Code -->
+        <p-dropdown [options]="countriesList" formControlName="phoneCode" optionLabel="name" [filter]="true"
+          [styleClass]="'rounded-0 d-flex'" filterPlaceholder="{{'placeholders.search'|translate}}"
+          styleClass="flex-grow-1 drop-phone border-radius-right" [virtualScroll]="true" [virtualScrollItemSize]="40"
+          filterBy="name" appendTo="body" [showClear]="false" scrollH1qeight="150px" [readonly]="isLoadingCountries"
+          [emptyMessage]="'لا يوجد نتائج'|translate" placeholder="كود">
+          <ng-template pTemplate="selectedItem">
+            <div class="d-flex align-items-center gap-1" *ngIf="firstFormGroup.value?.phoneCode">
+              <img [src]="firstFormGroup.value?.phoneCode?.flag" alt="flag" class="flag"
+                onerror="src='assets/images/not-found/no-flag.svg'">
+              <span>{{firstFormGroup.value?.phoneCode?.phone_code}}</span>
+            </div>
+          </ng-template>
+          <ng-template let-item pTemplate="item">
+            <div class="d-flex align-items-center gap-2">
+              <img [src]="item?.flag" alt="flag" class="flag shadow-sm"
+                onerror="src='assets/images/not-found/no-flag.svg'">
+              <span>{{item?.name}}</span>
+            </div>
+          </ng-template>
+        </p-dropdown>
+
+        <!-- Input for Phone Number -->
+        <input type="number" class="form-control flex-grow-1 phone-input rounded-0" formControlName="phone"
+          (input)="publicService.clearValidationErrors(firstFormControls?.phone)" placeholder="رقم الهاتف">
+      </div>
+      <!-- </div> -->
+      <!-- Button to Add Another Phone Number -->
+      <!-- <button class="btn btn-primary mt-2" (click)="addPhoneNumber()">Add Another Phone Number</button> -->
+      <!-- </div> -->
+      <div class="mt-2">
+        <ng-container
+          *ngIf="firstFormControls?.phone?.invalid && (firstFormControls?.phone?.dirty || firstFormControls?.phone?.touched)">
+          <ng-container *ngIf="firstFormControls?.phone?.errors?.['required']">
+            <span class="text-danger fs-8">
+              {{'validations.requiredField'|translate}}
+            </span>
+          </ng-container>
+          <ng-container *ngIf="firstFormControls?.phone?.errors?.['pattern']">
+            <span class="text-danger fs-8">
+              رقم الهاتف غير صالح
+            </span>
+          </ng-container>
+        </ng-container>
+        <!-- <div
+          *ngIf="this.firstFormGroup.get('phoneNumbers')[0].invalid && (this.firstFormGroup.get('phoneNumbers')[0].dirty || this.firstFormGroup.get('phoneNumbers')[0].touched)"
+          class="alert alert-danger mt-2">
+          <div *ngIf="this.firstFormGroup.get('phoneNumbers')[0].get('phone').errors?.required">
+            Phone number is required.
+          </div>
+          <div *ngIf="this.firstFormGroup.get('phoneNumbers')[0].get('phone').errors?.pattern">
+            Invalid phone number format.
+          </div>
+        </div> -->
+      </div>
+    </div>
+    <div class="col-md-6 mb-3">
+      <label for="gender" class="custom-label mb-2 required">
+        {{'labels.gender'|translate}}
+      </label>
+      <div
+        [class.border-red]="firstFormControls?.gender?.invalid && (firstFormControls?.gender?.dirty || firstFormControls?.gender?.touched)">
+        <p-dropdown id="gender" [options]="genderOptions" formControlName="gender" [filter]="true" optionLabel="title"
+          [virtualScroll]="true" filterPlaceholder="{{'placeholders.search'|translate}}" [virtualScrollItemSize]="40"
+          styleClass="d-flex align-items-center" filterBy=" title" appendTo="body" scrollHeight="150px"
+          [emptyMessage]="'لا يوجد نتائج'" [showClear]="true" placeholder="{{'placeholders.select'|translate}}">
+          <ng-template pTemplate="selectedItem">
+            <div class="d-flex align-items-center gap-2" *ngIf="firstFormGroup?.value?.gender">
+              <ng-container *ngIf="firstFormGroup?.value?.gender?.value=='male'; else selectedFemale">
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-gender-male" width="27"
+                  height="27" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none"
+                  stroke-linecap="round" stroke-linejoin="round">
+                  <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                  <path d="M10 14m-5 0a5 5 0 1 0 10 0a5 5 0 1 0 -10 0" />
+                  <path d="M19 5l-5.4 5.4" />
+                  <path d="M19 5h-5" />
+                  <path d="M19 5v5" />
+                </svg>
+              </ng-container>
+              <ng-template #selectedFemale>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-gender-female" width="27"
+                  height="27" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none"
+                  stroke-linecap="round" stroke-linejoin="round">
+                  <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                  <path d="M12 9m-5 0a5 5 0 1 0 10 0a5 5 0 1 0 -10 0" />
+                  <path d="M12 14v7" />
+                  <path d="M9 18h6" />
+                </svg>
+              </ng-template>
+              <span>{{firstFormGroup.value.gender?.title}}</span>
+            </div>
+          </ng-template>
+          <ng-template let-item pTemplate="item">
+            <div class="d-flex align-items-center gap-2">
+              <ng-container *ngIf="item?.value=='male'; else female">
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-gender-male" width="27"
+                  height="27" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none"
+                  stroke-linecap="round" stroke-linejoin="round">
+                  <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                  <path d="M10 14m-5 0a5 5 0 1 0 10 0a5 5 0 1 0 -10 0" />
+                  <path d="M19 5l-5.4 5.4" />
+                  <path d="M19 5h-5" />
+                  <path d="M19 5v5" />
+                </svg>
+              </ng-container>
+              <ng-template #female>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-gender-female" width="27"
+                  height="27" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none"
+                  stroke-linecap="round" stroke-linejoin="round">
+                  <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                  <path d="M12 9m-5 0a5 5 0 1 0 10 0a5 5 0 1 0 -10 0" />
+                  <path d="M12 14v7" />
+                  <path d="M9 18h6" />
+                </svg>
+              </ng-template>
+              <span>{{item?.title}}</span>
+            </div>
+          </ng-template>
+        </p-dropdown>
+      </div>
+      <div class="mt-2">
+        <ng-container
+          *ngIf="firstFormControls?.gender?.invalid && (firstFormControls?.gender?.dirty || firstFormControls?.gender?.touched)">
+          <ng-container *ngIf="firstFormControls?.gender?.errors?.['required']">
+            <span class="text-danger fs-8">
+              {{'validations.requiredField'|translate}}
+            </span>
+          </ng-container>
+        </ng-container>
+      </div>
+    </div>
+    <div class="col-md-6 mb-3">
+      <label for="dateOfBirth" class="custom-label mb-2 required">
+        {{'labels.dateOfBirth'|translate}}
+      </label>
+      <span
+        [class.border-red]="(firstFormControls?.birthdate?.touched || firstFormControls?.birthdate?.dirty) && firstFormControls?.birthdate?.invalid"
+        class="p-input-icon-right select-loading d-block overflow-hidden calendar">
+        <p-calendar formControlName="birthdate" dateFormat="dd/mm/yy" [showTime]="false" [showButtonBar]="true"
+          [showIcon]="true" appendTo="body" placeholder="{{'placeholders.dateFormat' | translate}}"
+          [required]="true"></p-calendar>
+      </span>
+      <div class="mt-2">
+        <ng-container
+          *ngIf="firstFormControls?.birthdate?.invalid && (firstFormControls?.birthdate?.dirty || firstFormControls?.birthdate?.touched)">
+          <ng-container *ngIf="firstFormControls?.birthdate?.errors?.['required']">
+            <span class="text-danger fs-8">
+              {{'validations.requiredField'|translate}}
+            </span>
+          </ng-container>
+        </ng-container>
+      </div>
+    </div>
+
+    <div class="col-md-6 mb-3">
+      <label for="password" class="custom-label mb-2 required">
+        {{'labels.password'|translate}}
+      </label>
+      <div class="rounded-input p-mask"
+        [class.border-red]="firstFormControls?.password?.invalid && (firstFormControls?.password?.dirty || firstFormControls?.password?.touched)">
+        <p-password [toggleMask]="true" formControlName="password" autocomplete="cc-name" [inputStyleClass]="'border-0'"
+          placeholder="{{'placeholders.password'|translate}}">
+          <!-- <ng-template pTemplate="header">
+            <h6>Pick a password</h6>
+          </ng-template> -->
+          <ng-template pTemplate="footer">
+            <!-- <p-divider></p-divider> -->
+            <ul class="pl-2 mt-0" style="line-height: 1.5">
+              <li>
+                {{'validations.newPasswordInstruction1' | translate}}
+              </li>
+              <li>
+                {{'validations.newPasswordInstruction2' | translate}}
+              </li>
+              <li>
+                {{'validations.newPasswordInstruction3' | translate}}
+              </li>
+              <li>
+                {{'validations.newPasswordInstruction4' | translate}}
+              </li>
+              <li>
+                {{'validations.newPasswordInstruction5' | translate}}
+              </li>
+            </ul>
+          </ng-template>
+        </p-password>
+      </div>
+      <div class="mt-2">
+        <ng-container
+          *ngIf="firstFormControls?.password?.invalid && (firstFormControls?.password?.dirty || firstFormControls?.password?.touched)">
+          <ng-container *ngIf="firstFormControls?.password?.errors?.['required']">
+            <div class="text-danger fs-8">
+              {{'validations.requiredField' | translate}}
+            </div>
+          </ng-container>
+          <ng-container *ngIf="firstFormControls?.password?.errors?.['pattern']">
+            <span class="text-danger fs-8">
+              <!-- {{'validations.newPasswordText' | translate}} -->
+              يجب أن تتكون كلمة المرور الخاصة بك من 8 أحرف أو أكثر، وتحتوي على أحرف كبيرة وصغيرة وأرقام وحرف خاص واحد
+              على الأقل (!%*?&|@...)
+            </span>
+          </ng-container>
+        </ng-container>
+      </div>
+      <div *ngIf="firstFormGroup?.value?.password ==''">
+        <p class="mt-2 fs-8 lh-base text-desc-color">
+          <!-- {{'validations.newPasswordText' | translate}} -->
+          يجب أن تتكون كلمة المرور الخاصة بك من 8 أحرف أو أكثر، وتحتوي على أحرف كبيرة وصغيرة وأرقام وحرف خاص واحد
+          على الأقل (!%*?&|@...)
+        </p>
+      </div>
+    </div>
+    <div class="col-md-6 mb-3">
+      <label for="confirmPassword" class="custom-label mb-2 required">
+        {{'labels.confirmPassword'|translate}}
+      </label>
+      <div class="rounded-input p-mask" [class.border-invalid-password]="isPasswordChange"
+        [class.border-red]="firstFormControls?.confirmPassword?.invalid && (firstFormControls?.confirmPassword?.dirty || firstFormControls?.confirmPassword?.touched)">
+        <p-password [toggleMask]="true" formControlName="confirmPassword"
+          placeholder="{{'placeholders.confirmPassword'|translate}}" [disabled]="firstFormGroup?.value?.password ==''"
+          (onFocus)="onFocusConfirmPassword()" [inputStyleClass]="'border-0'" autocomplete="cc-name" [feedback]="true">
+          <ng-template pTemplate="header">
+            <h6>Pick a password</h6>
+          </ng-template>
+          <ng-template pTemplate="footer">
+            <p-divider></p-divider>
+            <ul class="pl-2 mt-0" style="line-height: 1.5">
+              <li>
+                {{'validations.newPasswordInstruction1' | translate}}
+              </li>
+              <li>
+                {{'validations.newPasswordInstruction2' | translate}}
+              </li>
+              <li>
+                {{'validations.newPasswordInstruction3' | translate}}
+              </li>
+              <li>
+                {{'validations.newPasswordInstruction4' | translate}}
+              </li>
+              <li>
+                {{'validations.newPasswordInstruction5' | translate}}
+              </li>
+            </ul>
+          </ng-template>
+        </p-password>
+      </div>
+      <div class="mt-2">
+        <ng-container
+          *ngIf="firstFormControls?.confirmPassword?.invalid && (firstFormControls?.confirmPassword?.dirty || firstFormControls?.confirmPassword?.touched)">
+          <ng-container *ngIf="firstFormControls?.confirmPassword?.errors?.['required']">
+            <div class="text-danger fs-8 lh-base">
+              {{'validations.requiredField' | translate}}
+            </div>
+          </ng-container>
+          <ng-container *ngIf="firstFormControls?.confirmPassword?.errors?.ConfirmPassword&&!isPasswordChange">
+            <span class="text-danger fs-8">
+              {{'validations.matchPassword' | translate}}
+            </span>
+          </ng-container>
+        </ng-container>
+      </div>
+      <div *ngIf="firstFormGroup?.value?.password ==''">
+        <p class="mt-2 fs-8 lh-base text-desc-color">
+          <!-- {{'validations.newPasswordText' | translate}} -->
+          يجب أن تتكون كلمة المرور الخاصة بك من 8 أحرف أو أكثر، وتحتوي على أحرف كبيرة وصغيرة وأرقام وحرف خاص واحد
+          على الأقل (!%*?&|@...)
+        </p>
+      </div>
+    </div>
+
+    <div class="col-12 mb-3">
+      <a (click)="openPdfViewer()">
+        <div class="form-check d-flex align-items-center gap-2">
+          <input class="form-check-input pointer" style="opacity: 1;" type="checkbox" id="terms"
+            formControlName="terms_conditions" [class.p-disabled]="true" autocomplete="cc-name">
+          <label class="form-check-label fs-6 mt-1 pointer lh-sm d-flex flex-wrap gap-1 px-4">
+            <u class="text-main-color">
+              هل أنت توافق على استخدام اتفاقية الشروط والأحكام ؟
+              <!-- {{'doctorRegisteration.termsConditionAgreement'|translate}} -->
+            </u>
+          </label>
+        </div>
+      </a>
+    </div>
+    <hr />
+    <div class="mb-2 mt-3">
+      <app-social-links (changeSocialLinksHandler)="getSocialLinks($event)"></app-social-links>
+    </div>
+  </div>
+
+  <div class="d-flex justify-content-end mt-3">
+    <button type="button" class="btn btn-solid-main d-flex justify-content-center align-items-center gap-2"
+      (click)="submitRegister()">
+      التالي
+      <!-- {{"doctorRegisteration.next"|translate}} -->
+      <i class="pi pi-arrow-right scaleX-rtl"></i>
+    </button>
+  </div>
+</form>

@@ -1,3 +1,4 @@
+import { DoctorRegistrationComponent } from './components/doctor-registration/doctor-registration.component';
 import { Routes } from '@angular/router';
 
 // Components
@@ -28,21 +29,21 @@ export const appRoutes: Routes = [
       ),
     children: authChildrenRoutes,
   },
-    // Home Page
-    {
-      path: 'Home',
-      loadComponent: () =>
-        import('./components/home-page/home-page.component').then(
-          (c) => c.HomePageComponent
-        )
-    },
-    {
-      path: ':lang/Home',
-      loadComponent: () =>
-        import('./components/home-page/home-page.component').then(
-          (c) => c.HomePageComponent
-        )
-    },
+  // Home Page
+  {
+    path: 'Home',
+    loadComponent: () =>
+      import('./components/home-page/home-page.component').then(
+        (c) => c.HomePageComponent
+      )
+  },
+  {
+    path: ':lang/Home',
+    loadComponent: () =>
+      import('./components/home-page/home-page.component').then(
+        (c) => c.HomePageComponent
+      )
+  },
 
   // Doctors
   {
@@ -166,6 +167,21 @@ export const appRoutes: Routes = [
     loadComponent: () =>
       import('./components/privacy-and-policy/privacy-and-policy.component').then(
         (c) => c.PrivacyAndPolicyComponent
+      )
+  },
+  // doctor-registration
+  {
+    path: ':lang/Doctor-Registration',
+    loadComponent: () =>
+      import('./components/doctor-registration/doctor-registration.component').then(
+        (c) => c.DoctorRegistrationComponent
+      )
+  },
+  {
+    path: 'Doctor-Registration',
+    loadComponent: () =>
+      import('./components/doctor-registration/doctor-registration.component').then(
+        (c) => c.DoctorRegistrationComponent
       )
   },
 

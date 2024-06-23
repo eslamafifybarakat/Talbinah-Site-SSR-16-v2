@@ -71,6 +71,32 @@ label {
   border-radius: var(--border-input-radius);
   padding: 1rem;
 }
+#doctor-registration-form {
+  .form-control,
+  .form-control:focus,
+  .form-control:focus-visible,
+  .form-select,
+  .form-select:focus,
+  .form-select:focus-visible,
+  .ng-select.ng-select-single .ng-select-container,
+  .p-inputmask,
+  .p-password-input,
+  .p-calendar-w-btn .p-inputtext,
+  .p-dropdown {
+    background-color: #f2f7fa;
+    border: 0;
+  }
+  .p-datepicker-trigger {
+    background-color: #f2f7fa;
+    border: 0;
+  }
+  .p-calendar {
+    width: 100%;
+    input {
+      border-radius: 0;
+    }
+  }
+}
 .p-dropdown {
   line-height: 0;
   width: 100%;

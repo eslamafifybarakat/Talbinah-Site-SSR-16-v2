@@ -1,0 +1,48 @@
+.uploader {
+  background: #284a6f0f;
+  border: 2px dashed rgba(140, 149, 163, 0.6);
+  border-radius: 15px;
+  min-height: 100px;
+
+  .loaded {
+    height: 90px;
+    width: 90px;
+    border-radius: 15px !important;
+    object-fit: cover !important;
+  }
+}
+.badge-info {
+  background-color: #284a6f10;
+  color: var(--text-main-color);
+}
+.badge-danger {
+  background-color: #e5555530;
+  color: #e55555;
+}
+.btn-card {
+  min-width: 40px;
+  height: 40px;
+  line-height: 0;
+  border-radius: 10px;
+  padding: 0 15px;
+  border: none;
+}
+:host::ng-deep {
+  .p-image-preview-container {
+    .p-image-preview-indicator {
+      border-radius: 15px !important;
+    }
+    img {
+      height: 90px;
+      width: 90px;
+      object-fit: cover !important;
+      border-radius: 15px !important;
+      box-shadow: 0 0.125rem 0.25rem;
+    }
+  }
+  .p-image-mask .p-image-preview {
+    width: auto !important;
+    height: auto !important;
+    box-shadow: none !important;
+  }
+}

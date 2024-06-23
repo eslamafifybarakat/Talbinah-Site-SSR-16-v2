@@ -1,0 +1,60 @@
+:host::ng-deep {
+  .add-social {
+    .p-dropdown-label {
+      padding-top: 0;
+      padding-bottom: 0;
+      display: flex;
+      align-items: center;
+    }
+    .p-dropdown .p-dropdown-label.p-placeholder,
+    .p-dropdown .p-dropdown-trigger,
+    .p-dropdown {
+      background-color: #f2f7fa;
+      border: 0;
+      border-radius: var(--border-input-radius);
+    }
+    .p-inputtext {
+      background-color: #f2f7fa !important;
+    }
+    .form-control {
+      background-color: #f2f7fa !important;
+      border: 0;
+    }
+  }
+}
+.bg-linkedin {
+  background: #0a66c2;
+}
+
+.bg-youtube {
+  background: #fe0000;
+}
+
+.bg-twitter {
+  background: #2aa9e0;
+}
+
+.bg-color-face {
+  background: #0e8df2;
+}
+.bg-color-instagram {
+  background-color: darkmagenta;
+}
+.bg-color-tiktok {
+  background-color: #111;
+}
+.icon-social-settings {
+  width: 25px;
+  height: 25px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.btn-solid-main {
+  background-color: var(--bg-main-color);
+  border-color: var(--bg-main-color);
+  color: var(--text-white-color);
+  height: 3rem;
+  border-radius: var(--border-input-radius);
+  min-width: 6rem;
+}

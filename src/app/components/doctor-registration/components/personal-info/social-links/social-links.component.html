@@ -1,0 +1,63 @@
+<div class="overflow-auto-small">
+  <h4 class="color-grey-700 pb-3">
+    <!-- {{'doctorRegisteration.socialInfo' | translate }} -->
+    معلومات التواصل الإجتماعي
+  </h4>
+  <div class="mx-2">
+    <ng-container *ngIf="linksSocial?.length<=0">
+      <a class='pointer' (click)="addSocialLink()" style="display: inline-block;">
+        <h4 class="text-main-color">
+          <i class="fas fa-plus-circle"></i>
+          <span>
+            <!-- {{'doctorRegisteration.addSocialLink' | translate }} -->
+            أضف رابطًا اجتماعيًا
+          </span>
+        </h4>
+      </a>
+    </ng-container>
+    <div class="row justify-content-between">
+      <ng-container *ngFor="let item of linksSocial">
+        <div class="col-md-5 col-xs-12 mb-2 px-0">
+          <div class="mb-1">
+            <div class="d-flex align-items-center justify-content-between social">
+              <div class="d-flex align-items-baseline">
+                <i *ngIf="item?.name?.value === 'linkedin'"
+                  class='pi pi-linkedin text-white rounded bg-linkedin fs-12 icon-social-settings'></i>
+                <i *ngIf="item?.name?.value === 'twitter'"
+                  class='pi pi-twitter text-white rounded bg-twitter fs-12 icon-social-settings'></i>
+                <i *ngIf="item?.name?.value === 'youtube'"
+                  class='pi pi-youtube text-white rounded bg-youtube fs-12 icon-social-settings'></i>
+                <i *ngIf="item?.name?.value === 'facebook'"
+                  class='pi pi-facebook text-white rounded bg-color-face fs-12 icon-social-settings'></i>
+                <i *ngIf="item?.name?.value === 'instagram'"
+                  class='pi pi-instagram text-white rounded bg-color-instagram fs-12 icon-social-settings'></i>
+                <span class="mx-2">
+                  <span class="w-100 text-truncate">
+                    {{item?.link}}
+                  </span>
+                </span>
+              </div>
+              <div class="d-flex align-items-center justify-content-end gap-2">
+                <a class="shadow-none px-0 bg-transparent border-0" role="button" (click)="addSocialLink(item)">
+                  <i class="pi pi-pencil edit-icon rounded"></i>
+                </a>
+                <a class="shadow-none px-0 bg-transparent border-0" role="button" (click)="removeItemSocial(item)">
+                  <i class="pi pi-trash delete-icon text-danger rounded"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </ng-container>
+    </div>
+    <ng-container *ngIf="linksSocial?.length>0">
+      <button type="button" class="btn btn-solid-main my-2" (click)="addSocialLink()">
+        <i class="fas fa-plus"></i>
+        <span class="mx-1">
+          إضافة لينك آخر
+          <!-- {{'doctorRegisteration.add_other_link' | translate }} -->
+        </span>
+      </button>
+    </ng-container>
+  </div>
+</div>

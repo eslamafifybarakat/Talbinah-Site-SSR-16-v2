@@ -39,7 +39,11 @@
     "sr": "ريال",
     "noSearchResult": "لا يوجد نتائج للبحث",
     "minute": "دقيقة",
-    "bookNow": "احجز الان"
+    "bookNow": "احجز الان",
+    "maxSize": "اقصى حجم",
+    "replace": "تبديل",
+    "clickToUpload": "إنقر للتحميل أو السحب والإفلات",
+    "supports": "يدعم"
   },
   "home": {
     "hero": {
@@ -178,6 +182,7 @@
     "joinNow": "انضم الآن"
   },
   "labels": {
+    "profileImage": "صورة الملف الشخصي",
     "subject":"الموضوع",
     "callNow": "اتصل الآن",
     "callLater": "اتصل لاحقًا",
@@ -203,7 +208,11 @@
     "address": "العنوان",
     "newPassword": "كلمة المرور الجديدة",
     "phoneNumber": "رقم الهاتف",
-    "postNumber": "رقم البريد"
+    "postNumber": "رقم البريد",
+    "nameEn": "الإسم باللغة الآنجليزية",
+    "nameAr": "الإسم باللغة العربية",
+    "gender": "النوع",
+    "dateOfBirth": "تاريخ الميلاد"
   },
   "placeholders": {
     "name":"أدخل إسمك",
@@ -225,7 +234,8 @@
     "city": "اختر المدينة",
     "vatNumber": "أدخل رقم ضريبة القيمة المضافة",
     "address": "أدخل العنوان",
-    "newPassword": "أدخل كلمة المرور الجديدة"
+    "newPassword": "أدخل كلمة المرور الجديدة",
+    "select": "اختر"
   },
   "validations": {
     "emailRequired": "البريد الإلكتروني مطلوب",

@@ -1,0 +1,21 @@
+#doctor-registration {
+  padding-top: 7rem;
+  .step-info {
+    background-color: transparent;
+    color: #0000008a;
+    font-size: 16px;
+    padding: 24px;
+    border-radius: 7px;
+    cursor: pointer;
+    .step-icon {
+      font-size: 18px;
+    }
+    &.active-step {
+      color: var(--text-main-color);
+      font-weight: bold;
+    }
+  }
+  .pi-arrow-right {
+    color: #ccc;
+  }
+}

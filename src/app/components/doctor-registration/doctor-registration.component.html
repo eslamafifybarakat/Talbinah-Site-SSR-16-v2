@@ -1,0 +1,32 @@
+<div id="doctor-registration" class="pb-4">
+  <div class="container">
+    <div class="d-flex gap-3 justify-content-between align-items-center">
+      <ng-container *ngFor="let item of steps;let i=index">
+        <div class="d-flex gap-2 flex-column align-items-center justify-content-center step-info"
+          [class.active-step]="item.isSelected">
+          <div>
+            <i [class]="item.icon" class="step-icon"></i>
+          </div>
+          {{item.title}}
+        </div>
+        <div *ngIf="i!=3">
+          <i class="pi pi-arrow-right"></i>
+        </div>
+      </ng-container>
+    </div>
+    <div class="step-container pt-4">
+      <ng-container *ngIf="stepNum==1">
+        <app-personal-info (personalInfo)="submitPersonalInfo($event)"></app-personal-info>
+      </ng-container>
+      <ng-container *ngIf="stepNum==2">
+        step 2
+      </ng-container>
+      <ng-container *ngIf="stepNum==3">
+        step 3
+      </ng-container>
+      <ng-container *ngIf="stepNum==4">
+        step 4
+      </ng-container>
+    </div>
+  </div>
+</div>

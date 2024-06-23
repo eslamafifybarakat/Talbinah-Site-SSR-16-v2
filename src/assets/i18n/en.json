@@ -39,7 +39,11 @@
     "sr": "SR",
     "noSearchResult": "There are no search results",
     "minute": "minute",
-    "bookNow": "Book Now"
+    "bookNow": "Book Now",
+    "maxSize": "Max size",
+    "replace": "Replace",
+    "clickToUpload": "Click to upload or drag and drop",
+    "supports": "Supports"
   },
   "home": {
     "hero": {
@@ -178,6 +182,7 @@
     "joinNow": "Join now"
   },
   "labels": {
+    "profileImage": "Profile Image",
     "subject":"Subject",
     "callNow": "Call Now",
     "callLater": "Call Later",
@@ -203,7 +208,11 @@
     "address": "Address",
     "newPassword": "New Password",
     "phoneNumber": "Phone Number",
-    "postNumber": "Post Number"
+    "postNumber": "Post Number",
+    "nameEn": "Name (English)",
+    "nameAr": "Name (Arabic)",
+    "gender": "Gender",
+    "dateOfBirth": "Birth Date"
   },
   "placeholders": {
     "name":"Enter your name",
@@ -225,8 +234,10 @@
     "city": "Select city",
     "vatNumber": "Enter your vat-number",
     "address": "Enter address",
-    "newPassword": "Enter new password"
-  },
+    "newPassword": "Enter new password",
+    "select": "Select",
+    "dateFormat": "dd/mm/yyyy"
+    },
   "validations": {
     "emailRequired": "Email Address is required",
     "username": "Username is required",

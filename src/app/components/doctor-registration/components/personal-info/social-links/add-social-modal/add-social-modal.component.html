@@ -1,0 +1,117 @@
+<div class="add-social">
+  <form [formGroup]="addSocialForm">
+    <div class="row">
+      <div class="col-12">
+        <div class="mb-4">
+          <ng-container *ngIf="isEdit; else elseSelect">
+            <input type="text" class="form-control" disabled [value]="this.item?.name?.title">
+          </ng-container>
+          <ng-template #elseSelect>
+            <div class="mb-3">
+              <label for="name" class="custom-label mb-2 required">
+                <!-- {{'labels.select'|translate}} -->
+                اختر
+              </label>
+              <div
+                [class.border-red]="addSocialFormControls?.name?.invalid && (addSocialFormControls?.name?.dirty || addSocialFormControls?.name?.touched)">
+                <p-dropdown id="name" [options]="socialOptions" formControlName="name" optionLabel="title"
+                  [filter]="true" [virtualScroll]="true" filterPlaceholder="{{'placeholders.search'|translate}}"
+                  [virtualScrollItemSize]="40" filterBy="title" appendTo="body" scrollHeight="200px"
+                  [emptyMessage]="'لا يوجد نتائج'" [showClear]="true" placeholder="اختر">
+                  <ng-template pTemplate="selectedItem">
+                    <div class="d-flex align-items-center gap-2" *ngIf="addSocialForm?.value?.name">
+                      <i *ngIf="addSocialForm.value.name?.value === 'linkedin'"
+                        class='pi pi-linkedin text-white rounded bg-linkedin fs-12 icon-social-settings'></i>
+                      <i *ngIf="addSocialForm.value.name?.value === 'twitter'"
+                        class='pi pi-twitter text-white rounded bg-twitter fs-12 icon-social-settings'></i>
+                      <i *ngIf="addSocialForm.value.name?.value === 'youtube'"
+                        class='pi pi-youtube text-white rounded bg-youtube fs-12 icon-social-settings'></i>
+                      <i *ngIf="addSocialForm.value.name?.value === 'facebook'"
+                        class='pi pi-facebook text-white rounded bg-color-face fs-12 icon-social-settings'></i>
+                      <i *ngIf="addSocialForm.value.name?.value === 'instagram'"
+                        class='pi pi-instagram text-white rounded bg-color-instagram fs-12 icon-social-settings'></i>
+                      <span>{{addSocialForm.value.name?.title}}</span>
+                    </div>
+                  </ng-template>
+                  <ng-template let-item pTemplate="item">
+                    <div class="d-flex align-items-center gap-2">
+                      <i *ngIf="item?.value === 'linkedin'"
+                        class='pi pi-linkedin text-white rounded bg-linkedin fs-12 icon-social-settings'></i>
+                      <i *ngIf="item?.value === 'twitter'"
+                        class='pi pi-twitter text-white rounded bg-twitter fs-12 icon-social-settings'></i>
+                      <i *ngIf="item?.value === 'youtube'"
+                        class='pi pi-youtube text-white rounded bg-youtube fs-12 icon-social-settings'></i>
+                      <i *ngIf="item?.value === 'facebook'"
+                        class='pi pi-facebook text-white rounded bg-color-face fs-12 icon-social-settings'></i>
+                      <i *ngIf="item?.value === 'instagram'"
+                        class='pi pi-instagram text-white rounded bg-color-instagram fs-12 icon-social-settings'></i>
+                      <span>{{item?.title}}</span>
+                    </div>
+                  </ng-template>
+                </p-dropdown>
+              </div>
+              <div class="mt-2">
+                <ng-container
+                  *ngIf="addSocialFormControls?.name?.invalid && (addSocialFormControls?.name?.dirty || addSocialFormControls?.name?.touched)">
+                  <ng-container
+                    *ngIf="addSocialFormControls?.name?.invalid && (addSocialFormControls?.name?.dirty || addSocialFormControls?.name?.touched)">
+                    <ng-container *ngIf="addSocialFormControls?.name?.errors?.['required']">
+                      <span class="text-danger fs-8">
+                        <!-- {{'validations.requiredField'|translate}} -->
+                        هذا الحقل مطلوب
+                      </span>
+                    </ng-container>
+                  </ng-container>
+                </ng-container>
+              </div>
+            </div>
+          </ng-template>
+        </div>
+      </div>
+      <div class="mb-3">
+        <label for="link" class="custom-label mb-2 required">
+          <!-- {{'labels.link'|translate}} -->
+          الرابط
+        </label>
+        <input id="link" type="url" class="form-control" formControlName="link"
+          (input)="publicService.clearValidationErrors(addSocialFormControls?.link)"
+          [class.border-red]="addSocialFormControls?.link?.invalid && (addSocialFormControls?.link?.dirty || addSocialFormControls?.link?.touched)"
+          placeholder="https://" autocomplete="cc-name">
+        <div class="my-2">
+          <ng-container
+            *ngIf="addSocialFormControls?.link?.invalid && (addSocialFormControls?.link?.dirty || addSocialFormControls?.link?.touched)">
+            <ng-container *ngIf="addSocialFormControls?.link?.errors?.['required']">
+              <span class="text-danger fs-8">
+                <!-- {{'validations.requiredField' | translate}} -->
+                هذا الحقل مطلوب
+              </span>
+            </ng-container>
+            <ng-container *ngIf="addSocialFormControls?.link?.errors?.pattern">
+              <span class="text-danger fs-8 d-block">
+                البيانات غير صالحة
+                <!-- {{'validations.valueNotValid'| translate}} -->
+              </span>
+            </ng-container>
+          </ng-container>
+        </div>
+      </div>
+    </div>
+  </form>
+  <div class="d-flex align-items-center justify-content-center mt-3">
+    <button type="button" class="btn btn-solid-main" (click)="addLink()">
+      <ng-container *ngIf="isEdit; else elseAdd">
+        <span class="mx-1 px-3">
+          <!-- {{'general.update' | translate }} -->
+          تحديث
+        </span>
+      </ng-container>
+      <ng-template #elseAdd>
+        <span class="mx-1 px-3">
+          <!-- {{'general.add' | translate }} -->
+          اضافة
+        </span>
+      </ng-template>
+
+    </button>
+  </div>
+</div>

@@ -2,7 +2,7 @@ import { keys } from './../../shared/configs/localstorage-key';
 import { AbstractControl, FormControl, FormGroup } from '@angular/forms';
 import { Inject, Injectable, PLATFORM_ID } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
-import { Observable, Subject } from 'rxjs';
+import { BehaviorSubject, Observable, Subject } from 'rxjs';
 import { isPlatformBrowser } from '@angular/common';
 import { roots } from 'src/app/shared/configs/endPoints';
 import { environment } from 'src/environments/environment';
@@ -14,6 +14,7 @@ import { HttpClient } from '@angular/common/http';
 export class PublicService {
   show_loader = new Subject<boolean>();
   pageData = new Subject<any>();
+  removeUploadImg = new BehaviorSubject<boolean>(false);
   apiUrl: string = environment?.apiUrl;
 
   constructor(
@@ -49,5 +50,53 @@ export class PublicService {
 
   getDiscountPloicy(): Observable<any> {
     return this.http.get(`${this.apiUrl}/${roots?.discountPolicy}`);
+  }
+
+  getGenderOptions(): any {
+    let arr: any = [
+      {
+        id: 1,
+        title: "ذكر",
+        // title: this.translateTextFromJson('gender.male'),
+        value: 0
+      },
+      {
+        id: 2,
+        title: "أنثي",
+        // title: this.translateTextFromJson('gender.female'),
+        value: 1
+      }
+    ];
+    return arr;
+  }
+  getSocialOptions(): any {
+    let arr: any = [
+      {
+        id: 1,
+        title: 'Facebook',
+        value: 'facebook'
+      },
+      {
+        id: 2,
+        title: 'Linkedin',
+        value: 'linkedin'
+      },
+      {
+        id: 3,
+        title: 'Youtube',
+        value: 'youtube'
+      },
+      {
+        id: 4,
+        title: 'Twitter',
+        value: 'twitter'
+      },
+      {
+        id: 5,
+        title: 'Instagram',
+        value: 'instagram'
+      }
+    ];
+    return arr;
   }
 }
