@@ -13,6 +13,7 @@ import { PasswordModule } from 'primeng/password';
 import { CalendarModule } from 'primeng/calendar';
 import { DividerModule } from "primeng/divider";
 import { SocialLinksComponent } from './social-links/social-links.component';
+import { Subscription, catchError, finalize, tap } from 'rxjs';
 
 @Component({
   standalone: true,
@@ -22,6 +23,8 @@ import { SocialLinksComponent } from './social-links/social-links.component';
   styleUrls: ['./personal-info.component.scss']
 })
 export class PersonalInfoComponent {
+  private subscriptions: Subscription[] = [];
+
   constructor(
     private doctorsService: DoctorsService,
     public publicService: PublicService,
@@ -110,10 +113,12 @@ export class PersonalInfoComponent {
 
   getCountries(): void {
     this.isLoadingCountries = true;
-    this.doctorsService?.getCountries()?.subscribe(
-      (res: any) => this.handleCountriesResponse(res),
-      (err: any) => this.handleCountriesError(err)
-    );
+    let countriesSubscribe: Subscription = this.doctorsService?.getCountries().pipe(
+      tap(res => this.handleCountriesResponse(res)),
+      catchError(err => this.handleError(err)),
+      finalize(() => this.isLoadingCountries = false)
+    ).subscribe();
+    this.subscriptions.push(countriesSubscribe);
   }
   private handleCountriesResponse(res: any): void {
     if (res?.status) {
@@ -130,10 +135,7 @@ export class PersonalInfoComponent {
     }
     this.isLoadingCountries = false;
   }
-  private handleCountriesError(err: any): void {
-    err ? this.alertService?.openToast('error', 'error', err) : '';
-    this.isLoadingCountries = false;
-  }
+
 
   openPdfViewer(): void { }
 
@@ -153,5 +155,16 @@ export class PersonalInfoComponent {
     } else {
       this.publicService.validateAllFormFields(this.firstFormGroup);
     }
+  }
+  private handleError(error: any): any {
+    error ? this.alertService?.openToast('error', 'error', error || this.publicService.translateTextFromJson('general.errorOccur')) : '';
+  }
+
+  ngOnDestroy(): void {
+    this.subscriptions.forEach((subscription: Subscription) => {
+      if (subscription && subscription.closed) {
+        subscription.unsubscribe();
+      }
+    });
   }
 }
