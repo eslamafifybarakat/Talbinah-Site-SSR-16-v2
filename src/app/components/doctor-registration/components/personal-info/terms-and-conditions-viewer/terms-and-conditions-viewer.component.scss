@@ -1,0 +1,92 @@
+/* Font Definitions */
+@font-face {
+  font-family: "Cambria Math";
+  panose-1: 2 4 5 3 5 4 6 3 2 4;
+}
+
+@font-face {
+  font-family: "Segoe UI";
+  panose-1: 2 11 5 2 4 2 4 2 2 3;
+}
+
+/* Style Definitions */
+p.MsoNormal,
+li.MsoNormal,
+div.MsoNormal {
+  margin-top: 0in;
+  margin-right: 0in;
+  margin-bottom: 11.4pt;
+  margin-left: 0.5pt;
+  text-indent: -0.5pt;
+  line-height: 103%;
+  font-size: 12pt !important;
+  font-family: "Times New Roman", serif;
+  color: black;
+}
+
+.MsoPapDefault {
+  margin-bottom: 8pt;
+  line-height: 107%;
+}
+
+@page WordSection1 {
+  size: 8.5in 11in;
+  margin: 72.45pt 1.25in 71.95pt 1.25in;
+}
+
+div.WordSection1 {
+  page: WordSection1;
+}
+
+/* List Definitions */
+ol {
+  margin-bottom: 0in;
+}
+
+ul {
+  margin-bottom: 0in;
+}
+
+.__cf_email__ {
+  color: #0359ff !important;
+  font-weight: bold !important;
+  text-decoration: underline !important;
+}
+
+.scroll-end {
+  align-items: center;
+  padding: 10px 20px;
+  border: none;
+  cursor: pointer;
+  position: absolute;
+  bottom: 65px;
+  right: 40px;
+  width: 40px;
+  height: 40px;
+  min-width: auto;
+}
+
+.scroll-end:focus {
+  outline: none;
+}
+
+.scroll-top i {
+  transform: rotate(180deg) !important;
+  /* This will rotate the arrow to point upwards */
+}
+.btn-solid-main {
+  background-color: var(--bg-main-color);
+  border-color: var(--bg-main-color);
+  color: var(--text-white-color);
+  height: 3rem;
+  border-radius: var(--border-input-radius);
+  min-width: 6rem;
+}
+.btn-outline-main {
+  background-color: transparent;
+  border-color: var(--bg-main-color);
+  color: var(--text-main-color);
+  height: 3rem;
+  border-radius: var(--border-input-radius);
+  min-width: 6rem;
+}

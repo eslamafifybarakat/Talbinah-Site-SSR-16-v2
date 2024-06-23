@@ -1,36 +1,50 @@
-import { DoctorsService } from './../../../../services/doctors.service';
-import { AlertsService } from './../../../../services/generic/alerts.service';
-import { FileUploadComponent } from './../../../../shared/components/file-upload/file-upload.component';
-import { ConfirmPasswordValidator } from './../../../../shared/configs/confirm-password-validator';
-import { patterns } from './../../../../shared/configs/patterns';
-import { PublicService } from './../../../../services/generic/public.service';
-import { CommonModule } from '@angular/common';
-import { Component, EventEmitter, Output } from '@angular/core';
+// Modules
 import { FormArray, FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
 import { TranslateModule } from '@ngx-translate/core';
 import { DropdownModule } from 'primeng/dropdown';
 import { PasswordModule } from 'primeng/password';
 import { CalendarModule } from 'primeng/calendar';
 import { DividerModule } from "primeng/divider";
+import { CommonModule } from '@angular/common';
+
+// Components
+import { FileUploadComponent } from './../../../../shared/components/file-upload/file-upload.component';
 import { SocialLinksComponent } from './social-links/social-links.component';
+
+// Services
+import { ConfirmPasswordValidator } from './../../../../shared/configs/confirm-password-validator';
+import { AlertsService } from './../../../../services/generic/alerts.service';
+import { PublicService } from './../../../../services/generic/public.service';
+import { DoctorsService } from './../../../../services/doctors.service';
+import { patterns } from './../../../../shared/configs/patterns';
+import { Component, EventEmitter, Output } from '@angular/core';
 import { Subscription, catchError, finalize, tap } from 'rxjs';
+import { DialogService } from 'primeng/dynamicdialog';
+import { TermsAndConditionsViewerComponent } from './terms-and-conditions-viewer/terms-and-conditions-viewer.component';
 
 @Component({
   standalone: true,
-  imports: [CommonModule, TranslateModule, FormsModule, ReactiveFormsModule, DropdownModule, PasswordModule, CalendarModule, DividerModule, FileUploadComponent, SocialLinksComponent],
+  imports: [
+    // Modules
+    ReactiveFormsModule,
+    TranslateModule,
+    DropdownModule,
+    PasswordModule,
+    CalendarModule,
+    DividerModule,
+    CommonModule,
+    FormsModule,
+
+    // Components
+    SocialLinksComponent,
+    FileUploadComponent,
+  ],
   selector: 'app-personal-info',
   templateUrl: './personal-info.component.html',
   styleUrls: ['./personal-info.component.scss']
 })
 export class PersonalInfoComponent {
   private subscriptions: Subscription[] = [];
-
-  constructor(
-    private doctorsService: DoctorsService,
-    public publicService: PublicService,
-    private alertService: AlertsService,
-    private formBuilder: FormBuilder,
-  ) { }
   @Output() personalInfo = new EventEmitter();
 
   doctorImg: string = '';
@@ -44,6 +58,9 @@ export class PersonalInfoComponent {
   todayDate: Date = new Date();
   readonly minAge = 18;
   maxDate: any = new Date(new Date()?.getFullYear() - this.minAge, new Date()?.getMonth(), new Date()?.getDate());
+  genderOptions: any = [];
+  countriesList: any = [];
+  isLoadingCountries: boolean = false;
 
   firstFormGroup = this.formBuilder?.group(
     {
@@ -87,16 +104,15 @@ export class PersonalInfoComponent {
   get firstFormControls(): any {
     return this.firstFormGroup?.controls;
   }
-  get phoneNumbers(): FormArray {
-    return this.firstFormGroup.get('phoneNumbers') as FormArray;
-  }
 
-  addPhoneNumber(): void {
-    this.phoneNumbers.push(this.createPhoneNumber());
-  }
-  genderOptions: any = [];
-  countriesList: any = [];
-  isLoadingCountries: boolean = false;
+  constructor(
+    private doctorsService: DoctorsService,
+    private dialogService: DialogService,
+    public publicService: PublicService,
+    private alertService: AlertsService,
+    private formBuilder: FormBuilder,
+  ) { }
+
   ngOnInit(): void {
     this.genderOptions = this.publicService.getGenderOptions();
     this.getCountries();
@@ -136,8 +152,28 @@ export class PersonalInfoComponent {
     this.isLoadingCountries = false;
   }
 
+  openPdfViewer(pdf?: any): void {
+    const termsRef = this.dialogService?.open(TermsAndConditionsViewerComponent, {
+      data: pdf,
+      width: '90%',
+      height: '100%',
+      dismissableMask: false,
+      styleClass: 'pdf-viewer'
 
-  openPdfViewer(): void { }
+    });
+    termsRef.onClose.subscribe((res: any) => {
+      if (res?.isAgree == true) {
+        this.firstFormGroup.patchValue({
+          terms_conditions: true
+        });
+      }
+      if (res?.isAgree == false) {
+        this.firstFormGroup.patchValue({
+          terms_conditions: false
+        });
+      }
+    });
+  }
 
   getSocialLinks(event: any): void {
     let arr = event;
