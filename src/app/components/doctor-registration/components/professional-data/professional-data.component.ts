@@ -1,15 +1,18 @@
-import { HttpClient } from '@angular/common/http';
-import { AlertsService } from './../../../../services/generic/alerts.service';
-import { PublicService } from './../../../../services/generic/public.service';
-import { DialogService } from 'primeng/dynamicdialog';
-import { DoctorsService } from './../../../../services/doctors.service';
-import { Component, EventEmitter, Output } from '@angular/core';
+// Modules
 import { FormBuilder, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
-import { Router } from '@angular/router';
-import { CommonModule } from '@angular/common';
 import { TranslateModule } from '@ngx-translate/core';
 import { DropdownModule } from 'primeng/dropdown';
+import { CommonModule } from '@angular/common';
+
+// Services
+import { AlertsService } from './../../../../services/generic/alerts.service';
+import { PublicService } from './../../../../services/generic/public.service';
+import { DoctorsService } from './../../../../services/doctors.service';
+import { Component, EventEmitter, Output } from '@angular/core';
 import { Subscription, catchError, finalize, tap } from 'rxjs';
+import { DialogService } from 'primeng/dynamicdialog';
+import { HttpClient } from '@angular/common/http';
+import { Router } from '@angular/router';
 
 @Component({
   standalone: true,
@@ -21,6 +24,7 @@ import { Subscription, catchError, finalize, tap } from 'rxjs';
 export class ProfessionalDataComponent {
   private subscriptions: Subscription[] = [];
   @Output() professionalData = new EventEmitter();
+  @Output() back = new EventEmitter();
 
   secondFormGroup: any = this.formBuilder?.group({
     country_id: [null, {
@@ -93,11 +97,16 @@ export class ProfessionalDataComponent {
     }
     this.isLoadingCountries = false;
   }
+
+  backStep(): void {
+    this.back?.emit(1);
+  }
+
   submitRegister(): void {
     if (this.secondFormGroup.valid) {
-      this.professionalData.emit({
-        formValues: this.secondFormGroup.value,
-      })
+      let data = this.secondFormGroup.value;
+      data['id'] = 2;
+      this.professionalData.emit(data);
     } else {
       this.publicService.validateAllFormFields(this.secondFormGroup);
     }

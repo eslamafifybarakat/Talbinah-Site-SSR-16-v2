@@ -184,10 +184,10 @@ export class PersonalInfoComponent {
   }
   submitRegister(): void {
     if (this.firstFormGroup.valid) {
-      this.personalInfo.emit({
-        formValues: this.firstFormGroup.value,
-        socialLinkL: this.linksSocial
-      })
+      let data = this.firstFormGroup.value;
+      data['socialLinkL'] = this.linksSocial;
+      data['id'] = 1;
+      this.personalInfo.emit(data)
     } else {
       this.publicService.validateAllFormFields(this.firstFormGroup);
     }

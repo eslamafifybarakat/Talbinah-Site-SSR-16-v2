@@ -7,6 +7,7 @@ import { isPlatformBrowser } from '@angular/common';
 import { roots } from 'src/app/shared/configs/endPoints';
 import { environment } from 'src/environments/environment';
 import { HttpClient } from '@angular/common/http';
+import * as moment from 'moment';
 
 @Injectable({
   providedIn: 'root'
@@ -133,4 +134,22 @@ export class PublicService {
     ];
     return arr;
   }
+
+  formatSizeUnits(size: any): void {
+    if (size >= 1073741824) { size = (size / 1073741824).toFixed(2) + " GB"; }
+    else if (size >= 1048576) { size = (size / 1048576).toFixed(2) + " MB"; }
+    else if (size >= 1024) { size = (size / 1024).toFixed(2) + " KB"; }
+    else if (size > 1) { size = size + " bytes"; }
+    else if (size == 1) { size = size + " byte"; }
+    else { size = "0 bytes"; }
+    return size;
+  }
+
+  convertTimeOrDate(value: any, type?: any): void {
+    var date: any = moment(value)?.format('YYYY-MM-DD');
+    if (type == 'date') {
+      return date;
+    }
+  }
+
 }

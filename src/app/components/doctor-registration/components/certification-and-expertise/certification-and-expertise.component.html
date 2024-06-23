@@ -1,0 +1,346 @@
+<form aria-label="certification-and-expertise" id="doctor-registration-form" [formGroup]="thirdFormGroup"
+  (ngSubmit)="submitRegister()" class="mt-md-5 mt-4">
+  <div class="row">
+    <div class="col-md-12 mb-3">
+      <label for="prefix" class="custom-label mb-2 required">
+        <!-- {{"doctors.choose_catagory"|translate}} -->
+        اختر التخصص
+      </label>
+      <span class="p-input-icon-right select-loading d-block"
+        [class.border-red]="thirdFormControls?.parentCategory?.invalid && (thirdFormControls?.parentCategory?.dirty || thirdFormControls?.parentCategory?.touched)">
+        <p-multiSelect appendTo="body" [options]="parentCategoriesList" formControlName="parentCategory"
+          filterPlaceHolder="{{'placeholders.search'|translate}}" display="chip" [readonly]="isLoadingSpecialists"
+          [virtualScroll]="true" [showClear]="true" [virtualScrollItemSize]="38" scrollHeight="150px"
+          placeholder="اختر التخصص" [showToggleAll]="true" optionLabel="name"></p-multiSelect>
+        <ng-container *ngIf="isLoadingSpecialists">
+          <i class="pi pi-spin pi-spinner"></i>
+        </ng-container>
+      </span>
+      <div class="my-2">
+        <ng-container
+          *ngIf="thirdFormControls?.parentCategory?.invalid && (thirdFormControls?.parentCategory?.dirty || thirdFormControls?.parentCategory?.touched)">
+          <ng-container *ngIf="thirdFormControls?.parentCategory?.errors?.['required']">
+            <span class="text-danger fs-8">
+              {{'validations.requiredField' | translate}}
+            </span>
+          </ng-container>
+        </ng-container>
+      </div>
+    </div>
+    <ng-container *ngIf="enable_15_minutes">
+      <div class="col-lg-6 col-md-12 mb-3">
+        <label for="exampleFormControlInput1" class="form-label required">
+          <!-- {{"doctorRegisteration.price_Egy_15"|translate}} -->
+          سعر الجلسة بالريال السعودي (15 دقيقة)
+        </label>
+        <div class="input-group"
+          [class.border-red]="(thirdFormControls?.egyPrice_15?.touched || thirdFormControls?.egyPrice_15?.dirty) && thirdFormControls?.egyPrice_15?.invalid">
+          <input type="number" noMinus class="form-control border-radius-left border-radius-right" [min]="1"
+            (ngModelChange)="onEgyPriceChange($event)" formControlName="egyPrice_15">
+          <span class="input-group-text px-3 group-rtl">
+            ر.س
+          </span>
+        </div>
+        <ng-container *ngIf="thirdFormControls?.egyPrice_15?.touched || thirdFormControls?.egyPrice_15?.dirty">
+          <div class="my-2">
+            <ng-container *ngIf="thirdFormControls?.egyPrice_15?.errors?.required">
+              <span class="text-danger fs-8">
+                {{'validations.requiredField' | translate}}
+              </span>
+            </ng-container>
+            <ng-container *ngIf="thirdFormControls?.egyPrice_15?.errors?.minlength">
+              <span class="text-danger fs-8">
+                {{'validations.min_5' | translate}}
+              </span>
+            </ng-container>
+          </div>
+        </ng-container>
+      </div>
+      <div class="col-lg-6 col-md-12 mb-3">
+        <label for="exampleFormControlInput1" class="form-label required">
+          <!-- {{"doctorRegisteration.price_dollar_15"|translate}} -->
+          سعر الجلسة بالدولار (15 دقيقة)
+        </label>
+        <div class="input-group"
+          [class.border-red]="(thirdFormControls?.dollarPrice_15?.touched || thirdFormControls?.dollarPrice_15?.dirty) && thirdFormControls?.dollarPrice_15?.invalid">
+          <input type="number" noMinus class="form-control border-radius-left border-radius-right"
+            (ngModelChange)="onDollarPriceChange($event)" formControlName="dollarPrice_15" [min]="1">
+          <span class="input-group-text px-3 group-rtl">
+            $
+          </span>
+        </div>
+        <ng-container *ngIf="thirdFormControls?.dollarPrice_15?.touched || thirdFormControls?.dollarPrice_15?.dirty">
+          <div class="my-2">
+            <ng-container *ngIf="thirdFormControls?.dollarPrice_15?.errors?.required">
+              <span class="text-danger fs-8">
+                {{'validations.requiredField' | translate}}
+              </span>
+            </ng-container>
+            <ng-container *ngIf="thirdFormControls?.dollarPrice_15?.errors?.minlength">
+              <span class="text-danger fs-8">
+                {{'validations.min_5' | translate}}
+              </span>
+            </ng-container>
+          </div>
+        </ng-container>
+      </div>
+    </ng-container>
+
+    <div class="col-lg-6 col-md-12 mb-3">
+      <label for="exampleFormControlInput1" class="form-label required">
+        <!-- {{"doctorRegisteration.price_Egy_30"|translate}} -->
+        سعر الجلسة بالريال السعودي (30 دقيقة)
+      </label>
+      <div class="input-group"
+        [class.border-red]="(thirdFormControls?.egyPrice_30?.touched || thirdFormControls?.egyPrice_30?.dirty) && thirdFormControls?.egyPrice_30?.invalid"
+        [class.disabled]="true">
+
+        <input type="number" class="form-control border-radius-left border-radius-right" [min]="1" noMinus
+          formControlName="egyPrice_30">
+        <span class="input-group-text px-3 group-rtl">
+          ر.س
+        </span>
+      </div>
+      <ng-container *ngIf="thirdFormControls?.egyPrice_30?.touched || thirdFormControls?.egyPrice_30?.dirty">
+        <div class="my-2">
+          <ng-container *ngIf="thirdFormControls?.egyPrice_30?.errors?.required">
+            <span class="text-danger fs-8">
+              {{'validations.requiredField' | translate}}
+            </span>
+          </ng-container>
+          <ng-container *ngIf="thirdFormControls?.egyPrice_30?.errors?.minlength">
+            <span class="text-danger fs-8">
+              {{'validations.min_5' | translate}}
+            </span>
+          </ng-container>
+        </div>
+      </ng-container>
+    </div>
+    <div class="col-lg-6 col-md-12 mb-3">
+      <label for="exampleFormControlInput1" class="form-label required">
+        <!-- {{"doctorRegisteration.price_dollar_30"|translate}} -->
+        سعر الجلسة بالدولار (30 دقيقة)
+      </label>
+      <div class="input-group"
+        [class.border-red]="(thirdFormControls?.dollarPrice_30?.touched || thirdFormControls?.dollarPrice_30?.dirty) && thirdFormControls?.dollarPrice_30?.invalid"
+        [class.disabled]="true">
+
+        <input type="number" class="form-control border-radius-left border-radius-right" [min]="1" noMinus
+          formControlName="dollarPrice_30">
+        <span class="input-group-text px-3 group-rtl">
+          $
+        </span>
+      </div>
+      <ng-container *ngIf="thirdFormControls?.dollarPrice_30?.touched || thirdFormControls?.dollarPrice_30?.dirty">
+        <div class="my-2">
+          <ng-container *ngIf="thirdFormControls?.dollarPrice_30?.errors?.required">
+            <span class="text-danger fs-8">
+              {{'validations.requiredField' | translate}}
+            </span>
+          </ng-container>
+          <ng-container *ngIf="thirdFormControls?.dollarPrice_30?.errors?.minlength">
+            <span class="text-danger fs-8">
+              {{'validations.min_5' | translate}}
+            </span>
+          </ng-container>
+        </div>
+      </ng-container>
+    </div>
+
+    <div class="col-lg-6 col-md-12 mb-3">
+      <label for="exampleFormControlInput1" class="form-label required">
+        <!-- {{"doctorRegisteration.price_Egy_45"|translate}} -->
+        سعر الجلسة بالريال السعودي (45 دقيقة)
+      </label>
+      <div class="input-group"
+        [class.border-red]="(thirdFormControls?.egyPrice_45?.touched || thirdFormControls?.egyPrice_45?.dirty) && thirdFormControls?.egyPrice_45?.invalid"
+        [class.disabled]="true">
+
+        <input type="number" class="form-control border-radius-left border-radius-right" [min]="1" noMinus
+          formControlName="egyPrice_45">
+        <span class="input-group-text px-3 group-rtl">
+          ر.س
+        </span>
+      </div>
+      <ng-container *ngIf="thirdFormControls?.egyPrice_45?.touched || thirdFormControls?.egyPrice_45?.dirty">
+        <div class="my-2">
+          <ng-container *ngIf="thirdFormControls?.egyPrice_45?.errors?.required">
+            <span class="text-danger fs-8">
+              {{'validations.requiredField' | translate}}
+            </span>
+          </ng-container>
+          <ng-container *ngIf="thirdFormControls?.egyPrice_45?.errors?.minlength">
+            <span class="text-danger fs-8">
+              {{'validations.min_5' | translate}}
+            </span>
+          </ng-container>
+        </div>
+      </ng-container>
+    </div>
+    <div class="col-lg-6 col-md-12 mb-3">
+      <label for="exampleFormControlInput1" class="form-label required">
+        <!-- {{"doctorRegisteration.price_dollar_45"|translate}} -->
+        سعر الجلسة بالدولار (45 دقيقة)
+      </label>
+      <div class="input-group"
+        [class.border-red]="(thirdFormControls?.dollarPrice_45?.touched || thirdFormControls?.dollarPrice_45?.dirty) && thirdFormControls?.dollarPrice_45?.invalid"
+        [class.disabled]="true">
+
+        <input type="number" class="form-control border-radius-left border-radius-right" noMinus
+          formControlName="dollarPrice_45">
+        <span class="input-group-text px-3 group-rtl">
+          $
+        </span>
+      </div>
+      <ng-container *ngIf="thirdFormControls?.dollarPrice_45?.touched || thirdFormControls?.dollarPrice_45?.dirty">
+        <div class="my-2">
+          <ng-container *ngIf="thirdFormControls?.dollarPrice_45?.errors?.required">
+            <span class="text-danger fs-8">
+              {{'validations.requiredField' | translate}}
+            </span>
+          </ng-container>
+          <ng-container *ngIf="thirdFormControls?.dollarPrice_45?.errors?.minlength">
+            <span class="text-danger fs-8">
+              {{'validations.min_5' | translate}}
+            </span>
+          </ng-container>
+        </div>
+      </ng-container>
+    </div>
+
+    <div class="col-lg-6 col-md-12 mb-3">
+      <label for="exampleFormControlInput1" class="form-label required">
+        <!-- {{"doctorRegisteration.price_Egy_60"|translate}} -->
+        سعر الجلسة بالريال السعودي (60 دقيقة)
+      </label>
+      <div class="input-group"
+        [class.border-red]="(thirdFormControls?.egyPrice_60?.touched || thirdFormControls?.egyPrice_60?.dirty) && thirdFormControls?.egyPrice_60?.invalid"
+        [class.disabled]="true">
+
+        <input type="number" noMinus class="form-control border-radius-left border-radius-right" [min]="1"
+          formControlName="egyPrice_60">
+        <span class="input-group-text px-3 group-rtl">
+          ر.س
+        </span>
+      </div>
+      <ng-container *ngIf="thirdFormControls?.egyPrice_60?.touched || thirdFormControls?.egyPrice_60?.dirty">
+        <div class="my-2">
+          <ng-container *ngIf="thirdFormControls?.egyPrice_60?.errors?.required">
+            <span class="text-danger fs-8">
+              {{'validations.requiredField' | translate}}
+            </span>
+          </ng-container>
+          <ng-container *ngIf="thirdFormControls?.egyPrice_60?.errors?.minlength">
+            <span class="text-danger fs-8">
+              {{'validations.min_5' | translate}}
+            </span>
+          </ng-container>
+        </div>
+      </ng-container>
+    </div>
+    <div class="col-lg-6 col-md-12 mb-3">
+      <label for="exampleFormControlInput1" class="form-label required">
+        <!-- {{"doctorRegisteration.price_dollar_60"|translate}} -->
+        سعر الجلسة بالدولار (60 دقيقة)
+      </label>
+      <div class="input-group"
+        [class.border-red]="(thirdFormControls?.dollarPrice_60?.touched || thirdFormControls?.dollarPrice_60?.dirty) && thirdFormControls?.dollarPrice_60?.invalid"
+        [class.disabled]="true">
+
+        <input type="number" noMinus class="form-control border-radius-left border-radius-right" [min]="1"
+          formControlName="dollarPrice_60">
+        <span class="input-group-text px-3 group-rtl">
+          $
+        </span>
+      </div>
+      <ng-container *ngIf="thirdFormControls?.dollarPrice_60?.touched || thirdFormControls?.dollarPrice_60?.dirty">
+        <div class="my-2">
+          <ng-container *ngIf="thirdFormControls?.dollarPrice_60?.errors?.required">
+            <span class="text-danger fs-8">
+              {{'validations.requiredField' | translate}}
+            </span>
+          </ng-container>
+          <ng-container *ngIf="thirdFormControls?.dollarPrice_60?.errors?.minlength">
+            <span class="text-danger fs-8">
+              {{'validations.min_5' | translate}}
+            </span>
+          </ng-container>
+        </div>
+      </ng-container>
+    </div>
+
+    <div class="col-lg-6 col-12">
+      <label class="cust-label my-2 required">
+        <!-- {{"doctorRegisteration.upload_cv"|translate}} -->
+        تحميل السيرة الذاتية
+      </label>
+      <app-upload-file-input class="w-100" (uploadHandler)="uploadCv($event)"
+        [accept]="'.docx, .pdf'"></app-upload-file-input>
+      <ng-container *ngIf="thirdFormControls?.cv?.touched || thirdFormControls?.cv?.dirty">
+        <div class="mb-2">
+          <ng-container *ngIf="thirdFormControls?.cv?.errors?.required">
+            <span class="text-danger fs-8">
+              {{'validations.requiredField' | translate}}
+            </span>
+          </ng-container>
+        </div>
+      </ng-container>
+    </div>
+    <div class="col-lg-6 col-12">
+      <label class="form-label my-2 required">
+        <!-- {{"doctorRegisteration.upload_cert"|translate}} -->
+        تحميل الشهادات
+      </label>
+      <app-upload-file-input class="w-100" (uploadHandler)="uploadCert($event)" [isMulti]="true"
+        [accept]="'.docx, .pdf'"></app-upload-file-input>
+      <ng-container *ngIf="thirdFormControls?.certificate?.touched || thirdFormControls?.certificate?.dirty">
+        <div class="mb-2">
+          <ng-container *ngIf="thirdFormControls?.certificate?.errors?.required">
+            <span class="text-danger fs-8">
+              {{'validations.requiredField' | translate}}
+            </span>
+          </ng-container>
+        </div>
+      </ng-container>
+    </div>
+    <div class="col-lg-6 col-12">
+      <label class="form-label my-2">
+        <!-- {{"doctorRegisteration.upload_others"|translate}} -->
+        أخري
+      </label>
+      <div class="specific-file-input">
+        <app-upload-file-input class="w-100" (uploadHandler)="uploadOther($event)" [isMulti]="true"
+          [accept]="'.docx, .pdf'"></app-upload-file-input>
+      </div>
+    </div>
+    <div class="col-12">
+      <div class="mt-4">
+        <i class="fas fa-info-circle mx-2 text-warning"></i>
+        <span class="">
+          <span class="fw-bold">
+            <!-- {{"note"|translate}}:  -->
+            ملحوظة:
+          </span>
+          يجب ان يكون حجم الملف اقل من 5 ميجا
+          <!-- {{'doctorRegisteration.validation_size_file' | translate}} -->
+        </span>
+      </div>
+    </div>
+  </div>
+
+  <div class="mt-4 d-flex justify-content-end gap-3">
+    <button (click)="backStep()"
+      class="btn btn-solid-main btn-solid-main d-flex justify-content-center align-items-center gap-2">
+      <i class="pi pi-arrow-left scaleX-rtl"></i>
+      <!-- {{"doctorRegisteration.back"|translate}} -->
+      رجوع
+    </button>
+    <!-- <button matStepperNext type="button"
+      [bled]="thirdFormGroup?.invalid || cvFile?.length<0 || certificateFile?.length<0" -->
+    <button type="submit" class="btn btn-solid-main d-flex justify-content-center align-items-center gap-2">
+      <!-- {{"doctorRegisteration.next"|translate}} -->
+      التالي
+      <i class="pi pi-arrow-right scaleX-rtl "></i>
+    </button>
+  </div>
+</form>

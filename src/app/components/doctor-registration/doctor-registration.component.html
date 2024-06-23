@@ -19,13 +19,16 @@
         <app-personal-info (personalInfo)="submitPersonalInfo($event)"></app-personal-info>
       </ng-container>
       <ng-container *ngIf="stepNum==2">
-        <app-professional-data></app-professional-data>
+        <app-professional-data (professionalData)="submitProfessionalData($event)"
+          (back)="back($event)"></app-professional-data>
       </ng-container>
       <ng-container *ngIf="stepNum==3">
-        step 3
+        <app-certification-and-expertise (certificationData)="submitCertificationData($event)"
+          (back)="back($event)"></app-certification-and-expertise>
       </ng-container>
       <ng-container *ngIf="stepNum==4">
-        step 4
+        <app-review-and-submit (back)="back($event)" (registerNow)="registerNow()"
+          [data]="submittedData"></app-review-and-submit>
       </ng-container>
     </div>
   </div>

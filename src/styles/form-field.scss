@@ -61,7 +61,8 @@ label {
 .p-inputmask,
 .p-password-input,
 .p-calendar-w-btn .p-inputtext,
-.p-dropdown {
+.p-dropdown,
+.p-multiselect {
   box-shadow: none !important;
   outline: none !important;
   background-color: var(--bg-input-color);
@@ -82,18 +83,37 @@ label {
   .p-inputmask,
   .p-password-input,
   .p-calendar-w-btn .p-inputtext,
-  .p-dropdown {
+  .p-dropdown,
+  .p-multiselect {
     background-color: #f2f7fa;
     border: 0;
+    display: flex;
+    align-items: center;
+  }
+  .p-multiselect {
+    padding-inline: 0;
   }
   .p-datepicker-trigger {
     background-color: #f2f7fa;
     border: 0;
   }
-  .p-calendar {
+  .p-calendar,
+  .p-multiselect {
     width: 100%;
     input {
       border-radius: 0;
+    }
+  }
+}
+.p-multiselect-items {
+  padding-inline: 5px;
+  .p-multiselect-item {
+    background-color: transparent;
+    border-radius: 7px;
+    margin-bottom: 5px;
+    &.p-highlight {
+      color: var(--text-main-color);
+      background-color: #274d7010;
     }
   }
 }
