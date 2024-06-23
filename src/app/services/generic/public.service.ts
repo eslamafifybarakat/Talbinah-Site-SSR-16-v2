@@ -99,4 +99,38 @@ export class PublicService {
     ];
     return arr;
   }
+  getLanguages(): any {
+    let arr: any = [
+      {
+        id: 1,
+        title: 'عربي',
+      },
+      // {
+      //   id: 2,
+      //   title: 'انجليزي',
+      // },
+      // {
+      //   id: 3,
+      //   title: 'عربي-انجليزي',
+      // }
+    ];;
+    return arr;
+  }
+  getAllPrefixes(): void {
+    let arr: any = [
+      {
+        id: 1,
+        name: 'دكتور',
+      },
+      {
+        id: 2,
+        name: 'أخصائي',
+      },
+      {
+        id: 2,
+        name: 'إستشاري',
+      },
+    ];
+    return arr;
+  }
 }

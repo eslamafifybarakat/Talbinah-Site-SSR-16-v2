@@ -1,10 +1,11 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { PersonalInfoComponent } from './components/personal-info/personal-info.component';
+import { ProfessionalDataComponent } from './components/professional-data/professional-data.component';
 
 @Component({
   standalone: true,
-  imports: [CommonModule, PersonalInfoComponent],
+  imports: [CommonModule, PersonalInfoComponent, ProfessionalDataComponent],
   selector: 'app-doctor-registration',
   templateUrl: './doctor-registration.component.html',
   styleUrls: ['./doctor-registration.component.scss']
@@ -36,7 +37,7 @@ export class DoctorRegistrationComponent {
       isSelected: false,
     }
   ];
-  stepNum: number = 1;
+  stepNum: number = 2;
 
   submitPersonalInfo(item): void {
     console.log(item);

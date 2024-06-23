@@ -19,7 +19,7 @@
         <app-personal-info (personalInfo)="submitPersonalInfo($event)"></app-personal-info>
       </ng-container>
       <ng-container *ngIf="stepNum==2">
-        step 2
+        <app-professional-data></app-professional-data>
       </ng-container>
       <ng-container *ngIf="stepNum==3">
         step 3

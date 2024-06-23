@@ -1,0 +1,207 @@
+<form id="doctor-registration-form" [formGroup]="secondFormGroup" class="mt-3" aria-label="professional-data">
+  <div class="row">
+    <div class="col-md-6 mb-3">
+      <label for="country" class="custom-label mb-2 required">
+        <!-- {{"doctorRegisteration.country"|translate}} -->
+        الدولة
+      </label>
+      <span class="p-input-icon-right select-loading d-block w-100"
+        [class.border-red]="secondFormControls?.country_id?.invalid && (secondFormControls?.country_id?.dirty || secondFormControls?.country_id?.touched)">
+        <p-dropdown [options]="countriesList" formControlName="country_id" optionLabel="name" [filter]="true"
+          filterPlaceholder="{{'placeholders.search'|translate}}" styleClass="border-0 w-100" [virtualScroll]="true"
+          [virtualScrollItemSize]="40" filterBy="name" appendTo="body" [showClear]="true" scrollHeight="150px"
+          [readonly]="isLoadingCountries" [emptyMessage]="'لا يوجد نتائج'|translate" placeholder="الدولة">
+          <ng-template pTemplate="selectedItem">
+            <div class="d-flex align-items-center gap-2" *ngIf="secondFormGroup?.value?.country_id">
+              <img [src]="secondFormGroup.value.country_id?.flag" alt="flag" class="flag"
+                onerror="src='assets/images/not-found/no-flag.svg'" alt="image">
+              <span>{{secondFormGroup.value.country_id?.name}}</span>
+            </div>
+          </ng-template>
+          <ng-template let-item pTemplate="item">
+            <div class="d-flex align-items-center gap-2">
+              <img [src]="item?.flag" alt="flag" class="flag shadow-sm"
+                onerror="src='assets/images/not-found/no-flag.svg'">
+              <span>{{item?.name}}</span>
+            </div>
+          </ng-template>
+        </p-dropdown>
+        <ng-container *ngIf="isLoadingCountries">
+          <i class="pi pi-spin pi-spinner"></i>
+        </ng-container>
+      </span>
+      <div class="my-2">
+        <ng-container
+          *ngIf="secondFormControls?.country_id?.invalid && (secondFormControls?.country_id?.dirty || secondFormControls?.country_id?.touched)">
+          <ng-container *ngIf="secondFormControls?.country_id?.errors?.['required']">
+            <span class="text-danger fs-8">
+              {{'validations.requiredField' | translate}}
+            </span>
+          </ng-container>
+        </ng-container>
+
+      </div>
+    </div>
+    <div class="col-md-6 mb-3">
+      <label for="license_no" class="custom-label mb-2 required">
+        <!-- {{"doctorRegisteration.license_no"|translate}} -->
+        رقم الرخصة
+      </label>
+      <input id="license_no" type="number" class="form-control" formControlName="license" [min]="1" noMinus
+        (input)="publicService.clearValidationErrors(secondFormControls?.license)"
+        [class.border-red]="secondFormControls?.license?.invalid && (secondFormControls?.license?.dirty || secondFormControls?.license?.touched)"
+        placeholder="رقم الرخصة" autocomplete="cc-name">
+      <div class="my-2">
+        <ng-container
+          *ngIf="secondFormControls?.license?.invalid && (secondFormControls?.license?.dirty || secondFormControls?.license?.touched)">
+          <ng-container *ngIf="secondFormControls?.license?.errors?.['required']">
+            <span class="text-danger fs-8">
+              {{'validations.requiredField' | translate}}
+            </span>
+          </ng-container>
+          <ng-container *ngIf="secondFormControls?.license?.errors?.['minlength']">
+            <span class="text-danger fs-8">
+              {{'validations.length'| translate}}
+            </span>
+          </ng-container>
+          <ng-container *ngIf="secondFormControls?.license?.errors?.pattern">
+            <span class="text-danger fs-8 d-block">
+              {{'validations.valueNotValid'| translate}}
+            </span>
+          </ng-container>
+        </ng-container>
+      </div>
+    </div>
+
+    <div class="col-md-6 mb-3">
+      <label for="license_organization" class="custom-label mb-2 required">
+        <!-- {{"doctorRegisteration.license_organization"|translate}} -->
+        ترخيص المنظمة
+      </label>
+      <input id="license_organization" type="number" class="form-control" formControlName="organization" noMinus [min]=1
+        (input)="publicService.clearValidationErrors(secondFormControls?.organization)"
+        [class.border-red]="secondFormControls?.organization?.invalid && (secondFormControls?.organization?.dirty || secondFormControls?.organization?.touched)"
+        placeholder="ترخيص المنظمة " autocomplete="cc-name">
+      <div class="my-2">
+        <ng-container
+          *ngIf="secondFormControls?.organization?.invalid && (secondFormControls?.organization?.dirty || secondFormControls?.organization?.touched)">
+          <ng-container *ngIf="secondFormControls?.organization?.errors?.['required']">
+            <span class="text-danger fs-8">
+              {{'validations.requiredField' | translate}}
+            </span>
+          </ng-container>
+          <ng-container *ngIf="secondFormControls?.organization?.errors?.['minlength']">
+            <span class="text-danger fs-8">
+              {{'validations.length'| translate}}
+            </span>
+          </ng-container>
+          <ng-container *ngIf="secondFormControls?.organization?.errors?.pattern">
+            <span class="text-danger fs-8 d-block">
+              {{'validations.valueNotValid'| translate}}
+            </span>
+          </ng-container>
+        </ng-container>
+      </div>
+    </div>
+    <div class="col-md-6 mb-3">
+      <label for="years_of_experience" class="custom-label mb-2 required">
+        <!-- {{"doctorRegisteration.years_of_experience"|translate}} -->
+        سنوات الخبرة
+      </label>
+      <input id="years_of_experience" type="number" class="form-control" formControlName="years_of_experience" noMinus
+        (input)="publicService.clearValidationErrors(secondFormControls?.years_of_experience)"
+        [class.border-red]="secondFormControls?.years_of_experience?.invalid && (secondFormControls?.years_of_experience?.dirty || secondFormControls?.years_of_experience?.touched)"
+        placeholder="سنوات الخبرة" autocomplete="cc-name">
+      <div class="my-2">
+        <ng-container
+          *ngIf="secondFormControls?.years_of_experience?.invalid && (secondFormControls?.years_of_experience?.dirty || secondFormControls?.years_of_experience?.touched)">
+          <ng-container *ngIf="secondFormControls?.years_of_experience?.errors?.['required']">
+            <span class="text-danger fs-8">
+              {{'validations.requiredField' | translate}}
+            </span>
+          </ng-container>
+          <ng-container *ngIf="secondFormControls?.years_of_experience?.errors?.['minlength']">
+            <span class="text-danger fs-8">
+              {{'validations.length'| translate}}
+            </span>
+          </ng-container>
+          <ng-container *ngIf="secondFormControls?.years_of_experience?.errors?.pattern">
+            <span class="text-danger fs-8 d-block">
+              {{'validations.valueNotValid'| translate}}
+            </span>
+          </ng-container>
+        </ng-container>
+      </div>
+    </div>
+
+    <div class="col-md-6 mb-3">
+      <label for="language" class="custom-label mb-2 required">
+        <!-- {{"doctorRegisteration.language"|translate}} -->
+        اللغة
+      </label>
+      <span class="p-input-icon-right select-loading d-block"
+        [class.border-red]="secondFormControls?.language_id?.invalid && (secondFormControls?.language_id?.dirty || secondFormControls?.language_id?.touched)">
+        <p-dropdown [options]="languages" formControlName="language_id" optionLabel="title" [filter]="true"
+          [virtualScroll]="true" filterPlaceholder="{{'placeholders.search'|translate}}" [readonly]="isLoadingLanguages"
+          [virtualScrollItemSize]="40" filterBy="title" appendTo="body" scrollHeight="150px"
+          [emptyMessage]="'لا يوجد نتائج'" [showClear]="true" placeholder="اللغة
+          ">
+        </p-dropdown>
+        <ng-container *ngIf="isLoadingLanguages">
+          <i class="pi pi-spin pi-spinner"></i>
+        </ng-container>
+      </span>
+      <div class="my-2">
+        <ng-container
+          *ngIf="secondFormControls?.language_id?.invalid && (secondFormControls?.language_id?.dirty || secondFormControls?.language_id?.touched)">
+          <ng-container *ngIf="secondFormControls?.language_id?.errors?.['required']">
+            <span class="text-danger fs-8">
+              {{'validations.requiredField' | translate}}
+            </span>
+          </ng-container>
+        </ng-container>
+      </div>
+    </div>
+    <div class="col-md-6 mb-3">
+      <label for="prefix" class="custom-label mb-2 required">
+        <!-- {{"doctorRegisteration.prefix"|translate}} -->
+        اللقب
+      </label>
+      <span class="p-input-icon-right select-loading d-block"
+        [class.border-red]="secondFormControls?.prefix?.invalid && (secondFormControls?.prefix?.dirty || secondFormControls?.prefix?.touched)">
+        <p-dropdown [options]="prefixesList" formControlName="prefix" optionLabel="name" [filter]="true"
+          filterPlaceholder="{{'placeholders.search'|translate}}" styleClass="border-0" [virtualScroll]="true"
+          [virtualScrollItemSize]="40" filterBy="title" appendTo="body" [showClear]="true" scrollHeight="150px"
+          [readonly]="isLoadingPrefixes" [emptyMessage]="'general.noResultFound'|translate" placeholder="اللقب">
+        </p-dropdown>
+        <ng-container *ngIf="isLoadingPrefixes">
+          <i class="pi pi-spin pi-spinner"></i>
+        </ng-container>
+      </span>
+      <div class="my-2">
+        <ng-container
+          *ngIf="secondFormControls?.prefix?.invalid && (secondFormControls?.prefix?.dirty || secondFormControls?.prefix?.touched)">
+          <ng-container *ngIf="secondFormControls?.prefix?.errors?.['required']">
+            <span class="text-danger fs-8">
+              {{'validations.requiredField' | translate}}
+            </span>
+          </ng-container>
+        </ng-container>
+      </div>
+    </div>
+  </div>
+  <div class="mt-3 d-flex justify-content-end gap-3">
+    <button matStepperPrevious="button"
+      class="btn btn-solid-main btn-solid-main d-flex justify-content-center align-items-center gap-2">
+      <i class="pi pi-arrow-left scaleX-rtl"></i>
+      <!-- {{"doctorRegisteration.back"|translate}} -->
+      رجوع
+    </button>
+    <button matStepperNext type="button" (click)="submitRegister()"
+      class="btn btn-solid-main d-flex justify-content-center align-items-center gap-2">
+      <!-- {{"doctorRegisteration.next"|translate}}  -->
+      التالي
+      <i class="pi pi-arrow-right scaleX-rtl"></i>
+    </button>
+  </div>
+</form>
