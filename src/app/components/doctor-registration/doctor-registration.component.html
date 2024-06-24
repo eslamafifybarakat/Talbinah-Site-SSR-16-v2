@@ -7,7 +7,9 @@
           <div>
             <i [class]="item.icon" class="step-icon"></i>
           </div>
-          {{item.title}}
+          <span class="d-md-block d-none text-center">
+            {{item.title}}
+          </span>
         </div>
         <div *ngIf="i!=3">
           <i class="pi pi-arrow-right"></i>

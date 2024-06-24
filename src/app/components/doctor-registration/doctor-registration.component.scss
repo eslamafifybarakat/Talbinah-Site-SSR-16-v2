@@ -24,3 +24,8 @@
     padding-top: 1.5rem;
   }
 }
+@media (max-width: 520px) {
+  .step-info {
+    padding: 4px !important;
+  }
+}

@@ -283,12 +283,15 @@
             </ng-container>
             <ng-container *ngIf="data?.certificationData?.parentCategory?.length>3">
               <span class="d-flex align-items-center gap-2 selected-item py-1 px-2">
-                <p class="mb-0">{{'general.other'|translate}}</p>
+                <p class="mb-0">
+                  <!-- {{'general.other'|translate}} -->
+                  أخري
+                </p>
                 <span><span>+</span>{{data?.certificationData?.parentCategory?.length-3}}</span>
               </span>
             </ng-container>
           </div>
-          <ng-container *ngIf="data?.professionalData?.certificationData?.length>3">
+          <ng-container *ngIf="data?.certificationData?.parentCategory?.length>3">
             <button class="btn bg-main-color text-white-color fs-6-1 text-truncate"
               (click)="browseAll('parentCategory')">
               <span>{{"general.browseAll"|translate}}</span>
@@ -393,7 +396,7 @@
     </div>
   </div>
   <div class="mt-3 d-flex justify-content-end gap-3">
-    <button (click)="backStep()"
+    <button (click)="backStep()" type="button"
       class="btn btn-solid-main btn-solid-main d-flex justify-content-center align-items-center gap-2">
       <i class="pi pi-arrow-left scaleX-rtl"></i>
       <!-- {{"doctorRegisteration.back"|translate}} -->

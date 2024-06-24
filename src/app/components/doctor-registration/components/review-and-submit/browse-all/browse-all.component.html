@@ -1,0 +1,27 @@
+<ng-container *ngIf="isFullLoading">
+  <div class="loading d-flex justify-content-center align-items-center">
+    <i class="pi pi-spin pi-spinner" style="font-size: 2rem"></i>
+  </div>
+</ng-container>
+
+<ng-container *ngIf="!isFullLoading">
+  <div id="modal">
+    <div class="banksList">
+      <div class="item d-flex align-items-center gap-3 flex-wrap py-4">
+        <ng-container *ngFor="let item of items;">
+          <span class="alert-dark rounded px-3 py-2">
+            {{item[data?.key]}}
+          </span>
+        </ng-container>
+
+      </div>
+      <div class="d-flex flex-wrap justify-content-end align-items-center gap-3 mt-4">
+        <button type="button" class="btn btn-outline-main d-flex align-items-center justify-content-center gap-2"
+          (click)="cancel()">
+          <span>إلغاء</span>
+          <i class="pi pi-times"></i>
+        </button>
+      </div>
+    </div>
+  </div>
+</ng-container>
