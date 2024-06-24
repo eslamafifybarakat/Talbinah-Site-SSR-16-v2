@@ -12,7 +12,8 @@
             <div class="mb-2">
               <ng-container *ngIf="firstFormControls?.doctorImg?.errors?.required">
                 <span class="text-danger fs-8">
-                  {{'validations.requiredField' | translate}}
+                  <!-- {{'validations.requiredField' | translate}} -->
+                  هذا الحقل مطلوب
                 </span>
               </ng-container>
             </div>
@@ -34,12 +35,14 @@
           *ngIf="firstFormControls?.name_en?.invalid && (firstFormControls?.name_en?.dirty || firstFormControls?.name_en?.touched)">
           <ng-container *ngIf="firstFormControls?.name_en?.errors?.['required']">
             <span class="text-danger fs-8">
-              {{'validations.requiredField' | translate}}
+              <!-- {{'validations.requiredField' | translate}} -->
+              هذا الحقل مطلوب
             </span>
           </ng-container>
           <ng-container *ngIf="firstFormControls?.name_en?.errors?.['minlength']">
             <span class="text-danger fs-8">
-              {{'validations.length'| translate}}
+              <!-- {{'validations.length'| translate}} -->
+              يجب أن يكون عدد الحروف اكبر من 2
             </span>
           </ng-container>
           <ng-container *ngIf="firstFormControls?.name_en?.errors?.pattern">
@@ -65,12 +68,14 @@
           *ngIf="firstFormControls?.name_ar?.invalid && (firstFormControls?.name_ar?.dirty || firstFormControls?.name_ar?.touched)">
           <ng-container *ngIf="firstFormControls?.name_ar?.errors?.['required']">
             <span class="text-danger fs-8">
-              {{'validations.requiredField' | translate}}
+              <!-- {{'validations.requiredField' | translate}} -->
+              هذا الحقل مطلوب
             </span>
           </ng-container>
           <ng-container *ngIf="firstFormControls?.name_ar?.errors?.['minlength']">
             <span class="text-danger fs-8">
-              {{'validations.length'| translate}}
+              <!-- {{'validations.length'| translate}} -->
+              يجب أن يكون عدد الحروف اكبر من 2
             </span>
           </ng-container>
           <ng-container *ngIf="firstFormControls?.name_ar?.errors?.pattern">
@@ -99,12 +104,14 @@
             *ngIf="firstFormControls?.email?.invalid && (firstFormControls?.email?.dirty || firstFormControls?.email?.touched)">
             <ng-container *ngIf="firstFormControls?.email?.errors?.['required']">
               <span class="text-danger fs-8">
-                {{'validations.emailRequired'|translate}}
+                <!-- {{'validations.emailRequired'|translate}} -->
+                البريد الإلكتروني مطلوب
               </span>
             </ng-container>
             <ng-container *ngIf="firstFormControls?.email?.errors?.['pattern']">
               <span class="text-danger fs-8 d-block lh-base">
-                {{'validations.emailNotValid'|translate}}
+                <!-- {{'validations.emailNotValid'|translate}} -->
+                البريد الإلكتروني غير صالح
               </span>
             </ng-container>
           </ng-container>
@@ -154,7 +161,8 @@
           *ngIf="firstFormControls?.phone?.invalid && (firstFormControls?.phone?.dirty || firstFormControls?.phone?.touched)">
           <ng-container *ngIf="firstFormControls?.phone?.errors?.['required']">
             <span class="text-danger fs-8">
-              {{'validations.requiredField'|translate}}
+              <!-- {{'validations.requiredField'|translate}} -->
+              هذا الحقل مطلوب
             </span>
           </ng-container>
           <ng-container *ngIf="firstFormControls?.phone?.errors?.['pattern']">
@@ -244,7 +252,8 @@
           *ngIf="firstFormControls?.gender?.invalid && (firstFormControls?.gender?.dirty || firstFormControls?.gender?.touched)">
           <ng-container *ngIf="firstFormControls?.gender?.errors?.['required']">
             <span class="text-danger fs-8">
-              {{'validations.requiredField'|translate}}
+              <!-- {{'validations.requiredField'|translate}} -->
+              هذا الحقل مطلوب
             </span>
           </ng-container>
         </ng-container>
@@ -266,7 +275,8 @@
           *ngIf="firstFormControls?.birthdate?.invalid && (firstFormControls?.birthdate?.dirty || firstFormControls?.birthdate?.touched)">
           <ng-container *ngIf="firstFormControls?.birthdate?.errors?.['required']">
             <span class="text-danger fs-8">
-              {{'validations.requiredField'|translate}}
+              <!-- {{'validations.requiredField'|translate}} -->
+              هذا الحقل مطلوب
             </span>
           </ng-container>
         </ng-container>
@@ -311,7 +321,8 @@
           *ngIf="firstFormControls?.password?.invalid && (firstFormControls?.password?.dirty || firstFormControls?.password?.touched)">
           <ng-container *ngIf="firstFormControls?.password?.errors?.['required']">
             <div class="text-danger fs-8">
-              {{'validations.requiredField' | translate}}
+              <!-- {{'validations.requiredField' | translate}} -->
+              هذا الحقل مطلوب
             </div>
           </ng-container>
           <ng-container *ngIf="firstFormControls?.password?.errors?.['pattern']">
@@ -370,7 +381,8 @@
           *ngIf="firstFormControls?.confirmPassword?.invalid && (firstFormControls?.confirmPassword?.dirty || firstFormControls?.confirmPassword?.touched)">
           <ng-container *ngIf="firstFormControls?.confirmPassword?.errors?.['required']">
             <div class="text-danger fs-8 lh-base">
-              {{'validations.requiredField' | translate}}
+              <!-- {{'validations.requiredField' | translate}} -->
+              هذا الحقل مطلوب
             </div>
           </ng-container>
           <ng-container *ngIf="firstFormControls?.confirmPassword?.errors?.ConfirmPassword&&!isPasswordChange">
