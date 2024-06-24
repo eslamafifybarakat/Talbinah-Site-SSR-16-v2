@@ -27,35 +27,35 @@ export class CertificationAndExpertiseComponent {
 
   thirdFormGroup: any = this.fb?.group({
     egyPrice_15: ["", {
-      validators: [Validators.required, Validators.min(5)],
+      validators: [Validators.required],
       updateOn: 'change'
     }],
     dollarPrice_15: ["", {
-      validators: [Validators.required, Validators.min(5)],
+      validators: [Validators.required],
       updateOn: 'change'
     }],
     egyPrice_30: ["", {
-      validators: [Validators.required, Validators.min(5)],
+      validators: [Validators.required],
       updateOn: 'change'
     }],
     dollarPrice_30: ["", {
-      validators: [Validators.required, Validators.min(5)],
+      validators: [Validators.required],
       updateOn: 'change'
     }],
     egyPrice_45: ["", {
-      validators: [Validators.required, Validators.min(5)],
+      validators: [Validators.required],
       updateOn: 'change'
     }],
     dollarPrice_45: ["", {
-      validators: [Validators.required, Validators.min(5)],
+      validators: [Validators.required],
       updateOn: 'change'
     }],
     egyPrice_60: ["", {
-      validators: [Validators.required, Validators.min(5)],
+      validators: [Validators.required],
       updateOn: 'change'
     }],
     dollarPrice_60: ["", {
-      validators: [Validators.required, Validators.min(5)],
+      validators: [Validators.required],
       updateOn: 'change'
     }],
     parentCategory: [null, [Validators.required]],
@@ -157,7 +157,7 @@ export class CertificationAndExpertiseComponent {
       data['certificatesFiles'] = this.certificatesFiles,
         data['othersFiles'] = this.othersFiles,
         data['cvFile'] = this.cvFile;
-      this.certificationData.emit(data)
+      this.certificationData.emit(data);
     } else {
       this.publicService.validateAllFormFields(this.thirdFormGroup);
     }

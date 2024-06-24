@@ -8,3 +8,85 @@
   border-radius: var(--border-input-radius);
   min-width: 6rem;
 }
+.selected-item {
+  background: rgba(0, 0, 0, 0.04);
+  border-radius: 6px;
+}
+
+.icon-social-settings {
+  width: 25px;
+  min-width: 25px;
+  height: 25px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.delete-icon {
+  color: red;
+  background-color: #ff00001c;
+  padding: 0.5rem;
+}
+
+.edit-icon {
+  background-color: #274d7035;
+  color: var(--text-main-color);
+  padding: 0.5rem;
+}
+
+.bg-linkedin {
+  background: #0a66c2;
+}
+
+.bg-youtube {
+  background: #fe0000;
+}
+
+.bg-twitter {
+  background: #2aa9e0;
+}
+
+.bg-color-face {
+  background: #0e8df2;
+}
+.bg-color-tiktok {
+  background-color: #111;
+}
+.bg-color-instagram {
+  background-color: darkmagenta;
+}
+
+.files-content {
+  max-height: 10rem;
+  overflow: auto;
+}
+:host::ng-deep {
+  .account-setting {
+    .p-image-preview-container {
+      .p-image-preview-indicator {
+        border-radius: 15px !important;
+      }
+
+      img {
+        height: 90px;
+        width: 90px;
+        object-fit: cover !important;
+        border-radius: 15px !important;
+        box-shadow: 0 0.125rem 0.25rem;
+      }
+    }
+
+    .p-image-mask .p-image-preview {
+      width: auto !important;
+      height: auto !important;
+      box-shadow: none !important;
+    }
+  }
+}
+.social-link {
+  -webkit-box-orient: vertical;
+  display: -webkit-box;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  -webkit-line-clamp: 1;
+}

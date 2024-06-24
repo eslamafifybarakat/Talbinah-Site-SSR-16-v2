@@ -65,3 +65,10 @@
   border-radius: var(--border-input-radius);
   min-width: 6rem;
 }
+.social-link {
+  -webkit-box-orient: vertical;
+  display: -webkit-box;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  -webkit-line-clamp: 1;
+}

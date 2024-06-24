@@ -50,7 +50,9 @@
   justify-content: center;
   align-items: center;
 }
-.btn-solid-main {
+.btn-solid-main,
+.btn-solid-main:focus,
+.btn-solid-main:active {
   background-color: var(--bg-main-color);
   border-color: var(--bg-main-color);
   color: var(--text-white-color);

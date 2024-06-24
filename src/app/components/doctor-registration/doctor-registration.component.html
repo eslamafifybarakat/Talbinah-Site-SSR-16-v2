@@ -15,21 +15,21 @@
       </ng-container>
     </div>
     <div class="step-container pt-4">
-      <ng-container *ngIf="stepNum==1">
+      <div [class.d-none]="stepNum!=1">
         <app-personal-info (personalInfo)="submitPersonalInfo($event)"></app-personal-info>
-      </ng-container>
-      <ng-container *ngIf="stepNum==2">
+      </div>
+      <div [class.d-none]="stepNum!=2">
         <app-professional-data (professionalData)="submitProfessionalData($event)"
           (back)="back($event)"></app-professional-data>
-      </ng-container>
-      <ng-container *ngIf="stepNum==3">
+      </div>
+      <div [class.d-none]="stepNum!=3">
         <app-certification-and-expertise (certificationData)="submitCertificationData($event)"
           (back)="back($event)"></app-certification-and-expertise>
-      </ng-container>
-      <ng-container *ngIf="stepNum==4">
-        <app-review-and-submit (back)="back($event)" (registerNow)="registerNow()"
+      </div>
+      <div *ngIf="stepNum==4">
+        <app-review-and-submit (back)="back($event)" (sendNow)="registerNow()"
           [data]="submittedData"></app-review-and-submit>
-      </ng-container>
+      </div>
     </div>
   </div>
 </div>

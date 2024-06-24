@@ -48,7 +48,7 @@
           رقم الهاتف
         </label>
         <div class="form-control d-flex align-items-center justify-content-between">
-          {{data?.personalInfo?.phoneCode?.phone_code}} {{data.phone}}
+          {{data?.personalInfo?.phoneCode?.phone_code}} {{data?.personalInfo?.phone}}
         </div>
       </div>
       <div class="col-lg-4 col-md-6 col-sm-12 mb-2">
@@ -69,12 +69,13 @@
           {{ data?.personalInfo?.birthdate| date: 'd MMMM y':'':currentLanguage }}
         </div>
       </div>
-      <div class="col-12 px-0 mb-2 pt-3" *ngIf="data?.linksSocial?.length>0">
+      <div class="col-12 px-0 mb-2 pt-3" *ngIf="data?.personalInfo?.socialLink?.length>0">
         <h5>
-          {{'doctorRegisteration.social_media' | translate}}
+          <!-- {{'doctorRegisteration.social_media' | translate}} -->
+          وسائل التواصل
         </h5>
         <div class="row w-100 m-0">
-          <ng-container *ngFor="let item of data?.personalInfo?.linksSocial">
+          <ng-container *ngFor="let item of data?.personalInfo?.socialLink">
             <div class="col-md-5 col-xs-12 mb-2 px-0">
               <div class="d-flex align-items-center justify-content-between social w-100">
                 <div class="d-flex align-items-baseline">
@@ -89,7 +90,7 @@
                   <i *ngIf="item?.name?.value === 'instagram'"
                     class='pi pi-instagram text-white rounded bg-color-instagram fs-12 icon-social-settings'></i>
                   <span class="mx-2">
-                    <span class="w-100 text-truncate">
+                    <span class="w-100 social-link">
                       <a [href]="item?.link" target="_blank"> {{item?.link}}</a>
                     </span>
                   </span>
@@ -203,7 +204,7 @@
           الدولة
         </label>
         <div class="form-control">
-          {{data?.professionalData?.country_id?.title ||
+          {{data?.professionalData?.country_id?.name ||
           '...'}}
         </div>
       </div>
@@ -272,7 +273,7 @@
         </label>
         <div class="form-control d-flex align-items-center justify-content-between">
           <div class="d-flex align-items-center gap-3 text-truncate w-75">
-            <ng-container *ngFor="let item of data?.professionalData?.parentCategory;let i =index">
+            <ng-container *ngFor="let item of data?.certificationData?.parentCategory;let i =index">
               <ng-container *ngIf="i<=2">
                 <span class="d-flex align-items-center gap-2 selected-item py-1 px-2">
                   <p class="mb-0">{{item.name}}</p>
@@ -280,14 +281,14 @@
                 </span>
               </ng-container>
             </ng-container>
-            <ng-container *ngIf="data?.professionalData?.parentCategory?.length>3">
+            <ng-container *ngIf="data?.certificationData?.parentCategory?.length>3">
               <span class="d-flex align-items-center gap-2 selected-item py-1 px-2">
                 <p class="mb-0">{{'general.other'|translate}}</p>
-                <span><span>+</span>{{data?.professionalData?.parentCategory?.length-3}}</span>
+                <span><span>+</span>{{data?.certificationData?.parentCategory?.length-3}}</span>
               </span>
             </ng-container>
           </div>
-          <ng-container *ngIf="data?.professionalData?.parentCategory?.length>3">
+          <ng-container *ngIf="data?.professionalData?.certificationData?.length>3">
             <button class="btn bg-main-color text-white-color fs-6-1 text-truncate"
               (click)="browseAll('parentCategory')">
               <span>{{"general.browseAll"|translate}}</span>
@@ -328,8 +329,8 @@
           <!-- {{"doctorRegisteration.cert"|translate}} -->
           الشهادات
         </label>
-        <div class="all-files rounded p-2">
-          <div class="files-content px-2">
+        <div class="all-files rounded p-2 border">
+          <div class="files-content">
             <ng-container *ngFor="let item of data?.certificationData?.certificatesFiles?.image
               ;let i=index">
               <div class="d-flex justify-content-between align-items-center">
@@ -361,7 +362,7 @@
           <!-- {{"doctorRegisteration.upload_others"|translate}} -->
           أخري
         </label>
-        <div class="all-files rounded p-2">
+        <div class="all-files rounded p-2 border">
           <div class="files-content px-2">
             <ng-container *ngFor="let item of data?.certificationData?.othersFiles?.image
               ;let i=index">

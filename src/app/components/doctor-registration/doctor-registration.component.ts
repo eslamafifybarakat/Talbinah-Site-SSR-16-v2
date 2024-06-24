@@ -22,7 +22,7 @@ export class DoctorRegistrationComponent {
   personalInfo: any;
   professionalData: any;
   certificationData: any;
-  submittedData: any;
+  submittedData: any = {};
 
   steps: any = [
     {
@@ -61,6 +61,8 @@ export class DoctorRegistrationComponent {
 
   submitPersonalInfo(data: any): void {
     this.personalInfo = data;
+    console.log(this.personalInfo);
+
     this.steps.forEach((item: any) => {
       item.isSelected = false;
       if (item.id == data.id + 1) {
@@ -71,6 +73,8 @@ export class DoctorRegistrationComponent {
   }
   submitProfessionalData(data: any): void {
     this.professionalData = data;
+    console.log(this.professionalData);
+
     this.steps.forEach((item: any) => {
       item.isSelected = false;
       if (item.id == data.id + 1) {
@@ -81,6 +85,8 @@ export class DoctorRegistrationComponent {
   }
   submitCertificationData(data: any): void {
     this.certificationData = data;
+    console.log(this.certificationData);
+
     this.steps.forEach((item: any) => {
       item.isSelected = false;
       if (item.id == data.id + 1) {
@@ -90,10 +96,17 @@ export class DoctorRegistrationComponent {
     this.submittedData['personalInfo'] = this.personalInfo;
     this.submittedData['professionalData'] = this.professionalData;
     this.submittedData['certificationData'] = this.certificationData;
+    this.submittedData['enable_15_minutes'] = true;
     this.stepNum = 4;
   }
   back(step: any): void {
     this.stepNum = step;
+    this.steps.forEach((item: any) => {
+      item.isSelected = false;
+      if (item.id == step) {
+        item.isSelected = true;
+      }
+    });
   }
 
   registerNow(): void {
@@ -111,7 +124,7 @@ export class DoctorRegistrationComponent {
   }
   private prepareFormData(): any {
     var formData: any = new FormData();
-    formData.append("image", this.personalInfo?.doctorImg?.imageName);
+    formData.append("image", this.personalInfo?.doctorImg?.image);
     formData.append("full_name_en", this.personalInfo?.name_en);
     formData.append("full_name_ar", this.personalInfo?.name_ar);
     formData.append("email", this.personalInfo?.email);
@@ -145,8 +158,8 @@ export class DoctorRegistrationComponent {
     for (var i = 0; i < this.certificationData?.othersFiles?.image?.length; i++) {
       formData.append("other", this.certificationData?.othersFiles?.image[i]);
     }
-    if (this.personalInfo?.socialLinkL?.length > 0) {
-      this.personalInfo?.socialLinkL?.forEach((element: any) => {
+    if (this.personalInfo?.socialLink?.length > 0) {
+      this.personalInfo?.socialLink?.forEach((element: any) => {
         formData.append(`social[${element?.name?.value}]`, element?.link);
       });
     }
