@@ -101,14 +101,14 @@ export class BlogDetailsComponent implements OnInit, OnDestroy {
         { name: 'twitter:title', content: `تلبينة | ${this.blogDetails?.title}` },
         { name: 'twitter:description', content: `${this.blogDetails?.description}` },
         { name: 'twitter:url', content: `https://talbinah.net/Blogs/Details/${this.blogDetails?.title};id=${this.blogDetails?.id}` },
-        { name: 'twitter:image', content: `${this.blogDetails?.image?.ur}` },
+        { name: 'twitter:image', content: `${this.blogDetails?.image?.url}` },
       ]);
       // Open Graph Tags
       this.metadataService.updateMetaTagsProperty([
         { property: 'og:title', content: `تلبينة | ${this.blogDetails?.title}` },
         { property: 'og:description', content: `${this.blogDetails?.description}` },
         { property: 'og:url', content: `https://talbinah.net/Blogs/Details/${this.blogDetails?.title};id=${this.blogDetails?.id}` },
-        { property: 'og:image', content: `${this.blogDetails?.image?.ur}` },
+        { property: 'og:image', content: `${this.blogDetails?.image?.url}` },
       ]);
     }
   }
