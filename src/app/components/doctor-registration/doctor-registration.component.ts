@@ -60,26 +60,32 @@ export class DoctorRegistrationComponent {
   ) { }
   goToStep(step: number): void {
     if (step == 1) {
+      let data: any = { id: step - 1 };
+      this.checkSelectedStep(data);
       this.stepNum = 1;
     }
     if (step == 2) {
       if (this.personalInfo) {
+        let data: any = { id: step - 1 };
+        this.checkSelectedStep(data);
         this.stepNum = 2;
       }
     }
     if (step == 3) {
       if (this.personalInfo && this.professionalData) {
+        let data: any = { id: step - 1 };
+        this.checkSelectedStep(data);
         this.stepNum = 3;
       }
     }
     if (step == 4) {
       if (this.personalInfo && this.professionalData && this.certificationData) {
         this.saveFormsData();
+        let data: any = { id: step - 1 };
+        this.checkSelectedStep(data);
         this.stepNum = 4;
       }
     }
-    let data: any = { id: step - 1 };
-    this.checkSelectedStep(data);
   }
   submitPersonalInfo(data: any): void {
     this.personalInfo = data;

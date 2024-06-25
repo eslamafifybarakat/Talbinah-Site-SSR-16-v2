@@ -14,7 +14,7 @@
           </p>
           <div class="w-100 text-center-small">
             <!-- <button type="button" [routerLink]="['/Doctor-Registration']" class="btn btn-solid-main"> -->
-            <button type="button" class="btn btn-solid-main" (click)="downloadApp()">
+            <button type="button" class="btn btn-solid-main" [routerLink]="['/Doctor-Registration']">
               <!-- {{"joinUs.joinNow"| translate}} -->
               انضم الآن
             </button>
@@ -92,7 +92,8 @@
 
       <div class="d-flex justify-content-center">
         <!-- <button type="button" class="btn btn-solid-main my-5" [routerLink]="['/Doctor-Registration']"> -->
-        <button type="button" class="btn btn-solid-main my-5" (click)="downloadApp()">
+        <!-- (click)="downloadApp()" -->
+        <button type="button" class="btn btn-solid-main my-5" [routerLink]="['/Doctor-Registration']">
           <!-- {{"joinUs.joinNow"| translate}} -->
           انضم الآن
         </button>
