@@ -3,3 +3,11 @@
   background-color: #d6d8d9;
   border-color: #c6c8ca;
 }
+.btn-outline-main {
+  background-color: transparent;
+  border-color: var(--bg-main-color);
+  color: var(--text-main-color);
+  height: 3rem;
+  border-radius: var(--border-input-radius);
+  min-width: 6rem;
+}

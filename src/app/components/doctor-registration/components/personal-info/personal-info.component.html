@@ -402,8 +402,8 @@
     </div>
 
     <div class="col-12 mb-3">
-      <a (click)="openPdfViewer()">
-        <div class="form-check d-flex align-items-center gap-2">
+      <a (click)="openPdfViewer()" class="d-block w-content">
+        <div class="form-check d-flex align-items-center gap-2 p-0">
           <input class="form-check-input pointer" style="opacity: 1;" type="checkbox" id="terms"
             formControlName="terms_conditions" [class.p-disabled]="true" autocomplete="cc-name">
           <label class="form-check-label fs-6 mt-1 pointer lh-sm d-flex flex-wrap gap-1 px-4">

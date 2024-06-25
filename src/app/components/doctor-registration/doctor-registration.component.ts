@@ -58,46 +58,60 @@ export class DoctorRegistrationComponent {
     private alertService: AlertsService,
     private router: Router
   ) { }
-
+  goToStep(step: number): void {
+    if (step == 1) {
+      this.stepNum = 1;
+    }
+    if (step == 2) {
+      if (this.personalInfo) {
+        this.stepNum = 2;
+      }
+    }
+    if (step == 3) {
+      if (this.personalInfo && this.professionalData) {
+        this.stepNum = 3;
+      }
+    }
+    if (step == 4) {
+      if (this.personalInfo && this.professionalData && this.certificationData) {
+        this.saveFormsData();
+        this.stepNum = 4;
+      }
+    }
+    let data: any = { id: step - 1 };
+    this.checkSelectedStep(data);
+  }
   submitPersonalInfo(data: any): void {
     this.personalInfo = data;
-    console.log(this.personalInfo);
-
-    this.steps.forEach((item: any) => {
-      item.isSelected = false;
-      if (item.id == data.id + 1) {
-        item.isSelected = true;
-      }
-    });
+    this.checkSelectedStep(data);
     this.stepNum = 2;
   }
   submitProfessionalData(data: any): void {
     this.professionalData = data;
-    console.log(this.professionalData);
-
-    this.steps.forEach((item: any) => {
-      item.isSelected = false;
-      if (item.id == data.id + 1) {
-        item.isSelected = true;
-      }
-    });
+    this.checkSelectedStep(data);
     this.stepNum = 3;
   }
   submitCertificationData(data: any): void {
     this.certificationData = data;
     console.log(this.certificationData);
-
+    this.checkSelectedStep(data);
+    this.saveFormsData();
+    this.stepNum = 4;
+  }
+  checkSelectedStep(data: any): void {
     this.steps.forEach((item: any) => {
       item.isSelected = false;
       if (item.id == data.id + 1) {
         item.isSelected = true;
       }
     });
+  }
+
+  saveFormsData(): void {
     this.submittedData['personalInfo'] = this.personalInfo;
     this.submittedData['professionalData'] = this.professionalData;
     this.submittedData['certificationData'] = this.certificationData;
     this.submittedData['enable_15_minutes'] = true;
-    this.stepNum = 4;
   }
   back(step: any): void {
     this.stepNum = step;

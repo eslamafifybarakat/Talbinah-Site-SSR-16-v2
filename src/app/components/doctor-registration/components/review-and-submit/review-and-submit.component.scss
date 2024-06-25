@@ -90,3 +90,9 @@
   text-overflow: ellipsis;
   -webkit-line-clamp: 1;
 }
+.loaded {
+  height: 45px;
+  width: 45px;
+  border-radius: 5px !important;
+  object-fit: cover !important;
+}

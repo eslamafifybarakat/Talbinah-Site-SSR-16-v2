@@ -3,7 +3,7 @@
     <div class="d-flex gap-3 justify-content-between align-items-center">
       <ng-container *ngFor="let item of steps;let i=index">
         <div class="d-flex gap-2 flex-column align-items-center justify-content-center step-info"
-          [class.active-step]="item.isSelected">
+          (click)="goToStep(item?.id)" [class.active-step]="item.isSelected">
           <div>
             <i [class]="item.icon" class="step-icon"></i>
           </div>
